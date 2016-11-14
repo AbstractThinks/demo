@@ -1,0 +1,38 @@
+<dom-module id="my-pagination">
+        <style media="screen">
+          .pagination {
+            display: inline-block!important;
+          }
+        </style>
+        <template >
+          <div class="ui eight page grid centered">
+            <div class="row">
+              <div class="ui borderless pagination centered">
+                <a class="basic ui item button">
+                  首页
+                </a>
+                <a class="basic ui item button">
+                  <i class="left arrow icon"></i>
+                </a>
+                <a class="basic ui item button">1</a>
+                <a class="basic ui item button">2</a>
+                <a class="basic ui item button">3</a>
+                <a class="basic ui item button">
+                  <i class="right arrow icon"></i>
+                </a>
+                <a class="basic ui item button">
+                  尾页
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+        </template>
+        <script type="text/javascript">
+                Polymer({
+                        is : "my-pagination"
+                });
+        </script>
+
+</dom-module>
