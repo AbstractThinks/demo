@@ -14,8 +14,9 @@
         <script src="../../bower_components/webcomponentsjs/webcomponents-lite.min.js" charset="utf-8"></script>
         <link rel="import" href="../../bower_components/polymer/polymer-mini.html" media="screen" title="no title">
         <script src="../../js/vendor/modernizr-2.8.3.min.js"></script>
-        <link rel="import" href="../module/my-sidemenu-list.html" media="screen" title="no title">
-        <link rel="import" href="../module/my-header.html" media="screen" title="no title">
+        <link rel="import" href="../module/m-my-sidemenu-list.html" media="screen" title="no title">
+        <link rel="import" href="../module/my-pagination.html" media="screen" title="no title">
+        <link rel="import" href="../module/m-my-table.html" media="screen" title="no title">
         <link rel="stylesheet" href="../../css/main.css">
 
     </head>
@@ -30,51 +31,42 @@
             <my-sidemenu-list class="my-sidemenu-list"></my-sidemenu-list>
         </div>
         <div class="ui black big launch right attached fixed button sidemenu">
-          <i class="content icon"></i>
-          <span class="text">菜单</span>
+            <i class="content icon"></i>
+            <span class="text">菜单</span>
         </div>
         <div class="pusher">
-            <my-header class="my-header"></my-header>
             <div class="container">
-                <div class="ui eight column centered grid">
-                    <div class="column">1</div>
-                    <div class="column">1</div>
-                    <div class="column">1</div>
-                    <div class="column">1</div>
-                    <div class="column">1</div>
-                    <div class="column">1</div>
-                    <div class="column">1</div>
-                    <div class="column">1</div>
-                    <div class="column">1</div>
-                    <div class="column">1</div>
-                    <div class="column">1</div>
-                    <div class="column">1</div>
-                    <div class="column">1</div>
-                    <div class="column">1</div>
-                    <div class="column">1</div>
-                    <div class="column">1</div>
-                    <div class="column">1</div>
+                <div class="">
+                    <a class="ui teal tag label">人事管理</a>
+                    <a class="ui teal tag label">基础信息审核</a>
+                </div>
+                <h4 class="ui horizontal divider header"><i class="tag icon"></i> 信息审核 </h4>
+
+                <div class="ui container center">
+                    <my-table></my-table>
+                    <my-pagination></my-pagination>
                 </div>
             </div>
         </div>
         <script src="../../js/vendor/jquery.min.js" charset="utf-8"></script>
         <script src="../../dist/semantic.min.js"></script>
 
-    <script type="text/javascript">
-        $('.ui.sidemenu').on('click', function () {
-            $('.sidemenu.sidebar')
-              .sidebar('setting', 'transition', 'scale down')
-              .sidebar('toggle');
-        });
+        <script type="text/javascript">
+            $('.ui.sidemenu').on('click', function() {
+                $('.sidemenu.sidebar')
+                    .sidebar('setting', 'transition', 'scale down')
+                    .sidebar('toggle');
+            });
 
 
-        $('.my-header .menu a.ui.item')
-          .popup({
-            popup : $('.my-header .menu .popup'),
-            on    : 'click',
-            position: 'bottom right',
-            offset: -10
-          })
+            $('.my-header .menu a.ui.item')
+                .popup({
+                    popup: $('.my-header .menu .popup'),
+                    on: 'click',
+                    position: 'bottom right',
+                    offset: -10
+                });
+
         </script>
     </body>
 </html>

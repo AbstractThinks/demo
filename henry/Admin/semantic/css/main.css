@@ -340,5 +340,8 @@ textarea {
     padding-bottom: 8px;
 }
 .container {
-    padding: 24px;
+    padding-top: 24px;
+}
+.center {
+    text-align: center;
 }
