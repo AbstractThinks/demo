@@ -1,0 +1,48 @@
+<dom-module id="my-container">
+    <style media="screen">
+    .fixed.launch.button {
+        display: block;
+        position: fixed;
+        top: 2.5em;
+        left: 0px;
+        width: 55px;
+        height: auto;
+        white-space: nowrap;
+        overflow: hidden;
+        -webkit-transition: 0.3s width ease, 0.5s transform ease;
+        -moz-transition: 0.3s width ease, 0.5s transform ease;
+        -o-transition: 0.3s width ease, 0.5s transform ease;
+        -ms-transition: 0.3s width ease, 0.5s transform ease;
+        transition: 0.3s width ease, 0.5s transform ease;
+    }
+    .full.height {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+    }
+    </style>
+    <template >
+
+
+        <div class="pusher">
+            <!-- Site content !-->
+            <div class="full height">
+                <content></content>
+            </div>
+
+        </div>
+
+    </template>
+    <script type="text/javascript">
+          Polymer({
+                  is : "my-container",
+                  ready : function () {
+                      $()
+                  }
+          });
+    </script>
+</dom-module>
