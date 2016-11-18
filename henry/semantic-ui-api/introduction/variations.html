@@ -1,0 +1,392 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.59.6" />
+  <title>变化 | Semantic UI中文网</title>
+
+  <meta name="description" content="Variations are stackable, symbiotic changes to an elements appearance" />
+  <meta name="keywords" content="Semantic UI, Semantic入门, CSS, CSS框架, CSS framework, html5, ui, library, framework, javascript, Semantic UI中文网, Semantic UI翻译, Semantic UI教程" />
+
+  <link rel="stylesheet" type="text/css" class="ui" href="../build/packaged/css/semantic.min.css">
+
+  <link rel="stylesheet" type="text/css" href="../stylesheets/semantic.css">
+  <script type="text/javascript" src="../jquery.js"></script>
+  <script src="../javascript/library/history.js"></script>
+  <script src="../javascript/library/easing.js"></script>
+    <script src="../javascript/library/ace/ace.js"></script>
+  <script src="../javascript/library/tablesort.js"></script>
+  <script src="../javascript/library/waypoints.js"></script>
+
+  <script src="../build/packaged/javascript/semantic.min.js"></script>
+
+  <script src="../javascript/semantic.js"></script>
+
+</head>
+<body id="example" class="guide">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> 关闭
+    </a>
+    <a class="item" href="http://www.semantic-ui.com/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>下载</b>
+    </a>
+    <div class="item">
+      <a href="../index.html">
+        <b>简单介绍</b>
+      </a>
+      <div class="menu">
+        
+        <a class="active item" href="variations.html">变化</a>
+        
+        <a class="item" href="definitions.html">定义</a>
+        
+        <a class="item" href="../introduction.html">有什么新奇的玩意儿？</a>
+        
+        <a class="item" href="types.html">样式（种类）</a>
+        
+        <a class="item" href="overview.html">概述</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>关于项目</b>
+      <div class="menu">
+        
+        <a class="item" href="../project/contributing.html">加入我们</a>
+        
+        <a class="item" href="../project/development.html">本地文档服务器</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../element.html"><b>基础组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../modules/reveal.html">Reveal</a>
+        
+        <a class="item" href="../elements/divider.html">分隔条</a>
+        
+        <a class="item" href="../elements/loader.html">加载控件</a>
+        
+        <a class="item" href="../elements/image.html">图像控件</a>
+        
+        <a class="item" href="../elements/icon.html">图标</a>
+        
+        <a class="item" href="../elements/button.html">按扭</a>
+        
+        <a class="item" href="../elements/label.html">标签</a>
+        
+        <a class="item" href="../elements/header.html">标题头控件</a>
+        
+        <a class="item" href="../elements/step.html">步骤控件</a>
+        
+        <a class="item" href="../elements/segment.html">片断控件</a>
+        
+        <a class="item" href="../elements/input.html">输入控件</a>
+        
+        <a class="item" href="../elements/progress.html">进度条控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../collection.html"><b>集合/列表组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../collections/message.html">消息控件</a>
+        
+        <a class="item" href="../collections/grid.html">网格（栅格）系统</a>
+        
+        <a class="item" href="../collections/menu.html">菜单</a>
+        
+        <a class="item" href="../collections/form.html">表单</a>
+        
+        <a class="item" href="../collections/table.html">表格</a>
+        
+        <a class="item" href="../collections/breadcrumb.html">面包屑/导航条</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>内容展示组件</b>
+      <div class="menu">
+        
+        <a class="item" href="../views/feed.html">Feed</a>
+        
+        <a class="item" href="../views/item.html">Item（元素列表）</a>
+        
+        <a class="item" href="../views/list.html">列表</a>
+        
+        <a class="item" href="../views/comment.html">评论控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../module.html"><b>模块</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../modules/shape.html">Shape</a>
+        
+        <a class="item" href="../modules/dropdown.html">下拉列表模块</a>
+        
+        <a class="item" href="../modules/checkbox.html">复选框模块</a>
+        
+        <a class="item" href="../modules/popup.html">弹出框模块</a>
+        
+        <a class="item" href="../modules/accordion.html">手风琴模块</a>
+        
+        <a class="item" href="../modules/modal.html">模态对话框</a>
+        
+        <a class="item" href="../modules/rating.html">评分模块</a>
+        
+        <a class="item" href="../modules/dimmer.html">调光器（遮罩层）</a>
+        
+        <a class="item" href="../modules/sidebar.html">边栏</a>
+        
+        <a class="item" href="../modules/transition.html">过渡（动画）效果</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>特定行为控件</b>
+      <div class="menu">
+        
+        <a class="item" href="../modules/form.html">验证表单</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>样式指南</b>
+      <div class="menu">
+        
+        <a class="item" href="../guide/cssguide.html">CSS开发指南</a>
+        
+        <a class="item" href="../guide/javascriptguide.html">Javascript开发指南</a>
+        
+        <a class="item" href="../guide/styleguide.html">语言指南</a>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> 内容</a>
+      <div class="title item">
+        <b>UI Introduction:</b> 变化
+      </div>
+      
+      <div class="disabled icon item"><i class="left arrow icon"></i></div>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">1 of 5</span>
+        <div class="menu">
+          
+          <div class="active item">
+            <a href="variations.html">1. 变化</a>
+          </div>
+          
+          <div class="item">
+            <a href="definitions.html">2. 定义</a>
+          </div>
+          
+          <div class="item">
+            <a href="../introduction.html">3. 有什么新奇的玩意儿？</a>
+          </div>
+          
+          <div class="item">
+            <a href="types.html">4. 样式（种类）</a>
+          </div>
+          
+          <div class="item">
+            <a href="overview.html">5. 概述</a>
+          </div>
+          
+        </div>
+      </div>
+      
+      <a class="icon item" href="definitions.html"><i class="right arrow icon"></i></a>
+      
+      <div class="right menu">
+        
+        <div class="vertically fitted borderless item">
+        </div>
+        
+        
+        <a class="popup icon github item" title="查看Semantic UI在Github的项目信息" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <div class="title item">
+          交流群：262577550
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui black huge launch right attached button">
+    <i class="icon list layout"></i>
+    <span class="text">导航</span>
+  </div>
+
+﻿
+
+<div class="segment">
+    <div class="container">
+        <div class="introduction">
+
+            <h1 class="ui dividing header">
+                变化
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Semantic UI学习交流群 <a class="ui red circular label large">262577550</a>
+            </h1>
+
+            <p>Variations are stackable, symbiotic changes to an elements appearance</p>
+            
+            
+        </div>
+
+        
+    </div>
+</div>
+<div class="main container">
+    <div class="peek">
+        <div class="ui vertical pointing secondary menu">
+            <a class="active item">Overview</a>
+            <a class="item">Usage</a>
+        </div>
+    </div>
+
+    <h2 class="ui dividing header">Overview</h2>
+
+    <p>A <b>variation</b> alters the design of an element but is not mutually exclusive. Variations can be stacked together, or be used along with altering an element's type.</p>
+
+    <p>For example, having wide menus that take up the full width of its parent may sometimes be overwhelming. You can use the compact variation of a menu to alter its format to only take up the necessary space.</p>
+
+    <div class="code" data-type="html" data-label="true">
+        <div class="ui compact tiered menu">
+            ...
+        </div>
+    </div>
+    <div class="ui compact tiered menu">
+        <div class="menu">
+            <div class="active item">
+                <i class="home icon"></i>
+                Home
+            </div>
+            <a class="item">
+                <i class="mail icon"></i>
+                Mail
+                <div class="ui label">22</div>
+            </a>
+        </div>
+        <div class="sub menu">
+            <a class="active item">Activity</a>
+            <a class="item">Profile</a>
+        </div>
+    </div>
+
+    <h3 class="ui header">Context sensitive</h3>
+
+    <p>In Semantic, variations maintain context based on the element they modify, but keep the same vocabulary between elements. Just like how in English, the adjective 'big' may describe a different scale for a big planet versus a big insect.</p>
+
+    <p>For example an icon might need to modify it's vertical alignment when it is larger than the surrounding text, while a form does not.</p>
+
+    <p>All definitions in Semantic <b>are based around em and rem</b> so resizing an element usually is as simple as altering the base font size of the element, padding, margins, and other properties will adjust automatically.</p>
+
+    <div class="code" data-type="css" data-label="true">
+        /* a large form is not quite as large as a large icon */
+        .ui.large.form {
+        font-size: 1.125em;
+        }
+        /* icons need to adjust vertical alignment as they grow past 1em */
+        i.large.icon {
+        font-size: 1.5em;
+        vertical-align: middle;
+        }
+    </div>
+
+
+    <h2 class="ui dividing header">Using Variations Together</h2>
+    <p>Another variation of a menu is an <b>inverted menu</b>. This alters the color contrast to appear inverted for darker backgrounds. Some variations may also mutate when used together. Lets try adding the class name <code>red</code> as well.</p>
+    <p>Variations are not mutually exclusive and can be used together harmoniously, so we can use these together to create an <code>inverted red tiered menu</code></p>
+
+    <div class="code" data-type="html" data-label="true">
+        <div class="ui red inverted tiered menu">
+            ...
+        </div>
+    </div>
+    <div class="ui red inverted tiered menu">
+        <div class="menu">
+            <div class="active item">
+                <i class="home icon"></i>
+                Home
+            </div>
+            <a class="item">
+                <i class="mail icon"></i>
+                Mail
+                <div class="ui label">22</div>
+            </a>
+        </div>
+        <div class="sub menu">
+            <a class="active item">Activity</a>
+            <a class="item">Profile</a>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+
+    <h3 class="ui header">Intersecting Variations</h3>
+    <p>The definition for the variation red contains css specifically for describing the intersection of both <code>red</code> and <code>inverted</code>. For example, lets see the same menu with only the red variation.</p>
+
+    <div class="code" data-type="html" data-label="true">
+        <div class="ui red tiered menu">
+            ...
+        </div>
+    </div>
+    <div class="ui red tiered menu">
+        <div class="menu">
+            <div class="active item">
+                <i class="home icon"></i>
+                Home
+            </div>
+            <a class="item">
+                <i class="mail icon"></i>
+                Mail
+                <div class="ui label">22</div>
+            </a>
+        </div>
+        <div class="sub menu">
+            <a class="active item">Activity</a>
+            <a class="item">Profile</a>
+        </div>
+    </div>
+
+
+    <div class="ui divider"></div>
+    <a class="ui large right labeled teal icon button" href="../element.html">
+        Next: View Elements
+        <i class="right arrow icon"></i>
+    </a>
+    <!--
+
+    </div>
+
+</body>
+
+</html>

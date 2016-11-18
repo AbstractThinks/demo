@@ -1,0 +1,1122 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.59.6" />
+  <title>网格（栅格）系统 | Semantic UI中文网</title>
+
+  <meta name="description" content="网格（栅格）系统主要是用来进行网页布局的工具。" />
+  <meta name="keywords" content="Semantic UI, Semantic入门, CSS, CSS框架, CSS framework, html5, ui, library, framework, javascript, Semantic UI中文网, Semantic UI翻译, Semantic UI教程" />
+
+  <link rel="stylesheet" type="text/css" class="ui" href="../build/packaged/css/semantic.min.css">
+
+  <link rel="stylesheet" type="text/css" href="../stylesheets/semantic.css">
+    <script type="text/javascript" src="../jquery.js"></script>
+  <script src="../javascript/library/history.js"></script>
+  <script src="../javascript/library/easing.js"></script>
+    <script src="../javascript/library/ace/ace.js"></script>
+  <script src="../javascript/library/tablesort.js"></script>
+  <script src="../javascript/library/waypoints.js"></script>
+
+  <script src="../build/packaged/javascript/semantic.min.js"></script>
+
+  <script src="../javascript/semantic.js"></script>
+
+</head>
+<body id="example" class="Grid">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> 关闭
+    </a>
+    <a class="item" href="http://www.semantic-ui.com/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>下载</b>
+    </a>
+    <div class="item">
+      <a href="../index.html">
+        <b>简单介绍</b>
+      </a>
+      <div class="menu">
+        
+        <a class="item" href="../introduction/variations.html">变化</a>
+        
+        <a class="item" href="../introduction/definitions.html">定义</a>
+        
+        <a class="item" href="../introduction.html">有什么新奇的玩意儿？</a>
+        
+        <a class="item" href="../introduction/types.html">样式（种类）</a>
+        
+        <a class="item" href="../introduction/overview.html">概述</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>关于项目</b>
+      <div class="menu">
+        
+        <a class="item" href="../project/contributing.html">加入我们</a>
+        
+        <a class="item" href="../project/development.html">本地文档服务器</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../element.html"><b>基础组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../modules/reveal.html">Reveal</a>
+        
+        <a class="item" href="../elements/divider.html">分隔条</a>
+        
+        <a class="item" href="../elements/loader.html">加载控件</a>
+        
+        <a class="item" href="../elements/image.html">图像控件</a>
+        
+        <a class="item" href="../elements/icon.html">图标</a>
+        
+        <a class="item" href="../elements/button.html">按扭</a>
+        
+        <a class="item" href="../elements/label.html">标签</a>
+        
+        <a class="item" href="../elements/header.html">标题头控件</a>
+        
+        <a class="item" href="../elements/step.html">步骤控件</a>
+        
+        <a class="item" href="../elements/segment.html">片断控件</a>
+        
+        <a class="item" href="../elements/input.html">输入控件</a>
+        
+        <a class="item" href="../elements/progress.html">进度条控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../collection.html"><b>集合/列表组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="message.html">消息控件</a>
+        
+        <a class="active item" href="grid.html">网格（栅格）系统</a>
+        
+        <a class="item" href="menu.html">菜单</a>
+        
+        <a class="item" href="form.html">表单</a>
+        
+        <a class="item" href="table.html">表格</a>
+        
+        <a class="item" href="breadcrumb.html">面包屑/导航条</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>内容展示组件</b>
+      <div class="menu">
+        
+        <a class="item" href="../views/feed.html">Feed</a>
+        
+        <a class="item" href="../views/item.html">Item（元素列表）</a>
+        
+        <a class="item" href="../views/list.html">列表</a>
+        
+        <a class="item" href="../views/comment.html">评论控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../module.html"><b>模块</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../modules/shape.html">Shape</a>
+        
+        <a class="item" href="../modules/dropdown.html">下拉列表模块</a>
+        
+        <a class="item" href="../modules/checkbox.html">复选框模块</a>
+        
+        <a class="item" href="../modules/popup.html">弹出框模块</a>
+        
+        <a class="item" href="../modules/accordion.html">手风琴模块</a>
+        
+        <a class="item" href="../modules/modal.html">模态对话框</a>
+        
+        <a class="item" href="../modules/rating.html">评分模块</a>
+        
+        <a class="item" href="../modules/dimmer.html">调光器（遮罩层）</a>
+        
+        <a class="item" href="../modules/sidebar.html">边栏</a>
+        
+        <a class="item" href="../modules/transition.html">过渡（动画）效果</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>特定行为控件</b>
+      <div class="menu">
+        
+        <a class="item" href="../modules/form.html">验证表单</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>样式指南</b>
+      <div class="menu">
+        
+        <a class="item" href="../guide/cssguide.html">CSS开发指南</a>
+        
+        <a class="item" href="../guide/javascriptguide.html">Javascript开发指南</a>
+        
+        <a class="item" href="../guide/styleguide.html">语言指南</a>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> 内容</a>
+      <div class="title item">
+        <b>UI Collection:</b> 网格（栅格）系统
+      </div>
+      
+      <a class="icon item" href="message.html"><i class="left arrow icon"></i></a>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">2 of 6</span>
+        <div class="menu">
+          
+          <div class="item">
+            <a href="message.html">1. 消息控件</a>
+          </div>
+          
+          <div class="active item">
+            <a href="grid.html">2. 网格（栅格）系统</a>
+          </div>
+          
+          <div class="item">
+            <a href="menu.html">3. 菜单</a>
+          </div>
+          
+          <div class="item">
+            <a href="form.html">4. 表单</a>
+          </div>
+          
+          <div class="item">
+            <a href="table.html">5. 表格</a>
+          </div>
+          
+          <div class="item">
+            <a href="breadcrumb.html">6. 面包屑/导航条</a>
+          </div>
+          
+        </div>
+      </div>
+      
+      <a class="icon item" href="menu.html"><i class="right arrow icon"></i></a>
+      
+      <div class="right menu">
+        
+        <div class="vertically fitted borderless item">
+        </div>
+        
+        
+        <a class="popup designer icon item" title="设计模式">
+          <i class="basic paint icon"></i>
+        </a>
+        <a class="popup developer icon item" title="开发模式">
+          <i class="terminal icon"></i>
+        </a>
+        
+        <a class="popup icon github item" title="查看Semantic UI在Github的项目信息" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <div class="title item">
+          交流群：262577550
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui black huge launch right attached button">
+    <i class="icon list layout"></i>
+    <span class="text">导航</span>
+  </div>
+
+  ﻿
+
+<div class="segment">
+    <div class="container">
+        <div class="introduction">
+
+            <h1 class="ui dividing header">
+                网格（栅格）系统
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Semantic UI学习交流群 <a class="ui red circular label large">262577550</a>
+            </h1>
+
+            <p>网格（栅格）系统主要是用来进行网页布局的工具。</p>
+            
+            <div class="ui basic labeled icon toggle overview button">
+                点击切换到定义模式
+                <i class="book icon"></i>
+            </div>
+            
+            
+        </div>
+  
+    </div>
+</div>
+
+<div class="main container">
+
+    <div class="peek">
+        <div class="ui vertical pointing secondary menu">
+            <a class="active item">种类</a>
+            <a class="item">元素</a>
+            <a class="item">变化的栅格系统</a>
+        </div>
+    </div>
+
+    <h2 class="ui dividing header">种类</h2>
+
+    <div class="highlighted example">
+        <h4 class="ui header">网格（栅格）系统</h4>
+        <p>栅格是用来分隔内容区域的，内容区域之间有一定的间隙。说得更明白一点，栅格系统就是用来做网页布局的！</p>
+
+        <div class="ui ignore green message"><i class="icon heart"></i>所有栅格列都可以随意指定宽度（占总列数的百分比或者小于16的数字），但是所有列的宽度的总合不能大于最大值。Semantic UI默认为<b>16列</b>，这很重要，在你设计网页布局的时候请记住所有列的总合要为16列哦。</div>
+        <div class="ui grid">
+            <div class="four wide column">
+                <div class="ui segment">
+                </div>
+            </div>
+            <div class="four wide column">
+                <div class="ui segment">
+                </div>
+            </div>
+            <div class="four wide column">
+                <div class="ui segment">
+                </div>
+            </div>
+            <div class="four wide column">
+                <div class="ui segment">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">页面栅格（网格）系统</h4>
+        <p>页面栅格（网格）系统主要是用来做网页的大体布局的，比如你可以把一个页面分成左右两部分，左边占一半的宽度，右边占一半的宽度。当然，你完全可以按照自己的意愿来组织网页布局，而不必拘泥于本文档。最主要的是，你需要明白栅格的用法即可。</p>
+
+        <div class="ui text message info ignore">
+            <i class="icon heart"></i>Semantic UI会默认在页面栅格（网格）列之间增加250像素的间隙。
+        </div>
+
+        <div class="ui two column page grid">
+            <div class="column">
+                <div class="ui labeled vertical fluid inverted icon menu">
+                    <a class="item">
+                        <i class="icon mail"></i>
+                        Java视频教程
+                    </a>
+                    <a class="item">
+                        <i class="icon lab"></i>
+                        Python/Ruby视频教程
+                    </a>
+                    <a class="item">
+                        <i class="icon star"></i>
+                        前端视频教程
+                    </a>
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui segment">
+                    <b>爱酷学习网</b>
+                    <p>爱酷学习网：免费在线观看高清视频教程。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">分隔页面栅格（网格）系统</h4>
+        <p>页面栅格（网格）系统列之间可以有分隔线。</p>
+        <div class="ui six column divided grid">
+            <div class="row">
+                <div class="column">
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                </div>
+                <div class="column">
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                </div>
+                <div class="column">
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                </div>
+                <div class="column">
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                </div>
+                <div class="column">
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                </div>
+                <div class="column">
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                </div>
+                <div class="column">
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                </div>
+                <div class="column">
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                </div>
+                <div class="column">
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                </div>
+                <div class="column">
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                </div>
+                <div class="column">
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">垂直分隔页面栅格（网格）系统</h4>
+        <p>页面栅格（网格）系统列之间可以有分隔线。</p>
+        <div class="ui vertically divided grid">
+            <div class="two column row">
+                <div class="column">
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                </div>
+                <div class="column">
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                </div>
+            </div>
+            <div class="three column row">
+                <div class="column">
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                </div>
+                <div class="column">
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                </div>
+                <div class="column">
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="example">
+        <h4 class="ui header">Celled Grid</h4>
+        <p>栅格（网格）系统可以把一行分成若干单元格。</p>
+        <div class="ui celled grid">
+            <div class="row">
+                <div class="two wide column" style="">
+                    <p>爱酷学习网</p>
+                </div>
+                <div class="three wide column" style="">
+                    <p>爱酷学习网</p>
+                </div>
+                <div class="seven wide column">
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="five wide column">
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                </div>
+
+                <div class="three wide column">
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                </div>
+
+                <div class="two wide column">
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                </div>
+                <div class="two wide column">
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="ui dividing header">元素</h2>
+
+    <div class="highlighted example">
+        <h4 class="ui header">栅格（网格）行</h4>
+        <p>栅格（网格）行用来表示一个水平区域。</p>
+        <div class="ui grid">
+            <div class="row">
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        爱酷学习网
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="highlighted example">
+        <h4 class="ui header">栅格（网格）列</h4>
+        <p>栅格（网格）列用来表示一个垂直区域，应该来说列元素大多包含中行元素中。一个行里可以有多个列，每个列共享行的高度（即行里所有列的最大高度）。</p>
+        <div class="ui three column grid">
+            <div class="column">
+                <div class="ui segment">
+                    爱酷学习网
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui segment">
+                    爱酷学习网
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui segment">
+                    爱酷学习网
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui segment">
+                    爱酷学习网
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="ui dividing header">变化的栅格（网格）系统</h2>
+
+    <h3 class="ui header">栅格（网格）系统</h3>
+
+    <div class="example">
+        <h4 class="ui header">指定第行的列数。</h4>
+        <p>栅格（网格）系统的第一行都可以有数量不等的列。</p>
+        <div class="ui two column grid">
+            <div class="column">
+                <div class="ui fluid form segment">
+                    <h3 class="ui header">登录爱酷学习网</h3>
+                    <div class="field">
+                        <label>用户名</label>
+                        <input placeholder="用户名" type="text">
+                    </div>
+                    <div class="field">
+                        <label>密码</label>
+                        <input type="password">
+                    </div>
+                    <div class="ui blue submit button">登录</div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui fluid form segment">
+                    <h3 class="ui header">注册</h3>
+                    <div class="two fields">
+                        <div class="field">
+                            <label>姓</label>
+                            <input placeholder="姓" type="text">
+                        </div>
+                        <div class="field">
+                            <label>名</label>
+                            <input placeholder="名" type="text">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>用户名</label>
+                        <input placeholder="用户名" type="text">
+                    </div>
+                    <div class="field">
+                        <label>密码</label>
+                        <input type="password">
+                    </div>
+                    <div class="inline field">
+                        <div class="ui checkbox">
+                            <input type="checkbox" id="terms" />
+                            <label for="terms"></label>
+                        </div>
+                        <label>我同意爱酷学习网的服务条款。</label>
+                    </div>
+                    <div class="ui blue submit button">注册</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">宽松的栅格（网格）系统</h4>
+        <p>栅格（网格）系统可以通过过都添加<code>relaxed</code>来增加列之间的间隙。</p>
+        <div class="ui two column relaxed grid">
+            <div class="column">
+                <div class="ui fluid form segment">
+                    <h3 class="ui header">登录爱酷学习网</h3>
+                    <div class="field">
+                        <label>用户名</label>
+                        <input placeholder="用户名" type="text">
+                    </div>
+                    <div class="field">
+                        <label>密码</label>
+                        <input type="password">
+                    </div>
+                    <div class="ui blue submit button">登录</div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui fluid form segment">
+                    <h3 class="ui header">注册</h3>
+                    <div class="two fields">
+                        <div class="field">
+                            <label>姓</label>
+                            <input placeholder="姓" type="text">
+                        </div>
+                        <div class="field">
+                            <label>名</label>
+                            <input placeholder="名" type="text">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>用户名</label>
+                        <input placeholder="用户名" type="text">
+                    </div>
+                    <div class="field">
+                        <label>密码</label>
+                        <input type="password">
+                    </div>
+                    <div class="inline field">
+                        <div class="ui checkbox">
+                            <input type="checkbox" id="terms" />
+                            <label for="terms"></label>
+                        </div>
+                        <label>我同意爱酷学习网的服务条款。</label>
+                    </div>
+                    <div class="ui blue submit button">注册</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">可堆叠式栅格（网格）系统</h4>
+        <p>可堆叠式栅格（网格）系统的意思是，在浏览器窗口大小不足以显示栅格列时，后面的列会显示下上一列的下面，并以此类推。</p>
+        <div class="ui text message info ignore">
+            <i class="icon heart"></i>要看到栅格（网格）系统的堆叠效果，请调整你的浏览器窗口的大小试试！
+        </div>
+        <div class="two column stackable ui grid">
+            <div class="column">
+                <div class="ui segment">
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="ui segment">
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                    <p>爱酷学习网：免费提供高清在线观看视频教程。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="example">
+
+        <h4 class="ui header">文本对齐</h4>
+        <p>栅格（网格）系统可以设置文本的对齐方式。</p>
+        <div class="ui center aligned three column grid">
+            <div class="row">
+                <div class="column">
+                    <div class="ui vertical fluid menu">
+                        <div class="header item">
+                            爱酷学习网
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui vertical fluid menu">
+                        <div class="header item">
+                            爱酷学习网
+                        </div>
+                        <div class="item">
+                            爱酷学习网
+                        </div>
+                        <div class="item">
+                            爱酷学习网
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui vertical fluid menu">
+                        <div class="header item">
+                            爱酷学习网
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">垂直对齐</h4>
+        <p>栅格（网格）系统可以指定所有列垂直对齐。</p>
+        <div class="ui middle aligned three column grid">
+            <div class="row">
+                <div class="column">
+                    <div class="ui vertical fluid menu">
+                        <div class="header item">
+                            爱酷学习网
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui vertical fluid menu">
+                        <div class="header item">
+                            爱酷学习网
+                        </div>
+                        <div class="item">
+                            爱酷学习网
+                        </div>
+                        <div class="item">
+                            爱酷学习网
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui vertical fluid menu">
+                        <div class="header item">
+                            爱酷学习网
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="ui header">行</h3>
+
+    <div class="example">
+        <h4 class="ui header">响应式布局</h4>
+        <p>栅格（网格）系统可以通过添加<code>mobile only</code>和<code>computer only</code>以及其它的类来使得该行只能在移动设备或者计算机上显示。</p>
+        <div class="ui text message info ignore">
+            <i class="icon heart"></i> 768px及其以下属于移动设备，768-998px属于样板设备，998px以上属于计算机设备，如果你需要响应式布局，请多注意此项。</i>
+        </div>
+        <div class="ui grid">
+            <div class="two column mobile only row">
+                <div class="column">
+                    <div class="ui segment">
+                        移动设备
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        移动设备
+                    </div>
+                </div>
+            </div>
+            <div class="three column row">
+                <div class="computer only column">
+                    <div class="ui segment">
+                        计算机设备
+                    </div>
+                </div>
+                <div class="tablet mobile only column">
+                    <div class="ui segment">
+                        移动设备和平板设备
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        所有
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        所有
+                    </div>
+                </div>
+            </div>
+            <div class="four column computer only row">
+                <div class="column">
+                    <div class="ui segment">
+                        计算机设备
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        计算机设备
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        计算机设备
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        计算机设备
+                    </div>
+                </div>
+            </div>
+            <div class="three column tablet only row">
+                <div class="column">
+                    <div class="ui segment">
+                        平板设备
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        平板设备
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        平板设备
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">相等高度</h4>
+        <p>栅格（网格）系统的一行可以设置所有的列都使用相同的高度。</p>
+        <div class="ui three column grid">
+            <div class="equal height row">
+                <div class="column" style="background-color:#F0F0FF;">
+                    <p>小一点的列</p>
+                </div>
+                <div class="column" style="background-color:#F0F0FF;">
+                    <p>小一点的列</p>
+                </div>
+                <div class="column" style="background-color:#F0F0FF;">
+                    <p>高一点的列</p>
+                    <p>这可能是显示成两个分段。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="example">
+        <h4 class="ui header">垂直对齐</h4>
+        <p>栅格（网格）系统可以指定垂直对齐方式（垂直上对齐，垂直居中对齐，垂直下对齐）。</p>
+        <div class="ui three column grid">
+            <div class="top aligned row">
+                <div class="column">
+                    <div class="ui vertical fluid menu">
+                        <div class="header item">
+                            爱酷学习网
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui vertical fluid menu">
+                        <div class="header item">
+                            爱酷学习网
+                        </div>
+                        <div class="item">
+                            Poodle
+                        </div>
+                        <div class="item">
+                            爱酷学习网
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui vertical fluid menu">
+                        <div class="header item">
+                            爱酷学习网
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="middle aligned row">
+                <div class="column">
+                    <div class="ui vertical fluid menu">
+                        <div class="header item">
+                            爱酷学习网
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui vertical fluid menu">
+                        <div class="header item">
+                            爱酷学习网
+                        </div>
+                        <div class="item">
+                            爱酷学习网
+                        </div>
+                        <div class="item">
+                            爱酷学习网
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui vertical fluid menu">
+                        <div class="header item">
+                            爱酷学习网
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom aligned row">
+                <div class="column">
+                    <div class="ui vertical fluid menu">
+                        <div class="header item">
+                            爱酷学习网
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui vertical fluid menu">
+                        <div class="header item">
+                            爱酷学习网
+                        </div>
+                        <div class="item">
+                            爱酷学习网
+                        </div>
+                        <div class="item">
+                            爱酷学习网
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui vertical fluid menu">
+                        <div class="header item">
+                            爱酷学习网
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="ui header">列</h3>
+
+    <div class="example">
+        <h4 class="ui header">浮动列</h4>
+        <p>栅格（网格）系统可以使用类名"floated"指定列浮动于行的左边还是右边。</p>
+        <div class="ui grid">
+            <div class="left floated four wide column">
+                <div class="ui vertical fluid menu">
+                    <div class="header item">
+                        爱酷学习网
+                    </div>
+                    <div class="item">
+                        爱酷学习网
+                    </div>
+                    <div class="item">
+                        爱酷学习网
+                    </div>
+                </div>
+            </div>
+            <div class="right floated four wide column">
+                <div class="ui vertical fluid menu">
+                    <div class="header item">
+                        爱酷学习网
+                    </div>
+                    <div class="item">
+                        爱酷学习网
+                    </div>
+                    <div class="item">
+                        爱酷学习网
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="example">
+        <h4 class="ui header">列宽</h4>
+        <p>栅格（网格）系统可以指定每列所占的宽度。</p>
+        <div class="ui grid">
+            <div class="three wide column">
+                <div class="ui segment"><b>第一列</b>爱酷学习网：免费提供高清在线观看视频教程。</div>
+            </div>
+            <div class="six wide column">
+                <div class="ui segment"><b>第二列</b>爱酷学习网：免费提供高清在线观看视频教程。</div>
+            </div>
+            <div class="three wide column">
+                <div class="ui segment"><b>第三列</b>爱酷学习网：免费提供高清在线观看视频教程。</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+
+</html>

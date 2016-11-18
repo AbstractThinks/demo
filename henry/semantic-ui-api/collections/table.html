@@ -1,0 +1,961 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.59.6" />
+  <title>表格 | Semantic UI中文网</title>
+
+  <meta name="description" content="表格用来分行显示一系列相关的数据。" />
+  <meta name="keywords" content="Semantic UI, Semantic入门, CSS, CSS框架, CSS framework, html5, ui, library, framework, javascript, Semantic UI中文网, Semantic UI翻译, Semantic UI教程" />
+
+  <link rel="stylesheet" type="text/css" class="ui" href="../build/packaged/css/semantic.min.css">
+
+  <link rel="stylesheet" type="text/css" href="../stylesheets/semantic.css">
+    <script type="text/javascript" src="../jquery.js"></script>
+  <script src="../javascript/library/history.js"></script>
+  <script src="../javascript/library/easing.js"></script>
+    <script src="../javascript/library/ace/ace.js"></script>
+  <script src="../javascript/library/tablesort.js"></script>
+  <script src="../javascript/library/waypoints.js"></script>
+
+  <script src="../build/packaged/javascript/semantic.min.js"></script>
+
+  <script src="../javascript/semantic.js"></script>
+
+</head>
+<body id="example" class="table">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> 关闭
+    </a>
+    <a class="item" href="http://www.semantic-ui.com/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>下载</b>
+    </a>
+    <div class="item">
+      <a href="../index.html">
+        <b>简单介绍</b>
+      </a>
+      <div class="menu">
+        
+        <a class="item" href="../introduction/variations.html">变化</a>
+        
+        <a class="item" href="../introduction/definitions.html">定义</a>
+        
+        <a class="item" href="../introduction.html">有什么新奇的玩意儿？</a>
+        
+        <a class="item" href="../introduction/types.html">样式（种类）</a>
+        
+        <a class="item" href="../introduction/overview.html">概述</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>关于项目</b>
+      <div class="menu">
+        
+        <a class="item" href="../project/contributing.html">加入我们</a>
+        
+        <a class="item" href="../project/development.html">本地文档服务器</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../element.html"><b>基础组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../modules/reveal.html">Reveal</a>
+        
+        <a class="item" href="../elements/divider.html">分隔条</a>
+        
+        <a class="item" href="../elements/loader.html">加载控件</a>
+        
+        <a class="item" href="../elements/image.html">图像控件</a>
+        
+        <a class="item" href="../elements/icon.html">图标</a>
+        
+        <a class="item" href="../elements/button.html">按扭</a>
+        
+        <a class="item" href="../elements/label.html">标签</a>
+        
+        <a class="item" href="../elements/header.html">标题头控件</a>
+        
+        <a class="item" href="../elements/step.html">步骤控件</a>
+        
+        <a class="item" href="../elements/segment.html">片断控件</a>
+        
+        <a class="item" href="../elements/input.html">输入控件</a>
+        
+        <a class="item" href="../elements/progress.html">进度条控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../collection.html"><b>集合/列表组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="message.html">消息控件</a>
+        
+        <a class="item" href="grid.html">网格（栅格）系统</a>
+        
+        <a class="item" href="menu.html">菜单</a>
+        
+        <a class="item" href="form.html">表单</a>
+        
+        <a class="active item" href="table.html">表格</a>
+        
+        <a class="item" href="breadcrumb.html">面包屑/导航条</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>内容展示组件</b>
+      <div class="menu">
+        
+        <a class="item" href="../views/feed.html">Feed</a>
+        
+        <a class="item" href="../views/item.html">Item（元素列表）</a>
+        
+        <a class="item" href="../views/list.html">列表</a>
+        
+        <a class="item" href="../views/comment.html">评论控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../module.html"><b>模块</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../modules/shape.html">Shape</a>
+        
+        <a class="item" href="../modules/dropdown.html">下拉列表模块</a>
+        
+        <a class="item" href="../modules/checkbox.html">复选框模块</a>
+        
+        <a class="item" href="../modules/popup.html">弹出框模块</a>
+        
+        <a class="item" href="../modules/accordion.html">手风琴模块</a>
+        
+        <a class="item" href="../modules/modal.html">模态对话框</a>
+        
+        <a class="item" href="../modules/rating.html">评分模块</a>
+        
+        <a class="item" href="../modules/dimmer.html">调光器（遮罩层）</a>
+        
+        <a class="item" href="../modules/sidebar.html">边栏</a>
+        
+        <a class="item" href="../modules/transition.html">过渡（动画）效果</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>特定行为控件</b>
+      <div class="menu">
+        
+        <a class="item" href="../modules/form.html">验证表单</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>样式指南</b>
+      <div class="menu">
+        
+        <a class="item" href="../guide/cssguide.html">CSS开发指南</a>
+        
+        <a class="item" href="../guide/javascriptguide.html">Javascript开发指南</a>
+        
+        <a class="item" href="../guide/styleguide.html">语言指南</a>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> 内容</a>
+      <div class="title item">
+        <b>UI Collection:</b> 表格
+      </div>
+      
+      <a class="icon item" href="form.html"><i class="left arrow icon"></i></a>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">5 of 6</span>
+        <div class="menu">
+          
+          <div class="item">
+            <a href="message.html">1. 消息控件</a>
+          </div>
+          
+          <div class="item">
+            <a href="grid.html">2. 网格（栅格）系统</a>
+          </div>
+          
+          <div class="item">
+            <a href="menu.html">3. 菜单</a>
+          </div>
+          
+          <div class="item">
+            <a href="form.html">4. 表单</a>
+          </div>
+          
+          <div class="active item">
+            <a href="table.html">5. 表格</a>
+          </div>
+          
+          <div class="item">
+            <a href="breadcrumb.html">6. 面包屑/导航条</a>
+          </div>
+          
+        </div>
+      </div>
+      
+      <a class="icon item" href="breadcrumb.html"><i class="right arrow icon"></i></a>
+      
+      <div class="right menu">
+        
+        <div class="vertically fitted borderless item">
+        </div>
+        
+        
+        <a class="popup designer icon item" title="设计模式">
+          <i class="basic paint icon"></i>
+        </a>
+        <a class="popup developer icon item" title="开发模式">
+          <i class="terminal icon"></i>
+        </a>
+        
+        <a class="popup icon github item" title="查看Semantic UI在Github的项目信息" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <div class="title item">
+          交流群：262577550
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui black huge launch right attached button">
+    <i class="icon list layout"></i>
+    <span class="text">导航</span>
+  </div>
+
+  <script src="../javascript/table.js"></script>
+
+﻿
+
+<div class="segment">
+    <div class="container">
+        <div class="introduction">
+
+            <h1 class="ui dividing header">
+                表格
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Semantic UI学习交流群 <a class="ui red circular label large">262577550</a>
+            </h1>
+
+            <p>表格用来分行显示一系列相关的数据。</p>
+            
+            <div class="ui basic labeled icon toggle overview button">
+                点击切换到定义模式
+                <i class="book icon"></i>
+            </div>
+            
+            
+        </div>
+        
+        
+    </div>
+</div>
+
+<div class="main container">
+
+    <div class="peek">
+        <div class="ui vertical pointing secondary menu">
+            <a class="active item">表格种类</a>
+            <a class="item">表格状态</a>
+            <a class="item">变化的表格</a>
+        </div>
+    </div>
+
+    <h2 class="ui dividing header">表格种类</h2>
+    <div class="example">
+        <h4 class="ui header">表格</h4>
+        <p>标准的表格控件。</p>
+        <div class="ui ignored positive icon mess年龄">
+            <i class="mobile icon"></i>
+            <div class="content">
+                <h3 class="header">响应式布局优化</h3>
+                <p>表格专门为响应式布局而设计。在移动环境下，表格的单元格会自动缩放至适当的尺寸。</p>
+            </div>
+        </div>
+        <div class="ui ignored mess年龄">
+            <p>下面的例子使用了 <a href="../elements/segment.html">segment</a> 来为表格增加内联和背景。</p>
+        </div>
+        <table class="ui table segment">
+            <thead>
+            <th>姓名</th>
+            <th>状态</th>
+            <th>备注</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>张三</td>
+                    <td>已接受</td>
+                    <td>无</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>已接受</td>
+                    <td>需要电话联系</td>
+                </tr>
+                <tr>
+                    <td>王五</td>
+                    <td>已拒绝</td>
+                    <td>无</td>
+                </tr>
+            </tbody>
+            <tfoot>
+            <th colspan="3">
+            <div class="ui blue labeled icon button"><i class="user icon"></i> 添加用户</div>
+            </th>
+            </tfoot>
+        </table>
+    </div>
+
+    <h2 class="ui dividing header">表格状态</h2>
+
+    <div class="example">
+        <h4 class="ui header">积极的 / 消极的</h4>
+        <p>表格的单元格或者行元素可以让用户感知到它的值是正确的还是错误的（好差之分，比如指出用户输入的数据是否符合你的应用的标准）。</p>
+        <table class="ui table segment">
+            <thead>
+            <th>姓名</th>
+            <th>状态</th>
+            <th>备注</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>无特殊名字</td>
+                    <td>未知</td>
+                    <td>无</td>
+                </tr>
+                <tr class="positive">
+                    <td>张三</td>
+                    <td><i class="icon checkmark"></i> 已接受</td>
+                    <td>无</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>未知</td>
+                    <td class="negative"><i class="icon close"></i> 需要电话联系</td>
+                </tr>
+                <tr>
+                    <td>王五</td>
+                    <td>未知</td>
+                    <td>无</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3 class="ui header">单元格</h3>
+    <div class="example">
+        <h4 class="ui header">错误</h4>
+        <p>表格的单元格或行元素可以让用户知道它的值是错误的。</p>
+        <table class="ui table segment">
+            <thead>
+            <th>姓名</th>
+            <th>状态</th>
+            <th>备注</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>无特另的名字</td>
+                    <td>已接受</td>
+                    <td>无</td>
+                </tr>
+                <tr class="error">
+                    <td>张三</td>
+                    <td>不能取得数据</td>
+                    <td>无</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>已接受</td>
+                    <td class="error"><i class="attention icon"></i> 机密</td>
+                </tr>
+                <tr>
+                    <td>王五</td>
+                    <td>已接受</td>
+                    <td>无</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">警告</h4>
+        <p>可以让用户感知到警告提示。</p>
+        <table class="ui table segment">
+            <thead>
+            <th>姓名</th>
+            <th>状态</th>
+            <th>备注</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>无特别的名字</td>
+                    <td>未知</td>
+                    <td>无</td>
+                </tr>
+                <tr class="warning">
+                    <td>张三</td>
+                    <td><i class="attention icon"></i> 需要行动</td>
+                    <td>无</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>未知</td>
+                    <td class="warning"><i class="attention icon"></i> 敌对的</td>
+                </tr>
+                <tr>
+                    <td>王五</td>
+                    <td>未知</td>
+                    <td>无</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">激活的</h4>
+        <p>表格的单元格或者行元素可以被用户设置成激活状态。</p>
+        <table class="ui table segment">
+            <thead>
+            <th>姓名</th>
+            <th>状态</th>
+            <th>备注</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>张三</td>
+                    <td>已接受</td>
+                    <td>需要电话联系</td>
+                </tr>
+                <tr class="active">
+                    <td>李四</td>
+                    <td>已选择</td>
+                    <td>无</td>
+                </tr>
+                <tr>
+                    <td>王五</td>
+                    <td>已接受</td>
+                    <td>需要电话联系</td>
+                </tr>
+                <tr>
+                    <td class="active">刘三</td>
+                    <td>已接受</td>
+                    <td>无</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="example">
+        <h4 class="ui header">禁用的</h4>
+        <p>表格的单元格可以被用户禁用。</p>
+        <table class="ui table segment">
+            <thead>
+            <th>姓名</th>
+            <th>状态</th>
+            <th>备注</th>
+            </thead>
+            <tbody>
+                <tr class="disabled">
+                    <td>张三</td>
+                    <td>已接受</td>
+                    <td>需要电话联系</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>已选择</td>
+                    <td>无</td>
+                </tr>
+                <tr>
+                    <td>王五</td>
+                    <td>已接受</td>
+                    <td>需要电话联系</td>
+                </tr>
+                <tr>
+                    <td class="disabled">刘三</td>
+                    <td>已接受</td>
+                    <td>无</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <h2 class="ui dividing header">变化的表格</h2>
+
+    <div class="example">
+        <h4 class="ui header">单元格</h4>
+        <p>表格可以将一行划分成多个单元格。</p>
+        <table class="ui celled table segment">
+            <thead>
+            <th>姓名</th>
+            <th>状态</th>
+            <th>备注</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>张三</td>
+                    <td>已接受</td>
+                    <td>无</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>已接受</td>
+                    <td>需要电话联系</td>
+                </tr>
+                <tr>
+                    <td>王五</td>
+                    <td>已拒绝</td>
+                    <td>无</td>
+                </tr>
+            </tbody>
+            <tfoot>
+            <th>有个用户</th>
+            <th>2个已接受</th>
+            <th></th>
+            </tfoot>
+        </table>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">基础的</h4>
+        <p>表格可以降低复杂性来增加可读性。</p>
+        <table class="ui basic table">
+            <thead>
+            <th>姓名</th>
+            <th>状态</th>
+            <th>备注</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>张三</td>
+                    <td>已接受</td>
+                    <td>无</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>已接受</td>
+                    <td>需要电话联系</td>
+                </tr>
+                <tr>
+                    <td>王五</td>
+                    <td>已拒绝</td>
+                    <td>无</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="example">
+        <h4 class="ui header">等宽的表格</h4>
+        <p>表格可以使每一列等宽的占用全部区域（即平分父控件的宽度）。</p>
+        <table class="ui five column table segment">
+            <thead>
+            <th>姓名</th>
+            <th>状态</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>备注</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>张三</td>
+                    <td>已接受</td>
+                    <td>22</td>
+                    <td>男性</td>
+                    <td>无</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>已接受</td>
+                    <td>32</td>
+                    <td>男性</td>
+                    <td>需要电话联系</td>
+                </tr>
+                <tr>
+                    <td>王五</td>
+                    <td>已拒绝</td>
+                    <td>22</td>
+                    <td>女性</td>
+                    <td>无</td>
+                </tr>
+            </tbody>
+            <tfoot>
+            <th>3个用户</th>
+            <th>2个已接受</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            </tfoot>
+        </table>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">表格列宽</h4>
+        <p>表格可以单独指定各列的宽度.=。</p>
+        <div class="ui ignored info message">表格使用16列的网络布局，也就是说表格的总宽度应该是16列网格的宽度之各，你可以指定每一列所占的网格数（如第一列占2个网格宽度，第二列占3个网格宽度，如此云云）</div>
+        <table class="ui five column table segment">
+            <thead>
+            <th class="ten wide">姓名</th>
+            <th class="six wide">状态</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>张三</td>
+                    <td>已接受</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>已接受</td>
+                </tr>
+                <tr>
+                    <td>王五</td>
+                    <td>已拒绝</td>
+                </tr>
+            </tbody>
+            <tfoot>
+            <th>3个用户</th>
+            <th>2个已接受</th>
+            </tfoot>
+        </table>
+    </div>
+
+
+    <div class="example">
+        <h4 class="ui header">紧凑的表格</h4>
+        <p>默认的情况下，表格使用父控件的所有宽度，但是紧凑的表格可以只让每列使用最小宽度（仅够内容能显示就行）。</p>
+        <table class="ui collapsing table segment">
+            <thead>
+            <th>姓名</th>
+            <th>状态</th>
+            <th>备注</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>张三</td>
+                    <td>已接受</td>
+                    <td>无</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>已接受</td>
+                    <td>需要电话联系</td>
+                </tr>
+                <tr>
+                    <td>王五</td>
+                    <td>已拒绝</td>
+                    <td>无</td>
+                </tr>
+            </tbody>
+            <tfoot>
+            <th>3个用户</th>
+            <th>2个已接受</th>
+            <th></th>
+            </tfoot>
+        </table>
+    </div>
+
+
+    <div class="example">
+        <h4 class="ui header">反色表格</h4>
+        <p>不用多解释了吧，基本上所有的控件都有相应的反色支持。</p>
+        <table class="ui inverted table segment">
+            <thead>
+            <th>姓名</th>
+            <th>状态</th>
+            <th>备注</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>张三</td>
+                    <td>已接受</td>
+                    <td>无</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>已接受</td>
+                    <td>需要电话联系</td>
+                </tr>
+                <tr>
+                    <td>王五</td>
+                    <td>已拒绝</td>
+                    <td>无</td>
+                </tr>
+            </tbody>
+            <tfoot>
+            <th>3个用户</th>
+            <th>2个已接受</th>
+            <th></th>
+            </tfoot>
+        </table>
+    </div>
+    <div class="another example">
+        <table class="ui inverted red table segment">
+            <thead>
+            <th>姓名</th>
+            <th>状态</th>
+            <th>备注</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>张三</td>
+                    <td>已接受</td>
+                    <td>无</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>已接受</td>
+                    <td>需要电话联系</td>
+                </tr>
+                <tr>
+                    <td>王五</td>
+                    <td>已拒绝</td>
+                    <td>无</td>
+                </tr>
+            </tbody>
+            <tfoot>
+            <th>3个用户</th>
+            <th>2个已接受</th>
+            <th></th>
+            </tfoot>
+        </table>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">定义表格</h4>
+        <p>如果在表格的class里加入definition的话，表格将会被定义成一个特殊的描述表格（如描述方法参数，方法如何使用等）。</p>
+        <table class="ui definition table segment">
+            <thead>
+            <th>方法</th>
+            <th>参数</th>
+            <th>方法描述</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>reset rating</td>
+                    <td>无</td>
+                    <td>将评分设置为默认值。</td>
+                </tr>
+                <tr>
+                    <td>set rating</td>
+                    <td>rating (integer)</td>
+                    <td>设置评分为参数给的值。</td>
+                </tr>
+        </table>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">可排序的表格</h4>
+        <p>表格的内容数据可以通过点击表格头来进行排序，而这些都可以通过很简单的方法得以实现，是不是很Good？</p>
+
+        <div class="ui warning message">为表格的<code>th</code>加入类名 <code>ascending</code> 或者 <code>descending</code>就可以全表格变成一个可以被单击后进行排序的表格。 下面的例子使用的是 <a href="https://github.com/kylefox/jquery-tablesort">tablesort plugin</a> 来改变类名（当你单击表格列头的时候）。
+        </div>
+
+        <table class="ui sortable table segment">
+            <thead>
+            <th>姓名</th>
+            <th>状态</th>
+            <th>备注</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>张三</td>
+                    <td>No Action</td>
+                    <td>无</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td class="positive">已接受</td>
+                    <td class="warning">需要电话联系</td>
+                </tr>
+                <tr>
+                    <td>王五</td>
+                    <td class="negative">已拒绝</td>
+                    <td>无</td>
+                </tr>
+            </tbody>
+            <tfoot>
+            <th>3个用户</th>
+            <th>2个已接受</th>
+            <th></th>
+            </tfoot>
+        </table>
+    </div>
+    <div class="example">
+        <h4 class="ui header">Padded</h4>
+        <p>表格可以通过添加类名padded来增加易读性。</p>
+        <table class="ui padded table segment">
+            <thead>
+            <th>姓名</th>
+            <th>状态</th>
+            <th>备注</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>张三</td>
+                    <td>已接受</td>
+                    <td>他有非常好的技术实力，将再次联系他详细谈谈。</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>已接受</td>
+                    <td>李四对我们的产品没有多大的兴趣。</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="example">
+        <h4 class="ui header">紧凑的表格</h4>
+        <p>表格可以通过添加类名compact使表格变得更加紧凑一些，增加表格行的可视度。</p>
+        <table class="ui compact table segment">
+            <thead>
+            <th>姓名</th>
+            <th>状态</th>
+            <th>备注</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>张三</td>
+                    <td>已接受</td>
+                    <td>无</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>已接受</td>
+                    <td>需要电话联系</td>
+                </tr>
+                <tr>
+                    <td>张三</td>
+                    <td>已接受</td>
+                    <td>无</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>已接受</td>
+                    <td>需要电话联系</td>
+                </tr>
+                <tr>
+                    <td>张三</td>
+                    <td>已接受</td>
+                    <td>无</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>已接受</td>
+                    <td>需要电话联系</td>
+                </tr>
+                <tr>
+                    <td>张三</td>
+                    <td>已接受</td>
+                    <td>无</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>已接受</td>
+                    <td>需要电话联系</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">表格大小</h4>
+        <p>表格也可以拥有多种大小。</p>
+        <table class="ui small table segment">
+            <thead>
+            <th>姓名</th>
+            <th>状态</th>
+            <th>备注</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>张三</td>
+                    <td>已接受</td>
+                    <td>无</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>已接受</td>
+                    <td>需要电话联系</td>
+                </tr>
+                <tr>
+                    <td>王五</td>
+                    <td>已拒绝</td>
+                    <td>无</td>
+                </tr>
+            </tbody>
+            <tfoot>
+            <th>3个用户</th>
+            <th>2个已接受</th>
+            <th></th>
+            </tfoot>
+        </table>
+    </div>
+    <div class="another example">
+        <table class="ui large table segment">
+            <thead>
+            <th>姓名</th>
+            <th>状态</th>
+            <th>备注</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>张三</td>
+                    <td>已接受</td>
+                    <td>无</td>
+                </tr>
+                <tr>
+                    <td>李四</td>
+                    <td>已接受</td>
+                    <td>需要电话联系</td>
+                </tr>
+                <tr>
+                    <td>王五</td>
+                    <td>已拒绝</td>
+                    <td>无</td>
+                </tr>
+            </tbody>
+            <tfoot>
+            <th>3个用户</th>
+            <th>2个已接受</th>
+            <th></th>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+</body>
+
+</html>

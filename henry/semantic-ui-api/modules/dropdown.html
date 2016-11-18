@@ -1,0 +1,1081 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.59.6" />
+  <title>下拉列表模块 | Semantic UI中文网</title>
+
+  <meta name="description" content="下拉列表默认隐藏，当用户需要选择的时候显示出来。" />
+  <meta name="keywords" content="Semantic UI, Semantic入门, CSS, CSS框架, CSS framework, html5, ui, library, framework, javascript, Semantic UI中文网, Semantic UI翻译, Semantic UI教程" />
+
+  <link rel="stylesheet" type="text/css" class="ui" href="../build/packaged/css/semantic.min.css">
+
+  <link rel="stylesheet" type="text/css" href="../stylesheets/semantic.css">
+ <script type="text/javascript" src="../jquery.js"></script>
+  <script src="../javascript/library/history.js"></script>
+  <script src="../javascript/library/easing.js"></script>
+    <script src="../javascript/library/ace/ace.js"></script>
+  <script src="../javascript/library/tablesort.js"></script>
+  <script src="../javascript/library/waypoints.js"></script>
+
+  <script src="../build/packaged/javascript/semantic.min.js"></script>
+
+  <script src="../javascript/semantic.js"></script>
+
+</head>
+<body id="example" class="dropdown">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> 关闭
+    </a>
+    <a class="item" href="http://www.semantic-ui.com/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>下载</b>
+    </a>
+    <div class="item">
+      <a href="../index.html">
+        <b>简单介绍</b>
+      </a>
+      <div class="menu">
+        
+        <a class="item" href="../introduction/variations.html">变化</a>
+        
+        <a class="item" href="../introduction/definitions.html">定义</a>
+        
+        <a class="item" href="../introduction.html">有什么新奇的玩意儿？</a>
+        
+        <a class="item" href="../introduction/types.html">样式（种类）</a>
+        
+        <a class="item" href="../introduction/overview.html">概述</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>关于项目</b>
+      <div class="menu">
+        
+        <a class="item" href="../project/contributing.html">加入我们</a>
+        
+        <a class="item" href="../project/development.html">本地文档服务器</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../element.html"><b>基础组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="reveal.html">Reveal</a>
+        
+        <a class="item" href="../elements/divider.html">分隔条</a>
+        
+        <a class="item" href="../elements/loader.html">加载控件</a>
+        
+        <a class="item" href="../elements/image.html">图像控件</a>
+        
+        <a class="item" href="../elements/icon.html">图标</a>
+        
+        <a class="item" href="../elements/button.html">按扭</a>
+        
+        <a class="item" href="../elements/label.html">标签</a>
+        
+        <a class="item" href="../elements/header.html">标题头控件</a>
+        
+        <a class="item" href="../elements/step.html">步骤控件</a>
+        
+        <a class="item" href="../elements/segment.html">片断控件</a>
+        
+        <a class="item" href="../elements/input.html">输入控件</a>
+        
+        <a class="item" href="../elements/progress.html">进度条控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../collection.html"><b>集合/列表组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../collections/message.html">消息控件</a>
+        
+        <a class="item" href="../collections/grid.html">网格（栅格）系统</a>
+        
+        <a class="item" href="../collections/menu.html">菜单</a>
+        
+        <a class="item" href="../collections/form.html">表单</a>
+        
+        <a class="item" href="../collections/table.html">表格</a>
+        
+        <a class="item" href="../collections/breadcrumb.html">面包屑/导航条</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>内容展示组件</b>
+      <div class="menu">
+        
+        <a class="item" href="../views/feed.html">Feed</a>
+        
+        <a class="item" href="../views/item.html">Item（元素列表）</a>
+        
+        <a class="item" href="../views/list.html">列表</a>
+        
+        <a class="item" href="../views/comment.html">评论控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../module.html"><b>模块</b></a>
+      <div class="menu">
+        
+        <a class="item" href="shape.html">Shape</a>
+        
+        <a class="active item" href="dropdown.html">下拉列表模块</a>
+        
+        <a class="item" href="checkbox.html">复选框模块</a>
+        
+        <a class="item" href="popup.html">弹出框模块</a>
+        
+        <a class="item" href="accordion.html">手风琴模块</a>
+        
+        <a class="item" href="modal.html">模态对话框</a>
+        
+        <a class="item" href="rating.html">评分模块</a>
+        
+        <a class="item" href="dimmer.html">调光器（遮罩层）</a>
+        
+        <a class="item" href="sidebar.html">边栏</a>
+        
+        <a class="item" href="transition.html">过渡（动画）效果</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>特定行为控件</b>
+      <div class="menu">
+        
+        <a class="item" href="form.html">验证表单</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>样式指南</b>
+      <div class="menu">
+        
+        <a class="item" href="../guide/cssguide.html">CSS开发指南</a>
+        
+        <a class="item" href="../guide/javascriptguide.html">Javascript开发指南</a>
+        
+        <a class="item" href="../guide/styleguide.html">语言指南</a>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> 内容</a>
+      <div class="title item">
+        <b>UI Module:</b> 下拉列表模块
+      </div>
+      
+      <a class="icon item" href="shape.html"><i class="left arrow icon"></i></a>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">2 of 10</span>
+        <div class="menu">
+          
+          <div class="item">
+            <a href="shape.html">1. Shape</a>
+          </div>
+          
+          <div class="active item">
+            <a href="dropdown.html">2. 下拉列表模块</a>
+          </div>
+          
+          <div class="item">
+            <a href="checkbox.html">3. 复选框模块</a>
+          </div>
+          
+          <div class="item">
+            <a href="popup.html">4. 弹出框模块</a>
+          </div>
+          
+          <div class="item">
+            <a href="accordion.html">5. 手风琴模块</a>
+          </div>
+          
+          <div class="item">
+            <a href="modal.html">6. 模态对话框</a>
+          </div>
+          
+          <div class="item">
+            <a href="rating.html">7. 评分模块</a>
+          </div>
+          
+          <div class="item">
+            <a href="dimmer.html">8. 调光器（遮罩层）</a>
+          </div>
+          
+          <div class="item">
+            <a href="sidebar.html">9. 边栏</a>
+          </div>
+          
+          <div class="item">
+            <a href="transition.html">10. 过渡（动画）效果</a>
+          </div>
+          
+        </div>
+      </div>
+      
+      <a class="icon item" href="checkbox.html"><i class="right arrow icon"></i></a>
+      
+      <div class="right menu">
+        
+        <div class="vertically fitted borderless item">
+        </div>
+        
+        
+        <a class="popup designer icon item" title="设计模式">
+          <i class="basic paint icon"></i>
+        </a>
+        <a class="popup developer icon item" title="开发模式">
+          <i class="terminal icon"></i>
+        </a>
+        
+        <a class="popup icon github item" title="查看Semantic UI在Github的项目信息" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <div class="title item">
+          交流群：262577550
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui black huge launch right attached button">
+    <i class="icon list layout"></i>
+    <span class="text">导航</span>
+  </div>
+
+  <script src="../javascript/dropdown.js"></script>
+
+﻿
+
+<div class="tab segment">
+    <div class="container">
+        <div class="introduction">
+
+            <h1 class="ui dividing header">
+                下拉列表模块
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Semantic UI学习交流群 <a class="ui red circular label large">262577550</a>
+            </h1>
+
+            <p>下拉列表默认隐藏，当用户需要选择的时候显示出来。</p>
+            
+            
+            <a href="../module.html" class="ui basic labeled icon button">
+                学习更多的模块知识
+                <i class="help icon"></i>
+            </a>
+            
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="four item tabular ui menu">
+            
+            <a class="active item" data-tab="definition">定义</a>
+            
+            
+            <a class="item" data-tab="examples">例子</a>
+            
+            
+            <a class="item" data-tab="usage">用法</a>
+            
+            
+            <a class="item" data-tab="settings">配置</a>
+            
+            
+        </div>
+        
+        <div class="fluid vertical ui menu">
+            
+            <a class="active item" data-tab="definition">定义</a>
+            
+            
+            <a class="item" data-tab="examples">例子</a>
+            
+            
+            <a class="item" data-tab="usage">用法</a>
+            
+            
+            <a class="item" data-tab="settings">配置</a>
+            
+            
+        </div>
+        
+    </div>
+</div>
+
+<div class="main container">
+
+    <div class="ui active tab" data-tab="definition">
+
+        <div class="peek">
+            <div class="ui vertical pointing secondary menu">
+                <a class="active item">下拉列表种类</a>
+                <a class="item">变化的下拉列表</a>
+                <a class="item">下拉列表状态</a>
+            </div>
+        </div>
+
+
+        <h2 class="ui dividing header">下拉列表种类</h2>
+
+        <div class="visible dropdown example">
+            <h4 class="ui header">下拉列表</h4>
+            <p>基础下拉列表没有添加其它任何修饰样式。</p>
+            <div class="ui dropdown">
+                <div class="text">选择</div>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    <div class="item">编辑</div>
+                    <div class="item">删除</div>
+                    <div class="item">隐藏</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dropdown example">
+            <h4 class="ui header">内联</h4>
+            <p>内联样式的下拉列表可以嵌入到内容中，就像是内容本身的元素一样。</p>
+            <div>爱酷学习网有以下的
+                <div class="ui inline dropdown">
+                    <div class="text">功能</div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <div class="item" data-text="today">免费观看视频教程</div>
+                        <div class="item" data-text="this week">下载视频教程</div>
+                        <div class="item" data-text="this month">上传你的原创视频教程</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dropdown example">
+            <h4 class="ui header">选择样式</h4>
+            <p>此类下拉列表可以显示成供用户选择的下拉菜单的样式。</p>
+            <div class="ui selection dropdown">
+                <input type="hidden" name="gender">
+                <div class="default text">性别</div>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    <div class="item" data-value="1">男</div>
+                    <div class="item" data-value="0">女</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="button example">
+            <h4 class="ui header">浮动样式</h4>
+            <p>此种样式可以在元素的下面出现一个下拉菜单漂浮。</p>
+            <div class="ui teal buttons">
+                <div class="ui button">保存</div>
+                <div class="ui teal floating dropdown icon button">
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <div class="item"><i class="edit icon"></i>编辑文章</div>
+                        <div class="item"><i class="delete icon"></i>删除文章</div>
+                        <div class="item"><i class="hide icon"></i>隐藏文章</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hover example">
+            <h4 class="ui header">指示样式</h4>
+            <p>这种样式的下拉列表可以出现一个类似于剪头的边角指出下拉列表是从哪儿弹出来的（或者指出下拉列表属于哪个元素）。</p>
+            <div class="ui compact menu">
+                <div class="menu">
+                    <a class="active item">
+                        <i class="home icon"></i> 主页
+                    </a>
+                    <div class="ui pointing dropdown link item">
+                        <i class="icon mail"></i> 消息 <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a class="item"><i class="mail icon"></i>收件箱</a>
+                            <a class="item"><i class="book icon"></i>附件</a>
+                        </div>
+                    </div>
+                    <a class="item">
+                        <i class="user icon"></i> 浏览
+                    </a>
+                    <a class="item">
+                        <i class="question icon"></i> 帮助
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="another button example">
+            <div class="ui blue labeled icon top left pointing dropdown button">
+                <i class="settings icon"></i>
+                <span class="text">设置</span>
+                <div class="menu">
+                    <div class="item"><i class="edit icon"></i>编辑</div>
+                    <div class="item"><i class="delete icon"></i>删除</div>
+                    <div class="item"><i class="hide icon"></i>隐藏</div>
+                </div>
+            </div>
+            <div class="ui red labeled icon top right pointing dropdown button">
+                <i class="settings icon"></i>
+                <span class="text">设置</span>
+                <div class="menu">
+                    <div class="item"><i class="edit icon"></i>编辑</div>
+                    <div class="item"><i class="delete icon"></i>删除</div>
+                    <div class="item"><i class="hide icon"></i>隐藏</div>
+                </div>
+            </div>
+        </div>
+        <div class="another button example">
+            <div class="ui right pointing dropdown icon button">
+                <i class="settings icon"></i>
+                <div class="menu">
+                    <div class="item"><i class="edit icon"></i>编辑</div>
+                    <div class="item"><i class="delete icon"></i>删除</div>
+                    <div class="item"><i class="hide icon"></i>隐藏</div>
+                </div>
+            </div>
+            <div class="ui left pointing dropdown icon button">
+                <i class="settings icon"></i>
+                <div class="menu">
+                    <div class="item"><i class="edit icon"></i>编辑</div>
+                    <div class="item"><i class="delete icon"></i>删除</div>
+                    <div class="item"><i class="hide icon"></i>隐藏</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="example">
+            <h4 class="ui header">简单模式</h4>
+            <p>此种样式的下拉列表不出需Javascript就可以弹出。</p>
+            <div class="ui compact menu">
+                <div class="ui simple dropdown item">
+                    下拉列表 <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <div class="item">选择一</div>
+                        <div class="item">选择二</div>
+                        <div class="item">选择三</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="ui dividing header">变化的下拉列表</h2>
+
+        <div class="dropdown example">
+            <h4 class="ui header">流式下拉列表</h4>
+            <p>不多说，可以占用父容器所有空间的下拉列表。</p>
+            <div class="ui vertical menu">
+                <a class="item">链接一</a>
+                <a class="item">链接二</a>
+                <div class="header item">所有选择：</div>
+                <div class="ui item">
+                    <div class="ui fluid selection dropdown">
+                        <div class="text">更多</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <div class="item">选择一</div>
+                            <div class="item">选择二</div>
+                            <div class="item">选择三</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="ui dividing header">下拉列表状态</h2>
+
+        <div class="example">
+            <h4 class="ui header">激活状态</h4>
+            <p>激活状态的下拉列表可以被展开以及被用户选择。</p>
+            <div class="ui compact menu">
+                <div class="ui simple active dropdown item">
+                    下拉列表 <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <div class="item">选择一</div>
+                        <div class="item">选择二</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="example">
+            <h4 class="ui header">禁用状态</h4>
+            <p>禁用状态的下拉列表不允许展开或者关闭。</p>
+            <div class="ui menu">
+                <div class="ui simple disabled dropdown item">
+                    下拉列表 <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <div class="item">选择一</div>
+                        <div class="item">选择二</div>
+                        <div class="item">选择三</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="ui tab" data-tab="usage">
+        <h2 class="ui dividing header">初始化</h2>
+
+        <h3 class="ui header">初始化下拉列表</h3>
+        <div class="code" data-label="HTML" data-type="html">
+            <div class="ui dropdown">
+                <div class="text">选择</div>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    <div class="item" data-value="option1">选项一</div>
+                    <div class="item" data-value="option2">选项二</div>
+                </div>
+            </div>
+        </div>
+        <div class="code" data-label="Javascript" data-type="javascript">
+            $('.ui.dropdown').dropdown();
+        </div>
+
+        <h2 class="ui dividing header">方法</h2>
+
+        <p>下面所有的<a href="../module.html#/behavior">方法</a> 都可以通过下面的语法触发：</p>
+        <div class="code">
+            $('.your.element').dropdown('behavior name', argumentOne, argumentTwo);
+        </div>
+
+        <table class="ui definition sortable celled table segment">
+            <thead>
+                <tr>
+                    <th>方法</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>toggle</td>
+                    <td>切换当前下拉列表的可视性。</td>
+                </tr>
+                <tr>
+                    <td>show</td>
+                    <td>显示下拉列表。</td>
+                </tr>
+                <tr>
+                    <td>hide</td>
+                    <td>隐藏下拉列表。</td>
+                </tr>
+                <tr>
+                    <td>hide others</td>
+                    <td>隐藏其它下拉列表。</td>
+                </tr>
+                <tr>
+                    <td>set selected(value)</td>
+                    <td>设置下拉列表的选择项。</td>
+                </tr>
+                <tr>
+                    <td>set text(text)</td>
+                    <td>设置下拉列表的显示文本。</td>
+                </tr>
+                <tr>
+                    <td>set value(value)</td>
+                    <td>设置下拉列表的值。</td>
+                </tr>
+                <tr>
+                    <td>get text</td>
+                    <td>获得下拉列表的当前选择的显示文本。</td>
+                </tr>
+                <tr>
+                    <td>get value</td>
+                    <td>获得下拉列表的当前选择的值。</td>
+                </tr>
+                <tr>
+                    <td>get item(value)</td>
+                    <td>返回给定值的DOM元素。</td>
+                </tr>
+                <tr>
+                    <td>bind touch events</td>
+                    <td>绑定触屏事件。</td>
+                </tr>
+                <tr>
+                    <td>mouse events</td>
+                    <td>添加鼠标事件。</td>
+                </tr>
+                <tr>
+                    <td>bind intent</td>
+                    <td>Binds a click to document to determine if you click away from a dropdown</td>
+                </tr>
+                <tr>
+                    <td>unbind intent</td>
+                    <td>Unbinds document intent click</td>
+                </tr>
+                <tr>
+                    <td>determine intent</td>
+                    <td>Returns whether event occurred inside dropdown</td>
+                </tr>
+                <tr>
+                    <td>determine select action(text, value)</td>
+                    <td>Triggers preset item selection action based on settings passing text/value</td>
+                </tr>
+                <tr>
+                    <td>set active</td>
+                    <td>Sets dropdown to active state
+                <tr>
+                    <td>set visible</td>
+                    <td>Sets dropdown to visible state</td>
+                </tr>
+                <tr>
+                    <td>remove active</td>
+                    <td>rRemoves dropdown active state
+                <tr>
+                    <td>remove visible</td>
+                    <td>Removes dropdown visible state</td>
+                </tr>
+                <tr>
+                    <td>is selection</td>
+                    <td>Returns whether dropdown is a selection dropdown</td>
+                </tr>
+                <tr>
+                    <td>is animated</td>
+                    <td>Returns whether dropdown is animated</td>
+                </tr>
+                <tr>
+                    <td>is visible</td>
+                    <td>Returns whether dropdown is visible</td>
+                </tr>
+                <tr>
+                    <td>is hidden</td>
+                    <td>Returns whether dropdown is hidden</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="ui tab" data-tab="examples">
+
+        <h2 class="ui dividing header">例子</h2>
+
+        <div class="dropdown example">
+            <h3 class="ui header">设置选择条目</h3>
+            <p>下拉列表自动选择用<code>text</code>的指所代表的条目。</p>
+
+            当前选择条目：<div class="ui inline dropdown">
+                <div class="text">隐藏</div>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    <div class="item">编辑</div>
+                    <div class="item">删除</div>
+                    <div class="item">隐藏</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="dropdown example">
+            <h3 class="ui header">下拉列表按扭组</h3>
+            <p>A <a href="../elements/button.html">按扭组</a>可以显示下拉列表。</p>
+            <div class="ui icon buttons">
+                <div class="ui top left pointing dropdown button">
+                    <i class="user icon"></i>
+                    <div class="menu">
+                        <div class="item"><i class="edit icon"></i>编辑用户</div>
+                        <div class="item"><i class="delete icon"></i>删除用户</div>
+                        <div class="item"><i class="hide icon"></i>隐身</div>
+                    </div>
+                </div>
+                <div class="ui top left pointing dropdown button">
+                    <i class="users icon"></i>
+                    <div class="menu">
+                        <div class="item"><i class="edit icon"></i>编辑组</div>
+                        <div class="item"><i class="delete icon"></i>删除 组</div>
+                        <div class="item"><i class="hide icon"></i>隐藏组</div>
+                    </div>
+                </div>
+                <div class="ui top right pointing dropdown button">
+                    <i class="settings icon"></i>
+                    <div class="menu">
+                        <div class="item"><i class="edit icon"></i>编辑</div>
+                        <div class="item"><i class="delete icon"></i>删除</div>
+                        <div class="item"><i class="hide icon"></i>隐藏</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="button example">
+            <h3 class="ui header">组合按扭下拉列表</h3>
+            <p><a href="../elements/button.html">按扭</a>也可以显示成下拉列表的样式。</p>
+            <div class="ui teal buttons">
+                <div class="ui button">更新文章</div>
+                <div class="ui teal dropdown icon button">
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <div class="item"><i class="edit icon"></i>编辑文章</div>
+                        <div class="item"><i class="delete icon"></i>删除文章</div>
+                        <div class="item"><i class="hide icon"></i>隐藏文章</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dropdown example">
+            <h3 class="ui header">多层结构（嵌套）</h3>
+            <p>下拉列表也可以包含下拉列表（嵌套）。</p>
+            我最喜欢的动物是<div class="ui inline dropdown">
+                <input type="hidden" name="gender">
+                <div class="text">柴犬</div>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    <div class="item">
+                        <i class="dropdown icon"></i>
+                        狗狗类
+                        <div class="menu">
+                            <div class="item">柴犬</div>
+                            <div class="item">贵宾犬</div>
+                            <div class="item">拉布拉多</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <i class="dropdown icon"></i>
+                        猫猫类
+                        <div class="menu">
+                            <div class="item">无毛猫</div>
+                            <div class="item">长尾猫</div>
+                            <div class="item">波斯猫</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="hover example">
+            <h3 class="ui header">菜单中的下拉列表</h3>
+            <p><a href="../collections/menu.html">菜单</a>元素可以包含下拉列表。</p>
+            <div class="ui compact tiered purple inverted menu">
+                <div class="menu">
+                    <a class="active item">
+                        <i class="icon home"></i> 主页
+                    </a>
+                    <a class="ui dropdown item">
+                        <i class="icon mail"></i> 消息 <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <div class="item">
+                                <i class="mail icon"></i>目录
+                                <div class="menu">
+                                    <div class="item">未读</div>
+                                    <div class="item">促销</div>
+                                    <div class="item">新消息</div>
+                                </div>
+                            </div>
+                            <div class="item"><i class="book icon"></i>Archive</div>
+                        </div>
+                    </a>
+                    <a class="item">
+                        <i class="user icon"></i> 浏览
+                    </a>
+                </div>
+                <div class="sub menu">
+                    <a class="item">活动资讯</a>
+                    <a class="item">个人信息</a>
+                    <a class="item">事件</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="dropdown example">
+            <h3 class="ui header">表单中的下拉列表</h3>
+            <p>下拉列表可以出现在<a href="../collections/form.html">表单</a>中</p>
+            <div class="ui form segment">
+                <p>开始注册成为爱酷学习网的新用户吧...</p>
+                <div class="two fields">
+                    <div class="field">
+                        <label>姓</label>
+                        <input placeholder="姓" type="text">
+                    </div>
+                    <div class="field">
+                        <label>名</label>
+                        <input placeholder="名" type="text">
+                    </div>
+                </div>
+                <div class="field">
+                    <label>性别</label>
+                    <div class="ui dropdown selection">
+                        <input type="hidden" name="gender">
+                        <div class="default text">...</div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <div class="item" data-value="male">男性</div>
+                            <div class="item" data-value="female">女性</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="transition example">
+            <h3 class="ui header">过渡（动画）效果</h3>
+            <p>下拉列表可以不同的过渡（动画）<a href="transition.html">过渡（动画）</a>效果。</p>
+            <div class="ui teal buttons">
+                <div class="ui button">切换</div>
+                <div class="ui teal floating dropdown icon button">
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <div class="item" data-value="horizontal flip">水平展开</div>
+                        <div class="item" data-value="fade up">淡入淡出</div>
+                        <div class="item" data-value="scale">拉伸</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui tab" data-tab="settings">
+
+        <h3 class="ui header">
+            下拉列表的配置
+            <div class="sub header">配置下拉列表的行为。</div>
+        </h3>
+        <table class="ui celled sortable definition table segment">
+            <thead>
+                <tr>
+                    <th>配置</th>
+                    <th class="four wide">默认值</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>on</td>
+                    <td>click</td>
+                    <td>触发下拉行为的事件(鼠标悬浮，单击)</td>
+                </tr>
+                <tr>
+                    <td>delay</td>
+                    <td>
+                        <div class="code">
+                            delay: {
+                            show: 50,
+                            hide: 300
+                            }
+                        </div>
+                    </td>
+                    <td>下拉列表发生<code>on: hover</code>时的延迟（毫秒数）。</td>
+                </tr>
+                <tr>
+                    <td>transition</td>
+                    <td>
+                        slide down
+                    </td>
+                    <td>下拉列表的动画效果。请参考：<a href="transition.html">ui transitions</a>。</td>
+                </tr>
+                <tr>
+                    <td>duration</td>
+                    <td>
+                        250
+                    </td>
+                    <td>动画时长。</td>
+                </tr>
+                <tr>
+                    <td>action</td>
+                    <td>auto</td>
+                    <td>Sets a default action to occur.
+                        <div class="ui vertical divided list">
+                            <div class="item">
+                                <div class="header">activate</div>
+                                <div class="description">Most likely action will be determined by type of dropdown, for example a selection dropdown will automatically use updateForm</div>
+                            </div>
+                            <div class="item">
+                                <div class="header">nothing</div>
+                                <div class="description">no action occurs</div>
+                            </div>
+                            <div class="item">
+                                <div class="header">hide</div>
+                                <div class="description">Dropdown menu is hidden</div>
+                            </div>
+                            <div class="item">
+                                <div class="header">function(){}</div>
+                                <div class="description">custom function is executed</div>
+                            </div>
+                        </div>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="ui horizontal section divider"><i class="icon setting"></i></div>
+        <h3 class="ui header">
+            回调方法
+            <div class="sub header">下拉列表的回调方法。</div>
+        </h3>
+
+        <table class="ui celled sortable definition table segment">
+            <thead>
+                <tr>
+                    <th class="four wide">方法</th>
+                    <th>上下文</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>onChange(value, text)</td>
+                    <td>Dropdown</td>
+                    <td>下拉列表选择条目发生改变时的回调方法。</td>
+                </tr>
+                <tr>
+                    <td>onShow</td>
+                    <td>Dropdown</td>
+                    <td>下拉列表显示时的回调方法。</td>
+                </tr>
+                <tr>
+                    <td>onHide</td>
+                    <td>Dropdown</td>
+                    <td>下拉列表隐藏时的回调方法。</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="ui header">
+            DOM设置
+            <div class="sub header">下拉列表的DOM配置。</div>
+        </h3>
+        <table class="ui celled sortable definition table segment">
+            <thead>
+                <tr>
+                    <th>配置</th>
+                    <th class="four wide">默认值</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>namespace</td>
+                    <td>dropdown</td>
+                    <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+                </tr>
+                <tr>
+                    <td>selector</td>
+                    <td colspan="2">
+                        <div class="code">
+                            selector : {
+                            input : '> input[type="hidden"]',
+                            item  : '.menu > .item',
+                            menu  : '.menu',
+                            text  : '> .text'
+                            }
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>metadata</td>
+                    <td colspan="2">
+                        <div class="code">
+                            metadata: {
+                            text  : 'text',
+                            value : 'value'
+                            }
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>className</td>
+                    <td colspan="2">
+                        <div class="code">
+                            className : {
+                            active      : 'active',
+                            disabled    : 'disabled',
+                            placeholder : 'default',
+                            visible     : 'visible'
+                            }
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="ui header">
+            调试设置
+            <div class="sub header">下拉列表的调试设置。</div>
+        </h3>
+        <table class="ui celled sortable definition table segment">
+            <thead>
+                <tr>
+                    <th>设置</th>
+                    <th class="four wide">默认值</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>name</td>
+                    <td>Dropdown</td>
+                    <td>Name used in debug logs</td>
+                </tr>
+                <tr>
+                    <td>debug</td>
+                    <td>True</td>
+                    <td>Provides standard debug output to console</td>
+                </tr>
+                <tr>
+                    <td>performance</td>
+                    <td>True</td>
+                    <td>Provides standard debug output to console</td>
+                </tr>
+                <tr>
+                    <td>verbose</td>
+                    <td>True</td>
+                    <td>Provides ancillary debug output to console</td>
+                </tr>
+                <tr>
+                    <td>error</td>
+                    <td colspan="2">
+                        <div class="code">
+                            error   : {
+                            action    : 'You called a dropdown action that was not defined',
+                            method    : 'The method you called is not defined.',
+                            transition : 'The requested transition was not found'
+                            }
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

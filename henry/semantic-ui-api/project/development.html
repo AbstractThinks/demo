@@ -1,0 +1,346 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.59.6" />
+  <title>本地文档服务器 | Semantic UI中文网</title>
+
+  <meta name="description" content="建立本地文档开服务器指南。" />
+  <meta name="keywords" content="Semantic UI, Semantic入门, CSS, CSS框架, CSS framework, html5, ui, library, framework, javascript, Semantic UI中文网, Semantic UI翻译, Semantic UI教程" />
+
+  <link rel="stylesheet" type="text/css" class="ui" href="../build/packaged/css/semantic.min.css">
+
+  <link rel="stylesheet" type="text/css" href="../stylesheets/semantic.css">
+    <script type="text/javascript" src="../jquery.js"></script>
+  <script src="../javascript/library/history.js"></script>
+  <script src="../javascript/library/easing.js"></script>
+  <script src="../javascript/library/tablesort.js"></script>
+  <script src="../javascript/library/waypoints.js"></script>
+
+  <script src="../build/packaged/javascript/semantic.min.js"></script>
+
+  <script src="../javascript/semantic.js"></script>
+
+</head>
+<body id="example" class="guide">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> 关闭
+    </a>
+    <a class="item" href="http://www.semantic-ui.com/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>下载</b>
+    </a>
+    <div class="item">
+      <a href="../index.html">
+        <b>简单介绍</b>
+      </a>
+      <div class="menu">
+        
+        <a class="item" href="../introduction/variations.html">变化</a>
+        
+        <a class="item" href="../introduction/definitions.html">定义</a>
+        
+        <a class="item" href="../introduction.html">有什么新奇的玩意儿？</a>
+        
+        <a class="item" href="../introduction/types.html">样式（种类）</a>
+        
+        <a class="item" href="../introduction/overview.html">概述</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>关于项目</b>
+      <div class="menu">
+        
+        <a class="item" href="contributing.html">加入我们</a>
+        
+        <a class="active item" href="development.html">本地文档服务器</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../element.html"><b>基础组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../modules/reveal.html">Reveal</a>
+        
+        <a class="item" href="../elements/divider.html">分隔条</a>
+        
+        <a class="item" href="../elements/loader.html">加载控件</a>
+        
+        <a class="item" href="../elements/image.html">图像控件</a>
+        
+        <a class="item" href="../elements/icon.html">图标</a>
+        
+        <a class="item" href="../elements/button.html">按扭</a>
+        
+        <a class="item" href="../elements/label.html">标签</a>
+        
+        <a class="item" href="../elements/header.html">标题头控件</a>
+        
+        <a class="item" href="../elements/step.html">步骤控件</a>
+        
+        <a class="item" href="../elements/segment.html">片断控件</a>
+        
+        <a class="item" href="../elements/input.html">输入控件</a>
+        
+        <a class="item" href="../elements/progress.html">进度条控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../collection.html"><b>集合/列表组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../collections/message.html">消息控件</a>
+        
+        <a class="item" href="../collections/grid.html">网格（栅格）系统</a>
+        
+        <a class="item" href="../collections/menu.html">菜单</a>
+        
+        <a class="item" href="../collections/form.html">表单</a>
+        
+        <a class="item" href="../collections/table.html">表格</a>
+        
+        <a class="item" href="../collections/breadcrumb.html">面包屑/导航条</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>内容展示组件</b>
+      <div class="menu">
+        
+        <a class="item" href="../views/feed.html">Feed</a>
+        
+        <a class="item" href="../views/item.html">Item（元素列表）</a>
+        
+        <a class="item" href="../views/list.html">列表</a>
+        
+        <a class="item" href="../views/comment.html">评论控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../module.html"><b>模块</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../modules/shape.html">Shape</a>
+        
+        <a class="item" href="../modules/dropdown.html">下拉列表模块</a>
+        
+        <a class="item" href="../modules/checkbox.html">复选框模块</a>
+        
+        <a class="item" href="../modules/popup.html">弹出框模块</a>
+        
+        <a class="item" href="../modules/accordion.html">手风琴模块</a>
+        
+        <a class="item" href="../modules/modal.html">模态对话框</a>
+        
+        <a class="item" href="../modules/rating.html">评分模块</a>
+        
+        <a class="item" href="../modules/dimmer.html">调光器（遮罩层）</a>
+        
+        <a class="item" href="../modules/sidebar.html">边栏</a>
+        
+        <a class="item" href="../modules/transition.html">过渡（动画）效果</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>特定行为控件</b>
+      <div class="menu">
+        
+        <a class="item" href="../modules/form.html">验证表单</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>样式指南</b>
+      <div class="menu">
+        
+        <a class="item" href="../guide/cssguide.html">CSS开发指南</a>
+        
+        <a class="item" href="../guide/javascriptguide.html">Javascript开发指南</a>
+        
+        <a class="item" href="../guide/styleguide.html">语言指南</a>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> 内容</a>
+      <div class="title item">
+        <b>Semantic Project:</b> 本地文档服务器
+      </div>
+      
+      <a class="icon item" href="contributing.html"><i class="left arrow icon"></i></a>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">2 of 2</span>
+        <div class="menu">
+          
+          <div class="item">
+            <a href="contributing.html">1. 加入我们</a>
+          </div>
+          
+          <div class="active item">
+            <a href="development.html">2. 本地文档服务器</a>
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="disabled icon item"><i class="right arrow icon"></i></div>
+      
+      <div class="right menu">
+        
+        <div class="vertically fitted borderless item">
+        </div>
+        
+        
+        <a class="popup icon github item" title="查看Semantic UI在Github的项目信息" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <div class="title item">
+          交流群：262577550
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui black huge launch right attached button">
+    <i class="icon list layout"></i>
+    <span class="text">导航</span>
+  </div>
+
+  <script src="http://zh.semantic-ui.com/javascript/intro.js"></script>
+
+﻿
+
+<div class="segment">
+    <div class="container">
+        <div class="introduction">
+
+            <h1 class="ui dividing header">
+                本地文档服务器
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Semantic UI学习交流群 <a class="ui red circular label large">262577550</a>
+            </h1>
+
+            <p>建立本地文档开服务器指南。</p>
+            
+            
+        </div>
+    </div>
+</div>
+<div class="main container">
+    <div class="peek">
+        <div class="ui vertical pointing secondary menu">
+            <a class="active item">安装依赖</a>
+            <a class="item">修复Bug</a>
+        </div>
+    </div>
+
+    <h2 class="ui dividing header">安装依赖</h2>
+
+    <p>可以很方便的建立本地的文档服务器，如果你的计算机没有联网或者网速过慢，你可以在你的计算机上创建出一套本地的文档服务器环境。</p>
+
+    <h3 class="ui header">1.安装NodeJS</h3>
+    <p>Semantic UI的文档是用DocPad编写的，DocPad是需要NodeJS才可以运行的哦。</p>
+
+    <div class="ui warning message">安装前请确定你的npm（NodeJS的包管理器-NodeJS Package Managment）不需要管理员权限（在Linux/Unix环境下是不需要sudo来执行npm命令的意思），如果需要管理员权限的话，在安装过程中有可能会出现权限问题。</div>
+
+    <ul class="ui list">
+        <li><a href="https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager">通过管管理安装NodeJS</a></li>
+        <li><a href="https://gist.github.com/isaacs/579814">不需要管理员权限安装NodeJS</a></li>
+    </ul>
+
+    <h3 class="ui header">2.获得Semantic UI的代码</h3>
+
+    <h3 class="ui header">3.安装依赖</h3>
+    <p>执行update命令会安装项目所需要的所有依赖，所有的依赖都存放在<code>package.json</code>文件中，如果你有兴趣，可以打开该文件看看。</p>
+
+    <div class="code" data-title="Installing dependencies" data-type="terminal">
+        npm update
+    </div>
+
+
+    <h3 class="ui header">4.启动文档服务器</h3>
+
+    <div class="code" data-title="Starting server locally" data-type="terminal">
+        docpad run
+    </div>
+
+    <p>上面的命令可以启动一个服务器，该服务器的内容就是和semantic-ui.com的内容一模一样，你可以在地址栏输入<code>http://localhost:9778</code>来访问。</p>
+
+    <h2 class="ui dividing header">Fixing Bugs</h2>
+
+    <h3 class="ui header">Watch Script</h3>
+
+    <p>If you are working on fixing a UI component that is part of Semantic, your best bet is to work actively on the file in <code>/src/{type}/{elementname}/</code> while running a watch script from grunt. This will rebuild the docs after you make changes, so you can see if you have corrected the issue you are fixing.</p>
+
+    <p>To see exactly what this is doing you can check out our <a href="https://github.com/jlukic/Semantic-UI/blob/master/Gruntfile.js">commented gruntfile</a></p>
+
+    <div class="code" data-title="Watching Changes" data-type="terminal">
+        grunt
+    </div>
+
+    <p>The watch task is the default grunt task for Semantic, so you can start it quite simply.</p>
+
+    <h3 class="ui header">Running Tests</h3>
+    <p>Tests will automatically run with <code>grunt watch</code> if you have started karma</p>
+
+    <div class="code" data-title="Execute tests while developing" data-type="terminal">
+        karma start
+        grunt watch
+    </div>
+
+    <p>You can also run the test suite manually</p>
+    <div class="code" data-title="Execute tests while developing" data-type="terminal">
+        npm test
+        // or
+        grunt build
+        // or
+        karma run
+    </div>
+
+    <h3 class="ui header">Packaging Elements</h3>
+    <p>For convenience there is also a separate grunt command for building minified, packaged, and compressed versions of the library.</p>
+
+    <div class="code" data-title="Building Release Files" data-type="terminal">
+        grunt build
+    </div>
+
+
+    <h3 class="ui header"></h3>
+
+    <div class="ui divider"></div>
+    <a class="ui large right labeled teal icon button" href="../introduction.html">
+        Next: Library Introduction
+        <i class="right arrow icon"></i>
+    </a>
+</div>
+
+</body>
+
+</html>

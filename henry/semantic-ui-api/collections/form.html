@@ -1,0 +1,812 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.59.6" />
+  <title>表单 | Semantic UI中文网</title>
+
+  <meta name="description" content="表单是用来接受用户各种输入的控件（元素）。" />
+  <meta name="keywords" content="Semantic UI, Semantic入门, CSS, CSS框架, CSS framework, html5, ui, library, framework, javascript, Semantic UI中文网, Semantic UI翻译, Semantic UI教程" />
+
+  <link rel="stylesheet" type="text/css" class="ui" href="../build/packaged/css/semantic.min.css">
+
+  <link rel="stylesheet" type="text/css" href="../stylesheets/semantic.css">
+    <script type="text/javascript" src="../jquery.js"></script>
+  <script src="../javascript/library/history.js"></script>
+  <script src="../javascript/library/easing.js"></script>
+    <script src="../javascript/library/ace/ace.js"></script>
+  <script src="../javascript/library/tablesort.js"></script>
+  <script src="../javascript/library/waypoints.js"></script>
+
+  <script src="../build/packaged/javascript/semantic.min.js"></script>
+
+  <script src="../javascript/semantic.js"></script>
+
+</head>
+<body id="example" class="form">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> 关闭
+    </a>
+    <a class="item" href="http://www.semantic-ui.com/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>下载</b>
+    </a>
+    <div class="item">
+      <a href="../index.html">
+        <b>简单介绍</b>
+      </a>
+      <div class="menu">
+        
+        <a class="item" href="../introduction/variations.html">变化</a>
+        
+        <a class="item" href="../introduction/definitions.html">定义</a>
+        
+        <a class="item" href="../introduction.html">有什么新奇的玩意儿？</a>
+        
+        <a class="item" href="../introduction/types.html">样式（种类）</a>
+        
+        <a class="item" href="../introduction/overview.html">概述</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>关于项目</b>
+      <div class="menu">
+        
+        <a class="item" href="../project/contributing.html">加入我们</a>
+        
+        <a class="item" href="../project/development.html">本地文档服务器</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../element.html"><b>基础组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../modules/reveal.html">Reveal</a>
+        
+        <a class="item" href="../elements/divider.html">分隔条</a>
+        
+        <a class="item" href="../elements/loader.html">加载控件</a>
+        
+        <a class="item" href="../elements/image.html">图像控件</a>
+        
+        <a class="item" href="../elements/icon.html">图标</a>
+        
+        <a class="item" href="../elements/button.html">按扭</a>
+        
+        <a class="item" href="../elements/label.html">标签</a>
+        
+        <a class="item" href="../elements/header.html">标题头控件</a>
+        
+        <a class="item" href="../elements/step.html">步骤控件</a>
+        
+        <a class="item" href="../elements/segment.html">片断控件</a>
+        
+        <a class="item" href="../elements/input.html">输入控件</a>
+        
+        <a class="item" href="../elements/progress.html">进度条控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../collection.html"><b>集合/列表组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="message.html">消息控件</a>
+        
+        <a class="item" href="grid.html">网格（栅格）系统</a>
+        
+        <a class="item" href="menu.html">菜单</a>
+        
+        <a class="active item" href="form.html">表单</a>
+        
+        <a class="item" href="table.html">表格</a>
+        
+        <a class="item" href="breadcrumb.html">面包屑/导航条</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>内容展示组件</b>
+      <div class="menu">
+        
+        <a class="item" href="../views/feed.html">Feed</a>
+        
+        <a class="item" href="../views/item.html">Item（元素列表）</a>
+        
+        <a class="item" href="../views/list.html">列表</a>
+        
+        <a class="item" href="../views/comment.html">评论控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../module.html"><b>模块</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../modules/shape.html">Shape</a>
+        
+        <a class="item" href="../modules/dropdown.html">下拉列表模块</a>
+        
+        <a class="item" href="../modules/checkbox.html">复选框模块</a>
+        
+        <a class="item" href="../modules/popup.html">弹出框模块</a>
+        
+        <a class="item" href="../modules/accordion.html">手风琴模块</a>
+        
+        <a class="item" href="../modules/modal.html">模态对话框</a>
+        
+        <a class="item" href="../modules/rating.html">评分模块</a>
+        
+        <a class="item" href="../modules/dimmer.html">调光器（遮罩层）</a>
+        
+        <a class="item" href="../modules/sidebar.html">边栏</a>
+        
+        <a class="item" href="../modules/transition.html">过渡（动画）效果</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>特定行为控件</b>
+      <div class="menu">
+        
+        <a class="item" href="../modules/form.html">验证表单</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>样式指南</b>
+      <div class="menu">
+        
+        <a class="item" href="../guide/cssguide.html">CSS开发指南</a>
+        
+        <a class="item" href="../guide/javascriptguide.html">Javascript开发指南</a>
+        
+        <a class="item" href="../guide/styleguide.html">语言指南</a>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> 内容</a>
+      <div class="title item">
+        <b>UI Collection:</b> 表单
+      </div>
+      
+      <a class="icon item" href="menu.html"><i class="left arrow icon"></i></a>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">4 of 6</span>
+        <div class="menu">
+          
+          <div class="item">
+            <a href="message.html">1. 消息控件</a>
+          </div>
+          
+          <div class="item">
+            <a href="grid.html">2. 网格（栅格）系统</a>
+          </div>
+          
+          <div class="item">
+            <a href="menu.html">3. 菜单</a>
+          </div>
+          
+          <div class="active item">
+            <a href="form.html">4. 表单</a>
+          </div>
+          
+          <div class="item">
+            <a href="table.html">5. 表格</a>
+          </div>
+          
+          <div class="item">
+            <a href="breadcrumb.html">6. 面包屑/导航条</a>
+          </div>
+          
+        </div>
+      </div>
+      
+      <a class="icon item" href="table.html"><i class="right arrow icon"></i></a>
+      
+      <div class="right menu">
+        
+        <div class="vertically fitted borderless item">
+        </div>
+        
+        
+        <a class="popup designer icon item" title="设计模式">
+          <i class="basic paint icon"></i>
+        </a>
+        <a class="popup developer icon item" title="开发模式">
+          <i class="terminal icon"></i>
+        </a>
+        
+        <a class="popup icon github item" title="查看Semantic UI在Github的项目信息" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <div class="title item">
+          交流群：262577550
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui black huge launch right attached button">
+    <i class="icon list layout"></i>
+    <span class="text">导航</span>
+  </div>
+
+  <script src="../javascript/form.js"></script>
+
+﻿
+
+<div class="segment">
+    <div class="container">
+        <div class="introduction">
+
+            <h1 class="ui dividing header">
+                表单
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Semantic UI学习交流群 <a class="ui red circular label large">262577550</a>
+            </h1>
+
+            <p>表单是用来接受用户各种输入的控件（元素）。</p>
+            
+            <div class="ui basic labeled icon toggle overview button">
+                点击切换到定义模式
+                <i class="book icon"></i>
+            </div>
+            
+            
+        </div>
+
+        
+    </div>
+</div>
+
+<div class="main container">
+    <div class="peek">
+        <div class="ui vertical pointing secondary menu">
+            <a class="active item">各类</a>
+            <a class="item">表单元素</a>
+            <a class="item">表单状态</a>
+            <a class="item">千变万化的表单</a>
+            <a class="item">表单分组</a>
+        </div>
+    </div>
+    <h2 class="ui dividing header">表单的种类</h2>
+
+    <div class="example">
+        <h4 class="ui header">表单:</h4>
+        <p>
+            表单一定会包含表单域，表单域可以是
+            <a href="../elements/input.html">输入控件</a>，标准表单域， <a href="../elements/label.html">标签</a>， <a href="../modules/dropdown.html">下拉菜单</a>， 文本域， 还可以有：
+            <a href="../modules/checkbox.html">复选框</a>， 以及 <a href="message.html">消息块</a>。
+        </p>
+        <p>表单验证消息可以使用 <a href="message.html">messages控件</a> ，该控件为表单验证专门做了优化。</p>
+        <div class="ui ignored warning message">
+            <p>如果你想要表单验证功能，可以点击这里<a href="../modules/form.html">form validation</a>去看看。</p>
+        </div>
+        <div class="ui ignored info message">
+            <p>这个例子使用了 <a href="../elements/segment.html">ui segment</a> 添加了背景颜色和内嵌，但这不是必须的。</p>
+        </div>
+        <div class="ui form segment">
+            <div class="field">
+                <label>用户名</label>
+                <div class="ui left labeled icon input">
+                    <input type="text" placeholder="用户名">
+                    <i class="user icon"></i>
+                    <div class="ui corner label">
+                        <i class="icon asterisk"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label>密码</label>
+                <div class="ui left labeled icon input">
+                    <input type="password">
+                    <i class="lock icon"></i>
+                    <div class="ui corner label">
+                        <i class="icon asterisk"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="ui error message">
+                <div class="header">发生了错误</div>
+            </div>
+            <div class="ui blue submit button">登录</div>
+        </div>
+    </div>
+
+    <h2 class="ui dividing header">元素</h2>
+
+    <div class="example">
+        <h4 class="ui header">表单域</h4>
+        <p>表单域包含了一个标签和一个输入控件。</p>
+        <div class="ui form">
+            <div class="field">
+                <label>用户输入</label>
+                <input type="text">
+            </div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">文本域控件</h4>
+        <p>文本域控件使用的是默认的表单元素（即没做太多改变）。</p>
+        <div class="ui form">
+            <div class="field">
+                <label>用户文本</label>
+                <textarea></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="no example">
+        <h4 class="ui header">复选框控件</h4>
+        <p><a href="../modules/checkbox.html">复选框控件</a> 在原来的表单控件的基本上做了些美化工作。</p>
+        <div class="evaluated code" data-type="javascript" data-label="true">
+            $('.ui.checkbox')
+            .checkbox()
+            ;
+        </div>
+        <div class="ui form">
+            <div class="inline field">
+                <div class="ui checkbox">
+                    <input type="checkbox" />
+                    <label>复选框样式</label>
+                </div>
+            </div>
+            <div class="inline field">
+                <div class="ui slider checkbox">
+                    <input type="checkbox" />
+                    <label>滑块样式</label>
+                </div>
+                <label></label>
+            </div>
+            <div class="inline field">
+                <div class="ui toggle checkbox">
+                    <input type="checkbox" />
+                    <label>切换样式</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="no form example">
+        <h4 class="ui header">下拉列表框</h4>
+        <p>下拉列表框 <a href="../modules/dropdown.html">ui dropdown</a> 可以用来显示可以供用户选择的项目。</p>
+        <div class="evaluated code" data-type="javascript" data-label="true">
+            $('.ui.selection.dropdown')
+            .dropdown()
+            ;
+        </div>
+        <div class="ui selection dropdown">
+            <input type="hidden" name="gender">
+            <div class="default text">性别</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+                <div class="item" data-value="male">男人</div>
+                <div class="item" data-value="female">女人</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="no example">
+        <h4 class="ui header">单选按扭控件</h4>
+        <p>以复选框控件类似，单选按扭控件也在原来的基础上做了些样式美化工作。</p>
+        <div class="evaluated code" data-type="javascript" data-label="true">
+            $('.ui.radio.checkbox')
+            .checkbox()
+            ;
+        </div>
+        <div class="ui form">
+            <div class="grouped inline fields">
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="fruit" checked />
+                        <label>苹果</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="fruit" />
+                        <label>桔子</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="fruit" />
+                        <label>梨子</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="fruit" />
+                        <label>柚子</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">文本块</h4>
+        <p>文本块用来在表单中显示一些提示信息。下面几种类型的消息默认是隐藏的：info, error, or warning。</p>
+        <div class="ui form">
+            <div class="ui message">
+                <div class="header">出错啦</div>
+                <ul class="list">
+                    <li>请输入你的用户名</li>
+                    <li>请输入你的密码</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="ui dividing header">表单状态</h2>
+
+    <h3 class="ui header">表单</h3>
+
+    <div class="example">
+        <h4 class="ui header">正在加载中的表单控件</h4>
+        <p>如果表单控件是加载状态，那么Semantic会自动为它显示一个加载提示控件：</p>
+
+        <div class="ui loading form segment">
+            <div class="two fields">
+                <div class="field">
+                    <label>First Name</label>
+                    <input placeholder="First Name" type="text">
+                </div>
+                <div class="field">
+                    <label>Last Name</label>
+                    <input placeholder="Last Name" type="text">
+                </div>
+            </div>
+            <div class="field">
+                <label>Username</label>
+                <input placeholder="Username" type="text">
+            </div>
+            <div class="field">
+                <label>Password</label>
+                <input type="password">
+            </div>
+            <div class="inline field">
+                <div class="ui checkbox">
+                    <input type="checkbox" />
+                    <label>I agree to the terms and conditions</label>
+                </div>
+            </div>
+            <div class="ui blue submit button">Submit</div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">有错误的表单</h4>
+        <p>如果表单处于有错状态，Semantic会自动为它显示一些错误消息块：</p>
+        <div class="ui error form segment">
+            <div class="ui error message">
+                <div class="header">Action Forbidden</div>
+                <p>You can only sign up for an account once with a given e-mail address.</p>
+            </div>
+            <div class="two fields">
+                <div class="field">
+                    <label>First Name</label>
+                    <input placeholder="First Name" type="text">
+                </div>
+                <div class="field">
+                    <label>Last Name</label>
+                    <input placeholder="Last Name" type="text">
+                </div>
+            </div>
+            <div class="field">
+                <label>Username</label>
+                <input placeholder="Username" type="text">
+            </div>
+            <div class="field">
+                <label>Password</label>
+                <input type="password">
+            </div>
+            <div class="inline field">
+                <div class="ui checkbox">
+                    <input type="checkbox" />
+                    <label>I agree to the Terms and Conditions</label>
+                </div>
+            </div>
+            <div class="ui blue submit button">Submit</div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">警告表单</h4>
+        <p>如果表单处于警告状态，Semantic会自动为它显示一些警告消息块：</p>
+
+        <div class="ui warning form segment">
+            <div class="ui warning message">
+                <div class="header">Could you check something!</div>
+                <ul class="list">
+                    <li>You forgot your <b>first name</b></li>
+                    <li>And also your <b>last name</b></li>
+                </ul>
+            </div>
+            <div class="two error fields">
+                <div class="field">
+                    <label>First Name</label>
+                    <input placeholder="First Name" type="text">
+                    <div class="ui red pointing above ui label">Enter a first name</div>
+                </div>
+                <div class="field">
+                    <label>Last Name</label>
+                    <input placeholder="Last Name" type="text">
+                    <div class="ui red pointing above ui label">Enter a last name</div>
+                </div>
+            </div>
+            <div class="field">
+                <label>Username</label>
+                <input placeholder="Username" type="text">
+            </div>
+            <div class="field">
+                <label>Password</label>
+                <input type="password">
+            </div>
+            <div class="inline field">
+                <div class="ui checkbox">
+                    <input type="checkbox" />
+                    <label>I agree to the Terms and Conditions</label>
+                </div>
+            </div>
+            <div class="ui blue submit button">Submit</div>
+        </div>
+    </div>
+
+    <h3 class="ui header">表单控件的域</h3>
+
+    <div class="example">
+        <h4 class="ui header">错误</h4>
+        <p>如果表单域验证出错。</p>
+
+        <div class="ui form segment">
+            <div class="two fields">
+                <div class="field error">
+                    <label>First Name</label>
+                    <input placeholder="First Name" type="text">
+                </div>
+                <div class="field">
+                    <label>Last Name</label>
+                    <input placeholder="Last Name" type="text">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">禁用表单域</h4>
+        <p>表单域可以被禁用或者为只读域</p>
+
+        <div class="ui form segment">
+            <div class="two fields">
+                <div class="field">
+                    <label>First Name</label>
+                    <input placeholder="Read Only" readonly="readonly" type="text">
+                </div>
+                <div class="disabled field">
+                    <label>Last Name</label>
+                    <input placeholder="Disabled" disabled="disabled" type="text">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="ui dividing header">变化的表单控件</h2>
+
+    <h3 class="ui header">表单</h3>
+
+    <div class="example">
+        <h4 class="ui header">流动布局</h4>
+        <p>流动布局是指表单可以占用所有父控件的内容区域。</p>
+        <div class="ui fluid form segment">
+            <div class="two fields">
+                <div class="field">
+                    <label>First Name</label>
+                    <input placeholder="First Name" type="text">
+                </div>
+                <div class="field">
+                    <label>Last Name</label>
+                    <input placeholder="Last Name" type="text">
+                </div>
+            </div>
+            <div class="ui blue submit button">Submit</div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">表单大小</h4>
+        <p>表单可以设置大小</p>
+        <div class="ui small form segment">
+            <div class="two fields">
+                <div class="field">
+                    <label>First Name</label>
+                    <input placeholder="First Name" type="text">
+                </div>
+                <div class="field">
+                    <label>Last Name</label>
+                    <input placeholder="Last Name" type="text">
+                </div>
+            </div>
+            <div class="ui blue small submit button">Submit</div>
+        </div>
+        <br><br>
+        <div class="ui large form segment">
+            <div class="two fields">
+                <div class="field">
+                    <label>First Name</label>
+                    <input placeholder="First Name" type="text">
+                </div>
+                <div class="field">
+                    <label>Last Name</label>
+                    <input placeholder="Last Name" type="text">
+                </div>
+            </div>
+            <div class="ui blue submit button">Submit</div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">反色表单</h4>
+        <p>反色表单是指表单有相反颜色的背景。</p>
+
+        <div style="background-color: #333333; padding: 15px;">
+            <div class="ui inverted form">
+                <div class="ui info message">
+                    <div class="header">We had some issues</div>
+                    <ul class="list">
+                        <li>Please enter your first name</li>
+                        <li>Please enter your last name</li>
+                    </ul>
+                </div>
+                <div class="two fields">
+                    <div class="field">
+                        <label>First Name</label>
+                        <input placeholder="First Name" type="text">
+                    </div>
+                    <div class="field">
+                        <label>Last Name</label>
+                        <input placeholder="Last Name" type="text">
+                    </div>
+                </div>
+                <div class="ui blue submit button">Submit</div>
+            </div>
+        </div>
+    </div>
+
+
+    <h3 class="ui header">表单域</h3>
+
+    <div class="example">
+        <h4 class="ui header">内联样式</h4>
+        <p>这种模式的表单会在一行显示所有的控件元素。</p>
+        <div class="ui form">
+            <div class="inline field">
+                <label>Last name</label>
+                <input type="text" placeholder="Full Name">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="example">
+        <h4 class="ui header">日期域</h4>
+        <p>这种表单域可以让用户知道他们正在输入日期。</p>
+        <div class="ui form">
+            <div class="date field">
+                <label>Birthday</label>
+                <input type="text" placeholder="xx/xx/xxxx">
+            </div>
+        </div>
+    </div>
+
+
+    <h2 class="ui dividing header">表单分组</h2>
+
+    <div class="example">
+        <h4 class="ui header">表单域</h4>
+        <p>表单域可以并排显示。</p>
+        <div class="ui form">
+            <div class="ui three fields">
+                <div class="field">
+                    <label>First name</label>
+                    <input type="text" placeholder="First Name">
+                </div>
+                <div class="field">
+                    <label>Middle name</label>
+                    <input type="text" placeholder="Middle Name">
+                </div>
+                <div class="field">
+                    <label>Last name</label>
+                    <input type="text" placeholder="Last Name">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">表单域分组</h4>
+        <p>表单域可以分组显示。</p>
+        <div class="ui form">
+            <div class="grouped inline fields">
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="fruit" />
+                        <label></label>
+                    </div>
+                    <label> Apples</label>
+                </div>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="fruit" />
+                        <label></label>
+                    </div>
+                    <label> Oranges</label>
+                </div>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="fruit" />
+                        <label></label>
+                    </div>
+                    <label> Pears</label>
+                </div>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="fruit" />
+                        <label></label>
+                    </div>
+                    <label> Grapefruit</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">内联域</h4>
+        <p>多个表单域名可以在一行显示出来。</p>
+        <div class="ui form">
+            <div class="inline fields">
+                <div class="field">
+                    <label>Phone Number</label>
+                    <input type="text" placeholder="(xxx)">
+                </div>
+                <div class="field">
+                    <input type="text" placeholder="xxx">
+                </div>
+                <div class="field">
+                    <input type="text" placeholder="xxxx">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+
+</html>
