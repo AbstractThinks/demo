@@ -1,0 +1,43 @@
+<link rel="import" href="../module/my-select-school.html" media="screen" title="no title">
+<link rel="import" href="../module/my-select-subject.html" media="screen" title="no title">
+<dom-module id="my-modal-modify">
+  <template >
+      <div class="header">员工信息</div>
+      <div class="content">
+          <div class="ui form">
+            <div class="fields">
+                <div class="sixteen wide field">
+                    <label>姓名</label>
+                    <input type="text" placeholder="">
+                </div>
+            </div>
+            <div class="fields">
+              <my-select-school class="eight wide field">
+              </my-select-school>
+              <my-select-subject class="eight wide field">
+              </my-select-subject>
+            </div>
+            <div class="fields">
+              <div class="eight wide field">
+                  <label>账号</label>
+                <input type="text" placeholder="">
+              </div>
+              <div class="eight wide field">
+                  <label>密码</label>
+                <input type="text" placeholder="">
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="actions">
+        <button class="ui button basic approve medium">&nbsp;&nbsp;<i class="add circle icon"></i> 确认 &nbsp;&nbsp;</button>
+        <button class="ui button basic medium">&nbsp;&nbsp;<i class="minus square icon"></i>重置 &nbsp;&nbsp;</button>
+        <button class="ui cancel button basic medium">&nbsp;&nbsp;<i class="remove circle icon"></i>取消 &nbsp;&nbsp;</button>
+      </div>
+  </template>
+  <script type="text/javascript">
+          Polymer({
+                  is : "my-modal-modify"
+          });
+  </script>
+</dom-module>

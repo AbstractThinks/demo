@@ -10,6 +10,7 @@
 
         <link rel="stylesheet" href="../../css/normalize.css">
         <link rel="stylesheet" href="../../dist/semantic.css">
+        <link rel="stylesheet" href="../../css/main.css">
         <link rel="stylesheet" href="../../css/icon/iconfont.css" media="screen" title="no title">
         <script src="../../bower_components/webcomponentsjs/webcomponents-lite.min.js" charset="utf-8"></script>
         <link rel="import" href="../../bower_components/polymer/polymer-mini.html" media="screen" title="no title">
@@ -18,7 +19,10 @@
         <link rel="import" href="../module/my-pagination.html" media="screen" title="no title">
         <link rel="import" href="../module/m-my-table.html" media="screen" title="no title">
         <link rel="import" href="../module/m-my-staff-sidemenu.html" media="screen" title="no title">
-        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="import" href="../module/m-my-modal-add.html" media="screen" title="no title">
+        <link rel="import" href="../module/m-my-modal-modify.html" media="screen" title="no title">
+        <link rel="import" href="../module/m-my-modal-export.html" media="screen" title="no title">
+
 
     </head>
     <body class="pushable">
@@ -38,7 +42,7 @@
         <div class="pusher">
             <div class="ui container">
                 <div class="">
-                    <a class="ui teal tag label">人事管理</a>
+                    <!-- <a class="ui teal tag label">人事管理</a> -->
                     <a class="ui teal tag label">教职工基础信息</a>
                 </div>
                 <h4 class="ui horizontal divider header"><i class="tag icon"></i> 职工信息 </h4>
@@ -60,53 +64,47 @@
         <script src="../../js/vendor/jquery.min.js" charset="utf-8"></script>
         <script src="../../dist/semantic.min.js"></script>
 
+
+        <my-modal-add class="ui modal info"></my-modal-add>
+        <my-modal-modify class="ui modal modify"></my-modal-modify>
+        <div class="ui modal delete">
+          <div class="header">员工信息</div>
+          <div class="content">
+              确认删除...,删除后无法恢复！
+          </div>
+          <div class="actions">
+            <button class="ui button basic approve medium">&nbsp;&nbsp;<i class="add circle icon"></i> 确认 &nbsp;&nbsp;</button>
+            <button class="ui button basic cancel medium">&nbsp;&nbsp;<i class="remove circle icon"></i>取消 &nbsp;&nbsp;</button>
+          </div>
+        </div>
+        <my-modal-export class="ui modal file"></my-modal-export>
+        
         <script type="text/javascript">
             $('.ui.sidemenu').on('click', function() {
                 $('.sidemenu.sidebar')
                     .sidebar('setting', 'transition', 'scale down')
                     .sidebar('toggle');
             });
+            $('.ui.dropdown').dropdown();
             $('.add-item').on('click', function () {
-                $('.ui.modal').modal('show');
+                $('.ui.modal.info').modal('show');
             });
+            $('.modify-item').on('click', function () {
+                $('.ui.modal.modify').modal('show');
+            });
+            $('.search-item').on('click', function () {
+                $('.ui.modal.info').modal('show');
+            });
+            $('.delete-item').on('click', function () {
+                $('.ui.modal.delete').modal('show');
+            });
+            $('.export-item').on('click', function () {
+
+            });
+            $('.import-item').on('click', function () {
+                $('.ui.modal.file').modal('show');
+            });
+
         </script>
-        <div class="ui modal">
-          <div class="header">员工账号</div>
-          <div class="content">
-              <div class="ui form">
-                <div class="fields">
-                  <div class="sixteen wide field">
-                    <label>学校</label>
-                    <input type="text" placeholder="">
-                  </div>
-                </div>
-                <div class="fields">
-                  <div class="eight wide field">
-                    <label>姓名</label>
-                    <input type="text" placeholder="">
-                  </div>
-                  <div class="eight wide field">
-                    <label>学科</label>
-                    <input type="text" placeholder="">
-                  </div>
-                </div>
-                <div class="fields">
-                  <div class="eight wide field">
-                      <label>账号</label>
-                    <input type="text" placeholder="">
-                  </div>
-                  <div class="eight wide field">
-                      <label>密码</label>
-                    <input type="text" placeholder="">
-                  </div>
-                </div>
-              </div>
-          </div>
-          <div class="actions">
-            <button class="ui button basic approve medium">&nbsp;&nbsp;<i class="add circle icon"></i> 确认 &nbsp;&nbsp;</button>
-            <button class="ui button basic medium">&nbsp;&nbsp;<i class="minus square icon"></i>重置 &nbsp;&nbsp;</button>
-            <button class="ui cancel button basic medium">&nbsp;&nbsp;<i class="remove circle icon"></i>取消 &nbsp;&nbsp;</button>
-          </div>
-        </div>
     </body>
 </html>

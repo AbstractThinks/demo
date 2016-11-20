@@ -282,6 +282,15 @@ textarea {
 }
 
 
+
+
+
+
+
+
+/**
+ * fixed menu btn
+ */
 .fixed.launch.button {
     display: block;
     position: fixed;
@@ -296,15 +305,6 @@ textarea {
     -o-transition: 0.3s width ease, 0.5s transform ease;
     -ms-transition: 0.3s width ease, 0.5s transform ease;
     transition: 0.3s width ease, 0.5s transform ease;
-}
-.full.height {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
 }
 .fixed.launch.button .icon {
     margin: 0!important;
@@ -328,20 +328,18 @@ textarea {
 .fixed.launch.button:hover .text {
     opacity: 1;
 }
-.pusher .ui.menu {
-    justify-content: space-between;
-}
-.my-header:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-    padding-bottom: 8px;
-}
-.container {
-    padding-top: 24px;
-}
-.center {
-    text-align: center;
+
+/**
+ * login.html
+ */
+ .login {
+     height: 100%;
+ }
+
+/**
+ * index.html
+ */
+
+.ui.horizontal.divider.header-divider {
+    margin-top:96px;
 }

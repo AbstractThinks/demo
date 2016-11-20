@@ -4,19 +4,19 @@ $(document).ready( function () {
 
 
 function init() {
-    $('.sidemenu').on('click', function() {
-        $('.pushable .ui.sidebar')
-            .sidebar('setting', 'transition', 'scale down')
-            .sidebar('toggle') ;
-    })
-    $('.my-header .right.menu a')
-      .popup({
-        popup : $('.my-header .right.menu .popup'),
+    $('.ui.sidemenu').on('click', function () {
+        $('.sidemenu.sidebar')
+          .sidebar('setting', 'transition', 'scale down')
+          .sidebar('toggle');
+    });
+
+
+    $('.my-header .menu a.ui.item').popup({
+        popup : $('.my-header .menu .popup'),
         on    : 'click',
         position: 'bottom right',
-        offset: -10,
-        delay: {
-          show: 300
-        }
-    })
+        offset: -10
+    });
+
+    $('.ui.rating').rating();
 }
