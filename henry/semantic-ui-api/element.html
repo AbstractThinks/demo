@@ -1,0 +1,516 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="image_src" type="image/jpeg" href="images/share.png" />
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.59.6" />
+  <title>基础组件 | Semantic UI中文网</title>
+
+  <meta name="description" content="基础组件是创建Web站点的基础控件，基本上所有的网站都会用到。" />
+  <meta name="keywords" content="Semantic UI, Semantic入门, CSS, CSS框架, CSS framework, html5, ui, library, framework, javascript, Semantic UI中文网, Semantic UI翻译, Semantic UI教程" />
+
+  <link rel="stylesheet" type="text/css" class="ui" href="build/packaged/css/semantic.min.css">
+
+  <link rel="stylesheet" type="text/css" href="stylesheets/semantic.css">
+    <script type="text/javascript" src="jquery.js"></script>
+  <script src="javascript/library/history.js"></script>
+  <script src="javascript/library/easing.js"></script>
+    <script src="../javascript/library/ace/ace.js"></script>
+  <script src="javascript/library/tablesort.js"></script>
+  <script src="javascript/library/waypoints.js"></script>
+
+  <script src="build/packaged/javascript/semantic.min.js"></script>
+
+  <script src="javascript/semantic.js"></script>
+
+</head>
+<body id="example" class="progress">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> 关闭
+    </a>
+    <a class="item" href="http://www.semantic-ui.com/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>下载</b>
+    </a>
+    <div class="item">
+      <a href="index.html">
+        <b>简单介绍</b>
+      </a>
+      <div class="menu">
+        
+        <a class="item" href="introduction/variations.html">变化</a>
+        
+        <a class="item" href="introduction/definitions.html">定义</a>
+        
+        <a class="item" href="introduction.html">有什么新奇的玩意儿？</a>
+        
+        <a class="item" href="introduction/types.html">样式（种类）</a>
+        
+        <a class="item" href="introduction/overview.html">概述</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>关于项目</b>
+      <div class="menu">
+        
+        <a class="item" href="project/contributing.html">加入我们</a>
+        
+        <a class="item" href="project/development.html">本地文档服务器</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="element.html"><b>基础组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="modules/reveal.html">Reveal</a>
+        
+        <a class="item" href="elements/divider.html">分隔条</a>
+        
+        <a class="item" href="elements/loader.html">加载控件</a>
+        
+        <a class="item" href="elements/image.html">图像控件</a>
+        
+        <a class="item" href="elements/icon.html">图标</a>
+        
+        <a class="item" href="elements/button.html">按扭</a>
+        
+        <a class="item" href="elements/label.html">标签</a>
+        
+        <a class="item" href="elements/header.html">标题头控件</a>
+        
+        <a class="item" href="elements/step.html">步骤控件</a>
+        
+        <a class="item" href="elements/segment.html">片断控件</a>
+        
+        <a class="item" href="elements/input.html">输入控件</a>
+        
+        <a class="item" href="elements/progress.html">进度条控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="collection.html"><b>集合/列表组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="collections/message.html">消息控件</a>
+        
+        <a class="item" href="collections/grid.html">网格（栅格）系统</a>
+        
+        <a class="item" href="collections/menu.html">菜单</a>
+        
+        <a class="item" href="collections/form.html">表单</a>
+        
+        <a class="item" href="collections/table.html">表格</a>
+        
+        <a class="item" href="collections/breadcrumb.html">面包屑/导航条</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>内容展示组件</b>
+      <div class="menu">
+        
+        <a class="item" href="views/feed.html">Feed</a>
+        
+        <a class="item" href="views/item.html">Item（元素列表）</a>
+        
+        <a class="item" href="views/list.html">列表</a>
+        
+        <a class="item" href="views/comment.html">评论控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="module.html"><b>模块</b></a>
+      <div class="menu">
+        
+        <a class="item" href="modules/shape.html">Shape</a>
+        
+        <a class="item" href="modules/dropdown.html">下拉列表模块</a>
+        
+        <a class="item" href="modules/checkbox.html">复选框模块</a>
+        
+        <a class="item" href="modules/popup.html">弹出框模块</a>
+        
+        <a class="item" href="modules/accordion.html">手风琴模块</a>
+        
+        <a class="item" href="modules/modal.html">模态对话框</a>
+        
+        <a class="item" href="modules/rating.html">评分模块</a>
+        
+        <a class="item" href="modules/dimmer.html">调光器（遮罩层）</a>
+        
+        <a class="item" href="modules/sidebar.html">边栏</a>
+        
+        <a class="item" href="modules/transition.html">过渡（动画）效果</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>特定行为控件</b>
+      <div class="menu">
+        
+        <a class="item" href="modules/form.html">验证表单</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>样式指南</b>
+      <div class="menu">
+        
+        <a class="item" href="guide/cssguide.html">CSS开发指南</a>
+        
+        <a class="item" href="guide/javascriptguide.html">Javascript开发指南</a>
+        
+        <a class="item" href="guide/styleguide.html">语言指南</a>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> 内容</a>
+      <div class="title item">
+        <b>Semantic:</b> 基础组件
+      </div>
+      
+      <div class="disabled icon item"><i class="left arrow icon"></i></div>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">1 of 4</span>
+        <div class="menu">
+          
+          <div class="active item">
+            <a href="element.html">1. 基础组件</a>
+          </div>
+          
+          <div class="item">
+            <a href="module.html">2. 模块</a>
+          </div>
+          
+          <div class="item">
+            <a href="index.html">3. 简介</a>
+          </div>
+          
+          <div class="item">
+            <a href="collection.html">4. 集合/列表组件</a>
+          </div>
+          
+        </div>
+      </div>
+      
+      <a class="icon item" href="module.html"><i class="right arrow icon"></i></a>
+      
+      <div class="right menu">
+        
+        <div class="vertically fitted borderless item">
+        </div>
+        
+        
+        <a class="popup icon github item" title="查看Semantic UI在Github的项目信息" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <div class="title item">
+          交流群：262577550
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui black huge launch right attached button">
+    <i class="icon list layout"></i>
+    <span class="text">导航</span>
+  </div>
+
+  ﻿
+
+<div class="segment">
+    <div class="container">
+        <div class="introduction">
+
+            <h1 class="ui dividing header">
+                基础组件
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Semantic UI学习交流群 <a class="ui red circular label large">262577550</a>
+            </h1>
+
+            <p>基础组件是创建Web站点的基础控件，基本上所有的网站都会用到。</p>
+            
+            
+        </div>
+
+        
+    </div>
+</div>
+
+<div class="main container">
+
+    <div class="peek">
+        <div class="ui vertical pointing secondary menu">
+            <a class="active item">所有组件</a>
+        </div>
+    </div>
+    <!--
+      <h2 class="ui dividing header">Definition</h2>
+      <p>UI Elements are the smallest useful unit for describing page content, and do not contain other elements inside themselves.</p>
+
+      <h3 class="ui header">Plurality</h3>
+      <p>Element usually exist by themselves, but they my also be grouped together with other elements of their kind. This forms a plural definition of an element.</p>
+      <p>The look and feel of the plural may change to show a relationship, and plural definitions can often share many of the same variations as singular definitions.</p>
+      <div class="ui segment">
+        <h4 class="ui header">Groups</h4>
+        <p>The plural of button is "buttons" a button wrapped inside "buttons" will automatically apply styling appropriate for a group. Many button variations can be used on plural definitions just like they would be used in singular.</p>
+        <p>For example, in this case each button will be large because we understand it is a part of the large button group, but the continue button has its own variations applied as well.</p>
+        <div class="ui simple ignored divider"></div>
+        <div class="large ui buttons">
+          <div class="ui secondary button">Cancel</div>
+          <div class="ui teal button">Continue <i class="icon right arrow"></i></div>
+        </div>
+        <br>
+        <div class="code" data-type="html">
+        <div class="large ui buttons">
+          <div class="ui secondary button">Cancel</div>
+          <div class="ui teal button">Continue <i class="icon right arrow"></i></div>
+        </div>
+        </div>
+      </div>
+    -->
+    <h2 class="ui dividing header">基础组件的包含：</h2>
+
+    <div class="ui two type stackable items">
+
+        <div class="item">
+            <div class="image">
+                <div class="ui teal labeled icon button">
+                    <i class="icon user add"></i>关注
+                </div>
+                <br><br>
+                <div class="ui black icon buttons">
+                    <div class="ui button"><i class="icon user"></i></div>
+                    <div class="ui button"><i class="icon settings"></i></div>
+                    <div class="ui button"><i class="icon trash"></i></div>
+                </div>
+            </div>
+            <div class="content">
+                <a href="elements/button.html" class="name">按扭</a>
+                <p>基础组件，看图知义，已经不知道怎么解释这类组件。</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image">
+                <div class="ui horizontal divider"><i class="github icon"></i></div>
+            </div>
+            <div class="content">
+                <a href="elements/divider.html" class="name">分隔条</a>
+                <p>用来分开展现两组界面。也是基础组件，看图知义。</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image">
+                <h2 class="ui blue block header">
+                    第二部分
+                    <div class="sub header">这是本网站的第二部分。</div>
+                </h2>
+            </div>
+            <div class="content">
+                <a href="elements/header.html" class="name">标题头</a>
+                <p>用来简短的描述内容的主题。</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image">
+                <div class="ui red active progress">
+                    <div class="bar"></div>
+                </div>
+            </div>
+            <div class="content">
+                <a href="elements/progress.html" class="name">进度条</a>
+                <p>进来展现任务进度，所有的操作系统都有该控件。你可以用来显示文件上传进度等。</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image">
+                <div class="ui inverted stacked segment">
+                    <p>这是由爱酷学习网翻译并校对的Semantic UI中文网，非常感谢jack lukic为我们提供了如此强大如此易用的前端框架。爱酷学习网是用Bootstrap制作的，事实上，如果我早一点知道有Semantic UI这个框架，我想我应用会使用Semantic UI来完成爱酷学习网的前端页面。</p>
+                </div>
+            </div>
+            <div class="content">
+                <a href="elements/segment.html" class="name">内容片段组件</a>
+                <p>内容片段组件主要用来显示一组相关的内容。</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image">
+                <div class="ui left floated circular image">
+                    <img src="images/demo/avatar.jpg">
+                </div>
+                <div class="ui right floated circular image">
+                    <img src="images/demo/avatar2.jpg">
+                </div>
+            </div>
+            <div class="content">
+                <a href="elements/image.html" class="name">图像组件</a>
+                <p>显示图片，够简单吧。</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image">
+                <div class="ui four fluid steps">
+                    <div class="ui step">
+                        第一步
+                    </div>
+                    <div class="ui active step">
+                        第二步
+                    </div>
+                    <div class="ui disabled step">
+                        第三步
+                    </div>
+                    <div class="ui disabled step">
+                        第四步
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <a href="elements/step.html" class="name">向导组件</a>
+                <p>向导组件用来显示一系列需要用户完成的步骤，并且显示当前已经完成了哪些步骤。</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image">
+                <i class="archive icon"></i>
+                <i class="attachment icon"></i>
+                <i class="browser icon"></i>
+                <i class="bug icon"></i>
+                <i class="calendar icon"></i>
+                <i class="cart icon"></i>
+                <i class="certificate icon"></i>
+                <i class="chat icon"></i>
+                <i class="cloud icon"></i>
+                <i class="code icon"></i>
+                <i class="comment icon"></i>
+                <i class="dashboard icon"></i>
+                <i class="desktop icon"></i>
+                <i class="empty calendar icon"></i>
+                <i class="external url icon"></i>
+                <i class="external url sign icon"></i>
+                <i class="file icon"></i>
+                <i class="file outline icon"></i>
+                <i class="folder icon"></i>
+                <i class="folder open icon"></i>
+                <i class="folder open outline icon"></i>
+                <i class="folder outline icon"></i>
+                <i class="help icon"></i>
+                <i class="home icon"></i>
+                <i class="inbox icon"></i>
+                <i class="info icon"></i>
+                <i class="info letter icon"></i>
+                <i class="legal icon"></i>
+                <i class="location arrow icon"></i>
+                <i class="mail icon"></i>
+                <i class="mail outline icon"></i>
+                <i class="map icon"></i>
+                <i class="map marker icon"></i>
+                <i class="mobile icon"></i>
+                <i class="music icon"></i>
+                <i class="outline chat icon"></i>
+                <i class="outline comment icon"></i>
+                <i class="payment icon"></i>
+                <i class="photo icon"></i>
+                <i class="qr code icon"></i>
+                <i class="question icon"></i>
+                <i class="rss icon"></i>
+                <i class="rss sign icon"></i>
+                <i class="setting icon"></i>
+                <i class="settings icon"></i>
+                <i class="signal icon"></i>
+                <i class="sitemap icon"></i>
+                <i class="table icon"></i>
+                <i class="tablet icon"></i>
+                <i class="tag icon"></i>
+                <i class="tags icon"></i>
+                <i class="tasks icon"></i>
+                <i class="terminal icon"></i>
+                <i class="text file icon"></i>
+                <i class="text file outline icon"></i>
+                <i class="time icon"></i>
+                <i class="trash icon"></i>
+                <i class="url icon"></i>
+                <i class="user icon"></i>
+                <i class="users icon"></i>
+                <i class="video icon"></i>
+                <i class="add icon"></i>
+                <i class="add sign box icon"></i>
+                <i class="add sign icon"></i>
+                <i class="adjust icon"></i>
+                <i class="bookmark empty icon"></i>
+                <i class="bookmark icon"></i>
+                <i class="cloud download icon"></i>
+                <i class="cloud upload icon"></i>
+                <i class="collapse icon"></i>
+                <i class="crop icon"></i>
+                <i class="download disk icon"></i>
+                <i class="download icon"></i>
+                <i class="edit icon"></i>
+                <i class="edit sign icon"></i>
+                <i class="empty flag icon"></i>
+                <i class="exchange icon"></i>
+                <i class="expand icon"></i>
+                <i class="filter icon"></i>
+                <i class="flag icon"></i>
+                <i class="fork code icon"></i>
+                <i class="forward mail icon"></i>
+                <i class="fullscreen icon"></i>
+                <i class="hide icon"></i>
+                <i class="level down icon"></i>
+                <i class="level up icon"></i>
+                <i class="off icon"></i>
+            </div>
+            <div class="content">
+                <a href="elements/icon.html" class="name">图标</a>
+                <p>易于使用且越来越多的图标控件。</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="image">
+                <div class="ui red label">狗狗</div>
+                <div class="ui teal corner label">
+                    <div class="text">新</div>
+                </div>
+                <br><br>
+                <div class="ui blue ribbon label">HTML</div>
+            </div>
+            <div class="content">
+                <a href="elements/label.html" class="name">标签</a>
+                <p>标签用来简短的描述内容的意思。</p>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+</body>
+
+</html>

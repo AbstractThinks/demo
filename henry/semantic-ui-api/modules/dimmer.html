@@ -1,0 +1,858 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.59.6" />
+  <title>调光器（遮罩层） | Semantic UI中文网</title>
+
+  <meta name="description" content="调调光器（遮罩层）用来隐藏网页的其它内容，集中分心用户的注意力。" />
+  <meta name="keywords" content="Semantic UI, Semantic入门, CSS, CSS框架, CSS framework, html5, ui, library, framework, javascript, Semantic UI中文网, Semantic UI翻译, Semantic UI教程" />
+
+  <link rel="stylesheet" type="text/css" class="ui" href="../build/packaged/css/semantic.min.css">
+
+  <link rel="stylesheet" type="text/css" href="../stylesheets/semantic.css">
+  <script type="text/javascript" src="../jquery.js"></script>
+  <script src="../javascript/library/history.js"></script>
+  <script src="../javascript/library/easing.js"></script>
+    <script src="../javascript/library/ace/ace.js"></script>
+  <script src="../javascript/library/tablesort.js"></script>
+  <script src="../javascript/library/waypoints.js"></script>
+
+  <script src="../build/packaged/javascript/semantic.min.js"></script>
+
+  <script src="../javascript/semantic.js"></script>
+
+</head>
+<body id="example" class="">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> 关闭
+    </a>
+    <a class="item" href="http://www.semantic-ui.com/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>下载</b>
+    </a>
+    <div class="item">
+      <a href="../index.html">
+        <b>简单介绍</b>
+      </a>
+      <div class="menu">
+        
+        <a class="item" href="../introduction/variations.html">变化</a>
+        
+        <a class="item" href="../introduction/definitions.html">定义</a>
+        
+        <a class="item" href="../introduction.html">有什么新奇的玩意儿？</a>
+        
+        <a class="item" href="../introduction/types.html">样式（种类）</a>
+        
+        <a class="item" href="../introduction/overview.html">概述</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>关于项目</b>
+      <div class="menu">
+        
+        <a class="item" href="../project/contributing.html">加入我们</a>
+        
+        <a class="item" href="../project/development.html">本地文档服务器</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../element.html"><b>基础组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="reveal.html">Reveal</a>
+        
+        <a class="item" href="../elements/divider.html">分隔条</a>
+        
+        <a class="item" href="../elements/loader.html">加载控件</a>
+        
+        <a class="item" href="../elements/image.html">图像控件</a>
+        
+        <a class="item" href="../elements/icon.html">图标</a>
+        
+        <a class="item" href="../elements/button.html">按扭</a>
+        
+        <a class="item" href="../elements/label.html">标签</a>
+        
+        <a class="item" href="../elements/header.html">标题头控件</a>
+        
+        <a class="item" href="../elements/step.html">步骤控件</a>
+        
+        <a class="item" href="../elements/segment.html">片断控件</a>
+        
+        <a class="item" href="../elements/input.html">输入控件</a>
+        
+        <a class="item" href="../elements/progress.html">进度条控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../collection.html"><b>集合/列表组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../collections/message.html">消息控件</a>
+        
+        <a class="item" href="../collections/grid.html">网格（栅格）系统</a>
+        
+        <a class="item" href="../collections/menu.html">菜单</a>
+        
+        <a class="item" href="../collections/form.html">表单</a>
+        
+        <a class="item" href="../collections/table.html">表格</a>
+        
+        <a class="item" href="../collections/breadcrumb.html">面包屑/导航条</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>内容展示组件</b>
+      <div class="menu">
+        
+        <a class="item" href="../views/feed.html">Feed</a>
+        
+        <a class="item" href="../views/item.html">Item（元素列表）</a>
+        
+        <a class="item" href="../views/list.html">列表</a>
+        
+        <a class="item" href="../views/comment.html">评论控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../module.html"><b>模块</b></a>
+      <div class="menu">
+        
+        <a class="item" href="shape.html">Shape</a>
+        
+        <a class="item" href="dropdown.html">下拉列表模块</a>
+        
+        <a class="item" href="checkbox.html">复选框模块</a>
+        
+        <a class="item" href="popup.html">弹出框模块</a>
+        
+        <a class="item" href="accordion.html">手风琴模块</a>
+        
+        <a class="item" href="modal.html">模态对话框</a>
+        
+        <a class="item" href="rating.html">评分模块</a>
+        
+        <a class="active item" href="dimmer.html">调光器（遮罩层）</a>
+        
+        <a class="item" href="sidebar.html">边栏</a>
+        
+        <a class="item" href="transition.html">过渡（动画）效果</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>特定行为控件</b>
+      <div class="menu">
+        
+        <a class="item" href="form.html">验证表单</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>样式指南</b>
+      <div class="menu">
+        
+        <a class="item" href="../guide/cssguide.html">CSS开发指南</a>
+        
+        <a class="item" href="../guide/javascriptguide.html">Javascript开发指南</a>
+        
+        <a class="item" href="../guide/styleguide.html">语言指南</a>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> 内容</a>
+      <div class="title item">
+        <b>UI Module:</b> 调光器（遮罩层）
+      </div>
+      
+      <a class="icon item" href="rating.html"><i class="left arrow icon"></i></a>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">8 of 10</span>
+        <div class="menu">
+          
+          <div class="item">
+            <a href="shape.html">1. Shape</a>
+          </div>
+          
+          <div class="item">
+            <a href="dropdown.html">2. 下拉列表模块</a>
+          </div>
+          
+          <div class="item">
+            <a href="checkbox.html">3. 复选框模块</a>
+          </div>
+          
+          <div class="item">
+            <a href="popup.html">4. 弹出框模块</a>
+          </div>
+          
+          <div class="item">
+            <a href="accordion.html">5. 手风琴模块</a>
+          </div>
+          
+          <div class="item">
+            <a href="modal.html">6. 模态对话框</a>
+          </div>
+          
+          <div class="item">
+            <a href="rating.html">7. 评分模块</a>
+          </div>
+          
+          <div class="active item">
+            <a href="dimmer.html">8. 调光器（遮罩层）</a>
+          </div>
+          
+          <div class="item">
+            <a href="sidebar.html">9. 边栏</a>
+          </div>
+          
+          <div class="item">
+            <a href="transition.html">10. 过渡（动画）效果</a>
+          </div>
+          
+        </div>
+      </div>
+      
+      <a class="icon item" href="sidebar.html"><i class="right arrow icon"></i></a>
+      
+      <div class="right menu">
+        
+        <div class="vertically fitted borderless item">
+        
+        </div>
+        
+        
+        <a class="popup designer icon item" title="设计模式">
+          <i class="basic paint icon"></i>
+        </a>
+        <a class="popup developer icon item" title="开发模式">
+          <i class="terminal icon"></i>
+        </a>
+        
+        <a class="popup icon github item" title="查看Semantic UI在Github的项目信息" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <div class="title item">
+          交流群：262577550
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui black huge launch right attached button">
+    <i class="icon list layout"></i>
+    <span class="text">导航</span>
+  </div>
+
+  <script src="../javascript/dimmer.js"></script>
+<div class="ui page dimmer">
+    <div class="content">
+        <div class="center">
+            <h2 class="ui inverted icon header">
+                <i class="icon circular inverted emphasized green mail"></i>
+                You're all signed up for the weekly dog tips newsletter!你已经成功订阅了爱酷学习网的视频教程信息。
+                <div class="sub header">每当有新的视频教程的时候，我们都会通过邮件发送你感兴趣的内容给你哦。</div>
+            </h2>
+        </div>
+    </div>
+</div>
+
+﻿
+
+<div class="tab segment">
+    <div class="container">
+        <div class="introduction">
+
+            <h1 class="ui dividing header">
+                调光器（遮罩层）
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Semantic UI学习交流群 <a class="ui red circular label large">262577550</a>
+            </h1>
+
+            <p>调调光器（遮罩层）用来隐藏网页的其它内容，集中分心用户的注意力。</p>
+            
+            
+            <a href="../module.html" class="ui basic labeled icon button">
+                学习更多的模块知识
+                <i class="help icon"></i>
+            </a>
+            
+        </div>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="four item tabular ui menu">
+            
+            <a class="active item" data-tab="definition">定义</a>
+            
+            
+            <a class="item" data-tab="examples">例子</a>
+            
+            
+            <a class="item" data-tab="usage">用法</a>
+            
+            
+            <a class="item" data-tab="settings">配置</a>
+            
+            
+        </div>
+        
+        <div class="fluid vertical ui menu">
+            
+            <a class="active item" data-tab="definition">定义</a>
+            
+            
+            <a class="item" data-tab="examples">例子</a>
+            
+            
+            <a class="item" data-tab="usage">用法</a>
+            
+            
+            <a class="item" data-tab="settings">配置</a>
+            
+            
+        </div>
+        
+    </div>
+</div>
+
+<div class="main container">
+
+    <div class="active ui tab" data-tab="definition">
+
+        <div class="peek">
+            <div class="ui vertical pointing secondary menu">
+                <a class="item">种类</a>
+                <a class="item">状态</a>
+                <a class="item">变化的调光器（遮罩层）</a>
+            </div>
+        </div>
+
+        <h2 class="ui dividing header">种类</h2>
+
+        <div class="example">
+            <h4 class="ui header">内容调光器（遮罩层）</h4>
+            <p>调光器（遮罩层）可以显示一系列的内容。</p>
+            <div class="ui ignored info message">内容必须包含用类名<code>.content .center</code>修饰的元素才可以在模态对话框里正确的在中央显示你要显示的内容。</div>
+            <div class="ui segment">
+                <h4 class="ui dividing header">
+                    <i class="photo icon"></i>视频教程专辑的封面图
+                </h4>
+                <img src="../images/demo/item1.jpg">
+                <img src="../images/demo/item2.jpg">
+                <div class="ui dimmer">
+                    <div class="content">
+                        <div class="center">
+                            <h2 class="ui inverted icon header">
+                                <i class="icon circular inverted emphasized red heart"></i>
+                                你已经成功的上传了照片。
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui icon buttons">
+                <div class="ui show button"><i class="plus icon"></i></div>
+                <div class="ui hide button"><i class="minus icon"></i></div>
+            </div>
+            <div class="existing code">
+                <div class="ui dimmer">
+                    <div class="content">
+                        <div class="center">
+                            <h2 class="ui inverted icon header">
+                                <i class="icon circular inverted emphasized red heart"></i>
+                                你已经成功的上传了照片。
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="example">
+            <h4 class="ui header">页面调光器（遮罩层）</h4>
+            <p>此种类型的调光器（遮罩层）用来遮罩住整个页面，点击看看效果吧。</p>
+            <div class="existing code">
+                <div class="ui page dimmer">
+                    <div class="content">
+                        <div class="center">爱酷学习网</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui page button"><i class="plus icon"></i> 显示</div>
+        </div>
+
+
+        <h2 class="ui dividing header">状态</h2>
+
+        <div class="example">
+            <h4 class="ui header">激活状态</h4>
+            <p>一个激活的调光会变暗其父容器。</p>
+            <div class="ui segment">
+                <div class="ui active dimmer"></div>
+            </div>
+        </div>
+
+        <div class="example">
+            <h4 class="ui header">禁用状态</h4>
+            <p>禁用的调光器（遮罩层）无法被激活。</p>
+            <div class="ui segment">
+                <div class="ui disabled dimmer"></div>
+            </div>
+        </div>
+
+        <h2 class="ui dividing header">变化的调光器（遮罩层）</h2>
+
+        <h3>调光器（遮罩层）</h3>
+        <div class="example">
+            <h4 class="ui header">简单的调光器（遮罩层）</h4>
+            <p>调光器（遮罩层）可以不需要Javascript来控制。</p>
+            <div class="ignored ui info message">任何有用类名<code>ui dimmable dimmed</code>修饰的父元素都可以触发调光器（遮罩器）显示。</div>
+            <div class="ui dimmable dimmed segment">
+                <div class="ui simple dimmer"></div>
+                <p>爱酷学习网是一个免费提供高清在线观看视频教程的网站，这里有各类视频教程，包括Java,.Net,C,C++,Python,Php,iOS,Ruby,Photoshop,Mybats,Spring,SpringMVC,Bootstrap,Semantic UI等视频教程。我们还提供了Android, iOS, Windows Phone客户端，让你在手机等移动设备上也能随时随地观看视频教程。</p>
+                <p>爱酷学习网是一个免费提供高清在线观看视频教程的网站，这里有各类视频教程，包括Java,.Net,C,C++,Python,Php,iOS,Ruby,Photoshop,Mybats,Spring,SpringMVC,Bootstrap,Semantic UI等视频教程。我们还提供了Android, iOS, Windows Phone客户端，让你在手机等移动设备上也能随时随地观看视频教程。</p>
+            </div>
+        </div>
+
+        <div class="example">
+            <h4 class="ui header">反色调光器（遮罩层）</h4>
+            <p>又是反色控件，不多解释了。</p>
+            <div class="ui segment">
+                <div class="ui inverted dimmer"></div>
+                <p>爱酷学习网是一个免费提供高清在线观看视频教程的网站，这里有各类视频教程，包括Java,.Net,C,C++,Python,Php,iOS,Ruby,Photoshop,Mybats,Spring,SpringMVC,Bootstrap,Semantic UI等视频教程。我们还提供了Android, iOS, Windows Phone客户端，让你在手机等移动设备上也能随时随地观看视频教程。</p>
+                <p>爱酷学习网是一个免费提供高清在线观看视频教程的网站，这里有各类视频教程，包括Java,.Net,C,C++,Python,Php,iOS,Ruby,Photoshop,Mybats,Spring,SpringMVC,Bootstrap,Semantic UI等视频教程。我们还提供了Android, iOS, Windows Phone客户端，让你在手机等移动设备上也能随时随地观看视频教程。</p>
+            </div>
+            <div class="ignore ui icon buttons">
+                <div class="ui show button"><i class="plus icon"></i></div>
+                <div class="ui hide button"><i class="minus icon"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="ui tab" data-tab="examples">
+
+        <div class="event example">
+            <h4 class="ui header">调光器（遮罩层）事件</h4>
+            <p>可以设置调光器（遮罩层）的显示触发事件。</p>
+            <div class="evaluated code">
+                $('.event.example .image')
+                .dimmer({
+                on: 'hover'
+                });
+            </div>
+            <div class="ui medium image">
+                <div class="ui dimmer">
+                    <div class="content">
+                        <div class="center">
+                            <h2 class="ui header">Puppy</h2>
+                            <div class="ui green button">Vote</div>
+                            <a class="ui button">View</a>
+                        </div>
+                    </div>
+                </div>
+                <img src="../images/demo/highres.jpg">
+            </div>
+            <div class="ui circular image">
+                <div class="ui dimmer">
+                    <div class="content">
+                        <div class="center">
+                            <div class="ui green button">Vote</div>
+                            <a class="ui button">View</a>
+                        </div>
+                    </div>
+                </div>
+                <img src="../images/demo/photo2.jpg">
+            </div>
+        </div>
+
+        <div class="example">
+            <h4 class="ui header">Loaders inside Dimmers</h4>
+            <p>Any loader inside a dimmer will automatically use an appropriate color to match</p>
+            <div class="ui segment">
+                <div class="ui inverted dimmer">
+                    <div class="ui text loader">Loading</div>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+            </div>
+            <div class="ignore ui icon buttons">
+                <div class="ui show button"><i class="plus icon"></i></div>
+                <div class="ui hide button"><i class="minus icon"></i></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="ui tab" data-tab="usage">
+
+        <h2 class="ui dividing header">Usage</h2>
+
+        <h3 class="ui header">Display</h3>
+        <p>You can display a dimmer by either invoking dimmer show on a section or a dimmer itself. If you choose to dim a dimmable section, a dimmer will automatically be created.</p>
+        <div class="ignore code">
+            // these two are the same
+            $('.ui.dimmable)
+            .dimmer('show')
+            ;
+            $('.ui.dimmable .dimmer')
+            .dimmer('show')
+            ;
+        </div>
+
+        <h3 class="ui header">Creating Dimmers</h3>
+        <p>If a dimmer does not exist inside the element it will be created on first use.</p>
+        <div class="code" data-demo="true">
+            $('h3')
+            .dimmer('toggle')
+            ;
+        </div>
+        <h3 class="ui header">Showing a specific dimmer</h3>
+        <p>If a dimmer is already inside an element, you can call behavior on the dimmable section or the dimmer itself.</p>
+        <div class="code" data-demo="true">
+            // If a dimmer exists on a page, you can make it appear by calling it directly
+            $('.page.dimmer:first')
+            .dimmer('toggle')
+            ;
+        </div>
+
+        <h2 class="ui dividing header">Behavior</h2>
+
+        <p>All the following <a href="../module.html#/behavior">behaviors</a> can be called using the syntax:</p>
+        <div class="code">
+            $('.your.element')
+            .dimmer('behavior name', argumentOne, argumentTwo)
+            ;
+        </div>
+
+        <table class="ui definition celled sortable table segment">
+            <thead>
+            <th>Behavior</th>
+            <th>Description</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>add content (element)</td>
+                    <td>Detaches a given element from DOM and reattaches element inside dimmer</td>
+                </tr>
+                <tr>
+                    <td>show</td>
+                    <td>Shows dimmer</td>
+                </tr>
+                <tr>
+                    <td>hide</td>
+                    <td>Hides dimmer</td>
+                </tr>
+                <tr>
+                    <td>toggle</td>
+                    <td>Toggles current dimmer visibility</td>
+                </tr>
+                <tr>
+                    <td>get duration</td>
+                    <td>Returns current duration for show or hide event depending on current visibility</td>
+                </tr>
+                <tr>
+                    <td>get dimmer</td>
+                    <td>Returns DOM element for dimmer</td>
+                </tr>
+                <tr>
+                    <td>has dimmer</td>
+                    <td>Returns whether current dimmable has a dimmer</td>
+                </tr>
+                <tr>
+                    <td>is dimmer</td>
+                    <td>Whether current element is a dimmer</td>
+                </tr>
+                <tr>
+                    <td>is dimmable</td>
+                    <td>Whether current element is a dimmable section</td>
+                </tr>
+                <tr>
+                    <td>is active</td>
+                    <td>Whether section's dimmer is active</td>
+                </tr>
+                <tr>
+                    <td>is animating</td>
+                    <td>Whether dimmer is animating</td>
+                </tr>
+                <tr>
+                    <td>is page</td>
+                    <td>Whether dimmable section is <code>body</code></td>
+                </tr>
+                <tr>
+                    <td>is enabled</td>
+                    <td>Whether dimmer is not disabled</td>
+                </tr>
+                <tr>
+                    <td>is disabled</td>
+                    <td>Whether dimmer is disabled</td>
+                </tr>
+                <tr>
+                    <td>is page dimmer</td>
+                    <td>Whether dimmer is a page dimmer</td>
+                </tr>
+                <tr>
+                    <td>set active</td>
+                    <td>Sets page dimmer to active</td>
+                </tr>
+                <tr>
+                    <td>set dimmable</td>
+                    <td>Sets an element as a dimmable section</td>
+                </tr>
+                <tr>
+                    <td>set dimmed</td>
+                    <td>Sets a dimmable section as dimmed</td>
+                </tr>
+                <tr>
+                    <td>set page dimmer</td>
+                    <td>Sets current dimmer as a page dimmer</td>
+                </tr>
+                <tr>
+                    <td>set disabled</td>
+                    <td>Sets a dimmer as disabled</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="ui tab" data-tab="settings">
+
+        <h3 class="ui header">
+            Dimmer Settings
+            <div class="sub header">Dimmer settings modify its behavior</div>
+        </h3>
+        <table class="ui sortable celled definition table segment">
+            <thead>
+            <th>Setting</th>
+            <th class="four wide">Default</th>
+            <th>Description</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>closable</td>
+                    <td class="six wide">true</td>
+                    <td>Whether clicking on the dimmer should close it automatically</td>
+                </tr>
+                <tr>
+                    <td>on</td>
+                    <td class="six wide">false</td>
+                    <td>Can be set to <code>hover</code> or <code>click</code> to show/hide dimmer on dimmable event</td>
+                </tr>
+                <tr>
+                    <td>duration</td>
+                    <td>
+                        <div class="code">
+                            duration    : {
+                            show : 500,
+                            hide : 500
+                            }
+                        </div>
+                    </td>
+                    <td>Animation duration of dimming. If an integer is used, that value will apply to both show and hide animations.</td>
+                </tr>
+                <tr>
+                    <td>transition</td>
+                    <td>
+                        Fade
+                    </td>
+                    <td>Named transition to use when animating menu in and out. Fade and slide down are available without including <a href="transition.html">ui transitions</a></td>
+                </tr>
+            </tbody>
+            </tbody>
+        </table>
+
+        <h3 class="ui header">
+            Callbacks
+            <div class="sub header">Callbacks specify a function to occur after a specific behavior.</div>
+        </h3>
+
+        <table class="ui sortable celled definition table segment">
+            <thead>
+            <th class="four wide">Setting</th>
+            <th>Context</th>
+            <th>Description</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>onShow</td>
+                    <td>dimmable</td>
+                    <td>Callback on element show</td>
+                </tr>
+                <tr>
+                    <td>onHide</td>
+                    <td>dimmable</td>
+                    <td>Callback on element hide</td>
+                </tr>
+                <tr>
+                    <td>onChange</td>
+                    <td>dimmable</td>
+                    <td>Callback on element show or hide</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="ui header">
+            Templates
+            <div class="sub header">Templates are used to generate DOM elements</div>
+        </h3>
+
+        <table class="ui sortable celled definition table segment">
+            <thead>
+            <th class="three wide">Generates</th>
+            <th>Default</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>dimmer</td>
+                    <td>
+                        <div class="code" data-type="javascript">
+                            function() {
+                            return $('<div />').attr('class', 'ui dimmer');
+                            }
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="ui header">
+            DOM Settings
+            <div class="sub header">DOM settings specify how this module should interface with the DOM</div>
+        </h3>
+        <table class="ui sortable celled definition table segment">
+            <thead>
+            <th>Setting</th>
+            <th class="six wide">Default</th>
+            <th>Description</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>namespace</td>
+                    <td>dimmer</td>
+                    <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+                </tr>
+                <tr>
+                    <td>selector</td>
+                    <td>
+                        <div class="code" data-type="css">
+                            selector: {
+                            dimmable : '.ui.dimmable',
+                            dimmer   : '.ui.dimmer',
+                            content  : '.ui.dimmer > .content, .ui.dimmer > .content > .center'
+                            }
+                        </div>
+                    </td>
+                    <td>Object containing selectors used by module.</td>
+                </tr>
+                <tr>
+                    <td>className</td>
+                    <td>
+                        <div class="code">
+                            className : {
+                            active     : 'active',
+                            dimmable   : 'ui dimmable',
+                            dimmed     : 'dimmed',
+                            disabled   : 'disabled',
+                            pageDimmer : 'page',
+                            hide       : 'hide',
+                            show       : 'show',
+                            transition : 'transition'
+                            }
+                        </div>
+                    </td>
+                    <td>Class names used to attach style to state</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="ui header">
+            Debug Settings
+            <div class="sub header">Debug settings controls debug output to the console</div>
+        </h3>
+
+        <table class="ui sortable celled definition table segment">
+            <thead>
+            <th>Setting</th>
+            <th class="four wide">Default</th>
+            <th>Description</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>name</td>
+                    <td>Dimmer</td>
+                    <td>Name used in debug logs</td>
+                </tr>
+                <tr>
+                    <td>debug</td>
+                    <td>True</td>
+                    <td>Provides standard debug output to console</td>
+                </tr>
+                <tr>
+                    <td>performance</td>
+                    <td>True</td>
+                    <td>Provides standard debug output to console</td>
+                </tr>
+                <tr>
+                    <td>verbose</td>
+                    <td>True</td>
+                    <td>Provides ancillary debug output to console</td>
+                </tr>
+                <tr>
+                    <td>errors</td>
+                    <td colspan="2">
+                        <div class="code">
+                            error   : {
+                            method   : 'The method you called is not defined.'
+                            }
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

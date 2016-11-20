@@ -1,0 +1,934 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.59.6" />
+  <title>边栏 | Semantic UI中文网</title>
+
+  <meta name="description" content="边栏是一种特别的菜单，默认是隐藏的，可以通过点击或者其它事件触发让它显示出来。" />
+  <meta name="keywords" content="Semantic UI, Semantic入门, CSS, CSS框架, CSS framework, html5, ui, library, framework, javascript, Semantic UI中文网, Semantic UI翻译, Semantic UI教程" />
+
+  <link rel="stylesheet" type="text/css" class="ui" href="../build/packaged/css/semantic.min.css">
+
+  <link rel="stylesheet" type="text/css" href="../stylesheets/semantic.css">
+    <script type="text/javascript" src="../jquery.js"></script>
+  <script src="../javascript/library/history.js"></script>
+  <script src="../javascript/library/easing.js"></script>
+    <script src="../javascript/library/ace/ace.js"></script>
+  <script src="../javascript/library/tablesort.js"></script>
+  <script src="../javascript/library/waypoints.js"></script>
+
+  <script src="../build/packaged/javascript/semantic.min.js"></script>
+
+  <script src="../javascript/semantic.js"></script>
+
+</head>
+<body id="example" class="side">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> 关闭
+    </a>
+    <a class="item" href="http://www.semantic-ui.com/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>下载</b>
+    </a>
+    <div class="item">
+      <a href="../index.html">
+        <b>简单介绍</b>
+      </a>
+      <div class="menu">
+        
+        <a class="item" href="../introduction/variations.html">变化</a>
+        
+        <a class="item" href="../introduction/definitions.html">定义</a>
+        
+        <a class="item" href="../introduction.html">有什么新奇的玩意儿？</a>
+        
+        <a class="item" href="../introduction/types.html">样式（种类）</a>
+        
+        <a class="item" href="../introduction/overview.html">概述</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>关于项目</b>
+      <div class="menu">
+        
+        <a class="item" href="../project/contributing.html">加入我们</a>
+        
+        <a class="item" href="../project/development.html">本地文档服务器</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../element.html"><b>基础组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="reveal.html">Reveal</a>
+        
+        <a class="item" href="../elements/divider.html">分隔条</a>
+        
+        <a class="item" href="../elements/loader.html">加载控件</a>
+        
+        <a class="item" href="../elements/image.html">图像控件</a>
+        
+        <a class="item" href="../elements/icon.html">图标</a>
+        
+        <a class="item" href="../elements/button.html">按扭</a>
+        
+        <a class="item" href="../elements/label.html">标签</a>
+        
+        <a class="item" href="../elements/header.html">标题头控件</a>
+        
+        <a class="item" href="../elements/step.html">步骤控件</a>
+        
+        <a class="item" href="../elements/segment.html">片断控件</a>
+        
+        <a class="item" href="../elements/input.html">输入控件</a>
+        
+        <a class="item" href="../elements/progress.html">进度条控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../collection.html"><b>集合/列表组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../collections/message.html">消息控件</a>
+        
+        <a class="item" href="../collections/grid.html">网格（栅格）系统</a>
+        
+        <a class="item" href="../collections/menu.html">菜单</a>
+        
+        <a class="item" href="../collections/form.html">表单</a>
+        
+        <a class="item" href="../collections/table.html">表格</a>
+        
+        <a class="item" href="../collections/breadcrumb.html">面包屑/导航条</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>内容展示组件</b>
+      <div class="menu">
+        
+        <a class="item" href="../views/feed.html">Feed</a>
+        
+        <a class="item" href="../views/item.html">Item（元素列表）</a>
+        
+        <a class="item" href="../views/list.html">列表</a>
+        
+        <a class="item" href="../views/comment.html">评论控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../module.html"><b>模块</b></a>
+      <div class="menu">
+        
+        <a class="item" href="shape.html">Shape</a>
+        
+        <a class="item" href="dropdown.html">下拉列表模块</a>
+        
+        <a class="item" href="checkbox.html">复选框模块</a>
+        
+        <a class="item" href="popup.html">弹出框模块</a>
+        
+        <a class="item" href="accordion.html">手风琴模块</a>
+        
+        <a class="item" href="modal.html">模态对话框</a>
+        
+        <a class="item" href="rating.html">评分模块</a>
+        
+        <a class="item" href="dimmer.html">调光器（遮罩层）</a>
+        
+        <a class="active item" href="sidebar.html">边栏</a>
+        
+        <a class="item" href="transition.html">过渡（动画）效果</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>特定行为控件</b>
+      <div class="menu">
+        
+        <a class="item" href="form.html">验证表单</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>样式指南</b>
+      <div class="menu">
+        
+        <a class="item" href="../guide/cssguide.html">CSS开发指南</a>
+        
+        <a class="item" href="../guide/javascriptguide.html">Javascript开发指南</a>
+        
+        <a class="item" href="../guide/styleguide.html">语言指南</a>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> 内容</a>
+      <div class="title item">
+        <b>UI Module:</b> 边栏
+      </div>
+      
+      <a class="icon item" href="dimmer.html"><i class="left arrow icon"></i></a>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">9 of 10</span>
+        <div class="menu">
+          
+          <div class="item">
+            <a href="shape.html">1. Shape</a>
+          </div>
+          
+          <div class="item">
+            <a href="dropdown.html">2. 下拉列表模块</a>
+          </div>
+          
+          <div class="item">
+            <a href="checkbox.html">3. 复选框模块</a>
+          </div>
+          
+          <div class="item">
+            <a href="popup.html">4. 弹出框模块</a>
+          </div>
+          
+          <div class="item">
+            <a href="accordion.html">5. 手风琴模块</a>
+          </div>
+          
+          <div class="item">
+            <a href="modal.html">6. 模态对话框</a>
+          </div>
+          
+          <div class="item">
+            <a href="rating.html">7. 评分模块</a>
+          </div>
+          
+          <div class="item">
+            <a href="dimmer.html">8. 调光器（遮罩层）</a>
+          </div>
+          
+          <div class="active item">
+            <a href="sidebar.html">9. 边栏</a>
+          </div>
+          
+          <div class="item">
+            <a href="transition.html">10. 过渡（动画）效果</a>
+          </div>
+          
+        </div>
+      </div>
+      
+      <a class="icon item" href="transition.html"><i class="right arrow icon"></i></a>
+      
+      <div class="right menu">
+        
+        <div class="vertically fitted borderless item">
+        </div>
+        
+        
+        <a class="popup designer icon item" title="设计模式">
+          <i class="basic paint icon"></i>
+        </a>
+        <a class="popup developer icon item" title="开发模式">
+          <i class="terminal icon"></i>
+        </a>
+        
+        <a class="popup icon github item" title="查看Semantic UI在Github的项目信息" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <div class="title item">
+          交流群：262577550
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui black huge launch right attached button">
+    <i class="icon list layout"></i>
+    <span class="text">导航</span>
+  </div>
+
+  <script src="../javascript/sidebar.js"></script>
+
+﻿
+
+<div class="tab segment">
+    <div class="container">
+        <div class="introduction">
+
+            <h1 class="ui dividing header">
+                边栏
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Semantic UI学习交流群 <a class="ui red circular label large">262577550</a>
+            </h1>
+
+            <p>边栏是一种特别的菜单，默认是隐藏的，可以通过点击或者其它事件触发让它显示出来。</p>
+            
+            
+            <a href="../module.html" class="ui basic labeled icon button">
+                学习更多的模块知识
+                <i class="help icon"></i>
+            </a>
+            
+        </div>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="four item tabular ui menu">
+            
+            <a class="active item" data-tab="definition">定义</a>
+            
+            
+            <a class="item" data-tab="examples">例子</a>
+            
+            
+            <a class="item" data-tab="usage">用法</a>
+            
+            
+            <a class="item" data-tab="settings">配置</a>
+            
+            
+        </div>
+        
+        <div class="fluid vertical ui menu">
+            
+            <a class="active item" data-tab="definition">定义</a>
+            
+            
+            <a class="item" data-tab="examples">例子</a>
+            
+            
+            <a class="item" data-tab="usage">用法</a>
+            
+            
+            <a class="item" data-tab="settings">配置</a>
+            
+            
+        </div>
+        
+    </div>
+</div>
+
+<div class="ui styled sidebar">
+    <h3 class="ui header">你会爱上我哟！</h3>
+    <div class="ui fluid vertical menu">
+        <a class="item" href="http://www.icoolxue.com">
+            <i class="chat outline icon"></i>
+            更多关于爱酷学习网的介绍
+        </a>
+        <a class="item" href="http://www.icoolxue.com">
+            <i class="text file icon"></i>
+            去爱酷学习网看看
+        </a>
+    </div>
+    <h3 class="ui header">联系我们</h3>
+    <div class="ui form">
+        <div class="field">
+            <label>名字</label>
+            <div class="ui icon input">
+                <i class="user icon"></i>
+                <input type="text" data-placeholder="名字">
+            </div>
+        </div>
+        <div class="field">
+            <label>内容</label>
+            <textarea></textarea>
+        </div>
+        <div class="ui black fluid button">提交</div>
+    </div>
+</div>
+<div class="ui thin styled sidebar">
+    <h3 class="ui header">分享</h3>
+    <div class="ui fluid vertical labeled icon buttons">
+        <div class="ui facebook button">
+            <i class="facebook icon"></i>
+            Facebook
+        </div>
+        <div class="ui twitter button">
+            <i class="twitter icon"></i>
+            Twitter
+        </div>
+        <div class="ui google plus button">
+            <i class="google plus icon"></i>
+            Google
+        </div>
+    </div>
+</div>
+<div class="ui very thin styled sidebar">
+    <div class="ui fluid vertical icon buttons">
+        <div class="ui facebook button">
+            <i class="facebook icon"></i>
+        </div>
+        <div class="ui twitter button">
+            <i class="twitter icon"></i>
+        </div>
+        <div class="ui google plus button">
+            <i class="google plus icon"></i>
+        </div>
+    </div>
+</div>
+<div class="ui wide styled sidebar">
+    <h3 class="ui header">你会爱上我哟！</h3>
+    <div class="ui fluid vertical menu">
+        <a class="item" href="http://www.icoolxue.com">
+            <i class="chat outline icon"></i>
+            更多关于爱酷学习网的介绍
+        </a>
+        <a class="item" href="http://www.icoolxue.com">
+            <i class="text file icon"></i>
+            去爱酷学习网看看
+        </a>
+    </div>
+</div>
+<div class="ui very wide styled sidebar">
+    <h3 class="ui header">联系我们</h3>
+    <div class="ui form">
+        <div class="field">
+            <label>名字</label>
+            <div class="ui icon input">
+                <i class="user icon"></i>
+                <input type="text" data-placeholder="名字">
+            </div>
+        </div>
+        <div class="field">
+            <label>消息内容</label>
+            <textarea></textarea>
+        </div>
+        <div class="ui black fluid button">提交</div>
+    </div>
+</div>
+
+<div class="ui vertical overlay sidebar menu">
+    <a class="item">
+        <i class="home icon"></i>
+        主页
+    </a>
+    <a class="active item">
+        <i class="heart icon"></i>
+        当前区域
+    </a>
+    <a class="item">
+        <i class="facebook icon"></i>
+        Facebook
+    </a>
+    <div class="item">
+        <b>更多</b>
+        <div class="menu">
+            <a class="item">关于</a>
+            <a class="item">联系我们</a>
+        </div>
+    </div>
+</div>
+<div class="ui floating vertical sidebar menu">
+    <a class="item">
+        <i class="home icon"></i>
+        主页
+    </a>
+    <a class="active item">
+        <i class="heart icon"></i>
+        当前区域
+    </a>
+    <a class="item">
+        <i class="facebook icon"></i>
+        Facebook
+    </a>
+    <div class="item">
+        <b>更多</b>
+        <div class="menu">
+            <a class="item">关于</a>
+            <a class="item">联系我们</a>
+        </div>
+    </div>
+</div>
+
+<div class="ui red vertical demo sidebar menu">
+    <a class="item">
+        <i class="home icon"></i>
+        主页
+    </a>
+    <a class="active item">
+        <i class="heart icon"></i>
+        当前区域
+    </a>
+    <a class="item">
+        <i class="facebook icon"></i>
+        Facebook
+    </a>
+    <div class="item">
+        <b>更多</b>
+        <div class="menu">
+            <a class="item">关于</a>
+            <a class="item">联系我们</a>
+        </div>
+    </div>
+</div>
+<div class="ui left sidebar vertical menu">
+    <div class="header item">左边的侧边栏</div>
+    <a class="item" href="http://www.icoolxue.com">爱酷学习网</a>
+    <a class="item" href="http://www.icoolxue.com">爱酷学习网</a>
+    <a class="item" href="http://www.icoolxue.com">爱酷学习网</a>
+</div>
+<div class="ui right sidebar inverted red vertical menu">
+    <div class="header item">右边的侧边栏</div>
+    <a class="item" href="http://www.icoolxue.com">爱酷学习网</a>
+    <a class="item" href="http://www.icoolxue.com">爱酷学习网</a>
+    <a class="item" href="http://www.icoolxue.com">爱酷学习网</a>
+</div>
+<div class="ui top inverted teal sidebar menu">
+    <div class="header item">上边的侧边栏</div>
+    <a class="item" href="http://www.icoolxue.com">爱酷学习网</a>
+    <a class="item" href="http://www.icoolxue.com">爱酷学习网</a>
+    <a class="item" href="http://www.icoolxue.com">爱酷学习网</a>
+</div>
+<div class="ui bottom inverted sidebar menu">
+    <div class="header item">底部侧边栏</div>
+    <a class="item" href="http://www.icoolxue.com">爱酷学习网</a>
+    <a class="item" href="http://www.icoolxue.com">爱酷学习网</a>
+    <a class="item" href="http://www.icoolxue.com">爱酷学习网</a>
+</div>
+
+<div class="main container">
+
+    <div class="ui active tab" data-tab="definition">
+        <div class="peek">
+            <div class="ui vertical pointing secondary menu">
+                <a class="active item">种类</a>
+                <a class="item">变化的侧边栏</a>
+            </div>
+        </div>
+        <h2 class="ui dividing header">种类</h2>
+
+        <div class="no example">
+            <h4 class="ui header">位置（方向）</h4>
+            <p>侧边栏可以出现在网页的任何区域（理论上只有四个）。</p>
+            <div class="code" data-type="html">
+                <div class="ui sidebar">...</div>
+                <div class="ui top sidebar">...</div>
+                <div class="ui right sidebar">...</div>
+                <div class="ui bottom sidebar">...</div>
+            </div>
+            <div class="ui variation toggle buttons">
+                <div class="ui button" data-variation=".left">
+                    左边
+                </div>
+                <div class="ui button" data-variation=".top">
+                    上边
+                </div>
+                <div class="ui button" data-variation=".right">
+                    右边
+                </div>
+                <div class="ui button" data-variation=".bottom">
+                    底部
+                </div>
+            </div>
+        </div>
+
+        <h2 class="ui dividing header">变化的边栏</h2>
+
+        <div class="no styled example">
+            <h4 class="ui header">样式</h4>
+            <p>边栏可以显示附加样式。</p>
+            <div class="code" data-type="html">
+                <div class="ui styled sidebar">...</div>
+            </div>
+            <div class="ui labeled icon button">
+                <i class="reorder icon"></i>
+                显示
+            </div>
+        </div>
+
+        <div class="no size example">
+            <h4 class="ui header">尺寸（大小）</h4>
+            <p>边栏可以有不同的尺寸。</p>
+            <div class="code" data-type="html">
+                <div class="ui very thin sidebar">...</div>
+                <div class="ui thin sidebar">...</div>
+                <div class="ui wide sidebar">...</div>
+                <div class="ui very wide sidebar">...</div>
+            </div>
+            <div class="ui variation toggle buttons">
+                <div class="ui button" data-variation=".very.thin">
+                    非常小
+                </div>
+                <div class="ui button" data-variation=".thin">
+                    小
+                </div>
+                <div class="ui button" data-variation=".wide">
+                    宽
+                </div>
+                <div class="ui button" data-variation=".very.wide">
+                    非常宽
+                </div>
+            </div>
+        </div>
+
+        <div class="no floating example">
+            <h4 class="ui header">浮动</h4>
+            <p>边栏可以浮动在内容上。</p>
+            <div class="code" data-type="html">
+                <div class="ui floating sidebar">...</div>
+            </div>
+            <div class="ui labeled icon button">
+                <i class="reorder icon"></i>
+                显示
+            </div>
+        </div>
+
+    </div>
+
+    <div class="ui tab" data-tab="usage">
+        <h2 class="ui dividing header">初始化</h2>
+        <p>可以在侧边栏里加入任何你想加入的内容，并用类名<code>ui sidebar</code>进行修饰并且在Javascript里初始化侧边栏。</p>
+        <div class="ui ignored warning icon message">
+            <i class="info letter icon"></i>
+            <div class="content">
+                <div class="header">确定位置</div>
+                <p>确定的内容在侧边栏出现的时候有一些问题，有两种解决办法：</p>
+                <ul class="ui list">
+                    <li>不要使用的css的left或者top属性。</li>
+                    <li>Apply styles on the fixed element to adjust its position when the sidebar appears. You can do this by descending from the body tag which receives the class <code>(direction) pushed</code> when the view is moved.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="code" data-label="true" data-type="html">
+            <div class="ui sidebar">
+                任何内容都可以。
+            </div>
+        </div>
+        <div class="code" data-label="true" data-type="javascript">
+            $('.ui.sidebar').sidebar();
+        </div>
+
+        <h2 class="ui dividing header">使用方法</h2>
+
+        <div class="no example">
+            <h4 class="ui header">显示侧边栏</h4>
+            <p>侧边栏可以被隐藏，显示或者切换。下面的例子中的侧边栏使用的是<a href="../collections/menu.html">ui menu</a>显示一个垂直菜单。</p>
+            <div class="code" data-type="html" data-title="Example HTML">
+                <div class="ui red vertical demo sidebar menu">
+                    <a class="item">
+                        <i class="home icon"></i>
+                        主页
+                    </a>
+                    <a class="active item">
+                        <i class="heart icon"></i>
+                        当前区域
+                    </a>
+                    <a class="item">
+                        <i class="facebook icon"></i>
+                        Facebook
+                    </a>
+                    <div class="item">
+                        <b>更多</b>
+                        <div class="menu">
+                            <a class="item">关于</a>
+                            <a class="item">联系我们</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="code" data-demo="true" data-type="javascript">
+                $('.demo.sidebar').sidebar('toggle');
+            </div>
+        </div>
+
+
+        <h2 class="ui dividing header">方法</h2>
+
+        <p>所有的<a href="../module.html#/behavior">方法</a>都可以使用下面的语法来调用：</p>
+        <div class="code">
+            $('.your.element').sidebar('behavior name', argumentOne, argumentTwo);
+        </div>
+
+        <table class="ui definition celled sortable table segment">
+            <thead>
+            <th>方法</th>
+            <th>描述</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>attach events(selector, event)</td>
+                    <td>Attaches sidebar action to given selector. Default event if none specified is toggle</td>
+                </tr>
+                <tr>
+                    <td>show</td>
+                    <td>Shows sidebar</td>
+                </tr>
+                <tr>
+                    <td>hide</td>
+                    <td>Hides sidebar</td>
+                </tr>
+                <tr>
+                    <td>toggle</td>
+                    <td>Toggles visibility of sidebar</td>
+                </tr>
+                <tr>
+                    <td>is open</td>
+                    <td>Returns whether sidebar is open</td>
+                </tr>
+                <tr>
+                    <td>is closed</td>
+                    <td>Returns whether sidebar is closed</td>
+                </tr>
+                <tr>
+                    <td>push page</td>
+                    <td>Pushes page content to be visible alongside sidebar</td>
+                </tr>
+                <tr>
+                    <td>get direction</td>
+                    <td>Returns direction of current sidebar</td>
+                </tr>
+                <tr>
+                    <td>pull page</td>
+                    <td>Returns page content to original position</td>
+                </tr>
+                <tr>
+                    <td>add body css</td>
+                    <td>Adds stylesheet to page head to trigger sidebar animations</td>
+                </tr>
+                <tr>
+                    <td>remove body css</td>
+                    <td>Removes any inline stylesheets for sidebar animation</td>
+                </tr>
+                <tr>
+                    <td>get transition event</td>
+                    <td>Returns vendor prefixed transition end event</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+    <div class="ui tab" data-tab="examples">
+
+        <div class="no example">
+            <h4 class="ui header">覆盖</h4>
+            <p>侧边栏可以重叠的，而不是它推到一边页面内容。</p>
+            <div class="code" data-demo="true">
+                $('.overlay.sidebar').sidebar({
+                overlay: true
+                }).sidebar('toggle');
+            </div>
+        </div>
+
+        <div class="no example">
+            <h4 class="ui header">切换显示/隐藏侧边栏</h4>
+            <p>当为某个元素绑定了侧边栏的切换事件后，点击该元素可以切换显示或者隐藏侧边栏。</p>
+            <div class="code" data-demo="true">
+                $('.demo.sidebar').first().sidebar('attach events', '.toggle.button');
+                $('.toggle.button').removeClass('disabled');
+            </div>
+            <div class="ui disabled secondary labeled icon toggle button">
+                <i class="reorder icon"></i>
+                切换显示或者隐藏侧边栏
+            </div>
+        </div>
+
+        <div class="no example">
+            <h4 class="ui header">使用自定义行为切换侧边栏</h4>
+            <p>你可以自定义触发侧边栏显示或者隐藏的行为而不一定要使用单击事件。</p>
+            <div class="code" data-demo="true">
+                $('.demo.sidebar').first().sidebar('attach events', '.open.button', 'show');
+                $('.open.button').removeClass('disabled');
+            </div>
+            <div class="ui disabled secondary labeled icon open button">
+                <i class="reorder icon"></i>
+                打开侧边栏
+            </div>
+        </div>
+
+    </div>
+
+    <div class="ui tab" data-tab="settings">
+
+        <h3 class="ui header">
+            侧边栏配置
+            <div class="sub header">配置侧边栏。</div>
+        </h3>
+        <table class="ui celled sortable definition table segment">
+            <thead>
+            <th>配置</th>
+            <th class="four wide">默认值</th>
+            <th>描述</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>overlay</td>
+                    <td>false</td>
+                    <td>Whether sidebar should overlay page instead of pushing page to the side</td>
+                </tr>
+                <tr>
+                    <td>exclusive</td>
+                    <td>true</td>
+                    <td>Whether multiple sidebars can be open at once</td>
+                </tr>
+                <tr>
+                    <td>useCSS</td>
+                    <td>true</td>
+                    <td>Whether to use css animations or fallback javascript animations</td>
+                </tr>
+                <tr>
+                    <td>duration</td>
+                    <td>300</td>
+                    <td>Duration of side bar transition animation</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="ui horizontal section icon divider"><i class="icon setting"></i></div>
+        <h4 class="ui header">回调方法</h4>
+        <p>暂时不翻译。</p>
+
+        <table class="ui celled sortable definition table segment">
+            <thead>
+            <th class="four wide">方法</th>
+            <th>上下文</th>
+            <th>描述</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>onShow</td>
+                    <td>Sidebar</td>
+                    <td>Is called when a sidebar is shown.</td>
+                </tr>
+                <tr>
+                    <td>onHide</td>
+                    <td>Sidebar</td>
+                    <td>Is called when a sidebar is hidden.</td>
+                </tr>
+                <tr>
+                    <td>onChange</td>
+                    <td>Sidebar</td>
+                    <td>Is called after a sidebar changes visibility</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="ui horizontal divider"><i class="icon setting"></i></div>
+
+        <h3 class="ui header">
+            DOM设置
+            <div class="sub header">DOM settings specify how this module should interface with the DOM</div>
+        </h3>
+        <table class="ui celled definition table segment">
+            <thead>
+            <th>Setting</th>
+            <th class="six wide">Default</th>
+            <th>Description</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>namespace</td>
+                    <td>sidebar</td>
+                    <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+                </tr>
+                <tr>
+                    <td>className</td>
+                    <td>
+                        <div class="code">
+                            className: {
+                            active : 'active',
+                            pushed : 'pushed',
+                            top    : 'top',
+                            left   : 'left',
+                            right  : 'right',
+                            bottom : 'bottom'
+                            }
+                        </div>
+                    </td>
+                    <td>Class names used to attach style to state</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="ui horizontal divider"><i class="icon setting"></i></div>
+
+        <h3 class="ui header">
+            调试设置
+            <div class="sub header">Debug settings controls debug output to the console</div>
+        </h3>
+
+        <table class="ui celled sortable definition table segment">
+            <thead>
+            <th>Setting</th>
+            <th class="four wide">Default</th>
+            <th>Description</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>name</td>
+                    <td>Sidebar</td>
+                    <td>名字 used in debug logs</td>
+                </tr>
+                <tr>
+                    <td>debug</td>
+                    <td>True</td>
+                    <td>Provides standard debug output to console</td>
+                </tr>
+                <tr>
+                    <td>performance</td>
+                    <td>True</td>
+                    <td>Provides standard debug output to console</td>
+                </tr>
+                <tr>
+                    <td>verbose</td>
+                    <td>True</td>
+                    <td>Provides ancillary debug output to console</td>
+                </tr>
+                <tr>
+                    <td>errors</td>
+                    <td colspan="2">
+                        <div class="code">
+                            error   : {
+                            method   : 'The method you called is not defined.',
+                            notFound : 'There were no elements that matched the specified selector'
+                            }
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>
+
+</body>
+
+</html>

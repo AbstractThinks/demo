@@ -1,0 +1,519 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.59.6" />
+  <title>消息控件 | Semantic UI中文网</title>
+
+  <meta name="description" content="消息控件用于向用户显示一些提示信息。" />
+  <meta name="keywords" content="Semantic UI, Semantic入门, CSS, CSS框架, CSS framework, html5, ui, library, framework, javascript, Semantic UI中文网, Semantic UI翻译, Semantic UI教程" />
+
+  <link rel="stylesheet" type="text/css" class="ui" href="../build/packaged/css/semantic.min.css">
+
+  <link rel="stylesheet" type="text/css" href="../stylesheets/semantic.css">
+    <script type="text/javascript" src="../jquery.js"></script>
+  <script src="../javascript/library/history.js"></script>
+  <script src="../javascript/library/easing.js"></script>
+    <script src="../javascript/library/ace/ace.js"></script>
+  <script src="../javascript/library/tablesort.js"></script>
+  <script src="../javascript/library/waypoints.js"></script>
+
+  <script src="../build/packaged/javascript/semantic.min.js"></script>
+
+  <script src="../javascript/semantic.js"></script>
+
+</head>
+<body id="example" class="text">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> 关闭
+    </a>
+    <a class="item" href="http://www.semantic-ui.com/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>下载</b>
+    </a>
+    <div class="item">
+      <a href="../index.html">
+        <b>简单介绍</b>
+      </a>
+      <div class="menu">
+        
+        <a class="item" href="../introduction/variations.html">变化</a>
+        
+        <a class="item" href="../introduction/definitions.html">定义</a>
+        
+        <a class="item" href="../introduction.html">有什么新奇的玩意儿？</a>
+        
+        <a class="item" href="../introduction/types.html">样式（种类）</a>
+        
+        <a class="item" href="../introduction/overview.html">概述</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>关于项目</b>
+      <div class="menu">
+        
+        <a class="item" href="../project/contributing.html">加入我们</a>
+        
+        <a class="item" href="../project/development.html">本地文档服务器</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../element.html"><b>基础组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../modules/reveal.html">Reveal</a>
+        
+        <a class="item" href="../elements/divider.html">分隔条</a>
+        
+        <a class="item" href="../elements/loader.html">加载控件</a>
+        
+        <a class="item" href="../elements/image.html">图像控件</a>
+        
+        <a class="item" href="../elements/icon.html">图标</a>
+        
+        <a class="item" href="../elements/button.html">按扭</a>
+        
+        <a class="item" href="../elements/label.html">标签</a>
+        
+        <a class="item" href="../elements/header.html">标题头控件</a>
+        
+        <a class="item" href="../elements/step.html">步骤控件</a>
+        
+        <a class="item" href="../elements/segment.html">片断控件</a>
+        
+        <a class="item" href="../elements/input.html">输入控件</a>
+        
+        <a class="item" href="../elements/progress.html">进度条控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../collection.html"><b>集合/列表组件</b></a>
+      <div class="menu">
+        
+        <a class="active item" href="message.html">消息控件</a>
+        
+        <a class="item" href="grid.html">网格（栅格）系统</a>
+        
+        <a class="item" href="menu.html">菜单</a>
+        
+        <a class="item" href="form.html">表单</a>
+        
+        <a class="item" href="table.html">表格</a>
+        
+        <a class="item" href="breadcrumb.html">面包屑/导航条</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>内容展示组件</b>
+      <div class="menu">
+        
+        <a class="item" href="../views/feed.html">Feed</a>
+        
+        <a class="item" href="../views/item.html">Item（元素列表）</a>
+        
+        <a class="item" href="../views/list.html">列表</a>
+        
+        <a class="item" href="../views/comment.html">评论控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../module.html"><b>模块</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../modules/shape.html">Shape</a>
+        
+        <a class="item" href="../modules/dropdown.html">下拉列表模块</a>
+        
+        <a class="item" href="../modules/checkbox.html">复选框模块</a>
+        
+        <a class="item" href="../modules/popup.html">弹出框模块</a>
+        
+        <a class="item" href="../modules/accordion.html">手风琴模块</a>
+        
+        <a class="item" href="../modules/modal.html">模态对话框</a>
+        
+        <a class="item" href="../modules/rating.html">评分模块</a>
+        
+        <a class="item" href="../modules/dimmer.html">调光器（遮罩层）</a>
+        
+        <a class="item" href="../modules/sidebar.html">边栏</a>
+        
+        <a class="item" href="../modules/transition.html">过渡（动画）效果</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>特定行为控件</b>
+      <div class="menu">
+        
+        <a class="item" href="../modules/form.html">验证表单</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>样式指南</b>
+      <div class="menu">
+        
+        <a class="item" href="../guide/cssguide.html">CSS开发指南</a>
+        
+        <a class="item" href="../guide/javascriptguide.html">Javascript开发指南</a>
+        
+        <a class="item" href="../guide/styleguide.html">语言指南</a>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> 内容</a>
+      <div class="title item">
+        <b>UI Collection:</b> 消息控件
+      </div>
+      
+      <div class="disabled icon item"><i class="left arrow icon"></i></div>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">1 of 6</span>
+        <div class="menu">
+          
+          <div class="active item">
+            <a href="message.html">1. 消息控件</a>
+          </div>
+          
+          <div class="item">
+            <a href="grid.html">2. 网格（栅格）系统</a>
+          </div>
+          
+          <div class="item">
+            <a href="menu.html">3. 菜单</a>
+          </div>
+          
+          <div class="item">
+            <a href="form.html">4. 表单</a>
+          </div>
+          
+          <div class="item">
+            <a href="table.html">5. 表格</a>
+          </div>
+          
+          <div class="item">
+            <a href="breadcrumb.html">6. 面包屑/导航条</a>
+          </div>
+          
+        </div>
+      </div>
+      
+      <a class="icon item" href="grid.html"><i class="right arrow icon"></i></a>
+      
+      <div class="right menu">
+        
+        <div class="vertically fitted borderless item">
+        </div>
+        
+        
+        <a class="popup designer icon item" title="设计模式">
+          <i class="basic paint icon"></i>
+        </a>
+        <a class="popup developer icon item" title="开发模式">
+          <i class="terminal icon"></i>
+        </a>
+        
+        <a class="popup icon github item" title="查看Semantic UI在Github的项目信息" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <div class="title item">
+          交流群：262577550
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui black huge launch right attached button">
+    <i class="icon list layout"></i>
+    <span class="text">导航</span>
+  </div>
+
+  ﻿
+
+<div class="segment">
+    <div class="container">
+        <div class="introduction">
+
+            <h1 class="ui dividing header">
+                消息控件
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Semantic UI学习交流群 <a class="ui red circular label large">262577550</a>
+            </h1>
+
+            <p>消息控件用于向用户显示一些提示信息。</p>
+            
+            <div class="ui basic labeled icon toggle overview button">
+                点击切换到定义模式
+                <i class="book icon"></i>
+            </div>
+            
+            
+        </div>
+      
+        
+    </div>
+</div>
+
+<div class="main container">
+
+    <div class="peek">
+        <div class="ui vertical pointing secondary menu">
+            <a class="active item">消息类型</a>
+            <a class="item">消息状态</a>
+            <a class="item">变化的消息</a>
+        </div>
+    </div>
+
+    <h2 class="ui dividing header">消息类型</h2>
+
+    <div class="example">
+        <h4 class="ui header">文本消息</h4>
+        <p>基本消息控件</p>
+        <div class="ui message">
+            <div class="header">
+                爱酷学习网
+            </div>
+            <p>
+                爱酷学习网是一个提供了高清在线并且免费观看视频教程的网站，上面有各种计算机类视频教程，如果你想体验手把手式的教学，爱酷学习网不会让你失望。
+            </p>
+            <p>
+                怎么样？喜欢的话还不去<a href="http://www.icoolxue.com" target="_blank">试试</a>。
+            </p>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">消息列表</h4>
+        <p>一个消息列表的例子</p>
+        <div class="ui message">
+            <div class="header">
+                爱酷学习网的优点：
+            </div>
+            <ul class="list">
+                <li>观看视频教程都是免费的！</li>
+                <li>所有视频教程都是高清在线观看哦，免去你下载视频教程的等待时间。</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">带图标的消息</h4>
+        <p>消息控件可以包含一个图标。</p>
+        <div class="ui icon message">
+            <i class="inbox icon"></i>
+            <div class="content">
+                <div class="header">
+                    没有收到我们的激活邮件？
+                </div>
+                <p>注册成为爱酷学习网的会员是必须通过邮箱激活的哦！</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">可关闭的消息控件</h4>
+        <p>消息控件可以允许用户隐藏（关闭）。</p>
+        <div class="ui message">
+            <i class="close icon"></i>
+            <div class="header">
+                下载视频教程
+            </div>
+            <p>爱酷学习网的所有视频教程都是可以下载的哦。</p>
+        </div>
+    </div>
+
+
+    <h2 class="ui dividing header">消息状态</h2>
+
+    <div class="example">
+        <h4 class="ui header">隐藏消息</h4>
+        <p>文本消息块可以被隐藏。</p>
+        <div class="existing code">
+            <div class="ui hidden message">
+                <p>You can't see me</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">显示消息</h4>
+        <p>文本消息框可以被设置成一直显示。</p>
+        <div class="ui visible message">
+            <p>一直显示的消息控件。</p>
+        </div>
+    </div>
+
+    <h2 class="ui dividing header">千变万化的消息控件</h2>
+
+    <div class="example">
+        <h4 class="ui header">浮动消息控件</h4>
+        <p>消息控件可以浮动在和它相关的内容之上。</p>
+        <div class="ui floating message">
+            <p>爱酷学习网。</p>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">紧凑消息控件</h4>
+        <p>消息控件可以只占用其内容大小的宽度。</p>
+        <div class="ui compact message">
+            <p>这是一个和内容宽度一样的消息控件。</p>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">包含有附加控件的消息控件</h4>
+        <p>消息控件可以包含其它附加控件。下面的例子显示了一个含有表单的消息控件。</p>
+        <div class="ui attached message">
+            <div class="header">
+                Have you heard about our mailing list?
+            </div>
+            <p>Get all the best inventions in your e-mail every day. Sign up now!</p>
+        </div>
+        <form class="ui form attached fluid segment">
+            <p>Let's go ahead and get you signed up.</p>
+            <div class="two fields">
+                <div class="field">
+                    <label>First Name</label>
+                    <input placeholder="First Name" type="text">
+                </div>
+                <div class="field">
+                    <label>Last Name</label>
+                    <input placeholder="Last Name" type="text">
+                </div>
+            </div>
+            <div class="field">
+                <label>Username</label>
+                <input placeholder="Username" type="text">
+            </div>
+            <div class="field">
+                <label>Password</label>
+                <input type="password">
+            </div>
+            <div class="inline field">
+                <div class="ui checkbox">
+                    <input type="checkbox" id="terms" />
+                    <label for="terms">I agree to the terms and conditions</label>
+                </div>
+            </div>
+            <div class="ui blue submit button">Submit</div>
+        </form>
+        <div class="ui bottom attached info message">
+            <i class="icon help"></i>Are you sure you know what you're doing?
+        </div>
+    </div>
+    <div class="example">
+        <h4 class="ui header">消息颜色（表示消息的消息类型）</h4>
+        <p>消息控件可以有不同的颜色（一般用来表示不同类型的消息，比如错误，警告，信息等）。</p>
+        <div class="ui red message">红</div>
+        <div class="ui blue message">蓝</div>
+        <div class="ui green message">绿</div>
+        <div class="ui yellow message">黄</div>
+    </div>
+
+
+    <div class="example">
+        <h4 class="ui header">警告消息</h4>
+        <p>显示警告类消息（提示用户有警告类消息，比如爱酷学习网提供了视频教程下载服务，但是下载需要消耗资源，可以在下载前使用这个控件对用户进行提示）。</p>
+        <div class="ui warning message">
+            <i class="close icon"></i>
+            <div class="header">
+                你必须注册成为会员才能进行此操作哦！
+            </div>
+            去注册用户后再试试吧。
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">信息消息</h4>
+        <p>用于显示一些对用户的信息提示（其实真不知道该怎么翻译，也许看例子才是最好的翻译）。</p>
+        <div class="ui info message">
+            <i class="close icon"></i>
+            <div class="header">
+                注册成为爱酷学习网的会员有什么好处呢？
+            </div>
+            <ul class="list">
+                <li>可以上传自己的视频教程。</li>
+                <li>还可以下载爱酷学习网提供的视频教程原始视频。</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">成功消息</h4>
+        <p>提示用户操作已经成功（比如提示用户注册成功）。</p>
+        <div class="ui success message">
+            <i class="close icon"></i>
+            <div class="header">
+                恭喜，你已经成功注册并成为爱酷学习网的用户啦。
+            </div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">错误消息</h4>
+        <p>提示用户有些操作发生了错误（比如注册用户的时候用户名重复或者用户名只能使用邮件地址不能继续注册）。</p>
+        <div class="ui error message">
+            <i class="close icon"></i>
+            <div class="header">
+                用户注册失败啦！
+            </div>
+            <ul class="list">
+                <li>用户名只能使用邮件地址。</li>
+                <li>密码长度必须是6-22位。</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">控件大小</h4>
+        <p>消息控件可以具有不同的大小。</p>
+        <div class="ui small message">
+            最小的消息控件。
+        </div>
+        <div class="ui large message">
+            大一些的消息控件（你可以认为这种消息控件是最常用的消息控件）。
+        </div>
+        <div class="ui huge message">
+            最大的消息控件。
+        </div>
+        <div class="ui massive message">
+            最大的消息控件。
+        </div>
+    </div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

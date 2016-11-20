@@ -1,0 +1,693 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.59.6" />
+  <title>标签 | Semantic UI中文网</title>
+
+  <meta name="description" content="标签是对内容的精简描述。" />
+  <meta name="keywords" content="Semantic UI, Semantic入门, CSS, CSS框架, CSS framework, html5, ui, library, framework, javascript, Semantic UI中文网, Semantic UI翻译, Semantic UI教程" />
+
+  <link rel="stylesheet" type="text/css" class="ui" href="../build/packaged/css/semantic.min.css">
+
+  <link rel="stylesheet" type="text/css" href="../stylesheets/semantic.css">
+  <script type="text/javascript" src="../jquery.js"></script>
+  <script src="../javascript/library/history.js"></script>
+  <script src="../javascript/library/easing.js"></script>
+    <script src="../javascript/library/ace/ace.js"></script>
+  <script src="../javascript/library/tablesort.js"></script>
+  <script src="../javascript/library/waypoints.js"></script>
+
+  <script src="../build/packaged/javascript/semantic.min.js"></script>
+
+  <script src="../javascript/semantic.js"></script>
+
+</head>
+<body id="example" class="label">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> 关闭
+    </a>
+    <a class="item" href="http://www.semantic-ui.com/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>下载</b>
+    </a>
+    <div class="item">
+      <a href="../index.html">
+        <b>简单介绍</b>
+      </a>
+      <div class="menu">
+        
+        <a class="item" href="../introduction/variations.html">变化</a>
+        
+        <a class="item" href="../introduction/definitions.html">定义</a>
+        
+        <a class="item" href="../introduction.html">有什么新奇的玩意儿？</a>
+        
+        <a class="item" href="../introduction/types.html">样式（种类）</a>
+        
+        <a class="item" href="../introduction/overview.html">概述</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>关于项目</b>
+      <div class="menu">
+        
+        <a class="item" href="../project/contributing.html">加入我们</a>
+        
+        <a class="item" href="../project/development.html">本地文档服务器</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../element.html"><b>基础组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../modules/reveal.html">Reveal</a>
+        
+        <a class="item" href="divider.html">分隔条</a>
+        
+        <a class="item" href="loader.html">加载控件</a>
+        
+        <a class="item" href="image.html">图像控件</a>
+        
+        <a class="item" href="icon.html">图标</a>
+        
+        <a class="item" href="button.html">按扭</a>
+        
+        <a class="active item" href="label.html">标签</a>
+        
+        <a class="item" href="header.html">标题头控件</a>
+        
+        <a class="item" href="step.html">步骤控件</a>
+        
+        <a class="item" href="segment.html">片断控件</a>
+        
+        <a class="item" href="input.html">输入控件</a>
+        
+        <a class="item" href="progress.html">进度条控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../collection.html"><b>集合/列表组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../collections/message.html">消息控件</a>
+        
+        <a class="item" href="../collections/grid.html">网格（栅格）系统</a>
+        
+        <a class="item" href="../collections/menu.html">菜单</a>
+        
+        <a class="item" href="../collections/form.html">表单</a>
+        
+        <a class="item" href="../collections/table.html">表格</a>
+        
+        <a class="item" href="../collections/breadcrumb.html">面包屑/导航条</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>内容展示组件</b>
+      <div class="menu">
+        
+        <a class="item" href="../views/feed.html">Feed</a>
+        
+        <a class="item" href="../views/item.html">Item（元素列表）</a>
+        
+        <a class="item" href="../views/list.html">列表</a>
+        
+        <a class="item" href="../views/comment.html">评论控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../module.html"><b>模块</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../modules/shape.html">Shape</a>
+        
+        <a class="item" href="../modules/dropdown.html">下拉列表模块</a>
+        
+        <a class="item" href="../modules/checkbox.html">复选框模块</a>
+        
+        <a class="item" href="../modules/popup.html">弹出框模块</a>
+        
+        <a class="item" href="../modules/accordion.html">手风琴模块</a>
+        
+        <a class="item" href="../modules/modal.html">模态对话框</a>
+        
+        <a class="item" href="../modules/rating.html">评分模块</a>
+        
+        <a class="item" href="../modules/dimmer.html">调光器（遮罩层）</a>
+        
+        <a class="item" href="../modules/sidebar.html">边栏</a>
+        
+        <a class="item" href="../modules/transition.html">过渡（动画）效果</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>特定行为控件</b>
+      <div class="menu">
+        
+        <a class="item" href="../modules/form.html">验证表单</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>样式指南</b>
+      <div class="menu">
+        
+        <a class="item" href="../guide/cssguide.html">CSS开发指南</a>
+        
+        <a class="item" href="../guide/javascriptguide.html">Javascript开发指南</a>
+        
+        <a class="item" href="../guide/styleguide.html">语言指南</a>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> 内容</a>
+      <div class="title item">
+        <b>UI Element:</b> 标签
+      </div>
+      
+      <a class="icon item" href="button.html"><i class="left arrow icon"></i></a>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">7 of 12</span>
+        <div class="menu">
+          
+          <div class="item">
+            <a href="../modules/reveal.html">1. Reveal</a>
+          </div>
+          
+          <div class="item">
+            <a href="divider.html">2. 分隔条</a>
+          </div>
+          
+          <div class="item">
+            <a href="loader.html">3. 加载控件</a>
+          </div>
+          
+          <div class="item">
+            <a href="image.html">4. 图像控件</a>
+          </div>
+          
+          <div class="item">
+            <a href="icon.html">5. 图标</a>
+          </div>
+          
+          <div class="item">
+            <a href="button.html">6. 按扭</a>
+          </div>
+          
+          <div class="active item">
+            <a href="label.html">7. 标签</a>
+          </div>
+          
+          <div class="item">
+            <a href="header.html">8. 标题头控件</a>
+          </div>
+          
+          <div class="item">
+            <a href="step.html">9. 步骤控件</a>
+          </div>
+          
+          <div class="item">
+            <a href="segment.html">10. 片断控件</a>
+          </div>
+          
+          <div class="item">
+            <a href="input.html">11. 输入控件</a>
+          </div>
+          
+          <div class="item">
+            <a href="progress.html">12. 进度条控件</a>
+          </div>
+          
+        </div>
+      </div>
+      
+      <a class="icon item" href="header.html"><i class="right arrow icon"></i></a>
+      
+      <div class="right menu">
+        
+        <div class="vertically fitted borderless item">
+        </div>
+        
+        
+        <a class="popup designer icon item" title="设计模式">
+          <i class="basic paint icon"></i>
+        </a>
+        <a class="popup developer icon item" title="开发模式">
+          <i class="terminal icon"></i>
+        </a>
+        
+        <a class="popup icon github item" title="查看Semantic UI在Github的项目信息" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <div class="title item">
+          交流群：262577550
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui black huge launch right attached button">
+    <i class="icon list layout"></i>
+    <span class="text">导航</span>
+  </div>
+
+  ﻿
+
+<div class="segment">
+    <div class="container">
+        <div class="introduction">
+
+            <h1 class="ui dividing header">
+                标签
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Semantic UI学习交流群 <a class="ui red circular label large">262577550</a>
+            </h1>
+
+            <p>标签是对内容的精简描述。</p>
+            
+            <div class="ui basic labeled icon toggle overview button">
+                点击切换到定义模式
+                <i class="book icon"></i>
+            </div>
+            
+            
+        </div>
+
+        
+    </div>
+</div>
+
+<div class="main container">
+
+    <div class="peek">
+        <div class="ui vertical pointing secondary menu">
+            <a class="active item">标签种类</a>
+            <a class="item">变化的标签</a>
+            <a class="item">标签组</a>
+        </div>
+    </div>
+
+    <h2 class="ui dividing header">标签种类</h2>
+
+    <div class="example">
+        <h4 class="ui header">标签</h4>
+        <p>基础标签</p>
+        <div class="ui label">
+            <i class="mail icon"></i> 23
+        </div>
+    </div>
+    <div class="example">
+        <h4 class="ui header">详细标签</h4>
+        <p>标签可以包含详细信息（最好是简短一些的信息）。</p>
+        <div class="ui label">
+            爱酷学习网的视频教程类目
+            <div class="detail">1558</div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">可删除的标签</h4>
+        <p>这种标签可以显示一个删除图标。</p>
+        <div class="ui label">
+            计算机类视频教程
+            <i class="delete icon"></i>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">链接标签</h4>
+        <p>此种标签可以显示为一个链接。</p>
+        <div class="ui label">
+            我的视频教程
+            <a class="detail"><i class="mail icon"></i> 23</a>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">图片标签</h4>
+        <p>此类标签包含一个图片。</p>
+        <a class="ui image label">
+            <img src="../images/demo/photo2.jpg">
+            dog@doggington.com
+            <i class="delete icon"></i>
+        </a>
+        <a class="ui image label">
+            <img src="../images/demo/avatar2.jpg">
+            james@thepooch.com
+            <i class="delete icon"></i>
+        </a>
+        <a class="ui image label">
+            <img src="../images/demo/avatar3.jpg">
+            kelly@bellyscratcher.com
+            <i class="delete icon"></i>
+        </a>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">边角标签</h4>
+        <p>这种标签是在控件或者网页元素的边角上显示的标签。</p>
+        <div class="yellow ui message">边角标签必须在容器内使用position: relative才能正确显示。</div>
+        <div class="ui segment">
+            <div class="ui right red corner label">
+                <i class="heart icon"></i>
+            </div>
+            <div class="ui left corner label">
+                <div class="text">新</div>
+            </div>
+            这是一个新上传的视频教程。
+        </div>
+        <div class="ui left floated medium image">
+            <a class="ui left corner label">
+                <div class="text">新</div>
+            </a>
+            <img src="../images/demo/highres2.jpg">
+        </div>
+        <div class="ui left floated medium image">
+            <a class="ui right red corner label">
+                <i class="heart icon"></i>
+            </a>
+            <img src="../images/demo/highres3.jpg">
+        </div>
+    </div>
+
+    <div class="clearing example">
+        <h4 class="ui header">飘带标签</h4>
+        <p>这种标签可以附加到元素上的一个飘带。</p>
+        <div class="ui two column grid">
+            <div class="row">
+                <div class="column">
+                    <div class="ui raised segment">
+                        <div class="ui ribbon label">计算机</div>
+                        <p>计算机类视频教程。</p>
+                        <div class="ui teal ribbon label">历史</div>
+                        <p>历史类视频教程。</p>
+                        <div class="ui red ribbon label">体育</div>
+                        <p>体育类视频教务。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="existing code">
+            <div class="ui ribbon label">视频教程</div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">附加标签</h4>
+        <p>这种标签附加在内容之上。</p>
+        <div class="ui three column grid">
+            <div class="row">
+                <div class="column">
+                    <div class="ui segment">
+                        <div class="ui top attached label">HTML</div>
+                        <p>这是HTML内容。</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        <div class="ui bottom attached label">CSS</div>
+                        <p>这是CSS内容。</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        <div class="ui top right attached label">代码</div>
+                        <p>这是代码。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="ui segment">
+                        <div class="ui top left attached label">视图</div>
+                        <p>这是视图。</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        <div class="ui bottom left attached label">用户视图</div>
+                        <p>这是用户视图。</p>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        <div class="ui bottom right attached label">管理员视图</div>
+                        <p>这是管理员视图。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="existing code">
+            <div class="ui top attached label">HTML</div>
+            <div class="ui bottom attached label">CSS</div>
+            <div class="ui top right attached label">代码</div>
+            <div class="ui top left attached label">视图</div>
+            <div class="ui bottom left attached label">用户视图</div>
+            <div class="ui bottom right attached label">管理员视图</div>
+        </div>
+    </div>
+
+    <h2 class="ui dividing header">变化的标签</h2>
+    <div class="example">
+        <h4 class="ui header">颜色</h4>
+        <p>标签可以有不同的颜色。</p>
+        <a class="ui black label">
+            第一
+        </a>
+        <a class="ui green label">
+            玩笑
+        </a>
+        <a class="ui red label">
+            高兴
+        </a>
+        <a class="ui blue label">
+            聪明
+        </a>
+        <a class="ui orange label">
+            激进
+        </a>
+        <a class="ui purple label">
+            疯子
+        </a>
+        <a class="ui teal label">
+            扣人心弦
+        </a>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">水平标签</h4>
+        <p>按水平方式显示标签和内容。</p>
+        <div class="ui divided selection list">
+            <a class="item">
+                <div class="ui red horizontal label">前端</div>
+                Seamantic UI
+            </a>
+            <a class="item">
+                <div class="ui purple horizontal label">Java</div>
+                SpringMVC
+            </a>
+            <a class="item">
+                <div class="ui red horizontal label">前端</div>
+                Bootstrap
+            </a>
+            <a class="item">
+                <div class="ui horizontal label">Linux</div>
+                Ubuntu
+            </a>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">圆形标签</h4>
+        <p>圆形标签。</p>
+        <a class="ui black circular label">
+            12
+        </a>
+        <a class="ui green circular label">
+            11
+        </a>
+        <a class="ui red circular label">
+            10
+        </a>
+        <a class="ui blue circular label">
+            64
+        </a>
+        <a class="ui purple circular label">
+            62
+        </a>
+        <a class="ui teal circular label">
+            1
+        </a>
+    </div>
+    <div class="another example">
+        <div class="ui black circular label"></div>
+        <div class="ui green circular label"></div>
+        <div class="ui red circular label"></div>
+        <div class="ui blue circular label"></div>
+        <div class="ui purple circular label"></div>
+        <div class="ui teal circular label"></div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">激动标签</h4>
+        <p>浮动于其它元素之上的标签。</p>
+        <div class="ui compact menu">
+            <a class="item">
+                <i class="icon mail"></i> 消息
+                <div class="floating ui red label">22</div>
+            </a>
+            <a class="item">
+                <i class="icon users"></i> 朋友
+                <div class="floating ui teal label">22</div>
+            </a>
+        </div>
+    </div>
+
+
+
+    <div class="example">
+        <h4 class="ui header">指示标签</h4>
+        <p>指示某个元素的作用的标签。</p>
+        <form class="ui fluid form">
+            <div class="field">
+                <input type="text" placeholder="姓">
+                <div class="ui pointing label">
+                    请输入你的姓
+                </div>
+            </div>
+            <div class="ui simple divider"></div>
+            <div class="field" placeholder="名">
+                <div class="ui pointing below label">
+                    请输入你的名字
+                </div>
+                <input type="text">
+            </div>
+            <div class="ui simple divider"></div>
+            <div class="inline field">
+                <input type="text" placeholder="用户名">
+                <div class="ui pointing left label">
+                    必须是邮件地址！
+                </div>
+            </div>
+            <div class="ui simple divider"></div>
+            <div class="inline field">
+                <div class="ui pointing right label">
+                    必须是6-22位字符。
+                </div>
+                <input type="password">
+            </div>
+        </form>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">标签尺寸</h4>
+        <p>标签也可以有不同的尺寸的哦（又是废话了，所有的Semantic UI都有不同的尺寸）。</p>
+        <div class="ui small label">
+            爱酷学习网
+        </div>
+        <br><br>
+        <div class="ui large label">
+            爱酷学习网
+        </div>
+    </div>
+
+    <h2 class="ui dividing header">标签组</h2>
+
+    <div class="example">
+        <h4 class="ui header">标签组尺寸</h4>
+        <p>标签组可以共享空间。</p>
+        <div class="ui large labels">
+            <div class="ui label">
+                玩笑
+            </div>
+            <div class="ui label">
+                高兴
+            </div>
+            <div class="ui label">
+                聪明
+            </div>
+            <div class="ui label">
+                愚蠢
+            </div>
+        </div>
+    </div>
+    <div class="example">
+        <h4 class="ui header">标签组颜色</h4>
+        <p>标签组可以共享颜色。</p>
+        <div class="ui blue labels">
+            <a class="ui label">
+                玩笑 <i class="icon close"></i>
+            </a>
+            <a class="ui label">
+                高兴
+                <div class="detail">22</div>
+            </a>
+            <a class="ui label">
+                聪明
+            </a>
+            <a class="ui label">
+                疯子
+            </a>
+            <a class="ui label">
+                扣人心弦
+            </a>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">圆形标签组</h4>
+        <p>圆形的标签组。</p>
+        <div class="ui circular labels">
+            <a class="ui label">
+                11
+            </a>
+            <a class="ui label">
+                22
+            </a>
+            <a class="ui label">
+                33
+            </a>
+            <a class="ui label">
+                44
+            </a>
+            <a class="ui label">
+                141
+            </a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+
+</html>

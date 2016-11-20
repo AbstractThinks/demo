@@ -1,0 +1,545 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.59.6" />
+  <title>片断控件 | Semantic UI中文网</title>
+
+  <meta name="description" content="用来显示一系列相关内容的组件。" />
+  <meta name="keywords" content="Semantic UI, Semantic入门, CSS, CSS框架, CSS framework, html5, ui, library, framework, javascript, Semantic UI中文网, Semantic UI翻译, Semantic UI教程" />
+
+  <link rel="stylesheet" type="text/css" class="ui" href="../build/packaged/css/semantic.min.css">
+
+  <link rel="stylesheet" type="text/css" href="../stylesheets/semantic.css">
+  <script type="text/javascript" src="../jquery.js"></script>
+  <script src="../javascript/library/history.js"></script>
+  <script src="../javascript/library/easing.js"></script>
+    <script src="../javascript/library/ace/ace.js"></script>
+  <script src="../javascript/library/tablesort.js"></script>
+  <script src="../javascript/library/waypoints.js"></script>
+
+  <script src="../build/packaged/javascript/semantic.min.js"></script>
+
+  <script src="../javascript/semantic.js"></script>
+
+</head>
+<body id="example" class="segment">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> 关闭
+    </a>
+    <a class="item" href="http://www.semantic-ui.com/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>下载</b>
+    </a>
+    <div class="item">
+      <a href="../index.html">
+        <b>简单介绍</b>
+      </a>
+      <div class="menu">
+        
+        <a class="item" href="../introduction/variations.html">变化</a>
+        
+        <a class="item" href="../introduction/definitions.html">定义</a>
+        
+        <a class="item" href="../introduction.html">有什么新奇的玩意儿？</a>
+        
+        <a class="item" href="../introduction/types.html">样式（种类）</a>
+        
+        <a class="item" href="../introduction/overview.html">概述</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>关于项目</b>
+      <div class="menu">
+        
+        <a class="item" href="../project/contributing.html">加入我们</a>
+        
+        <a class="item" href="../project/development.html">本地文档服务器</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../element.html"><b>基础组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../modules/reveal.html">Reveal</a>
+        
+        <a class="item" href="divider.html">分隔条</a>
+        
+        <a class="item" href="loader.html">加载控件</a>
+        
+        <a class="item" href="image.html">图像控件</a>
+        
+        <a class="item" href="icon.html">图标</a>
+        
+        <a class="item" href="button.html">按扭</a>
+        
+        <a class="item" href="label.html">标签</a>
+        
+        <a class="item" href="header.html">标题头控件</a>
+        
+        <a class="item" href="step.html">步骤控件</a>
+        
+        <a class="active item" href="segment.html">片断控件</a>
+        
+        <a class="item" href="input.html">输入控件</a>
+        
+        <a class="item" href="progress.html">进度条控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../collection.html"><b>集合/列表组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../collections/message.html">消息控件</a>
+        
+        <a class="item" href="../collections/grid.html">网格（栅格）系统</a>
+        
+        <a class="item" href="../collections/menu.html">菜单</a>
+        
+        <a class="item" href="../collections/form.html">表单</a>
+        
+        <a class="item" href="../collections/table.html">表格</a>
+        
+        <a class="item" href="../collections/breadcrumb.html">面包屑/导航条</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>内容展示组件</b>
+      <div class="menu">
+        
+        <a class="item" href="../views/feed.html">Feed</a>
+        
+        <a class="item" href="../views/item.html">Item（元素列表）</a>
+        
+        <a class="item" href="../views/list.html">列表</a>
+        
+        <a class="item" href="../views/comment.html">评论控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../module.html"><b>模块</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../modules/shape.html">Shape</a>
+        
+        <a class="item" href="../modules/dropdown.html">下拉列表模块</a>
+        
+        <a class="item" href="../modules/checkbox.html">复选框模块</a>
+        
+        <a class="item" href="../modules/popup.html">弹出框模块</a>
+        
+        <a class="item" href="../modules/accordion.html">手风琴模块</a>
+        
+        <a class="item" href="../modules/modal.html">模态对话框</a>
+        
+        <a class="item" href="../modules/rating.html">评分模块</a>
+        
+        <a class="item" href="../modules/dimmer.html">调光器（遮罩层）</a>
+        
+        <a class="item" href="../modules/sidebar.html">边栏</a>
+        
+        <a class="item" href="../modules/transition.html">过渡（动画）效果</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>特定行为控件</b>
+      <div class="menu">
+        
+        <a class="item" href="../modules/form.html">验证表单</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>样式指南</b>
+      <div class="menu">
+        
+        <a class="item" href="../guide/cssguide.html">CSS开发指南</a>
+        
+        <a class="item" href="../guide/javascriptguide.html">Javascript开发指南</a>
+        
+        <a class="item" href="../guide/styleguide.html">语言指南</a>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> 内容</a>
+      <div class="title item">
+        <b>UI Element:</b> 片断控件
+      </div>
+      
+      <a class="icon item" href="step.html"><i class="left arrow icon"></i></a>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">10 of 12</span>
+        <div class="menu">
+          
+          <div class="item">
+            <a href="../modules/reveal.html">1. Reveal</a>
+          </div>
+          
+          <div class="item">
+            <a href="divider.html">2. 分隔条</a>
+          </div>
+          
+          <div class="item">
+            <a href="loader.html">3. 加载控件</a>
+          </div>
+          
+          <div class="item">
+            <a href="image.html">4. 图像控件</a>
+          </div>
+          
+          <div class="item">
+            <a href="icon.html">5. 图标</a>
+          </div>
+          
+          <div class="item">
+            <a href="button.html">6. 按扭</a>
+          </div>
+          
+          <div class="item">
+            <a href="label.html">7. 标签</a>
+          </div>
+          
+          <div class="item">
+            <a href="header.html">8. 标题头控件</a>
+          </div>
+          
+          <div class="item">
+            <a href="step.html">9. 步骤控件</a>
+          </div>
+          
+          <div class="active item">
+            <a href="segment.html">10. 片断控件</a>
+          </div>
+          
+          <div class="item">
+            <a href="input.html">11. 输入控件</a>
+          </div>
+          
+          <div class="item">
+            <a href="progress.html">12. 进度条控件</a>
+          </div>
+          
+        </div>
+      </div>
+      
+      <a class="icon item" href="input.html"><i class="right arrow icon"></i></a>
+      
+      <div class="right menu">
+        
+        <div class="vertically fitted borderless item">
+        </div>
+        
+        
+        <a class="popup designer icon item" title="设计模式">
+          <i class="basic paint icon"></i>
+        </a>
+        <a class="popup developer icon item" title="开发模式">
+          <i class="terminal icon"></i>
+        </a>
+        
+        <a class="popup icon github item" title="查看Semantic UI在Github的项目信息" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <div class="title item">
+          交流群：262577550
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui black huge launch right attached button">
+    <i class="icon list layout"></i>
+    <span class="text">导航</span>
+  </div>
+
+  ﻿
+
+<div class="segment">
+    <div class="container">
+        <div class="introduction">
+
+            <h1 class="ui dividing header">
+                片断控件
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Semantic UI学习交流群 <a class="ui red circular label large">262577550</a>
+            </h1>
+
+            <p>用来显示一系列相关内容的组件。</p>
+            
+            <div class="ui basic labeled icon toggle overview button">
+                点击切换到定义模式
+                <i class="book icon"></i>
+            </div>
+            
+            
+        </div>
+
+    </div>
+</div>
+
+<div class="main container">
+
+    <div class="peek">
+        <div class="ui vertical pointing secondary menu">
+            <a class="active item">种类</a>
+            <a class="item">状态</a>
+            <a class="item">变化的片断控件</a>
+        </div>
+    </div>
+    <h2 class="ui dividing header">种类</h2>
+
+    <div class="example">
+        <h4 class="ui header">片断控件</h4>
+        <p>A segment of content</p>
+        <div class="ui segment">
+            <p>爱酷学习网是一个免费提供高清在线观看视频教程的网站，这里有各类视频教程，包括Java,.Net,C,C++,Python,Php,iOS,Ruby,Photoshop,Mybats,Spring,SpringMVC,Bootstrap,Semantic UI等视频教程。我们还提供了Android, iOS, Windows Phone客户端，让你在手机等移动设备上也能随时随地观看视频教程。</p>
+        </div>
+    </div>
+    <div class="example">
+        <h4 class="ui header">垂直的片断控件</h4>
+        <p>垂直的片断控件可以让附着于他的内容垂直显示。</p>
+        <div class="ui vertical segment">
+            <p>爱酷学习网是一个免费提供高清在线观看视频教程的网站，这里有各类视频教程，包括Java,.Net,C,C++,Python,Php,iOS,Ruby,Photoshop,Mybats,Spring,SpringMVC,Bootstrap,Semantic UI等视频教程。我们还提供了Android, iOS, Windows Phone客户端，让你在手机等移动设备上也能随时随地观看视频教程。</p>
+        </div>
+    </div>
+    <div class="example">
+        <h4 class="ui header">水平片断控件</h4>
+        <p>A horizontal segment divides content horizontally水平的片断控件可以水平的显示随着于其的内容。</p>
+        <div class="ui horizontal segment">
+            <p>爱酷学习网是一个免费提供高清在线观看视频教程的网站，这里有各类视频教程，包括Java,.Net,C,C++,Python,Php,iOS,Ruby,Photoshop,Mybats,Spring,SpringMVC,Bootstrap,Semantic UI等视频教程。我们还提供了Android, iOS, Windows Phone客户端，让你在手机等移动设备上也能随时随地观看视频教程。</p>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">片断堆</h4>
+        <p>一个段可以被格式化为看起来像一堆网页</p>
+        <div class="ui piled segment">
+            <h2>标题头</h2>
+            <p>Te eum doming eirmod, nominati pertinacia argumentum ad his. Ex eam alia facete scriptorem, est autem aliquip detraxit at. Usu ocurreret referrentur at, cu epicurei appellantur vix. Cum ea laoreet recteque electram, eos choro alterum definiebas in. Vim dolorum definiebas an. Mei ex natum rebum iisque.</p>
+
+            <p>Audiam quaerendum eu sea, pro omittam definiebas ex. Te est latine definitiones. Quot wisi nulla ex duo. Vis sint solet expetenda ne, his te phaedrum referrentur consectetuer. Id vix fabulas oporteat, ei quo vide phaedrum, vim vivendum maiestatis in.</p>
+
+            <p>Eu quo homero blandit intellegebat. Incorrupte consequuntur mei id. Mei ut facer dolores adolescens, no illum aperiri quo, usu odio brute at. Qui te porro electram, ea dico facete utroque quo. Populo quodsi te eam, wisi everti eos ex, eum elitr altera utamur at. Quodsi convenire mnesarchum eu per, quas minimum postulant per id.</p>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">堆叠片断</h4>
+        <p>一个段可以进行格式化，以显示其包含多个页面</p>
+        <div class="ui stacked segment">
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+        </div>
+    </div>
+
+
+
+    <h2 class="ui dividing header">状态</h2>
+
+    <div class="example">
+        <h4 class="ui header">禁用状态</h4>
+        <p>片断控件可以被显示成禁用状态（灰色显示）。</p>
+        <div class="ui disabled segment">
+            <p>爱酷学习网是一个免费提供高清在线观看视频教程的网站，这里有各类视频教程，包括Java,.Net,C,C++,Python,Php,iOS,Ruby,Photoshop,Mybats,Spring,SpringMVC,Bootstrap,Semantic UI等视频教程。我们还提供了Android, iOS, Windows Phone客户端，让你在手机等移动设备上也能随时随地观看视频教程。</p>
+        </div>
+    </div>
+
+    <h2 class="ui dividing header">变化的片断控件</h2>
+
+    <div class="example">
+        <h4 class="ui header">反色片断控件</h4>
+        <p>反色控件，不解释了。</p>
+        <div class="ui inverted segment">
+            <p>I'm here to tell you something, and you will probably read me first.</p>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">Raised</h4>
+        <p>A segment may be formatted to raise above the page.</p>
+        <div class="ui raised segment">
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">颜色</h4>
+        <p>A segment can be colored</p>
+        <div class="ui blue segment">
+            <p>爱酷学习网是一个免费提供高清在线观看视频教程的网站，这里有各类视频教程，包括Java,.Net,C,C++,Python,Php,iOS,Ruby,Photoshop,Mybats,Spring,SpringMVC,Bootstrap,Semantic UI等视频教程。我们还提供了Android, iOS, Windows Phone客户端，让你在手机等移动设备上也能随时随地观看视频教程。</p>
+            <div class="ui orange segment">
+                <p>爱酷学习网是一个免费提供高清在线观看视频教程的网站，这里有各类视频教程，包括Java,.Net,C,C++,Python,Php,iOS,Ruby,Photoshop,Mybats,Spring,SpringMVC,Bootstrap,Semantic UI等视频教程。我们还提供了Android, iOS, Windows Phone客户端，让你在手机等移动设备上也能随时随地观看视频教程。</p>
+                <div class="ui green segment">
+                    <p>爱酷学习网是一个免费提供高清在线观看视频教程的网站，这里有各类视频教程，包括Java,.Net,C,C++,Python,Php,iOS,Ruby,Photoshop,Mybats,Spring,SpringMVC,Bootstrap,Semantic UI等视频教程。我们还提供了Android, iOS, Windows Phone客户端，让你在手机等移动设备上也能随时随地观看视频教程。</p>
+                    <div class="ui red segment">
+                        <p>爱酷学习网是一个免费提供高清在线观看视频教程的网站，这里有各类视频教程，包括Java,.Net,C,C++,Python,Php,iOS,Ruby,Photoshop,Mybats,Spring,SpringMVC,Bootstrap,Semantic UI等视频教程。我们还提供了Android, iOS, Windows Phone客户端，让你在手机等移动设备上也能随时随地观看视频教程。</p>
+                        <div class="ui purple segment">
+                            <p>爱酷学习网是一个免费提供高清在线观看视频教程的网站，这里有各类视频教程，包括Java,.Net,C,C++,Python,Php,iOS,Ruby,Photoshop,Mybats,Spring,SpringMVC,Bootstrap,Semantic UI等视频教程。我们还提供了Android, iOS, Windows Phone客户端，让你在手机等移动设备上也能随时随地观看视频教程。</p>
+                            <div class="ui teal segment">
+                                <p>爱酷学习网是一个免费提供高清在线观看视频教程的网站，这里有各类视频教程，包括Java,.Net,C,C++,Python,Php,iOS,Ruby,Photoshop,Mybats,Spring,SpringMVC,Bootstrap,Semantic UI等视频教程。我们还提供了Android, iOS, Windows Phone客户端，让你在手机等移动设备上也能随时随地观看视频教程。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="another example">
+        <p>These colors can be inverted</p>
+        <div class="ui blue inverted segment">
+            <p>爱酷学习网是一个免费提供高清在线观看视频教程的网站，这里有各类视频教程，包括Java,.Net,C,C++,Python,Php,iOS,Ruby,Photoshop,Mybats,Spring,SpringMVC,Bootstrap,Semantic UI等视频教程。我们还提供了Android, iOS, Windows Phone客户端，让你在手机等移动设备上也能随时随地观看视频教程。</p>
+        </div>
+        <div class="ui orange inverted segment">
+            <p>爱酷学习网是一个免费提供高清在线观看视频教程的网站，这里有各类视频教程，包括Java,.Net,C,C++,Python,Php,iOS,Ruby,Photoshop,Mybats,Spring,SpringMVC,Bootstrap,Semantic UI等视频教程。我们还提供了Android, iOS, Windows Phone客户端，让你在手机等移动设备上也能随时随地观看视频教程。</p>
+        </div>
+        <div class="ui green inverted segment">
+            <p>爱酷学习网是一个免费提供高清在线观看视频教程的网站，这里有各类视频教程，包括Java,.Net,C,C++,Python,Php,iOS,Ruby,Photoshop,Mybats,Spring,SpringMVC,Bootstrap,Semantic UI等视频教程。我们还提供了Android, iOS, Windows Phone客户端，让你在手机等移动设备上也能随时随地观看视频教程。</p>
+        </div>
+        <div class="ui red inverted segment">
+            <p>爱酷学习网是一个免费提供高清在线观看视频教程的网站，这里有各类视频教程，包括Java,.Net,C,C++,Python,Php,iOS,Ruby,Photoshop,Mybats,Spring,SpringMVC,Bootstrap,Semantic UI等视频教程。我们还提供了Android, iOS, Windows Phone客户端，让你在手机等移动设备上也能随时随地观看视频教程。</p>
+        </div>
+        <div class="ui purple inverted segment">
+            <p>爱酷学习网是一个免费提供高清在线观看视频教程的网站，这里有各类视频教程，包括Java,.Net,C,C++,Python,Php,iOS,Ruby,Photoshop,Mybats,Spring,SpringMVC,Bootstrap,Semantic UI等视频教程。我们还提供了Android, iOS, Windows Phone客户端，让你在手机等移动设备上也能随时随地观看视频教程。</p>
+        </div>
+        <div class="ui teal inverted segment">
+            <p>爱酷学习网是一个免费提供高清在线观看视频教程的网站，这里有各类视频教程，包括Java,.Net,C,C++,Python,Php,iOS,Ruby,Photoshop,Mybats,Spring,SpringMVC,Bootstrap,Semantic UI等视频教程。我们还提供了Android, iOS, Windows Phone客户端，让你在手机等移动设备上也能随时随地观看视频教程。</p>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">Ordinality</h4>
+        <p>A segment can be formatted to appear more or less noticeable</p>
+        <div class="ui primary segment">
+            <p>I'm here to tell you something, and you will probably read me first.</p>
+        </div>
+        <div class="ui secondary segment">
+            <p>I am pretty noticeable but you might check out other content before you look at me.</p>
+        </div>
+        <div class="ui tertiary segment">
+            <p>If you notice me you must be looking very hard.</p>
+        </div>
+    </div>
+    <div class="another example">
+        <p>Inverted colors may also be more or less noticeable</p>
+        <div class="ui primary inverted segment">
+            <p>I'm here to tell you something, and you will probably read me first.</p>
+        </div>
+        <div class="ui secondary inverted segment">
+            <p>I am pretty noticeable but you might check out other content before you look at me.</p>
+        </div>
+        <div class="ui tertiary inverted segment">
+            <p>If you notice me you must be looking very hard.</p>
+        </div>
+    </div>
+    <div class="another example">
+        <div class="ui primary inverted red segment">
+            <p>I'm here to tell you something, and you will probably read me first.</p>
+        </div>
+        <div class="ui secondary inverted red segment">
+            <p>I am pretty noticeable but you might check out other content before you look at me.</p>
+        </div>
+        <div class="ui tertiary inverted red segment">
+            <p>If you notice me you must be looking very hard.</p>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">Circular</h4>
+        <p>A segment can be circular</p>
+        <div class="ui ignored info message">A circular segment will most likely have to have its content manually sized to be equal width and height, otherwise it will flow to the size of your content</div>
+        <div class="ui circular segment">
+            <h2 class="ui header">
+                Buy Now
+                <div class="sub header">$10.99</div>
+            </h2>
+        </div>
+        <div class="ui inverted circular segment">
+            <h2 class="ui inverted header">
+                Buy Now
+                <div class="sub header">$10.99</div>
+            </h2>
+        </div>
+    </div>
+    <div class="another example">
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">Floated</h4>
+        <p>A segment cant sit to the left or right of other content</p>
+        <div class="ui right floated segment">
+            <p>This segment will appear to the right
+        </div>
+        <div class="ui left floated segment">
+            This segment will appear to the left
+        </div>
+    </div>
+
+    <div class="clearing example">
+        <h4 class="ui header">Text Alignment</h4>
+        <p>A segment cant have its text aligned to a side</p>
+        <div class="ui right aligned segment">
+            Right
+        </div>
+        <div class="ui left aligned segment">
+            Left
+        </div>
+        <div class="ui center aligned segment">
+            Center
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">Basic</h4>
+        <p>A basic segment has no special formatting</p>
+        <div class="ui basic segment">
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+        </div>
+    </div>
+    <div class="example">
+        <h4 class="ui header">Attached</h4>
+        <p>A segment can be attached to other content on a page</p>
+
+        <div class="ui top attached segment">
+            <p>This segment is on top</p>
+        </div>
+        <div class="ui attached segment">
+            <p>This segment is attached on both sides</p>
+        </div>
+        <div class="ui bottom attached segment">
+            <p>This segment is on bottom</p>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+
+</html>

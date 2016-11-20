@@ -1,0 +1,807 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.59.6" />
+  <title>评论控件 | Semantic UI中文网</title>
+
+  <meta name="description" content="评论控件主要用来给用户显示一个评论框（或者评论的区域），这个评论框里面包括了用户对网站某个页面上的文章或者视频或者其它内容的评论信息。比如说当前最为流行的友言、多说等社会化评论组件都是评论控件的延伸。" />
+  <meta name="keywords" content="Semantic UI, Semantic入门, CSS, CSS框架, CSS framework, html5, ui, library, framework, javascript, Semantic UI中文网, Semantic UI翻译, Semantic UI教程" />
+
+  <link rel="stylesheet" type="text/css" class="ui" href="../build/packaged/css/semantic.min.css">
+
+  <link rel="stylesheet" type="text/css" href="../stylesheets/semantic.css">
+    <script type="text/javascript" src="../jquery.js"></script>
+  <script src="../javascript/library/history.js"></script>
+  <script src="../javascript/library/easing.js"></script>
+    <script src="../javascript/library/ace/ace.js"></script>
+  <script src="../javascript/library/tablesort.js"></script>
+  <script src="../javascript/library/waypoints.js"></script>
+
+  <script src="../build/packaged/javascript/semantic.min.js"></script>
+
+  <script src="../javascript/semantic.js"></script>
+
+</head>
+<body id="example" class="comment">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> 关闭
+    </a>
+    <a class="item" href="http://www.semantic-ui.com/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>下载</b>
+    </a>
+    <div class="item">
+      <a href="../index.html">
+        <b>简单介绍</b>
+      </a>
+      <div class="menu">
+        
+        <a class="item" href="../introduction/variations.html">变化</a>
+        
+        <a class="item" href="../introduction/definitions.html">定义</a>
+        
+        <a class="item" href="../introduction.html">有什么新奇的玩意儿？</a>
+        
+        <a class="item" href="../introduction/types.html">样式（种类）</a>
+        
+        <a class="item" href="../introduction/overview.html">概述</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>关于项目</b>
+      <div class="menu">
+        
+        <a class="item" href="../project/contributing.html">加入我们</a>
+        
+        <a class="item" href="../project/development.html">本地文档服务器</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../element.html"><b>基础组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../modules/reveal.html">Reveal</a>
+        
+        <a class="item" href="../elements/divider.html">分隔条</a>
+        
+        <a class="item" href="../elements/loader.html">加载控件</a>
+        
+        <a class="item" href="../elements/image.html">图像控件</a>
+        
+        <a class="item" href="../elements/icon.html">图标</a>
+        
+        <a class="item" href="../elements/button.html">按扭</a>
+        
+        <a class="item" href="../elements/label.html">标签</a>
+        
+        <a class="item" href="../elements/header.html">标题头控件</a>
+        
+        <a class="item" href="../elements/step.html">步骤控件</a>
+        
+        <a class="item" href="../elements/segment.html">片断控件</a>
+        
+        <a class="item" href="../elements/input.html">输入控件</a>
+        
+        <a class="item" href="../elements/progress.html">进度条控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../collection.html"><b>集合/列表组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../collections/message.html">消息控件</a>
+        
+        <a class="item" href="../collections/grid.html">网格（栅格）系统</a>
+        
+        <a class="item" href="../collections/menu.html">菜单</a>
+        
+        <a class="item" href="../collections/form.html">表单</a>
+        
+        <a class="item" href="../collections/table.html">表格</a>
+        
+        <a class="item" href="../collections/breadcrumb.html">面包屑/导航条</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>内容展示组件</b>
+      <div class="menu">
+        
+        <a class="item" href="feed.html">Feed</a>
+        
+        <a class="item" href="item.html">Item（元素列表）</a>
+        
+        <a class="item" href="list.html">列表</a>
+        
+        <a class="active item" href="comment.html">评论控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../module.html"><b>模块</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../modules/shape.html">Shape</a>
+        
+        <a class="item" href="../modules/dropdown.html">下拉列表模块</a>
+        
+        <a class="item" href="../modules/checkbox.html">复选框模块</a>
+        
+        <a class="item" href="../modules/popup.html">弹出框模块</a>
+        
+        <a class="item" href="../modules/accordion.html">手风琴模块</a>
+        
+        <a class="item" href="../modules/modal.html">模态对话框</a>
+        
+        <a class="item" href="../modules/rating.html">评分模块</a>
+        
+        <a class="item" href="../modules/dimmer.html">调光器（遮罩层）</a>
+        
+        <a class="item" href="../modules/sidebar.html">边栏</a>
+        
+        <a class="item" href="../modules/transition.html">过渡（动画）效果</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>特定行为控件</b>
+      <div class="menu">
+        
+        <a class="item" href="../modules/form.html">验证表单</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>样式指南</b>
+      <div class="menu">
+        
+        <a class="item" href="../guide/cssguide.html">CSS开发指南</a>
+        
+        <a class="item" href="../guide/javascriptguide.html">Javascript开发指南</a>
+        
+        <a class="item" href="../guide/styleguide.html">语言指南</a>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> 内容</a>
+      <div class="title item">
+        <b>UI View:</b> 评论控件
+      </div>
+      
+      <a class="icon item" href="list.html"><i class="left arrow icon"></i></a>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">4 of 4</span>
+        <div class="menu">
+          
+          <div class="item">
+            <a href="feed.html">1. Feed</a>
+          </div>
+          
+          <div class="item">
+            <a href="item.html">2. Item（元素列表）</a>
+          </div>
+          
+          <div class="item">
+            <a href="list.html">3. 列表</a>
+          </div>
+          
+          <div class="active item">
+            <a href="comment.html">4. 评论控件</a>
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="disabled icon item"><i class="right arrow icon"></i></div>
+      
+      <div class="right menu">
+        
+        <div class="vertically fitted borderless item">
+        </div>
+        
+        
+        <a class="popup designer icon item" title="设计模式">
+          <i class="basic paint icon"></i>
+        </a>
+        <a class="popup developer icon item" title="开发模式">
+          <i class="terminal icon"></i>
+        </a>
+        
+        <a class="popup icon github item" title="查看Semantic UI在Github的项目信息" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <div class="title item">
+          交流群：262577550
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui black huge launch right attached button">
+    <i class="icon list layout"></i>
+    <span class="text">导航</span>
+  </div>
+
+  ﻿
+
+<div class="segment">
+    <div class="container">
+        <div class="introduction">
+
+            <h1 class="ui dividing header">
+                评论控件
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Semantic UI学习交流群 <a class="ui red circular label large">262577550</a>
+            </h1>
+
+            <p>评论控件主要用来给用户显示一个评论框（或者评论的区域），这个评论框里面包括了用户对网站某个页面上的文章或者视频或者其它内容的评论信息。比如说当前最为流行的友言、多说等社会化评论组件都是评论控件的延伸。</p>
+            
+            <div class="ui basic labeled icon toggle overview button">
+                点击切换到定义模式
+                <i class="book icon"></i>
+            </div>
+            
+            
+        </div>
+    
+        
+    </div>
+</div>
+<div class="main container">
+
+    <div class="peek">
+        <div class="ui vertical pointing secondary menu">
+            <a class="active item">种类</a>
+            <a class="item">内容</a>
+            <a class="item">变化的评论控件</a>
+        </div>
+    </div>
+
+    <h2 class="ui dividing header">各类</h2>
+
+    <div class="example">
+        <h4 class="ui header">评论控件</h4>
+        <p>基本的评论列表。</p>
+
+        <div class="ui two column grid">
+            <div class="column">
+                <div class="ui piled blue segment">
+                    <h2 class="ui header">
+                        <i class="icon inverted circular blue comment"></i> 关于爱酷学习网的评论
+                    </h2>
+                    <div class="ui comments">
+                        <div class="comment">
+                            <a class="avatar">
+                                <img src="../images/demo/avatar.jpg">
+                            </a>
+                            <div class="content">
+                                <a class="author">华寅</a>
+                                <div class="metadata">
+                                    <span class="date">2天前</span>
+                                </div>
+                                <div class="text">
+                                    爱酷学习网很好啊，视频教程都很清晰！
+                                </div>
+                                <div class="actions">
+                                    <a class="reply">回复</a>
+                                    <a class="delete">删除</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <a class="avatar">
+                                <img src="../images/demo/avatar2.jpg">
+                            </a>
+                            <div class="content">
+                                <a class="author">风信子</a>
+                                <div class="metadata">
+                                    <span class="date">2天前</span>
+                                </div>
+                                <div class="text">
+                                    爱酷学习网的视频教程要是能免费下载就好了。
+                                </div>
+                                <div class="actions">
+                                    <a class="reply">回复</a>
+                                    <a class="delete">删除</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <a class="avatar">
+                                <img src="../images/demo/avatar.jpg">
+                            </a>
+                            <div class="content">
+                                <a class="author">安卡拦</a>
+                                <div class="metadata">
+                                    <span class="date">两天前</span>
+                                </div>
+                                <div class="text">
+                                    如果爱酷学习网能提供私信功能就好啦。
+                                </div>
+                                <div class="actions">
+                                    <a class="reply">回复</a>
+                                    <a class="delete">删除</a>
+                                </div>
+                            </div>
+                        </div>
+                        <form class="ui reply form">
+                            <div class="field">
+                                <textarea></textarea>
+                            </div>
+                            <div class="ui fluid blue labeled submit icon button">
+                                <i class="icon edit"></i> 我也来评论一下！
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2 class="ui dividing header">内容</h2>
+
+    <h3 class="ui header">评论</h3>
+
+    <div class="example">
+        <h4 class="ui header">头像</h4>
+        <p>评论控件可以包含一个用户头像（这应该是评论控件的标配吧）。</p>
+        <div class="ui comments">
+            <div class="comment">
+                <a class="avatar">
+                    <img src="../images/demo/avatar.jpg">
+                </a>
+                <div class="content">
+                    <a class="author">华寅</a>
+                    <div class="text">
+                        爱酷学习网非常好呀！
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">元数据</h4>
+        <p>A评论可以包含元数据（描述数据的数据），这使得你可以自由的定制评论控件。</p>
+        <div class="ui comments">
+            <div class="comment">
+                <a class="avatar">
+                    <img src="../images/demo/avatar.jpg">
+                </a>
+                <div class="content">
+                    <a class="author">风信子</a>
+                    <div class="metadata">
+                        <div class="date">两天前</div>
+                        <div class="stars">
+                            <i class="icon star"></i>
+                            <i class="icon star"></i>
+                            <i class="icon star"></i>
+                            <i class="icon empty star"></i>
+                            <i class="icon empty star"></i>
+                        </div>
+                    </div>
+                    <div class="text">
+                        爱酷学习网对我的学习的帮助很大。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">行为</h4>
+        <p>评论控件可以包含一系统动作行为让用户对某条评论进行相关操作（回复、删除等）。</p>
+        <div class="ui comments">
+            <div class="comment">
+                <a class="avatar">
+                    <img src="../images/demo/avatar.jpg">
+                </a>
+                <div class="content">
+                    <a class="author">安卡拉</a>
+                    <div class="metadata">
+                        <div class="date">两天前</div>
+                        <div class="stars">
+                            <i class="icon star"></i>
+                            <i class="icon star"></i>
+                            <i class="icon star"></i>
+                            <i class="icon empty star"></i>
+                            <i class="icon empty star"></i>
+                        </div>
+                    </div>
+                    <div class="text">
+                        爱酷学习网的视频教程能再增加更多的类别吗？
+                    </div>
+                    <div class="actions">
+                        <a class="reply">回复</a>
+                        <a class="delete">删除</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h4 class="ui header">回复评论表单</h4>
+        <p>评论可以被其它用户（或者管理员）回复，当然，我们也考虑到了这个需求，请看下面！</p>
+        <div class="ui comments">
+            <div class="comment">
+                <a class="avatar">
+                    <img src="../images/demo/avatar.jpg">
+                </a>
+                <div class="content">
+                    <a class="author">多多</a>
+                    <div class="metadata">
+                        <div class="date">两天前</div>
+                    </div>
+                    <div class="text">
+                        爱酷学习网的视频教程在线观看真清晰！
+                    </div>
+                    <div class="actions">
+                        <a class="reply active">回复</a>
+                        <a class="delete">删除</a>
+                    </div>
+                    <form class="ui reply form">
+                        <div class="field">
+                            <textarea></textarea>
+                        </div>
+                        <div class="ui button teal submit labeled icon">
+                            <i class="icon edit"></i> 回复
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="another example">
+        <p>A comment reply form can also exist below a comment feed to reply specifically to the original content.
+        <div class="ui comments">
+            <div class="comment">
+                <a class="avatar">
+                    <img src="../images/demo/avatar.jpg">
+                </a>
+                <div class="content">
+                    <a class="author">华寅</a>
+                    <div class="metadata">
+                        <div class="date">两天前</div>
+                    </div>
+                    <div class="text">
+                        爱酷学习网的视频教程在线观看真清晰！
+                    </div>
+                    <div class="actions">
+                        <a class="reply">回复</a>
+                        <a class="delete">删除</a>
+                    </div>
+                </div>
+            </div>
+            <div class="comment">
+                <a class="avatar">
+                    <img src="../images/demo/avatar2.jpg">
+                </a>
+                <div class="content">
+                    <a class="author">嘟嘟</a>
+                    <div class="metadata">
+                        <div class="date">1天前</div>
+                    </div>
+                    <div class="text">
+                        爱酷学习网的视频教程在线观看真清晰！
+                    </div>
+                    <div class="actions">
+                        <a class="reply">回复</a>
+                    </div>
+                </div>
+            </div>
+            <form class="ui reply form">
+                <div class="field">
+                    <textarea></textarea>
+                </div>
+                <div class="ui button teal submit labeled icon">
+                    <i class="icon edit"></i> 添加评论
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <h2 class="ui dividing header">变化的评论控件</h2>
+
+    <div class="example">
+        <h4 class="ui header">评论线索（注意评论控件里的线条）</h4>
+        <p>评论控件提供了评论间的相关关系以及类似于评论聊天的功能（就像你的QQ空间或者新浪微博那种评论聊天的样式）。</p>
+        <div class="ui threaded comments">
+            <div class="comment">
+                <a class="avatar">
+                    <img src="../images/demo/avatar.jpg">
+                </a>
+                <div class="content">
+                    <a class="author">华寅</a>
+                    <div class="metadata">
+                        <span class="date">两天前</span>
+                    </div>
+                    <div class="text">
+                        爱酷学习网的视频教程在线观看真清晰！
+                    </div>
+                    <div class="actions">
+                        <a class="reply">回复</a>
+                        <a class="delete">删除</a>
+                    </div>
+                </div>
+                <div class="comments">
+                    <div class="comment">
+                        <a class="avatar">
+                            <img src="../images/demo/avatar2.jpg">
+                        </a>
+                        <div class="content">
+                            <a class="author">风信子</a>
+                            <div class="metadata">
+                                <span class="date">1天前</span>
+                            </div>
+                            <div class="text">
+                                爱酷学习网的视频教程在线观看真清晰！
+                            </div>
+                            <div class="actions">
+                                <a class="reply">回复</a>
+                                <a class="delete">删除</a>
+                            </div>
+                        </div>
+                        <div class="comments">
+                            <div class="comment">
+                                <a class="avatar">
+                                    <img src="../images/demo/avatar.jpg">
+                                </a>
+                                <div class="content">
+                                    <a class="author">安卡拉</a>
+                                    <div class="metadata">
+                                        <span class="date">20分钟前</span>
+                                    </div>
+                                    <div class="text">
+                                        爱酷学习网的视频教程在线观看真清晰！
+                                    </div>
+                                    <div class="actions">
+                                        <a class="reply">回复</a>
+                                        <a class="delete">删除</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <a class="avatar">
+                                    <img src="../images/demo/avatar.jpg">
+                                </a>
+                                <div class="content">
+                                    <a class="author">多多</a>
+                                    <div class="metadata">
+                                        <span class="date">20分钟前</span>
+                                    </div>
+                                    <div class="text">
+                                        爱酷学习网真好！
+                                    </div>
+                                    <div class="actions">
+                                        <a class="reply">回复</a>
+                                        <a class="delete">删除</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <a class="avatar">
+                            <img src="../images/demo/avatar.jpg">
+                        </a>
+                        <div class="content">
+                            <a class="author">嘟嘟</a>
+                            <div class="metadata">
+                                <span class="date">两天前</span>
+                            </div>
+                            <div class="text">
+                                爱酷学习网的视频教程在线观看真清晰！
+                            </div>
+                            <div class="actions">
+                                <a class="reply">回复</a>
+                                <a class="delete">删除</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="comment">
+                <a class="avatar">
+                    <img src="../images/demo/avatar.jpg">
+                </a>
+                <div class="content">
+                    <a class="author">晴天</a>
+                    <div class="metadata">
+                        <span class="date">20小时前</span>
+                    </div>
+                    <div class="text">
+                        爱酷学习网的视频教程在线观看真清晰！
+                    </div>
+                    <div class="actions">
+                        <a class="reply">回复</a>
+                    </div>
+                </div>
+            </div>
+            <div class="comment">
+                <a class="avatar">
+                    <img src="../images/demo/avatar2.jpg">
+                </a>
+                <div class="content">
+                    <a class="author">白云</a>
+                    <div class="metadata">
+                        <span class="date">15小时前</span>
+                    </div>
+                    <div class="text">
+                        爱酷学习网的视频教程在线观看真清晰！
+                    </div>
+                    <div class="actions">
+                        <a class="reply">回复</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="example">
+        <h4 class="ui header">迷你评论控件</h4>
+        <p>评论控件可以隐藏额外的信息（如回复评论、删除评论等动作链接），除非用户表示有意与评论互动。</p>
+        <div class="ui minimal comments">
+            <div class="comment">
+                <a class="avatar">
+                    <img src="../images/demo/avatar.jpg">
+                </a>
+                <div class="content">
+                    <a class="author">华寅</a>
+                    <div class="metadata">
+                        <span class="date">两天前</span>
+                    </div>
+                    <div class="text">
+                        爱酷学习网的视频教程在线观看真清晰！
+                    </div>
+                    <div class="actions">
+                        <a class="reply">回复</a>
+                        <a class="delete">删除</a>
+                    </div>
+                </div>
+                <div class="comments">
+                    <div class="comment">
+                        <a class="avatar">
+                            <img src="../images/demo/avatar2.jpg">
+                        </a>
+                        <div class="content">
+                            <a class="author">风信子</a>
+                            <div class="metadata">
+                                <span class="date">1天前</span>
+                            </div>
+                            <div class="text">
+                                爱酷学习网的视频教程在线观看真清晰！
+                            </div>
+                            <div class="actions">
+                                <a class="reply">回复</a>
+                                <a class="delete">删除</a>
+                            </div>
+                        </div>
+                        <div class="comments">
+                            <div class="comment">
+                                <a class="avatar">
+                                    <img src="../images/demo/avatar.jpg">
+                                </a>
+                                <div class="content">
+                                    <a class="author">可乐</a>
+                                    <div class="metadata">
+                                        <span class="date">20分钟前</span>
+                                    </div>
+                                    <div class="text">
+                                        爱酷学习网的视频教程在线观看真清晰！
+                                    </div>
+                                    <div class="actions">
+                                        <a class="reply">回复</a>
+                                        <a class="delete">删除</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comment">
+                                <a class="avatar">
+                                    <img src="../images/demo/avatar.jpg">
+                                </a>
+                                <div class="content">
+                                    <a class="author">多多</a>
+                                    <div class="metadata">
+                                        <span class="date">20分钟前</span>
+                                    </div>
+                                    <div class="text">
+                                        Also pizza.
+                                    </div>
+                                    <div class="actions">
+                                        <a class="reply">回复</a>
+                                        <a class="delete">删除</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <a class="avatar">
+                            <img src="../images/demo/avatar.jpg">
+                        </a>
+                        <div class="content">
+                            <a class="author">嘟嘟</a>
+                            <div class="metadata">
+                                <span class="date">两天前</span>
+                            </div>
+                            <div class="text">
+                                爱酷学习网的视频教程在线观看真清晰！
+                            </div>
+                            <div class="actions">
+                                <a class="reply">回复</a>
+                                <a class="delete">删除</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="comment">
+                <a class="avatar">
+                    <img src="../images/demo/avatar.jpg">
+                </a>
+                <div class="content">
+                    <a class="author">蓝天</a>
+                    <div class="metadata">
+                        <span class="date">20小时前</span>
+                    </div>
+                    <div class="text">
+                        爱酷学习网的视频教程在线观看真清晰！
+                    </div>
+                    <div class="actions">
+                        <a class="reply">回复</a>
+                    </div>
+                </div>
+            </div>
+            <div class="comment">
+                <a class="avatar">
+                    <img src="../images/demo/avatar2.jpg">
+                </a>
+                <div class="content">
+                    <a class="author">白云</a>
+                    <div class="metadata">
+                        <span class="date">15小时前</span>
+                    </div>
+                    <div class="text">
+                        爱酷学习网的视频教程在线观看真清晰！
+                    </div>
+                    <div class="actions">
+                        <a class="reply">回复</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

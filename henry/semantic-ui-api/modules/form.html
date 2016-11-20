@@ -1,0 +1,797 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.59.6" />
+  <title>验证表单 | Semantic UI中文网</title>
+
+  <meta name="description" content="验证表单是指在数据上传到服务器端之前验证用户的输入。" />
+  <meta name="keywords" content="Semantic UI, Semantic入门, CSS, CSS框架, CSS framework, html5, ui, library, framework, javascript, Semantic UI中文网, Semantic UI翻译, Semantic UI教程" />
+
+  <link rel="stylesheet" type="text/css" class="ui" href="../build/packaged/css/semantic.min.css">
+
+  <link rel="stylesheet" type="text/css" href="../stylesheets/semantic.css">
+    <script type="text/javascript" src="../jquery.js"></script>
+  <script src="../javascript/library/history.js"></script>
+  <script src="../javascript/library/easing.js"></script>
+    <script src="../javascript/library/ace/ace.js"></script>
+  <script src="../javascript/library/tablesort.js"></script>
+  <script src="../javascript/library/waypoints.js"></script>
+
+  <script src="../build/packaged/javascript/semantic.min.js"></script>
+
+  <script src="../javascript/semantic.js"></script>
+
+</head>
+<body id="example" class="form">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> 关闭
+    </a>
+    <a class="item" href="http://www.semantic-ui.com/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>下载</b>
+    </a>
+    <div class="item">
+      <a href="../index.html">
+        <b>简单介绍</b>
+      </a>
+      <div class="menu">
+        
+        <a class="item" href="../introduction/variations.html">变化</a>
+        
+        <a class="item" href="../introduction/definitions.html">定义</a>
+        
+        <a class="item" href="../introduction.html">有什么新奇的玩意儿？</a>
+        
+        <a class="item" href="../introduction/types.html">样式（种类）</a>
+        
+        <a class="item" href="../introduction/overview.html">概述</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>关于项目</b>
+      <div class="menu">
+        
+        <a class="item" href="../project/contributing.html">加入我们</a>
+        
+        <a class="item" href="../project/development.html">本地文档服务器</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../element.html"><b>基础组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="reveal.html">Reveal</a>
+        
+        <a class="item" href="../elements/divider.html">分隔条</a>
+        
+        <a class="item" href="../elements/loader.html">加载控件</a>
+        
+        <a class="item" href="../elements/image.html">图像控件</a>
+        
+        <a class="item" href="../elements/icon.html">图标</a>
+        
+        <a class="item" href="../elements/button.html">按扭</a>
+        
+        <a class="item" href="../elements/label.html">标签</a>
+        
+        <a class="item" href="../elements/header.html">标题头控件</a>
+        
+        <a class="item" href="../elements/step.html">步骤控件</a>
+        
+        <a class="item" href="../elements/segment.html">片断控件</a>
+        
+        <a class="item" href="../elements/input.html">输入控件</a>
+        
+        <a class="item" href="../elements/progress.html">进度条控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../collection.html"><b>集合/列表组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../collections/message.html">消息控件</a>
+        
+        <a class="item" href="../collections/grid.html">网格（栅格）系统</a>
+        
+        <a class="item" href="../collections/menu.html">菜单</a>
+        
+        <a class="item" href="../collections/form.html">表单</a>
+        
+        <a class="item" href="../collections/table.html">表格</a>
+        
+        <a class="item" href="../collections/breadcrumb.html">面包屑/导航条</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>内容展示组件</b>
+      <div class="menu">
+        
+        <a class="item" href="../views/feed.html">Feed</a>
+        
+        <a class="item" href="../views/item.html">Item（元素列表）</a>
+        
+        <a class="item" href="../views/list.html">列表</a>
+        
+        <a class="item" href="../views/comment.html">评论控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../module.html"><b>模块</b></a>
+      <div class="menu">
+        
+        <a class="item" href="shape.html">Shape</a>
+        
+        <a class="item" href="dropdown.html">下拉列表模块</a>
+        
+        <a class="item" href="checkbox.html">复选框模块</a>
+        
+        <a class="item" href="popup.html">弹出框模块</a>
+        
+        <a class="item" href="accordion.html">手风琴模块</a>
+        
+        <a class="item" href="modal.html">模态对话框</a>
+        
+        <a class="item" href="rating.html">评分模块</a>
+        
+        <a class="item" href="dimmer.html">调光器（遮罩层）</a>
+        
+        <a class="item" href="sidebar.html">边栏</a>
+        
+        <a class="item" href="transition.html">过渡（动画）效果</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>特定行为控件</b>
+      <div class="menu">
+        
+        <a class="active item" href="form.html">验证表单</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>样式指南</b>
+      <div class="menu">
+        
+        <a class="item" href="../guide/cssguide.html">CSS开发指南</a>
+        
+        <a class="item" href="../guide/javascriptguide.html">Javascript开发指南</a>
+        
+        <a class="item" href="../guide/styleguide.html">语言指南</a>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> 内容</a>
+      <div class="title item">
+        <b>UI Behavior:</b> 验证表单
+      </div>
+      
+      <div class="disabled icon item"><i class="left arrow icon"></i></div>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">1 of 1</span>
+        <div class="menu">
+          
+          <div class="active item">
+            <a href="form.html">1. 验证表单</a>
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="disabled icon item"><i class="right arrow icon"></i></div>
+      
+      <div class="right menu">
+        
+        <div class="vertically fitted borderless item">
+        </div>
+        
+        
+        <a class="popup icon github item" title="查看Semantic UI在Github的项目信息" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <div class="title item">
+          交流群：262577550
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui black huge launch right attached button">
+    <i class="icon list layout"></i>
+    <span class="text">导航</span>
+  </div>
+
+  <script src="../build/uncompressed/modules/behavior/form.js"></script>
+<script src="../javascript/validate-form.js"></script>
+
+﻿
+
+<div class="segment">
+    <div class="container">
+        <div class="introduction">
+
+            <h1 class="ui dividing header">
+                验证表单
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Semantic UI学习交流群 <a class="ui red circular label large">262577550</a>
+            </h1>
+
+            <p>验证表单是指在数据上传到服务器端之前验证用户的输入。</p>
+            
+            
+        </div>
+
+        
+    </div>
+</div>
+
+<div class="main container">
+
+    <div class="peek">
+        <div class="ui vertical pointing secondary menu">
+            <a class="active item">用法</a>
+            <a class="item">方法</a>
+            <a class="item">配置</a>
+        </div>
+    </div>
+
+    <h2 class="ui dividing header">使用方法</h2>
+
+    <div class="example">
+        <h3 class="ui header">基本验证</h3>
+        <p>表单验证需要通过表单验证规则才算验证成功。</p>
+        <div class="ui info message">
+            <i class="help icon"></i>验证对象包含了一组表单元素和一组验证规则。表单域通过id, name或者验证元数据相关联。
+        </div>
+        <div class="ignore code">
+            $('.ui.form')
+            .form({
+            firstName: {
+            identifier  : 'first-name',
+            rules: [
+            {
+            type   : 'empty',
+            prompt : 'Please enter your first name'
+            }
+            ]
+            },
+            lastName: {
+            identifier  : 'last-name',
+            rules: [
+            {
+            type   : 'empty',
+            prompt : 'Please enter your last name'
+            }
+            ]
+            },
+            username: {
+            identifier : 'username',
+            rules: [
+            {
+            type   : 'empty',
+            prompt : 'Please enter a username'
+            }
+            ]
+            },
+            password: {
+            identifier : 'password',
+            rules: [
+            {
+            type   : 'empty',
+            prompt : 'Please enter a password'
+            },
+            {
+            type   : 'length[6]',
+            prompt : 'Your password must be at least 6 characters'
+            }
+            ]
+            }
+            terms: {
+            identifier : 'terms',
+            rules: [
+            {
+            type   : 'checked',
+            prompt : 'You must agree to the terms and conditions'
+            }
+            ]
+            }
+            });
+        </div>
+        <div class="ui form segment">
+            <p>注册成为爱酷学习网会员</p>
+            <div class="two fields">
+                <div class="field">
+                    <label>姓</label>
+                    <input placeholder="姓" name="first-name" type="text">
+                </div>
+                <div class="field">
+                    <label>名</label>
+                    <input placeholder="名" name="last-name" type="text">
+                </div>
+            </div>
+            <div class="field">
+                <label>用户名</label>
+                <input placeholder="用户名" name="username" type="text">
+            </div>
+            <div class="field">
+                <label>密码</label>
+                <input type="password" name="password">
+            </div>
+            <div class="inline field">
+                <div class="ui checkbox">
+                    <input type="checkbox" name="terms" />
+                    <label>我同意爱酷学习网的相关服务条款！</label>
+                </div>
+            </div>
+            <div class="ui blue submit button">提交</div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h3 class="ui header">验证消息</h3>
+        <p>Forms that contain a <a href="http://zh.semantic-ui.com/modules/elements/message.html">ui message</a> error block will automatically be filled in with form validation information.</p>
+        <div class="info message">The template for error messages can be modified by adjusting settings.template.error</div>
+
+        <div class="ui form segment">
+            <p>Let's go ahead and get you signed up.</p>
+            <div class="two fields">
+                <div class="field">
+                    <label>姓</label>
+                    <input placeholder="姓" name="first-name" type="text">
+                </div>
+                <div class="field">
+                    <label>名</label>
+                    <input placeholder="名" name="last-name" type="text">
+                </div>
+            </div>
+            <div class="field">
+                <label>用户名</label>
+                <input placeholder="用户名" name="username" type="text">
+            </div>
+            <div class="field">
+                <label>密码</label>
+                <input type="password" name="password">
+            </div>
+            <div class="inline field">
+                <div class="ui checkbox">
+                    <input type="checkbox" name="terms" />
+                    <label>I agree to the Terms and Conditions</label>
+                </div>
+            </div>
+            <div class="ui blue submit button">提交</div>
+            <div class="ui error message"></div>
+        </div>
+    </div>
+    <div class="dog example">
+        <h3 class="ui header">Custom Validation</h3>
+        <p>Custom form validation requires passing in a validation object with the rules required to validate your form.</p>
+        <div class="ignore code">
+            $('.ui.form')
+            .form({
+            dog: {
+            identifier: 'dog',
+            rules: [
+            {
+            type: 'empty',
+            prompt: 'You must have a dog to add'
+            },
+            {
+            type: 'contains[fluffy]',
+            prompt: 'I only want you to add fluffy dogs!'
+            },
+            {
+            type: 'not[mean]',
+            prompt: 'Why would you add a mean dog to the list?'
+            }
+            ]
+            }
+            })
+            ;
+        </div>
+        <div class="ui form segment">
+            <p>Let's go ahead and get you signed up.</p>
+            <div class="field">
+                <label>Dog</label>
+                <input placeholder="Dog" name="dog" type="text">
+            </div>
+            <div class="ui blue submit button">Add Dog <i class="add icon"></i></div>
+            <div class="ui error message"></div>
+        </div>
+    </div>
+
+    <div class="inline example">
+        <h3 class="ui header">Inline Validation and Validation Events</h3>
+        <p>Validation messages can also appear inline. UI Forms automatically format <a href="../elements/label.html">labels</a> with the class name <code>prompt</code>. These validation prompts are also set to appear on input change instead of form submission.</p>
+        <p>This example also uses a different validation event. Each element will be validated on input blur instead of the default form submit.</p>
+        <div class="code" data-type="javascript">
+            $('.ui.dropdown')
+            .form(validationRules, {
+            inline : true,
+            on     : 'blur'
+            })
+            ;
+        </div>
+        <div class="ui form segment">
+            <p>Let's go ahead and get you signed up.</p>
+            <div class="two fields">
+                <div class="field">
+                    <label>姓</label>
+                    <input placeholder="姓" name="first-name" type="text">
+                </div>
+                <div class="field">
+                    <label>名</label>
+                    <input placeholder="名" name="last-name" type="text">
+                </div>
+            </div>
+            <div class="field">
+                <label>用户名</label>
+                <input placeholder="用户名" name="username" type="text">
+            </div>
+            <div class="field">
+                <label>密码</label>
+                <input type="password" name="password">
+            </div>
+            <div class="inline field">
+                <div class="ui checkbox">
+                    <input type="checkbox" name="terms" />
+                    <label>I agree to the Terms and Conditions</label>
+                </div>
+            </div>
+            <div class="ui blue submit button">提交</div>
+        </div>
+    </div>
+
+    <h2 class="ui dividing header">Behavior</h2>
+
+    All the following <a href="../module.html#/behavior">behaviors</a> can be called using the syntax <code>$('.foo').form('behavior name', argumentOne, argumentTwo)</code>
+
+    <table class="ui definition celled table segment">
+        <tr>
+            <td>submit</td>
+            <td>Submits selected form</td>
+        </tr>
+        <tr>
+            <td>validate form</td>
+            <td>Validates form and calls onSuccess or onFailure</td>
+        </tr>
+        <tr>
+            <td>get change event</td>
+            <td>gets browser property change event</td>
+        </tr>
+        <tr>
+            <td>get field(id)</td>
+            <td>Returns element with matching name, id, or data-validate metadata to ID</td>
+        </tr>
+        <tr>
+            <td>get validation(element)</td>
+            <td>Returns validation rules for a given field</td>
+        </tr>
+        <tr>
+            <td>has field(identifier)</td>
+            <td>Returns whether a field exists</td>
+        </tr>
+        <tr>
+            <td>add errors(errors)</td>
+            <td>Adds errors to form, given an array errors</td>
+        </tr>
+    </table>
+
+    <h2 class="ui dividing header">Settings</h2>
+
+    <h3 class="ui header">
+        Form Settings
+        <div class="sub header">Form settings modify the form validation behavior</div>
+    </h3>
+
+    <table class="ui red celled sortable definition table segment">
+        <thead>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>keyboardShortcuts</td>
+                <td>true</td>
+                <td>Adds keyboard shortcuts for enter and escape keys to submit form and blur fields respectively</td>
+            </tr>
+            <tr>
+                <td>on</td>
+                <td>submit</td>
+                <td>Event used to trigger validation. Can be either <b>submit</b>, <b>blur</b> or <b>change</b>.</td>
+            </tr>
+            <tr>
+                <td>inline</td>
+                <td>false</td>
+                <td>Adds inline error on field validation error</td>
+            </tr>
+            <tr>
+                <td>transition</td>
+                <td>
+                    scale
+                </td>
+                <td>Named transition to use when animating validation errors. Fade and slide down are available without including <a href="transition.html">ui transitions</a></td>
+            </tr>
+            <tr>
+                <td>duration</td>
+                <td>150</td>
+                <td>Animation speed for inline prompt</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="ui horizontal divider"><i class="icon setting"></i></div>
+
+    <h3 class="ui header">
+        Validation Rules
+        <div class="sub header">Validation rules are a set of conditions required to validate a field</div>
+    </h3>
+    <div class="ui info message">Validation rules are found in <code>settings.rules</code>, to add new global validation rules, modify <code>$.fn.form.settings.rules</code> to include your function.</div>
+    <table class="ui teal celled sortable definition table segment">
+        <thead>
+        <th class="four wide">Name</th>
+        <th>Arguments</th>
+        <th>Description</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>empty</td>
+                <td>value</td>
+                <td>Checks whether a field is empty</td>
+            </tr>
+            <tr>
+                <td>email</td>
+                <td>value</td>
+                <td>Checks whether a field is a valid email address</td>
+            </tr>
+            <tr>
+                <td>length</td>
+                <td>value</td>
+                <td>Checks whether a field is longer than a length</td>
+            </tr>
+            <tr>
+                <td>not</td>
+                <td>value, notValue</td>
+                <td>Checks whether a field is not a value</td>
+            </tr>
+            <tr>
+                <td>contains</td>
+                <td>value, text</td>
+                <td>Checks whether a field contains text</td>
+            </tr>
+            <tr>
+                <td>is</td>
+                <td>value, text</td>
+                <td>Checks whether a field matches a value</td>
+            </tr>
+            <tr>
+                <td>maxLength</td>
+                <td>value</td>
+                <td>Checks whether a field is less than a max length</td>
+            </tr>
+            <tr>
+                <td>match</td>
+                <td>value, fieldIdentifier</td>
+                <td>Checks whether a field matches another field</td>
+            </tr>
+            <tr>
+                <td>url</td>
+                <td>value</td>
+                <td>Checks whether a field is a url</td>
+            </tr>
+            <tr>
+                <td>checked</td>
+                <td>-</td>
+                <td>Checks whether a checkbox field is checked</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="ui horizontal divider"><i class="icon setting"></i></div>
+
+    <h3 class="ui header">
+        Callbacks
+        <div class="sub header">Callbacks specify a function to occur after a specific behavior.</div>
+    </h3>
+
+    <table class="ui celled green definition table segment">
+        <thead>
+        <th class="four wide">Setting</th>
+        <th>Context</th>
+        <th>Description</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>onValid</td>
+                <td>field</td>
+                <td>Callback on each valid field</td>
+            </tr>
+            <tr>
+                <td>onInvalid</td>
+                <td>field</td>
+                <td>Callback on each invalid field</td>
+            </tr>
+            <tr>
+                <td>onSuccess</td>
+                <td>form</td>
+                <td>Callback if a form is all valid</td>
+            </tr>
+            <tr>
+                <td>onFailure</td>
+                <td>form</td>
+                <td>Callback if any form field is invalid</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="ui horizontal divider"><i class="icon setting"></i></div>
+
+    <h3 class="ui header">
+        Templates
+        <div class="sub header">Templates are used to construct elements</div>
+    </h3>
+    <div class="ui info message">Templates are found in <code>settings.template</code>, to modify templates across all forms, modify <code>$.fn.form.settings.templates</code> to include your function. They must return html.</div>
+    <table class="ui celled blue definition table segment">
+        <thead>
+        <th class="four wide">Template</th>
+        <th>Arguments</th>
+        <th>Description</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>error</td>
+                <td>Errors (Array)</td>
+                <td>Constructs the contents of an error message</td>
+            </tr>
+            <tr>
+                <td>prompt</td>
+                <td>Errors (Array)</td>
+                <td>Constructs an element to prompt the user to an invalid field</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="ui horizontal divider"><i class="icon setting"></i></div>
+
+    <h3 class="ui header">
+        DOM Settings
+        <div class="sub header">DOM settings specify how this module should interface with the DOM</div>
+    </h3>
+    <table class="ui celled purple definition table segment">
+        <thead>
+        <th>Setting</th>
+        <th class="six wide">Default</th>
+        <th>Description</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>namespace</td>
+                <td>form</td>
+                <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+            </tr>
+            <tr>
+                <td>selector</td>
+                <td>
+                    <div class="code">
+                        selector : {
+                        message   : '.error.message',
+                        field     : 'input, textarea, select',
+                        group     : '.field',
+                        input     : 'input',
+                        prompt    : '.prompt',
+                        submit    : '.submit'
+                        }
+                    </div>
+                </td>
+                <td>Selectors used to match functionality to DOM</td>
+            </tr>
+            <tr>
+                <td>metadata</td>
+                <td>
+                    <div class="code">
+
+                        metadata : {
+                        validate: 'validate'
+                        },
+                    </div>
+                </td>
+                <td>
+                    HTML5 metadata attributes
+                </td>
+            </tr>
+            <tr>
+                <td>className</td>
+                <td>
+                    <div class="code">
+                        className : {
+                        active      : 'active',
+                        placeholder : 'default',
+                        disabled    : 'disabled',
+                        visible     : 'visible'
+                        }
+                    </div>
+                </td>
+                <td>Class names used to attach style to state</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="ui horizontal divider"><i class="icon setting"></i></div>
+
+    <h3 class="ui header">
+        Debug Settings
+        <div class="sub header">Debug settings controls debug output to the console</div>
+    </h3>
+
+    <table class="ui blue celled sortable definition table segment">
+        <thead>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>name</td>
+                <td>Form</td>
+                <td>Name used in debug logs</td>
+            </tr>
+            <tr>
+                <td>debug</td>
+                <td>True</td>
+                <td>Provides standard debug output to console</td>
+            </tr>
+            <tr>
+                <td>performance</td>
+                <td>True</td>
+                <td>Provides standard debug output to console</td>
+            </tr>
+            <tr>
+                <td>verbose</td>
+                <td>True</td>
+                <td>Provides ancillary debug output to console</td>
+            </tr>
+            <tr>
+                <td>errors</td>
+                <td colspan="2">
+                    <div class="code">
+                        errors   : {
+                        method   : 'The method you called is not defined.'
+                        }
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+
+</html>

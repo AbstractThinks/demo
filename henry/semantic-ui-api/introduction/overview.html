@@ -1,0 +1,378 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <!-- Site Properities -->
+  <meta name="generator" content="DocPad v6.59.6" />
+  <title>概述 | Semantic UI中文网</title>
+
+  <meta name="description" content="An introduction to Semantic style coding" />
+  <meta name="keywords" content="Semantic UI, Semantic入门, CSS, CSS框架, CSS framework, html5, ui, library, framework, javascript, Semantic UI中文网, Semantic UI翻译, Semantic UI教程" />
+
+  <link rel="stylesheet" type="text/css" class="ui" href="../build/packaged/css/semantic.min.css">
+
+  <link rel="stylesheet" type="text/css" href="../stylesheets/semantic.css">
+  <script type="text/javascript" src="../jquery.js"></script>
+  <script src="../javascript/library/history.js"></script>
+  <script src="../javascript/library/easing.js"></script>
+    <script src="../javascript/library/ace/ace.js"></script>
+  <script src="../javascript/library/tablesort.js"></script>
+  <script src="../javascript/library/waypoints.js"></script>
+
+  <script src="../build/packaged/javascript/semantic.min.js"></script>
+
+  <script src="../javascript/semantic.js"></script>
+
+</head>
+<body id="example" class="guide">
+  <div class="ui large vertical inverted labeled icon sidebar menu" id="menu">
+    <a class="hide item">
+      <i class="close icon"></i> 关闭
+    </a>
+    <a class="item" href="http://www.semantic-ui.com/build/semantic.zip">
+      <i class="inverted circular red awesome download cloud icon"></i> <b>下载</b>
+    </a>
+    <div class="item">
+      <a href="../index.html">
+        <b>简单介绍</b>
+      </a>
+      <div class="menu">
+        
+        <a class="item" href="variations.html">变化</a>
+        
+        <a class="item" href="definitions.html">定义</a>
+        
+        <a class="item" href="../introduction.html">有什么新奇的玩意儿？</a>
+        
+        <a class="item" href="types.html">样式（种类）</a>
+        
+        <a class="active item" href="overview.html">概述</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>关于项目</b>
+      <div class="menu">
+        
+        <a class="item" href="../project/contributing.html">加入我们</a>
+        
+        <a class="item" href="../project/development.html">本地文档服务器</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../element.html"><b>基础组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../modules/reveal.html">Reveal</a>
+        
+        <a class="item" href="../elements/divider.html">分隔条</a>
+        
+        <a class="item" href="../elements/loader.html">加载控件</a>
+        
+        <a class="item" href="../elements/image.html">图像控件</a>
+        
+        <a class="item" href="../elements/icon.html">图标</a>
+        
+        <a class="item" href="../elements/button.html">按扭</a>
+        
+        <a class="item" href="../elements/label.html">标签</a>
+        
+        <a class="item" href="../elements/header.html">标题头控件</a>
+        
+        <a class="item" href="../elements/step.html">步骤控件</a>
+        
+        <a class="item" href="../elements/segment.html">片断控件</a>
+        
+        <a class="item" href="../elements/input.html">输入控件</a>
+        
+        <a class="item" href="../elements/progress.html">进度条控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../collection.html"><b>集合/列表组件</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../collections/message.html">消息控件</a>
+        
+        <a class="item" href="../collections/grid.html">网格（栅格）系统</a>
+        
+        <a class="item" href="../collections/menu.html">菜单</a>
+        
+        <a class="item" href="../collections/form.html">表单</a>
+        
+        <a class="item" href="../collections/table.html">表格</a>
+        
+        <a class="item" href="../collections/breadcrumb.html">面包屑/导航条</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>内容展示组件</b>
+      <div class="menu">
+        
+        <a class="item" href="../views/feed.html">Feed</a>
+        
+        <a class="item" href="../views/item.html">Item（元素列表）</a>
+        
+        <a class="item" href="../views/list.html">列表</a>
+        
+        <a class="item" href="../views/comment.html">评论控件</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <a href="../module.html"><b>模块</b></a>
+      <div class="menu">
+        
+        <a class="item" href="../modules/shape.html">Shape</a>
+        
+        <a class="item" href="../modules/dropdown.html">下拉列表模块</a>
+        
+        <a class="item" href="../modules/checkbox.html">复选框模块</a>
+        
+        <a class="item" href="../modules/popup.html">弹出框模块</a>
+        
+        <a class="item" href="../modules/accordion.html">手风琴模块</a>
+        
+        <a class="item" href="../modules/modal.html">模态对话框</a>
+        
+        <a class="item" href="../modules/rating.html">评分模块</a>
+        
+        <a class="item" href="../modules/dimmer.html">调光器（遮罩层）</a>
+        
+        <a class="item" href="../modules/sidebar.html">边栏</a>
+        
+        <a class="item" href="../modules/transition.html">过渡（动画）效果</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>特定行为控件</b>
+      <div class="menu">
+        
+        <a class="item" href="../modules/form.html">验证表单</a>
+        
+      </div>
+    </div>
+    <div class="item">
+      <b>样式指南</b>
+      <div class="menu">
+        
+        <a class="item" href="../guide/cssguide.html">CSS开发指南</a>
+        
+        <a class="item" href="../guide/javascriptguide.html">Javascript开发指南</a>
+        
+        <a class="item" href="../guide/styleguide.html">语言指南</a>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <a class="launch item"><i class="icon list layout"></i> 内容</a>
+      <div class="title item">
+        <b>UI Introduction:</b> 概述
+      </div>
+      
+      <a class="icon item" href="types.html"><i class="left arrow icon"></i></a>
+      
+      <div class="section ui dropdown link item">
+        <span class="count">5 of 5</span>
+        <div class="menu">
+          
+          <div class="item">
+            <a href="variations.html">1. 变化</a>
+          </div>
+          
+          <div class="item">
+            <a href="definitions.html">2. 定义</a>
+          </div>
+          
+          <div class="item">
+            <a href="../introduction.html">3. 有什么新奇的玩意儿？</a>
+          </div>
+          
+          <div class="item">
+            <a href="types.html">4. 样式（种类）</a>
+          </div>
+          
+          <div class="active item">
+            <a href="overview.html">5. 概述</a>
+          </div>
+          
+        </div>
+      </div>
+      
+      <div class="disabled icon item"><i class="right arrow icon"></i></div>
+      
+      <div class="right menu">
+        
+        <div class="vertically fitted borderless item">
+        </div>
+        
+        
+        <a class="popup icon github item" title="查看Semantic UI在Github的项目信息" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+        <div class="title item">
+          交流群：262577550
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui black huge launch right attached button">
+    <i class="icon list layout"></i>
+    <span class="text">导航</span>
+  </div>
+<script>
+    $(document)
+            .ready(function() {
+        $('.demo.menu .item')
+                .tab()
+                ;
+    })
+            ;
+</script>
+
+﻿
+
+<div class="segment">
+    <div class="container">
+        <div class="introduction">
+
+            <h1 class="ui dividing header">
+                概述
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Semantic UI学习交流群 <a class="ui red circular label large">262577550</a>
+            </h1>
+
+            <p>An introduction to Semantic style coding</p>
+            
+            
+        </div>
+    
+        
+    </div>
+</div>
+<div class="main container">
+    <div class="peek">
+        <div class="ui vertical pointing secondary menu">
+            <a class="active item">Interfacing</a>
+            <a class="item">APIs</a>
+        </div>
+    </div>
+    <h2 class="ui dividing header">Interfacing Carefully</h2>
+
+    <p>UI definitions in Semantic are given the class name <code>ui</code>. This is to help tell the difference between ui elements and parts of the definition of an element. This means any element with the class name UI has a corresponding UI definition.
+
+    <p>For example a menu may have menu items inside of it. These items are contained as part of the menu definition but do not receive the class name <code>ui</code> because they are part of a UI menu collection.</p>
+
+    <div class="code" data-type="html" data-title="A Simple Menu" data-preview="true">
+        <div class="ui menu">
+            <a class="item">Home</a>
+            <a class="item">Inbox</a>
+        </div>
+    </div>
+
+    <h3 class="ui header">Changing an Element</h3>
+
+    <p>Class names in Semantic always use single english words. If a class name is an adjective it is either a <a href="types.html">type</a> of element or <a href="variations.html">variation</a> of an element. <b>CSS definitions always define adjectives in the context of a noun</b>. In this way class names cannot pollute the namespace.</p>
+
+    <div class="code" data-type="html" data-title="A Compact Menu Variation" data-preview="true">
+        <div class="ui compact menu">
+            <a class="item">Home</a>
+            <a class="item">Inbox</a>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+
+    <h3 class="ui header">Combining elements</h3>
+    <p>All UI definitions in semantic are stand-alone, and do not require other components to function. However, components can choose to have optional couplings with other components.</p>
+
+    <p>For example you might want to include a badge inside a menu. A label inside of a menu will automatically function as a badge.</p>
+
+    <div class="code" data-type="html" data-title="Using a UI Label inside a UI Menu" data-preview="true">
+        <div class="ui compact menu">
+            <a class="item">Home</a>
+            <a class="item">
+                Inbox
+                <div class="ui label">22</div>
+            </a>
+        </div>
+    </div>
+
+    <h2 class="ui dividing header">Semantic APIs</h2>
+
+    <p>Modules define a public API using verbs and simple phrases. When methods are invoked internally those phrases are matched to internal methods automatically.</p>
+
+    <div class="code" data-type="html" data-label="true" data-preview="true">
+        <div class="ui pointing secondary demo menu">
+            <a class="active red item" data-tab="first">First</a>
+            <a class="blue item" data-tab="second">Second</a>
+            <a class="green item" data-tab="third">Third</a>
+        </div>
+        <div class="ui active tab segment" data-tab="first">First</div>
+        <div class="ui tab segment" data-tab="second">Second</div>
+        <div class="ui tab segment" data-tab="third">Third</div>
+    </div>
+    <h3 class="ui header">Opening a new tab with a behavior</h3>
+    <p>Modules have simple behaviors for triggering common actions</p>
+    <div class="code" data-demo="true">
+        $('.demo.menu .item')
+        .tab('change tab', 'second')
+        ;
+    </div>
+
+    <h3 class="ui header">Opening a new tab with multiple behaviors</h3>
+    <p>Any internal behavior is accessible as well</p>
+    <div class="code" data-demo="true">
+        $('.demo.menu .item')
+        .tab('deactivate all')
+        .tab('activate tab', 'third')
+        .tab('activate navigation', 'third')
+        ;
+    </div>
+    <h3 class="ui header">Turning on HTML5 State</h3>
+    <p>Modules can be re-initialized at any time with different settings</p>
+    <div class="code" data-demo="true">
+        $('.demo.menu .item')
+        .tab({
+        history : true,
+        path    : '/introduction/getting-started.html'
+        })
+        ;
+    </div>
+
+    <div class="ui divider"></div>
+
+    <a class="ui large right labeled teal icon button" href="types.html">
+        Next: UI Types
+        <i class="right arrow icon"></i>
+    </a>
+
+</div>
+
+</body>
+
+</html>
