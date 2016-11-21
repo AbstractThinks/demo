@@ -344,6 +344,9 @@ textarea {
 /**
  * login.html
  */
+ body.pushable.login {
+     background:#F9F9F9!important;
+ }
  .login {
      height: 100%;
  }
