@@ -328,6 +328,18 @@ textarea {
 .fixed.launch.button:hover .text {
     opacity: 1;
 }
+/**
+ * my-carousel
+ */
+#my-carousel {
+    margin-top: 24px;
+}
+#my-carousel .item img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 
 /**
  * login.html
@@ -342,4 +354,10 @@ textarea {
 
 .ui.horizontal.divider.header-divider {
     margin-top:96px;
+}
+/**
+ * detailed.html
+ */
+.ui.container.content {
+    margin-top: 2em;
 }

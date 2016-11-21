@@ -27060,7 +27060,7 @@ a.ui.card:hover,
 .ui.divided.items > .item:first-child {
   border-top: none;
   margin-top: 0em !important;
-  padding-top: 0em !important;
+  padding-top: 1em !important;
 }
 
 .ui.divided.items > .item:last-child {

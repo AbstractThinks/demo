@@ -20,14 +20,6 @@ function init() {
         });
 
     $('.ui.rating').rating();
+    $('.ui.embed.vedio').embed();
 
-    $("#my-carousel").owlCarousel({
-
-         nav:true,
-         loop:true,
-         items:1,
-         autoplay:true,
-         navText:['<i class="chevron circle left icon"></i>','<i class="chevron circle right icon"></i>']
-
-        });
 }
