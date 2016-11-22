@@ -1,21 +1,10 @@
 <dom-module id="my-table">
-  <template >
-      <style media="screen">
-      .my-table {
-          display: block;
-          padding-bottom: 24px;
-      }
-      .my-table .ui.table {
-          margin: 0;
-      }
-
-      </style>
-      <table class="ui striped table" id="userList">
+  <template>
+      <table class="ui striped table">
         <thead>
           <tr>
-              <th>
-
-              </th>
+            <th></th>
+            <th></th>
             <th>学校</th>
             <th>姓名</th>
             <th>学科</th>
@@ -24,169 +13,50 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-              <td class="collapsing">
-                  <div class="ui fitted slider checkbox">
-                  <input type="checkbox"> <label></label>
-                  </div>
-              </td>
-            <td>John Lilki</td>
-            <td>September 14, 2013</td>
-            <td>jhlilk22@yahoo.com</td>
-            <td>No</td>
-            <td>No</td>
-          </tr>
-          <tr>
-              <td class="collapsing">
-                  <div class="ui fitted slider checkbox">
-                  <input type="checkbox"> <label></label>
-                  </div>
-              </td>
-            <td>Jamie Harington</td>
-            <td>January 11, 2014</td>
-            <td>jamieharingonton@yahoo.com</td>
-            <td>Yes</td>
-            <td>No</td>
-          </tr>
-          <tr>
-              <td class="collapsing">
-                  <div class="ui fitted slider checkbox">
-                  <input type="checkbox"> <label></label>
-                  </div>
-              </td>
-            <td>Jill Lewis</td>
-            <td>May 11, 2014</td>
-            <td>jilsewris22@yahoo.com</td>
-            <td>Yes</td>
-            <td>No</td>
-          </tr>
-          <tr>
-              <td class="collapsing">
-                  <div class="ui fitted slider checkbox">
-                  <input type="checkbox"> <label></label>
-                  </div>
-              </td>
-            <td>John Lilki</td>
-            <td>September 14, 2013</td>
-            <td>jhlilk22@yahoo.com</td>
-            <td>No</td>
-            <td>No</td>
-          </tr>
-          <tr>
-              <td class="collapsing">
-                  <div class="ui fitted slider checkbox">
-                  <input type="checkbox"> <label></label>
-                  </div>
-              </td>
-            <td>John Lilki</td>
-            <td>September 14, 2013</td>
-            <td>jhlilk22@yahoo.com</td>
-            <td>No</td>
-            <td>No</td>
-          </tr>
-          <tr>
-              <td class="collapsing">
-                  <div class="ui fitted slider checkbox">
-                  <input type="checkbox"> <label></label>
-                  </div>
-              </td>
-            <td>Jamie Harington</td>
-            <td>January 11, 2014</td>
-            <td>jamieharingonton@yahoo.com</td>
-            <td>Yes</td>
-            <td>No</td>
-          </tr>
-          <tr>
-              <td class="collapsing">
-                  <div class="ui fitted slider checkbox">
-                  <input type="checkbox"> <label></label>
-                  </div>
-              </td>
-            <td>Jill Lewis</td>
-            <td>May 11, 2014</td>
-            <td>jilsewris22@yahoo.com</td>
-            <td>Yes</td>
-            <td>No</td>
-          </tr>
-          <tr>
-              <td class="collapsing">
-                  <div class="ui fitted slider checkbox">
-                  <input type="checkbox"> <label></label>
-                  </div>
-              </td>
-            <td>John Lilki</td>
-            <td>September 14, 2013</td>
-            <td>jhlilk22@yahoo.com</td>
-            <td>No</td>
-            <td>No</td>
-          </tr>
-          <tr>
-              <td class="collapsing">
-                  <div class="ui fitted slider checkbox">
-                  <input type="checkbox"> <label></label>
-                  </div>
-              </td>
-            <td>Jill Lewis</td>
-            <td>May 11, 2014</td>
-            <td>jilsewris22@yahoo.com</td>
-            <td>Yes</td>
-            <td>No</td>
-          </tr>
-          <tr>
-              <td class="collapsing">
-                  <div class="ui fitted slider checkbox">
-                  <input type="checkbox"> <label></label>
-                  </div>
-              </td>
-            <td>Jill Lewis</td>
-            <td>May 11, 2014</td>
-            <td>jilsewris22@yahoo.com</td>
-            <td>Yes</td>
-            <td>No</td>
-          </tr>
-          <tr>
-              <td class="collapsing">
-                  <div class="ui fitted slider checkbox">
-                  <input type="checkbox"> <label></label>
-                  </div>
-              </td>
-            <td>Jill Lewis</td>
-            <td>May 11, 2014</td>
-            <td>jilsewris22@yahoo.com</td>
-            <td>Yes</td>
-            <td>No</td>
-          </tr>
-          <tr>
-              <td class="collapsing">
-                  <div class="ui fitted slider checkbox">
-                  <input type="checkbox"> <label></label>
-                  </div>
-              </td>
-            <td>Jill Lewis</td>
-            <td>May 11, 2014</td>
-            <td>jilsewris22@yahoo.com</td>
-            <td>Yes</td>
-            <td>No</td>
-          </tr>
-          <tr>
-              <td class="collapsing">
-                  <div class="ui fitted slider checkbox">
-                  <input type="checkbox"> <label></label>
-                  </div>
-              </td>
-            <td>Jill Lewis</td>
-            <td>May 11, 2014</td>
-            <td>jilsewris22@yahoo.com</td>
-            <td>Yes</td>
-            <td>No</td>
-          </tr>
+            <template is="dom-repeat" items="[[teachers]]">
+                <tr>
+                    <td>[[index]]</td>
+                    <td class="collapsing">
+                        <div class="ui fitted slider checkbox">
+                            <input type="checkbox" /> <label></label>
+                        </div>
+                    </td>
+                    <td>[[item.name]]</td>
+                    <td>[[item.birthday]]</td>
+                    <td>[[item.email]]</td>
+                    <td>[[item.account]]</td>
+                    <td>[[item.password]]</td>
+                </tr>
+            </template>
 
         </tbody>
       </table>
   </template>
   <script type="text/javascript">
           Polymer({
-                  is : "my-table"
+                  is : "my-table",
+                //   properties: {
+                //     teachers: {
+                //       type: Array,
+                //       value: [
+                //           {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
+                //           {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
+                //           {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
+                //           {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"}
+                //        ]
+                //     }
+                //   }
+                  ready : function() {
+                      this.teachers = [
+                          {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
+                          {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
+                          {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
+                          {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
+                          {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
+                          {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
+                          {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"}
+                      ]
+                  }
           });
   </script>
 </dom-module>

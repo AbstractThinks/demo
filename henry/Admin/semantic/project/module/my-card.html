@@ -4,136 +4,71 @@
             display: block!important;
         }
     </style>
-  <template >
-      <div class="column">
-        <div class="ui card">
-            <div class="ui move up reveal image">
-                <div class="visible content">
-                    <img src="../../img/card.png" class="ui image">
-                </div>
-                <div class="hidden content">
-                    <div class="description">
-                      <p>sdhfsalkdhfjasldkhfaskdlfh</p>
+  <template>
+      <template is="dom-repeat" items="[[cards]]">
+          <div class="column">
+            <div class="ui card">
+                <div class="ui move up reveal image">
+                    <div class="visible content">
+                        <img src="{{item.img}}" class="ui image">
+                    </div>
+                    <div class="hidden content">
+                        <div class="description">
+                          <p>{{item.description}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="content">
-                <a class="header">Team Fu &amp; Hess</a>
-                <div class="meta">
-                    <span class="date">Create in Sep 2014</span>
-                </div>
-            </div>
-            <div class="extra content">
-                <a>
-                    <i class="users icon"></i> 2 Members收藏
-                </a>
-            </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui card">
-            <div class="ui move down reveal image">
-                <div class="visible content">
-                    <img src="../../img/card.png" class="ui image">
-                </div>
-                <div class="hidden content">
-                    <div class="description">
-                      <p>sdhfsalkdhfjasldkhfaskdlfh</p>
+                <div class="content">
+                    <a class="header">{{item.title}}</a>
+                    <div class="meta">
+                        <span class="date">{{item.date}}</span>
                     </div>
                 </div>
-            </div>
-            <div class="content">
-                <a class="header">Team Fu &amp; Hess</a>
-                <div class="meta">
-                    <span class="date">Create in Sep 2014</span>
+                <div class="extra content">
+                    <a>
+                        <i class="users icon"></i>{{item.num}} Members收藏
+                    </a>
                 </div>
             </div>
-            <div class="extra content">
-                <a>
-                    <i class="users icon"></i> 2 Members收藏
-                </a>
-            </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui card">
-            <div class="ui move right reveal image">
-                <div class="visible content">
-                    <img src="../../img/card.png" class="ui image">
-                </div>
-                <div class="hidden content">
-                    <div class="description">
-                      <p>sdhfsalkdhfjasldkhfaskdlfh</p>
-                    </div>
-                </div>
-            </div>
-            <div class="content">
-                <a class="header">Team Fu &amp; Hess</a>
-                <div class="meta">
-                    <span class="date">Create in Sep 2014</span>
-                </div>
-            </div>
-            <div class="extra content">
-                <a>
-                    <i class="users icon"></i> 2 Members收藏
-                </a>
-            </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui card">
-            <div class="ui move reveal image">
-                <div class="visible content">
-                    <img src="../../img/card.png" class="ui image">
-                </div>
-                <div class="hidden content">
-                    <div class="description">
-                      <p>sdhfsalkdhfjasldkhfaskdlfh</p>
-                    </div>
-                </div>
-            </div>
-            <div class="content">
-                <a class="header">Team Fu &amp; Hess</a>
-                <div class="meta">
-                    <span class="date">Create in Sep 2014</span>
-                </div>
-            </div>
-            <div class="extra content">
-                <a>
-                    <i class="users icon"></i> 2 Members收藏
-                </a>
-            </div>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui card">
-            <div class="ui move up reveal image">
-                <div class="visible content">
-                    <img src="../../img/card.png" class="ui image">
-                </div>
-                <div class="hidden content">
-                    <div class="description">
-                      <p>sdhfsalkdhfjasldkhfaskdlfh</p>
-                    </div>
-                </div>
-            </div>
-            <div class="content">
-                <a class="header">Team Fu &amp; Hess</a>
-                <div class="meta">
-                    <span class="date">Create in Sep 2014</span>
-                </div>
-            </div>
-            <div class="extra content">
-                <a>
-                    <i class="users icon"></i> 2 Members收藏
-                </a>
-            </div>
-        </div>
-      </div>
+          </div>
+      </template>
   </template>
   <script type="text/javascript">
           Polymer({
-                  is : "my-card"
+                  is : "my-card",
+                    // properties: {
+                    //   cards: {
+                    //     type: Array,
+                    //     value: [
+                    //         {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
+                    //         {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
+                    //         {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
+                    //         {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
+                    //         {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
+                    //         {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
+                    //         {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
+                    //         {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
+                    //         {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
+                    //         {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
+                    //         {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"}
+                    //     ]
+                    //   }
+                    // }
+                  ready : function() {
+                      this.cards = [
+                          {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
+                          {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
+                          {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
+                          {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
+                          {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
+                          {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
+                          {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
+                          {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
+                          {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
+                          {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
+                          {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"}
+                      ]
+                  }
           });
   </script>
 </dom-module>
