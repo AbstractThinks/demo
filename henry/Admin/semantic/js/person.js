@@ -20,5 +20,7 @@ function init() {
         });
 
     $('.ui.rating').rating();
-    $('.menu.my-tab .item').tab();
+    $('.menu.my-tab .item').tab({
+            transition:"fade"
+    });
 }
