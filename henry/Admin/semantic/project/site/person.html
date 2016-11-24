@@ -1,0 +1,304 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../dist/semantic.css">
+
+        <script src="../../bower_components/webcomponentsjs/webcomponents-lite.min.js" charset="utf-8"></script>
+        <link rel="import" href="../../bower_components/polymer/polymer.html" media="screen" title="no title">
+        <script src="../../js/vendor/modernizr-2.8.3.min.js"></script>
+
+        <link rel="import" href="../module/my-sidemenu-list.html" media="screen" title="no title">
+        <link rel="import" href="../module/my-header.html" media="screen" title="no title">
+        <link rel="import" href="../module/my-card.html" media="screen" title="no title">
+        <link rel="import" href="../module/my-pagination.html" media="screen" title="no title">
+        <link rel="import" href="../module/my-footer.html" media="screen" title="no title">
+        <link rel="stylesheet" href="../../css/main.css">
+
+</head>
+
+<body>
+        <!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+        <!-- Add your site or application content here -->
+        <my-sidemenu-list class="ui sidebar inverted vertical menu sidemenu "></my-sidemenu-list>
+        <div class="ui black big launch right attached fixed button sidemenu">
+                <i class="content icon"></i>
+                <span class="text">菜单</span>
+        </div>
+        <div class="pusher person">
+                <div class="ui container">
+                        <my-header class="ui secondary pointing menu my-header"></my-header>
+                </div>
+                <div class="ui container mt24">
+                        <div class="ui grid">
+                                <div class="four wide column">
+                                        <div class="ui vertical fluid attached  tabular menu my-tab">
+                                                <a class="active item" data-tab="info">
+                                                个人信息
+                                                </a>
+                                                <a class="item" data-tab="vedio">
+                                                我的视频
+                                                </a>
+                                                <a class="item" data-tab="courseware">
+                                                我的课件
+                                                </a>
+                                                <a class="item" data-tab="test">
+                                                我的试卷
+                                                </a>
+                                                <a class="item" data-tab="details">
+                                                我的资料
+                                                </a>
+                                                <a class="item" data-tab="collections">
+                                                我的搜藏
+                                                </a>
+                                        </div>
+                                </div>
+                                <div class="twelve wide stretched column">
+                                        <div class="ui attached active tab segment" data-tab="info">
+                                                <form class="ui form">
+                                                        <div class="ui internally celled grid">
+                                                                <div class="row">
+                                                                        <div class="twelve wide column">
+                                                                                <div class="two  fields row">
+                                                                                        <div class="field">
+                                                                                                <label>姓名</label>
+                                                                                                <input type="text" placeholder="First Name">
+                                                                                        </div>
+                                                                                        <div class="field">
+                                                                                                <label>年龄</label>
+                                                                                                <input type="text" placeholder="Middle Name">
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div class="two  fields row">
+                                                                                        <div class="field">
+                                                                                                <label>性别 </label>
+                                                                                                <select class="ui search dropdown">
+                                                                                                        <option value="">State</option>
+                                                                                                        <option value="AL">Alabama</option>
+                                                                                                        <option value="AK">Alaska</option>
+                                                                                                        <option value="AZ">Arizona</option>
+                                                                                                        <option value="AR">Arkansas</option>
+                                                                                                </select>
+                                                                                        </div>
+                                                                                        <div class="field">
+                                                                                                <label>政治面貌</label>
+                                                                                                <select class="ui search dropdown">
+                                                                                                        <option value="">State</option>
+                                                                                                        <option value="AL">Alabama</option>
+                                                                                                        <option value="AK">Alaska</option>
+                                                                                                        <option value="AZ">Arizona</option>
+                                                                                                        <option value="AR">Arkansas</option>
+                                                                                                </select>
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div class="two  fields row">
+                                                                                        <div class="field">
+                                                                                                <label>婚否</label>
+                                                                                                <select class="ui search dropdown">
+                                                                                                        <option value="">State</option>
+                                                                                                        <option value="AL">Alabama</option>
+                                                                                                        <option value="AK">Alaska</option>
+                                                                                                        <option value="AZ">Arizona</option>
+                                                                                                        <option value="AR">Arkansas</option>
+                                                                                                </select>
+                                                                                        </div>
+                                                                                        <div class="field">
+                                                                                                <label>文化</label>
+                                                                                                <select class="ui search dropdown">
+                                                                                                        <option value="">State</option>
+                                                                                                        <option value="AL">Alabama</option>
+                                                                                                        <option value="AK">Alaska</option>
+                                                                                                        <option value="AZ">Arizona</option>
+                                                                                                        <option value="AR">Arkansas</option>
+                                                                                                </select>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
+                                                                        <div class="four wide column">
+                                                                                <img src="../../img/header.png">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                        <div class="sixteen wide column">
+                                                                                <div class="three  fields row">
+                                                                                        <div class="field">
+                                                                                                <label>户口所在地</label>
+                                                                                                <input type="text" placeholder="First Name">
+                                                                                        </div>
+                                                                                        <div class="field">
+                                                                                                <label>现居住地址</label>
+                                                                                                <input type="text" placeholder="Middle Name">
+                                                                                        </div>
+                                                                                        <div class="field">
+                                                                                                <label>身份证号码</label>
+                                                                                                <input type="text" placeholder="Middle Name">
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div class="three  fields row">
+                                                                                        <div class="field">
+                                                                                                <label>现居住地址</label>
+                                                                                                <input type="text" placeholder="First Name">
+                                                                                        </div>
+                                                                                        <div class="field">
+                                                                                                <label>毕业院校</label>
+                                                                                                <input type="text" placeholder="Middle Name">
+                                                                                        </div>
+                                                                                        <div class="field">
+                                                                                                <label>毕业时间</label>
+                                                                                                <input type="text" placeholder="Middle Name">
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div class="three  fields row">
+                                                                                        <div class="field">
+                                                                                                <label>学习专业</label>
+                                                                                                <input type="text" placeholder="First Name">
+                                                                                        </div>
+                                                                                        <div class="field">
+                                                                                                <label>爱好特长</label>
+                                                                                                <input type="text" placeholder="Middle Name">
+                                                                                        </div>
+                                                                                        <div class="field">
+                                                                                                <label>出生年月</label>
+                                                                                                <input type="text" placeholder="Middle Name">
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div class="three  fields row">
+                                                                                        <div class="field">
+                                                                                                <label>移动电话</label>
+                                                                                                <input type="text" placeholder="First Name">
+                                                                                        </div>
+                                                                                        <div class="field">
+                                                                                                <label>电子邮箱</label>
+                                                                                                <input type="text" placeholder="Middle Name">
+                                                                                        </div>
+                                                                                        <div class="field">
+                                                                                                <label>出生年月</label>
+                                                                                                <input type="text" placeholder="Middle Name">
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div class="field">
+                                                                                        <label>个人简介</label>
+                                                                                        <textarea></textarea>
+                                                                                </div>
+                                                                                <div class="field">
+                                                                                        <label>工作经历</label>
+                                                                                        <textarea></textarea>
+                                                                                </div>
+                                                                                <div class="field">
+                                                                                        <label>职业规划</label>
+                                                                                        <textarea></textarea>
+                                                                                </div>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+
+                                                </form>
+                                        </div>
+                                        <div class="ui attached tab segment" data-tab="vedio">
+                                                <h4 class="ui horizontal divider header-divider">
+                                                <i class="tag icon"></i>
+                                                教学视频
+                                                </h4>
+                                                <div class="ui container">
+                                                        <my-card class="ui doubling four column grid row"></my-card>
+                                                        <my-pagination class="my-pagination"></my-pagination>
+                                                </div>
+                                                <h4 class="ui horizontal divider header-divider">
+                                                <i class="tag icon"></i>
+                                                推荐
+                                                </h4>
+                                                <div class="ui container">
+                                                        <my-card class="ui doubling four column grid row"></my-card>
+                                                </div>
+                                        </div>
+                                        <div class="ui attached tab segment" data-tab="courseware">
+                                                <h4 class="ui horizontal divider header-divider">
+                                                <i class="tag icon"></i>
+                                                教学视频
+                                                </h4>
+                                                <div class="ui container">
+                                                        <my-card class="ui doubling four column grid row"></my-card>
+                                                        <my-pagination class="my-pagination"></my-pagination>
+                                                </div>
+                                                <h4 class="ui horizontal divider header-divider">
+                                                <i class="tag icon"></i>
+                                                推荐
+                                                </h4>
+                                                <div class="ui container">
+                                                        <my-card class="ui doubling four column grid row"></my-card>
+                                                </div>
+                                        </div>
+                                        <div class="ui attached tab segment" data-tab="test">
+                                                <h4 class="ui horizontal divider header-divider">
+                                                <i class="tag icon"></i>
+                                                教学视频
+                                                </h4>
+                                                <div class="ui container">
+                                                        <my-card class="ui doubling four column grid row"></my-card>
+                                                        <my-pagination class="my-pagination"></my-pagination>
+                                                </div>
+                                                <h4 class="ui horizontal divider header-divider">
+                                                <i class="tag icon"></i>
+                                                推荐
+                                                </h4>
+                                                <div class="ui container">
+                                                        <my-card class="ui doubling four column grid row"></my-card>
+                                                </div>
+                                        </div>
+                                        <div class="ui attached tab segment" data-tab="details">
+                                                <h4 class="ui horizontal divider header-divider">
+                                                <i class="tag icon"></i>
+                                                教学视频
+                                                </h4>
+                                                <div class="ui container">
+                                                        <my-card class="ui doubling four column grid row"></my-card>
+                                                        <my-pagination class="my-pagination"></my-pagination>
+                                                </div>
+                                                <h4 class="ui horizontal divider header-divider">
+                                                <i class="tag icon"></i>
+                                                推荐
+                                                </h4>
+                                                <div class="ui container">
+                                                        <my-card class="ui doubling four column grid row"></my-card>
+                                                </div>
+                                        </div>
+                                        <div class="ui attached tab segment" data-tab="collections">
+                                                <h4 class="ui horizontal divider header-divider">
+                                                <i class="tag icon"></i>
+                                                教学视频
+                                                </h4>
+                                                <div class="ui container">
+                                                        <my-card class="ui doubling four column grid row"></my-card>
+                                                        <my-pagination class="my-pagination"></my-pagination>
+                                                </div>
+                                                <h4 class="ui horizontal divider header-divider">
+                                                <i class="tag icon"></i>
+                                                推荐
+                                                </h4>
+                                                <div class="ui container">
+                                                        <my-card class="ui doubling four column grid row"></my-card>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <my-footer class="ui black inverted vertical segment my-footer"></my-footer>
+        </div>
+
+        <script src="../../js/vendor/jquery.min.js" charset="utf-8"></script>
+        <script src="../../dist/semantic.min.js"></script>
+        <script src="../../js/person.js"></script>
+</body>
+
+</html>

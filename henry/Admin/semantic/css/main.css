@@ -283,6 +283,16 @@ textarea {
 
 
 
+/**
+ * global
+ */
+body {
+        font-size: 12px!important;
+}
+.mt24 {
+        margin-top: 24px;
+}
+
 
 
 
@@ -363,4 +373,10 @@ textarea {
  */
 .ui.container.content {
     margin-top: 2em;
+}
+/**
+ * person.html
+ */
+.person .ui.horizontal.divider.header-divider:first-child {
+        margin-top: 0;
 }

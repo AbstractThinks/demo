@@ -2,6 +2,15 @@
     <style media="screen">
         .ui.move.reveal > .content {
             display: block!important;
+            top: 0;
+            bottom:0;
+            /*padding: 8px;*/
+        }
+        .ui.move.reveal > .hidden.content div{
+                height: 100%;
+                width: 100%;
+                padding: 1em;
+
         }
     </style>
   <template>
@@ -10,7 +19,7 @@
             <div class="ui card">
                 <div class="ui move up reveal image">
                     <div class="visible content">
-                        <img src="{{item.img}}" class="ui image">
+                        <img src="{{item.img}}" class="ui  image">
                     </div>
                     <div class="hidden content">
                         <div class="description">
@@ -26,8 +35,9 @@
                 </div>
                 <div class="extra content">
                     <a>
-                        <i class="users icon"></i>{{item.num}} Members收藏
+                        <i class="users icon"></i>&nbsp;{{item.num}}
                     </a>
+                    人收藏
                 </div>
             </div>
           </div>
@@ -36,37 +46,12 @@
   <script type="text/javascript">
           Polymer({
                   is : "my-card",
-                    // properties: {
-                    //   cards: {
-                    //     type: Array,
-                    //     value: [
-                    //         {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
-                    //         {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
-                    //         {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
-                    //         {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
-                    //         {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
-                    //         {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
-                    //         {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
-                    //         {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
-                    //         {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
-                    //         {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
-                    //         {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"}
-                    //     ]
-                    //   }
-                    // }
                   ready : function() {
                       this.cards = [
-                          {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
-                          {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
-                          {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
-                          {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
-                          {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
-                          {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
-                          {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
-                          {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
-                          {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
-                          {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"},
-                          {"img":"../../img/card.png", "description":"sdhfsalkdhfjasldkhfaskdlfh","title":"Team Fu &amp; Hess","date":"Create in Sep 2014","num":"2"}
+                          {"img":"../../img/card.png", "description":"40道选择题，80道应用题,    知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
+                          {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
+                          {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
+                          {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"}
                       ]
                   }
           });
