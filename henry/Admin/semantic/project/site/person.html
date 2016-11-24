@@ -11,6 +11,7 @@
 
         <link rel="stylesheet" href="../../css/normalize.css">
         <link rel="stylesheet" href="../../dist/semantic.css">
+        <link rel="stylesheet" href="../../css/calendar.css" media="screen" title="no title">
 
         <script src="../../bower_components/webcomponentsjs/webcomponents-lite.min.js" charset="utf-8"></script>
         <link rel="import" href="../../bower_components/polymer/polymer.html" media="screen" title="no title">
@@ -187,6 +188,25 @@
                                                                                                 <input type="text" placeholder="Middle Name">
                                                                                         </div>
                                                                                 </div>
+                                                                                <div class="three  fields row">
+                                                                                        <div class="field">
+                                                                                                <label>日期</label>
+                                                                                                <div class="ui calendar" id="example2">
+                                                                                                        <div class="ui input left icon">
+                                                                                                                <i class="calendar icon"></i>
+                                                                                                                <input type="text" placeholder="Date">
+                                                                                                        </div>
+                                                                                                </div>
+                                                                                        </div>
+                                                                                        <div class="field">
+                                                                                                <label>电子邮箱</label>
+                                                                                                <input type="text" placeholder="Middle Name">
+                                                                                        </div>
+                                                                                        <div class="field">
+                                                                                                <label>出生年月</label>
+                                                                                                <input type="text" placeholder="Middle Name">
+                                                                                        </div>
+                                                                                </div>
                                                                                 <div class="field">
                                                                                         <label>个人简介</label>
                                                                                         <textarea></textarea>
@@ -298,7 +318,11 @@
 
         <script src="../../js/vendor/jquery.min.js" charset="utf-8"></script>
         <script src="../../dist/semantic.min.js"></script>
+        <script src="../../js/vendor/calendar.js" charset="utf-8"></script>
         <script src="../../js/person.js"></script>
+        <script type="text/javascript">
+        $('#example2').calendar({ type: 'date' });
+        </script>
 </body>
 
 </html>
