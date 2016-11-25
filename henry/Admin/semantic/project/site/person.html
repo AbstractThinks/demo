@@ -22,6 +22,10 @@
         <link rel="import" href="../module/my-card.html" media="screen" title="no title">
         <link rel="import" href="../module/my-pagination.html" media="screen" title="no title">
         <link rel="import" href="../module/my-footer.html" media="screen" title="no title">
+        <link rel="import" href="../module/my-tab-update.html">
+        <link rel="import" href="../module/my-tab-info.html">
+        <!-- <link rel="import" href="../module/my-tab-common.html"> -->
+        <link rel="import" href="../module/my-tab-common-list.html">
         <link rel="stylesheet" href="../../css/main.css">
 
 </head>
@@ -69,326 +73,41 @@
                                         </div>
                                 </div>
                                 <div class="twelve wide stretched column">
-                                        <div class="ui attached active tab segment" data-tab="info">
-                                                <form class="ui form">
-                                                        <div class="ui internally celled grid">
-                                                                <div class="row">
-                                                                        <div class="twelve wide column">
-                                                                                <div class="two  fields row">
-                                                                                        <div class="field">
-                                                                                                <label>姓名</label>
-                                                                                                <input type="text" placeholder="First Name">
-                                                                                        </div>
-                                                                                        <div class="field">
-                                                                                                <label>年龄</label>
-                                                                                                <input type="text" placeholder="Middle Name">
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="two  fields row">
-                                                                                        <div class="field">
-                                                                                                <label>性别 </label>
-                                                                                                <select class="ui search dropdown">
-                                                                                                        <option value="">State</option>
-                                                                                                        <option value="AL">Alabama</option>
-                                                                                                        <option value="AK">Alaska</option>
-                                                                                                        <option value="AZ">Arizona</option>
-                                                                                                        <option value="AR">Arkansas</option>
-                                                                                                </select>
-                                                                                        </div>
-                                                                                        <div class="field">
-                                                                                                <label>政治面貌</label>
-                                                                                                <select class="ui search dropdown">
-                                                                                                        <option value="">State</option>
-                                                                                                        <option value="AL">Alabama</option>
-                                                                                                        <option value="AK">Alaska</option>
-                                                                                                        <option value="AZ">Arizona</option>
-                                                                                                        <option value="AR">Arkansas</option>
-                                                                                                </select>
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="two  fields row">
-                                                                                        <div class="field">
-                                                                                                <label>婚否</label>
-                                                                                                <select class="ui search dropdown">
-                                                                                                        <option value="">State</option>
-                                                                                                        <option value="AL">Alabama</option>
-                                                                                                        <option value="AK">Alaska</option>
-                                                                                                        <option value="AZ">Arizona</option>
-                                                                                                        <option value="AR">Arkansas</option>
-                                                                                                </select>
-                                                                                        </div>
-                                                                                        <div class="field">
-                                                                                                <label>文化</label>
-                                                                                                <select class="ui search dropdown">
-                                                                                                        <option value="">State</option>
-                                                                                                        <option value="AL">Alabama</option>
-                                                                                                        <option value="AK">Alaska</option>
-                                                                                                        <option value="AZ">Arizona</option>
-                                                                                                        <option value="AR">Arkansas</option>
-                                                                                                </select>
-                                                                                        </div>
-                                                                                </div>
-                                                                        </div>
-                                                                        <div class="four wide column">
-                                                                                <img src="../../img/header.png">
-                                                                        </div>
-                                                                </div>
-                                                                <div class="row">
-                                                                        <div class="sixteen wide column">
-                                                                                <div class="three  fields row">
-                                                                                        <div class="field">
-                                                                                                <label>户口所在地</label>
-                                                                                                <input type="text" placeholder="First Name">
-                                                                                        </div>
-                                                                                        <div class="field">
-                                                                                                <label>现居住地址</label>
-                                                                                                <input type="text" placeholder="Middle Name">
-                                                                                        </div>
-                                                                                        <div class="field">
-                                                                                                <label>身份证号码</label>
-                                                                                                <input type="text" placeholder="Middle Name">
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="three  fields row">
-                                                                                        <div class="field">
-                                                                                                <label>现居住地址</label>
-                                                                                                <input type="text" placeholder="First Name">
-                                                                                        </div>
-                                                                                        <div class="field">
-                                                                                                <label>毕业院校</label>
-                                                                                                <input type="text" placeholder="Middle Name">
-                                                                                        </div>
-                                                                                        <div class="field">
-                                                                                                <label>毕业时间</label>
-                                                                                                <input type="text" placeholder="Middle Name">
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="three  fields row">
-                                                                                        <div class="field">
-                                                                                                <label>学习专业</label>
-                                                                                                <input type="text" placeholder="First Name">
-                                                                                        </div>
-                                                                                        <div class="field">
-                                                                                                <label>爱好特长</label>
-                                                                                                <input type="text" placeholder="Middle Name">
-                                                                                        </div>
-                                                                                        <div class="field">
-                                                                                                <label>出生年月</label>
-                                                                                                <input type="text" placeholder="Middle Name">
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="three  fields row">
-                                                                                        <div class="field">
-                                                                                                <label>移动电话</label>
-                                                                                                <input type="text" placeholder="First Name">
-                                                                                        </div>
-                                                                                        <div class="field">
-                                                                                                <label>电子邮箱</label>
-                                                                                                <input type="text" placeholder="Middle Name">
-                                                                                        </div>
-                                                                                        <div class="field">
-                                                                                                <label>出生年月</label>
-                                                                                                <input type="text" placeholder="Middle Name">
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="three  fields row">
-                                                                                        <div class="field">
-                                                                                                <label>日期</label>
-                                                                                                <div class="ui calendar" id="example2">
-                                                                                                        <div class="ui input left icon">
-                                                                                                                <i class="calendar icon"></i>
-                                                                                                                <input type="text" placeholder="Date">
-                                                                                                        </div>
-                                                                                                </div>
-                                                                                        </div>
-                                                                                        <div class="field">
-                                                                                                <label>电子邮箱</label>
-                                                                                                <input type="text" placeholder="Middle Name">
-                                                                                        </div>
-                                                                                        <div class="field">
-                                                                                                <label>出生年月</label>
-                                                                                                <input type="text" placeholder="Middle Name">
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="field">
-                                                                                        <label>个人简介</label>
-                                                                                        <textarea></textarea>
-                                                                                </div>
-                                                                                <div class="field">
-                                                                                        <label>工作经历</label>
-                                                                                        <textarea></textarea>
-                                                                                </div>
-                                                                                <div class="field">
-                                                                                        <label>职业规划</label>
-                                                                                        <textarea></textarea>
-                                                                                </div>
-                                                                                <div class="ui large buttons">
-                                                                                        <button class="ui button" type="submit">保存</button>
-                                                                                        <div class="or teal"></div>
-                                                                                        <button class="ui button">重置</button>
-                                                                                </div>
-                                                                        </div>
-                                                                </div>
-                                                        </div>
-
-                                                </form>
-                                        </div>
-                                        <div class="ui attached tab segment" data-tab="vedio">
-                                                <h4 class="ui horizontal divider header-divider">
-                                                <i class="tag icon"></i>
-                                                教学视频
-                                                </h4>
-                                                <div class="ui container">
-                                                        <my-card class="ui doubling four column grid row"></my-card>
-                                                        <my-pagination class="my-pagination"></my-pagination>
-                                                </div>
-                                                <h4 class="ui horizontal divider header-divider">
-                                                <i class="tag icon"></i>
-                                                推荐
-                                                </h4>
-                                                <div class="ui container">
-                                                        <my-card class="ui doubling four column grid row"></my-card>
-                                                </div>
-                                        </div>
-                                        <div class="ui attached tab segment" data-tab="courseware">
-                                                <h4 class="ui horizontal divider header-divider">
-                                                <i class="tag icon"></i>
-                                                教学视频
-                                                </h4>
-                                                <div class="ui container">
-                                                        <my-card class="ui doubling four column grid row"></my-card>
-                                                        <my-pagination class="my-pagination"></my-pagination>
-                                                </div>
-                                                <h4 class="ui horizontal divider header-divider">
-                                                <i class="tag icon"></i>
-                                                推荐
-                                                </h4>
-                                                <div class="ui container">
-                                                        <my-card class="ui doubling four column grid row"></my-card>
-                                                </div>
-                                        </div>
+                                        <my-tab-info class="ui attached active tab segment" data-tab="info">
+                                                <a class="ui teal right ribbon label">我的信息</a>
+                                        </my-tab-info>
+                                        <my-tab-common-list class="ui attached tab segment" data-tab="vedio">
+                                                <a class="ui teal right ribbon label">我的视频</a>
+                                        </my-tab-common-list>
+                                        <my-tab-common-list class="ui attached tab segment" data-tab="courseware">
+                                                <a class="ui teal right ribbon label">我的课件</a>
+                                        </my-tab-common-list>
                                         <div class="ui attached tab segment" data-tab="test">
-                                                <h4 class="ui horizontal divider header-divider">
-                                                <i class="tag icon"></i>
-                                                教学视频
-                                                </h4>
+                                                <a class="ui teal right ribbon label">我的试卷</a>
                                                 <div class="ui container">
-                                                        <div class="ui huge compact message">
-                                                                <p>你还没有上传任何教学视频，快去上传教学视频吧！</p>
-                                                        </div>
-                                                </div>
-                                                <h4 class="ui horizontal divider header-divider">
-                                                <i class="tag icon"></i>
-                                                推荐
-                                                </h4>
-                                                <div class="ui container">
-                                                        <my-card class="ui doubling four column grid row"></my-card>
-                                                </div>
-                                        </div>
-                                        <div class="ui attached tab segment" data-tab="details">
-                                                <h4 class="ui horizontal divider header-divider">
-                                                <i class="tag icon"></i>
-                                                教学视频
-                                                </h4>
-                                                <div class="ui container">
-                                                        <my-card class="ui doubling four column grid row"></my-card>
-                                                        <my-pagination class="my-pagination"></my-pagination>
-                                                </div>
-                                                <h4 class="ui horizontal divider header-divider">
-                                                <i class="tag icon"></i>
-                                                推荐
-                                                </h4>
-                                                <div class="ui container">
-                                                        <my-card class="ui doubling four column grid row"></my-card>
-                                                </div>
-                                        </div>
-                                        <div class="ui attached tab segment" data-tab="collections">
-                                                <h4 class="ui horizontal divider header-divider">
-                                                <i class="tag icon"></i>
-                                                教学视频
-                                                </h4>
-                                                <div class="ui container">
-                                                        <my-card class="ui doubling four column grid row"></my-card>
-                                                        <my-pagination class="my-pagination"></my-pagination>
-                                                </div>
-                                                <h4 class="ui horizontal divider header-divider">
-                                                <i class="tag icon"></i>
-                                                推荐
-                                                </h4>
-                                                <div class="ui container">
-                                                        <my-card class="ui doubling four column grid row"></my-card>
-                                                </div>
-                                        </div>
-                                        <div class="ui attached tab segment" data-tab="update">
-                                                <form class="ui form">
-                                                        <div class="ui internally celled grid">
-                                                                <div class="row">
-                                                                        <div class="sixteen wide column">
-                                                                                <div class="field row">
-                                                                                        <div class="field">
-                                                                                                <label>标题</label>
-                                                                                                <input type="text" placeholder="First Name">
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="field row">
-                                                                                        <div class="field">
-                                                                                                <label>年级</label>
-                                                                                                <select class="ui search dropdown">
-                                                                                                        <option value="">State</option>
-                                                                                                        <option value="AL">Alabama</option>
-                                                                                                        <option value="AK">Alaska</option>
-                                                                                                        <option value="AZ">Arizona</option>
-                                                                                                        <option value="AR">Arkansas</option>
-                                                                                                </select>
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="field row">
-                                                                                        <div class="field">
-                                                                                                <label>类别</label>
-                                                                                                <select class="ui search dropdown">
-                                                                                                        <option value="">State</option>
-                                                                                                        <option value="AL">Alabama</option>
-                                                                                                        <option value="AK">Alaska</option>
-                                                                                                        <option value="AZ">Arizona</option>
-                                                                                                        <option value="AR">Arkansas</option>
-                                                                                                </select>
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="field row">
-                                                                                        <div class="field">
-                                                                                                <label>科目</label>
-                                                                                                <select class="ui search dropdown">
-                                                                                                        <option value="">State</option>
-                                                                                                        <option value="AL">Alabama</option>
-                                                                                                        <option value="AK">Alaska</option>
-                                                                                                        <option value="AZ">Arizona</option>
-                                                                                                        <option value="AR">Arkansas</option>
-                                                                                                </select>
-                                                                                        </div>
-                                                                                </div>
-                                                                                <div class="field row">
-                                                                                        <label>简介</label>
-                                                                                        <textarea></textarea>
-                                                                                </div>
-                                                                                <div class="field row">
-                                                                                        <label>描述</label>
-                                                                                        <textarea></textarea>
-                                                                                </div>
-                                                                                <div class="field row">
-                                                                                        <label>选择文件</label>
-                                                                                        <input type="file" value="">
-                                                                                </div>
-                                                                                <div class="ui large buttons">
-                                                                                        <button class="ui button" type="submit">上传</button>
-                                                                                        <div class="or teal"></div>
-                                                                                        <button class="ui button">重置</button>
-                                                                                </div>
-                                                                        </div>
+                                                        <div class="ui container center aligned mt24">
+                                                                <div class="ui huge compact message">
+                                                                        <p>你还没有上传任何教学视频，快去上传教学视频吧！</p>
                                                                 </div>
                                                         </div>
-
-                                                </form>
+                                                </div>
+                                                <h4 class="ui horizontal divider header-divider">
+                                                        <i class="tag icon"></i>
+                                                        推荐
+                                                </h4>
+                                                <div class="ui container">
+                                                        <my-card class="ui doubling four column grid row"></my-card>
+                                                </div>
                                         </div>
+                                        <my-tab-common-list class="ui attached tab segment" data-tab="details">
+                                                <a class="ui teal right ribbon label">我的资料</a>
+                                        </my-tab-common-list>
+                                        <my-tab-common-list class="ui attached tab segment" data-tab="collections">
+                                                <a class="ui teal right ribbon label">我的收藏</a>
+                                        </my-tab-common-list>
+                                        <my-tab-update class="ui attached tab segment" data-tab="update">
+                                                <a class="ui teal right ribbon label">上传文件</a>
+                                        </my-tab-update>
                                 </div>
                         </div>
                 </div>
@@ -396,12 +115,9 @@
         </div>
 
         <script src="../../js/vendor/jquery.min.js" charset="utf-8"></script>
-        <script src="../../dist/semantic.min.js"></script>
+        <script src="../../dist/semantic.min.js" charset="utf-8"></script>
         <script src="../../js/vendor/calendar.js" charset="utf-8"></script>
         <script src="../../js/person.js"></script>
-        <script type="text/javascript">
-        $('#example2').calendar({ type: 'date' });
-        </script>
 </body>
 
 </html>

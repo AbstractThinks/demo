@@ -23,4 +23,6 @@ function init() {
     $('.menu.my-tab .item').tab({
             transition:"fade"
     });
+     $('.ui.dropdown').dropdown();
+     $('#dateField').calendar({ type: 'date' });
 }
