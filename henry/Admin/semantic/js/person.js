@@ -25,4 +25,17 @@ function init() {
     });
      $('.ui.dropdown').dropdown();
      $('#dateField').calendar({ type: 'date' });
+     $("#file-upload").semanticFileUploader({
+		defaultText: "Upload your file",
+		onDrop: function(file){
+			//File object => https://developer.mozilla.org/en-US/docs/Web/API/File
+			console.log(file.name);
+
+			// Upload your file using the method you prefer (ex: $.ajax) and call
+			// the method finishUpload() as soon as your upload is finished;
+			setTimeout(function(){
+				fileUpload.uploadFinished();
+			}, 3000);
+		}
+	});	
 }
