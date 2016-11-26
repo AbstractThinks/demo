@@ -380,3 +380,10 @@ body {
 .person .ui.horizontal.divider.header-divider:first-child {
         margin-top: 0;
 }
+/**
+ *other.html
+ */
+.ui.header.other-bg {
+    background:url('../img/other-bg.jpg');
+    padding:48px 0;
+}

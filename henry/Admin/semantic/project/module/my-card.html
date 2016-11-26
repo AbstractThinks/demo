@@ -30,7 +30,9 @@
                 <div class="content">
                     <a class="header">{{item.title}}</a>
                     <div class="meta">
-                        <span class="date">{{item.date}}</span>
+                        <span class="date">{{item.author}}</span>
+                        <span class="date">{{item.subject}}</span>
+                        <span class="date">{{item.grade}}</span>
                     </div>
                 </div>
                 <div class="extra content">
@@ -38,6 +40,7 @@
                         <i class="users icon"></i>&nbsp;{{item.num}}
                     </a>
                     人收藏
+                    <span class="right floated">{{item.date}}</span>
                 </div>
             </div>
           </div>
@@ -48,7 +51,11 @@
                   is : "my-card",
                   ready : function() {
                       this.cards = [
-                          {"img":"../../img/card.png", "description":"40道选择题，80道应用题,    知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
+                          {"img":"../../img/card.png", "description":"40道选择题，80道应用题,  知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2","author":"张三","subject":"语文","grade":"高一"},
+                          {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
+                          {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
+                          {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
+                          {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
                           {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
                           {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
                           {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"}
