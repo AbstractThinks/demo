@@ -374,6 +374,10 @@ body {
 .ui.container.content {
     margin-top: 2em;
 }
+.ui.grid .row.btn_downLoad {
+    text-align: right;
+    padding-top: 16px;
+}
 /**
  * person.html
  */
