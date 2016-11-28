@@ -1,0 +1,123 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../dist/semantic.css">
+    <link rel="stylesheet" href="../../css/calendar.css" media="screen" title="no title">
+
+    <script src="../../bower_components/webcomponentsjs/webcomponents-lite.min.js" charset="utf-8"></script>
+    <link rel="import" href="../../bower_components/polymer/polymer.html" media="screen" title="no title">
+    <script src="../../js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <link rel="import" href="../module/my-sidemenu-list.html" media="screen" title="no title">
+    <link rel="import" href="../module/my-header.html" media="screen" title="no title">
+    <link rel="import" href="../module/my-card.html" media="screen" title="no title">
+    <link rel="import" href="../module/my-pagination.html" media="screen" title="no title">
+    <link rel="import" href="../module/my-footer.html" media="screen" title="no title">
+    <link rel="import" href="../module/my-tab-update.html">
+    <link rel="import" href="../module/my-tab-info.html">
+    <link rel="import" href="../module/my-tab-common.html">
+    <link rel="import" href="../module/my-tab-common-list.html">
+    <link rel="stylesheet" href="../../css/main.css">
+
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+    <!-- Add your site or application content here -->
+    <my-sidemenu-list class="ui sidebar inverted vertical menu sidemenu "></my-sidemenu-list>
+    <div class="ui black big launch right attached fixed button sidemenu">
+        <i class="content icon"></i>
+        <span class="text">菜单</span>
+    </div>
+    <div class="pusher person">
+        <div class="ui container mt24">
+            <a class="ui tag label">首页</a>
+            <a class="ui teal tag label">他的个人中心</a>
+            <h2 class="ui center aligned icon header other-bg">
+                <i class="circular users icon"></i> 姓名<br> 电话 邮箱<br>学校 学科<br>
+            </h2>
+            <div class="ui raised segment">
+              <p>个人简介</p>
+            </div>
+        </div>
+        <div class="ui container mt24">
+            <div class="ui grid">
+                <div class="sixteen wide column">
+
+                    <div class="ui four item fluid attached  menu my-tab">
+
+                        <a class="active item" data-tab="vedio">
+他的视频
+</a>
+                        <a class="item" data-tab="courseware">
+他的课件
+</a>
+                        <a class="item" data-tab="test">
+他的试卷
+</a>
+                        <a class="item" data-tab="details">
+他的资料
+</a>
+
+                    </div>
+                </div>
+                <div class="sixteen wide stretched column">
+
+                    <my-tab-common class="ui active attached tab segment" data-tab="vedio">
+                        <a class="ui teal right ribbon label">他的视频</a>
+                    </my-tab-common>
+                    <my-tab-common-list class="ui attached tab segment" data-tab="courseware">
+                        <a class="ui teal right ribbon label">他的课件</a>
+                    </my-tab-common-list>
+                    <div class="ui attached tab segment" data-tab="test">
+                        <a class="ui teal right ribbon label">他的试卷</a>
+                        <div class="ui container">
+                            <div class="ui container center aligned mt24">
+                                <div class="ui huge compact message">
+                                    <p>你还没有上传任何教学视频，快去上传教学视频吧！</p>
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="ui horizontal divider header-divider">
+<i class="tag icon"></i>
+推荐
+</h4>
+                        <div class="ui container">
+                            <my-card class="ui doubling four column grid row"></my-card>
+                        </div>
+                    </div>
+                    <my-tab-common-list class="ui attached tab segment" data-tab="details">
+                        <a class="ui teal right ribbon label">我的资料</a>
+                    </my-tab-common-list>
+                    <my-tab-common-list class="ui attached tab segment" data-tab="collections">
+                        <a class="ui teal right ribbon label">我的收藏</a>
+                    </my-tab-common-list>
+                    <my-tab-update class="ui attached tab segment" data-tab="update">
+                        <a class="ui teal right ribbon label">上传文件</a>
+                    </my-tab-update>
+                </div>
+            </div>
+        </div>
+        <my-footer class="ui black inverted vertical segment my-footer"></my-footer>
+    </div>
+
+    <script src="../../js/vendor/jquery.min.js" charset="utf-8"></script>
+    <script src="../../dist/semantic.min.js" charset="utf-8"></script>
+    <script src="../../js/vendor/calendar.js" charset="utf-8"></script>
+    <script src="../../js/vendor/uploader.min.js" charset="utf-8"></script>
+    <script src="../../js/person.js"></script>
+</body>
+
+</html>
