@@ -12,9 +12,12 @@
         <link rel="stylesheet" href="../../dist/semantic.css">
         <link rel="stylesheet" href="../../css/main.css">
         <link rel="stylesheet" href="../../css/icon/iconfont.css" media="screen" title="no title">
-        <script src="../../bower_components/webcomponentsjs/webcomponents-lite.min.js" charset="utf-8"></script>
-        <link rel="import" href="../../bower_components/polymer/polymer.html" media="screen" title="no title">
+
         <script src="../../js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="../../js/vendor/jquery.min.js" charset="utf-8"></script>
+        <script src="../../bower_components/webcomponentsjs/webcomponents-lite.min.js" charset="utf-8"></script>
+
+        <link rel="import" href="../../bower_components/polymer/polymer.html" media="screen" title="no title">
         <link rel="import" href="../module/m-my-sidemenu-list.html" media="screen" title="no title">
         <link rel="import" href="../module/my-pagination.html" media="screen" title="no title">
         <link rel="import" href="../module/m-my-table.html" media="screen" title="no title">
@@ -40,7 +43,7 @@
             <span class="text">菜单</span>
         </div>
         <div class="pusher">
-            <div class="ui container">
+            <div class="ui container mt24">
                 <div class="">
                     <!-- <a class="ui teal tag label">人事管理</a> -->
                     <a class="ui teal tag label">教职工基础信息</a>
@@ -50,7 +53,6 @@
                     <div class="row">
                         <div class="twelve wide column">
                             <my-table class="my-table"></my-table>
-                            <my-pagination class="my-pagination"></my-pagination>
                         </div>
                         <div class="four wide column computer only">
                             <my-staff-sidemenu></my-staff-sidemenu>
@@ -61,12 +63,12 @@
         </div>
 
 
-        <script src="../../js/vendor/jquery.min.js" charset="utf-8"></script>
-        <script src="../../dist/semantic.min.js"></script>
 
 
-        <my-modal-add class="ui modal info"></my-modal-add>
-        <my-modal-modify class="ui modal modify"></my-modal-modify>
+
+
+        <my-modal-add class="ui modal info my-modal-add"></my-modal-add>
+        <my-modal-modify class="ui modal modify my-modal-modify"></my-modal-modify>
         <div class="ui modal delete">
           <div class="header">员工信息</div>
           <div class="content">
@@ -79,32 +81,7 @@
         </div>
         <my-modal-export class="ui modal file"></my-modal-export>
 
-        <script type="text/javascript">
-            $('.ui.sidemenu').on('click', function() {
-                $('.sidemenu.sidebar')
-                    .sidebar('setting', 'transition', 'scale down')
-                    .sidebar('toggle');
-            });
-            $('.ui.dropdown').dropdown();
-            $('.add-item').on('click', function () {
-                $('.ui.modal.info').modal('show');
-            });
-            $('.modify-item').on('click', function () {
-                $('.ui.modal.modify').modal('show');
-            });
-            $('.search-item').on('click', function () {
-                $('.ui.modal.info').modal('show');
-            });
-            $('.delete-item').on('click', function () {
-                $('.ui.modal.delete').modal('show');
-            });
-            $('.export-item').on('click', function () {
-
-            });
-            $('.import-item').on('click', function () {
-                $('.ui.modal.file').modal('show');
-            });
-
-        </script>
+        <script src="../../dist/semantic.min.js"></script>
+        <script src="../../js/staff.js" charset="utf-8"></script>
     </body>
 </html>

@@ -6,28 +6,65 @@
   <template >
       <div class="header">员工信息</div>
       <div class="content">
-          <div class="ui form">
+          <form id="add-staff-form" class="ui form add-staff-form">
               <div class="fields">
                   <div class="sixteen wide field">
                       <label>姓名</label>
-                      <input type="text" placeholder="">
+                      <input class="username" type="text" placeholder="" name="username">
                   </div>
               </div>
               <div class="fields">
-                <my-select-school class="eight wide field"></my-select-school>
-                <my-select-subject class="eight wide field"></my-select-subject>
+                <my-select-school class="eight wide field my-select-school"></my-select-school>
+                <my-select-subject class="eight wide field my-select-subject"></my-select-subject>
               </div>
-          </div>
-      </div>
+          </form>
+  </div>
       <div class="actions">
-        <button class="ui button basic approve medium">&nbsp;&nbsp;<i class="add circle icon"></i> 确认 &nbsp;&nbsp;</button>
-        <button class="ui button basic medium">&nbsp;&nbsp;<i class="minus square icon"></i>重置 &nbsp;&nbsp;</button>
+        <button class="ui button basic save medium">&nbsp;&nbsp;<i class="add circle icon"></i> 确认 &nbsp;&nbsp;</button>
+        <!-- <button class="ui button basic reset medium">&nbsp;&nbsp;<i class="minus square icon"></i>重置 &nbsp;&nbsp;</button> -->
         <button class="ui cancel button basic medium">&nbsp;&nbsp;<i class="remove circle icon"></i>取消 &nbsp;&nbsp;</button>
       </div>
+
   </template>
   <script type="text/javascript">
           Polymer({
-                  is : "my-modal-add"
+                  is : "my-modal-add",
+                  ready: function () {
+                        //   $('.my-modal-add .button.reset').on('click', function() {
+                        //           $("input[type='text']").val("");
+                        //           $(".ui.selection.dropdown > .text").addClass("default");
+                        //           $(".ui.selection.dropdown > input").removeAttr("value");
+                        //           $(".active.selected").removeClass("active selected")
+                        //           $(".my-select-school .ui.selection.dropdown > .text").text($(".my-select-school .ui.selection.dropdown").prev().text())
+                        //           $(".my-select-subject .ui.selection.dropdown > .text").text($(".my-select-subject .ui.selection.dropdown").prev().text())
+                          //
+                        //   });
+                          $('.my-modal-add .button.save').on('click', function() {
+                                  var username = $(".username").val();
+                                //     $.ajax({
+                                //             url:"http://k12.iyunbei.com/api/staff",
+                                //             type: 'post',
+                                //             data: {},
+                                //             dataType:"json"
+                                //             cache: false,
+                                //             success: function (data) {
+                                //                 if (data.error) {
+                                    //
+                                //                 } else {
+                                //                   //   location.href = "./index.html";
+                                //                   that.schoolInfo = data;
+                                //                 }
+                                //             },
+                                //             error: function (e) {
+                                //                 console.log(e)
+                                //             }
+                                //     });
+                          });
+
+
+
+                  }
           });
+
   </script>
 </dom-module>

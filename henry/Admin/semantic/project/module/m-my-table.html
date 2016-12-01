@@ -1,4 +1,9 @@
 <dom-module id="my-table">
+<style media="screen">
+        .my-table .pagination-content {
+                text-align: center;
+        }
+</style>
   <template>
       <table class="ui striped table">
         <thead>
@@ -13,7 +18,7 @@
           </tr>
         </thead>
         <tbody>
-            <template is="dom-repeat" items="[[teachers]]">
+            <template is="dom-repeat" items="[[staff.entries]]">
                 <tr>
                     <td>[[index]]</td>
                     <td class="collapsing">
@@ -31,32 +36,120 @@
 
         </tbody>
       </table>
+      <div class="pagination-content">
+              <div class="ui pagination menu">
+                      <template is="dom-if" if="[[staff.hasPrevious]]">
+                              <a class="item previous-button">
+                                      <i class="angle left icon"></i>
+                              </a>
+                      </template>
+                      <template is="dom-if" if="[[!staff.hasPrevious]]">
+                              <a class="item disabled">
+                                      <i class="angle left icon"></i>
+                              </a>
+                      </template>
+                      <a class="item">
+                              [[staff.pageNumber]]
+                      </a>
+                      <template is="dom-if" if="[[staff.hasNext]]">
+                              <a class="item next-button">
+                                      <i class="angle right icon"></i>
+                              </a>
+                      </template>
+                      <template is="dom-if" if="[[!staff.hasNext]]">
+                              <a class="item disabled">
+                                      <i class="angle right icon"></i>
+                              </a>
+                      </template>
+              </div>
+      </div>
+
   </template>
   <script type="text/javascript">
           Polymer({
                   is : "my-table",
-                //   properties: {
-                //     teachers: {
-                //       type: Array,
-                //       value: [
+                  ready : function() {
+                //       this.teachers = [
+                //           {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
+                //           {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
+                //           {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
                 //           {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
                 //           {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
                 //           {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
                 //           {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"}
-                //        ]
-                //     }
-                //   }
-                  ready : function() {
-                      this.teachers = [
-                          {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
-                          {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
-                          {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
-                          {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
-                          {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
-                          {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
-                          {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"}
-                      ]
+                //       ]
+                        this.staff = {
+                                "countPerPage": 50,
+                                "entries": [
+                                                  {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
+                                                  {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
+                                                  {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
+                                                  {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
+                                                  {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
+                                                  {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
+                                                  {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"}
+                                ],
+                                "hasNext": false,
+                                "hasPrevious": false,
+                                "pageIndex": 0,
+                                "pageNumber": 1,
+                                "totalCount": 0,
+                                "totalPage": 0
+                        }
+                        // var that = this;
+                        // $.ajax({
+                        //         url:'http://k12.iyunbei.com/api/schools?page=1',
+                        //         type: 'get',
+                        //         cache: false,
+                        //         success: function (data) {
+                        //             if (data.error) {
+                        //
+                        //             } else {
+                        //               //   location.href = "./index.html";
+                        //               that.staff = data;
+                        //             }
+                        //         },
+                        //         error: function (e) {
+                        //             console.log(e)
+                        //         }
+                        // });
                   }
+          });
+          $('.previous-button').on('click', function () {
+                  // $.ajax({
+                  //         url:'http://k12.iyunbei.com/api/schools?page=1',
+                  //         type: 'get',
+                  //         cache: false,
+                  //         success: function (data) {
+                  //             if (data.error) {
+                  //
+                  //             } else {
+                  //               //   location.href = "./index.html";
+                  //               that.staff = data;
+                  //             }
+                  //         },
+                  //         error: function (e) {
+                  //             console.log(e)
+                  //         }
+                  // });
+          });
+          $('.next-button').on('click', function () {
+                  // $.ajax({
+                  //         url:'http://k12.iyunbei.com/api/schools?page=1',
+                  //         type: 'get',
+                  //         cache: false,
+                  //         success: function (data) {
+                  //             if (data.error) {
+                  //
+                  //             } else {
+                  //               //   location.href = "./index.html";
+                  //               that.staff = data;
+                  //             }
+                  //         },
+                  //         error: function (e) {
+                  //             console.log(e)
+                  //         }
+                  // });
           });
   </script>
 </dom-module>

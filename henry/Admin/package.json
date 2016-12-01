@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "browser-sync start --server --no-notify --files '../Admin/"
+    "start2": "browser-sync start --server --no-notify --files '../Admin/",
+    "start": "http-server ../Admin"
   },
   "author": "",
   "license": "ISC",

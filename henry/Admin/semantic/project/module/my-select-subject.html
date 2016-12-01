@@ -2,17 +2,65 @@
   <template >
       <label>学科</label>
       <div class="ui selection dropdown">
-          <input type="hidden" name="gender">
+          <input type="hidden" name="subject">
           <i class="dropdown icon"></i>
+          <div class="default text">学科</div>
           <div class="menu">
-              <div class="item" data-value="1">语文</div>
-              <div class="item" data-value="0">数学</div>
+                  <template is="dom-repeat" items="[[subjectInfo]]">
+                           <div class="item" id ="[[item.id]]">[[item.name]]</div>
+                 </template>
           </div>
       </div>
   </template>
   <script type="text/javascript">
           Polymer({
-                  is : "my-select-subject"
+                  is : "my-select-subject",
+                  ready: function () {
+                          this.subjectInfo = [
+  {
+    "code": "1",
+    "id": 1,
+    "name": "语文"
+  },
+  {
+    "code": "2",
+    "id": 2,
+    "name": "数学"
+  },
+  {
+    "code": "3",
+    "id": 3,
+    "name": "物理"
+  },
+  {
+    "code": "4",
+    "id": 4,
+    "name": "化学"
+  },
+  {
+    "code": "5",
+    "id": 5,
+    "name": "英语"
+  }
+]
+                        //   var that = this;
+                        //   $.ajax({
+                        //           url:'http://k12.iyunbei.com/api/subjects?page=1',
+                        //           type: 'get',
+                        //           cache: false,
+                        //           success: function (data) {
+                        //               if (data.error) {
+                          //
+                        //               } else {
+                        //                 //   location.href = "./index.html";
+                        //                 that.subjectInfo = data;
+                        //               }
+                        //           },
+                        //           error: function (e) {
+                        //               console.log(e)
+                        //           }
+                        //   });
+                  }
           });
   </script>
 </dom-module>
