@@ -31,7 +31,7 @@
                 <img src="../../img/header.png" class="ui small circle image">
               </div>
               <div class="content">
-                <div class="header">张晓华</div>
+                <div class="header">{{personInfo.nickname}}</div>
                 <div class="meta">
                   <a>个人名言</a>
                 </div>
@@ -49,7 +49,26 @@
   </template>
   <script type="text/javascript">
           Polymer({
-                  is : "my-header"
+                  is : "my-header",
+                  ready : function() {
+                          var that = this;
+                          $.ajax({
+                                  url:'http://k12.iyunbei.com/api/profile',
+                                  type: 'get',
+                                  cache: false,
+                                  success: function (data) {
+                                      if (data.error) {
+
+                                      } else {
+                                        //   location.href = "./index.html";
+                                        that.personInfo = data;
+                                      }
+                                  },
+                                  error: function (e) {
+                                      console.log(e)
+                                  }
+                          });
+                  }
           });
   </script>
 </dom-module>

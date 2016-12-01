@@ -30,14 +30,17 @@
           </div>
       </div>
       <div class="actions">
-        <button class="ui button basic approve medium">&nbsp;&nbsp;<i class="add circle icon"></i> 确认 &nbsp;&nbsp;</button>
-        <button class="ui button basic medium">&nbsp;&nbsp;<i class="minus square icon"></i>重置 &nbsp;&nbsp;</button>
+        <button class="ui button basic save medium">&nbsp;&nbsp;<i class="add circle icon"></i> 确认 &nbsp;&nbsp;</button>
+        <!-- <button class="ui button basic reset medium">&nbsp;&nbsp;<i class="minus square icon"></i>重置 &nbsp;&nbsp;</button> -->
         <button class="ui cancel button basic medium">&nbsp;&nbsp;<i class="remove circle icon"></i>取消 &nbsp;&nbsp;</button>
       </div>
   </template>
   <script type="text/javascript">
           Polymer({
-                  is : "my-modal-modify"
+                  is : "my-modal-modify",
+                  ready: function () {
+                        //   this.data = $("")
+                  }
           });
   </script>
 </dom-module>
