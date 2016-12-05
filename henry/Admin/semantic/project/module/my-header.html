@@ -1,7 +1,9 @@
 <dom-module id="my-header">
   <style>
 
-
+        .my-header .ui.popup > a{
+                display: block;
+        }
   </style>
   <template>
       <!-- <div class="ui secondary pointing menu"> -->
@@ -25,27 +27,30 @@
       </a>
       <div class="right menu">
         <a class="ui item">
-          <img class="ui avatar image" src="../../img/header.png" />
+                <img class="ui avatar image" src="../../img/header.png" />
         </a>
         <div class="ui flowing popup top left transition hidden">
-          <div class="ui link cards">
-            <div class="card">
-              <div class="image">
-                <img src="../../img/header.png" class="ui small circle image">
-              </div>
-              <div class="content">
-                <div class="header">{{personInfo.nickname}}</div>
-                <div class="meta">
-                  <a>个人名言</a>
+                <a href="../site/person.html">
+                <div class="ui link cards">
+                        <div class="card">
+                                <div class="image">
+                                        <img src="../../img/header.png" class="ui small circle image">
+                                </div>
+                                <div class="content">
+                                        <div class="header">{{personInfo.nickname}}</div>
+                                        <div class="meta">
+                                                <span>学校</span>
+                                                <span>学科</span>
+                                        </div>
+                                        <div class="description">永不放弃</div>
+                                </div>
+                                <div class="extra content">
+                                        <span class="right floated">2013年加入 </span>
+                                        <span><i class="user icon"></i> 75 个朋友 </span>
+                                </div>
+                        </div>
                 </div>
-                <div class="description">永不放弃</div>
-              </div>
-              <div class="extra content">
-                <span class="right floated">2013年加入 </span>
-                <span><i class="user icon"></i> 75 个朋友 </span>
-              </div>
-            </div>
-          </div>
+                </a>
         </div>
       </div>
     <!-- </div> -->
@@ -86,6 +91,6 @@
                         //   });
                   }
           });
-    
+
   </script>
 </dom-module>

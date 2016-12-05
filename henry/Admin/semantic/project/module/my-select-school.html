@@ -4,16 +4,12 @@
 </style>
   <template>
       <label>学校</label>
-      <div class="ui selection dropdown">
-          <input type="hidden" name="school">
-          <i class="dropdown icon"></i>
-          <div class="default text">学校</div>
-          <div class="menu">
-                <template is="dom-repeat" items="[[schoolInfo]]">
-                        <div class="item" id="[[item.id]]">[[item.name]]</div>
-                </template>
-          </div>
-      </div>
+      <select class="ui selection dropdown">
+              <option value="" >学校</option>
+              <template is="dom-repeat" items="[[schoolInfo]]">
+                     <option value=[[item.id]]>[[item.name]]</option>
+              </template>
+      </select>
   </template>
   <script type="text/javascript">
           Polymer({

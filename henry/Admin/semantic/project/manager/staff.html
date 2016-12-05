@@ -23,8 +23,9 @@
         <link rel="import" href="../module/m-my-table.html" media="screen" title="no title">
         <link rel="import" href="../module/m-my-staff-sidemenu.html" media="screen" title="no title">
         <link rel="import" href="../module/m-my-modal-add.html" media="screen" title="no title">
-        <link rel="import" href="../module/m-my-modal-modify.html" media="screen" title="no title">
-        <link rel="import" href="../module/m-my-modal-export.html" media="screen" title="no title">
+        <link rel="import" href="../module/m-my-modal-delete.html">
+        <!-- <link rel="import" href="../module/m-my-modal-modify.html" media="screen" title="no title"> -->
+        <!-- <link rel="import" href="../module/m-my-modal-export.html" media="screen" title="no title"> -->
 
 
     </head>
@@ -45,7 +46,7 @@
         <div class="pusher">
             <div class="ui container mt24">
                 <div class="">
-                    <!-- <a class="ui teal tag label">人事管理</a> -->
+                    <a class="ui teal tag label" href="../site/index.html">网站首页</a>
                     <a class="ui teal tag label">教职工基础信息</a>
                 </div>
                 <h4 class="ui horizontal divider header"><i class="tag icon"></i> 职工信息 </h4>
@@ -67,19 +68,10 @@
 
 
 
-        <my-modal-add class="ui modal info my-modal-add"></my-modal-add>
-        <my-modal-modify class="ui modal modify my-modal-modify"></my-modal-modify>
-        <div class="ui modal delete">
-          <div class="header">员工信息</div>
-          <div class="content">
-              确认删除...,删除后无法恢复！
-          </div>
-          <div class="actions">
-            <button class="ui button basic approve medium">&nbsp;&nbsp;<i class="add circle icon"></i> 确认 &nbsp;&nbsp;</button>
-            <button class="ui button basic cancel medium">&nbsp;&nbsp;<i class="remove circle icon"></i>取消 &nbsp;&nbsp;</button>
-          </div>
-        </div>
-        <my-modal-export class="ui modal file"></my-modal-export>
+        <my-modal-add class="ui modal info my-modal-add" type="1"></my-modal-add>
+        <my-modal-modify class="ui modal modify my-modal-modify" type="2"></my-modal-modify>
+        <my-modal-delete class="ui modal delete" type="3"></my-modal-delete>
+        <!-- <my-modal-export class="ui modal file"></my-modal-export> -->
 
         <script src="../../dist/semantic.min.js"></script>
         <script src="../../js/staff.js" charset="utf-8"></script>

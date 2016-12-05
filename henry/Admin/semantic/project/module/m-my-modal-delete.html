@@ -1,0 +1,21 @@
+        <dom-module id="my-modal-delete">
+                <template >
+                        <div class="header">员工信息</div>
+                        <div class="content">
+                                注销教师？<br>
+                                注销后次教师不能再登录此系统！
+                        </div>
+                        <div class="actions">
+                                <button class="ui button basic approve medium" on-click="handleClick">&nbsp;&nbsp;<i class="add circle icon"></i> 确认 &nbsp;&nbsp;</button>
+                                <button class="ui button basic cancel medium">&nbsp;&nbsp;<i class="remove circle icon"></i>取消 &nbsp;&nbsp;</button>
+                        </div>
+                </template>
+                <script type="text/javascript">
+                        Polymer({
+                                is : "my-modal-delete",
+                                handleClick : function () {
+                                         alert($('input[type="checkbox"]:checked').val());
+                                }
+                        });
+                </script>
+        </dom-module>
