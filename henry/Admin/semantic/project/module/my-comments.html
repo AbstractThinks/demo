@@ -7,78 +7,28 @@
 
     </style>
   <template >
-
         <h3 class="ui dividing header">评论</h3>
-        <div class="comment">
-          <a class="avatar">
-            <img src="../../img/header.png" class="">
-          </a>
-          <div class="content">
-            <a class="author">小明</a>
-            <div class="metadata">
-              <span class="date">2016-11-2 5:42PM</span>
-            </div>
-            <div class="text">
-             太精彩了！
-            </div>
-            <div class="actions">
-              <a class="reply">回复</a>
-            </div>
-          </div>
-        </div>
-        <div class="comment">
-          <a class="avatar">
-            <img src="../../img/header.png">
-          </a>
-          <div class="content">
-            <a class="author">小红</a>
-            <div class="metadata">
-              <span class="date">2016-11-11 12:30AM</span>
-            </div>
-            <div class="text">
-              <p>这对我的教学工作非常有帮助，谢谢！</p>
-            </div>
-            <div class="actions">
-              <a class="reply">回复</a>
-            </div>
-          </div>
-          <div class="comments">
-            <div class="comment">
-              <a class="avatar">
-                <img src="../../img/header.png">
-              </a>
-              <div class="content">
-                <a class="author">小叮当</a>
-                <div class="metadata">
-                  <span class="date">2016-11-11 1:30AM</span>
+         <template is="dom-repeat" items="[[commentDatas]]">
+                <div class="comment">
+                        <a class="avatar">
+                                <img src="../../img/header.png" class="">
+                        </a>
+                        <div class="content">
+                                <a class="author">[[item.author]]</a>
+                                <div class="metadata">
+                                        <span class="date">[[item.date]]</span>
+                                </div>
+                                <div class="text">
+                                        [[item.text]]
+                                </div>
+                                <div class="actions">
+                                        <a class="reply">回复</a>
+                                </div>
+                        </div>
                 </div>
-                <div class="text">
-                 你总是对的 :)
-                </div>
-                <div class="actions">
-                  <a class="reply">回复</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="comment">
-          <a class="avatar">
-            <img src="../../img/header.png">
-          </a>
-          <div class="content">
-            <a class="author">小菜比</a>
-            <div class="metadata">
-              <span class="date">2011-22-3</span>
-            </div>
-            <div class="text">
-             这太精彩了，谢谢
-            </div>
-            <div class="actions">
-              <a class="reply">回复</a>
-            </div>
-          </div>
-        </div>
+        </template>
+
+
         <form class="ui reply form">
           <div class="field">
             <textarea></textarea>
@@ -91,7 +41,16 @@
   </template>
   <script type="text/javascript">
           Polymer({
-                  is : "my-comments"
+                  is : "my-comments",
+                  ready: function () {
+                          this.commentDatas = [
+                                {"author":"小明","date":"2016-11-02","text":"太精彩了"},
+                                {"author":"小明","date":"2016-11-02","text":"太精彩了"},
+                                {"author":"小明","date":"2016-11-02","text":"太精彩了"},
+                                {"author":"小明","date":"2016-11-02","text":"太精彩了"},
+                                {"author":"小明","date":"2016-11-02","text":"太精彩了"}
+                          ]
+                  }
           });
   </script>
 </dom-module>
