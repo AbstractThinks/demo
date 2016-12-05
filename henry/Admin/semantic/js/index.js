@@ -30,4 +30,10 @@ function init() {
          navText:['<i class="chevron circle left icon"></i>','<i class="chevron circle right icon"></i>']
 
         });
+    initPageStyle();
+}
+
+function initPageStyle() {
+    $("a.item.active").removeClass("active");
+    $("a.item[type=0]").addClass("active");
 }

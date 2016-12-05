@@ -17,7 +17,7 @@
         <script src="../../js/vendor/jquery.min.js" charset="utf-8"></script>
         <script src="../../bower_components/webcomponentsjs/webcomponents-lite.min.js" charset="utf-8"></script>
 
-        
+
         <link rel="import" href="../../bower_components/polymer/polymer.html" media="screen" title="no title">
         <link rel="import" href="../module/my-sidemenu-list.html" media="screen" title="no title">
         <link rel="import" href="../module/my-header.html" media="screen" title="no title">
@@ -41,15 +41,15 @@
         </div>
         <div class="pusher">
             <div class="ui container">
-                <my-header class="ui secondary pointing menu my-header"></my-header>
+                <my-header id="my-header" class="ui secondary pointing menu my-header"></my-header>
             </div>
 
             <div class="ui container">
-                <my-class class="ui divided items my-class"></my-class>
+                <my-class id="my-class" class="ui divided items my-class"></my-class>
             </div>
             <h4 class="ui divider header-divider"></h4>
             <div class="ui container">
-                <my-card class="ui doubling five column grid row"></my-card>
+                <my-card id="my-card" class="ui doubling five column grid row my-card" fireUpdate="{{fireUpdateAtrribute}}"></my-card>
                 <my-pagination class="my-pagination"></my-pagination>
             </div>
             <my-footer class="ui black inverted vertical segment my-footer"></my-footer>

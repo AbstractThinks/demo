@@ -64,16 +64,20 @@
                                     }
                                   ]
                         //   var that = this;
+
                         //   $.ajax({
                         //           url:'http://k12.iyunbei.com/api/schools?page=1',
                         //           type: 'get',
-                        //           cache: false,
+                        //           xhrFields: {
+                        //                   withCredentials: true
+                        //           },
+                        //         //   crossDomain: true,
                         //           success: function (data) {
                         //               if (data.error) {
                           //
                         //               } else {
-                        //                 //   location.href = "./index.html";
-                        //                 that.schoolInfo = data;
+                        //                 //  console.log(data)
+                        //                  that.schoolInfo = data;
                         //               }
                         //           },
                         //           error: function (e) {

@@ -1,5 +1,8 @@
 <dom-module id="my-card">
     <style media="screen">
+        .my-card > div.column > a{
+            display: block;
+        }
         .ui.move.reveal > .content {
             display: block!important;
             top: 0;
@@ -15,41 +18,57 @@
     </style>
   <template>
       <template is="dom-repeat" items="[[cards]]">
-          <div class="column">
-            <div class="ui card">
-                <div class="ui move up reveal image">
-                    <div class="visible content">
-                        <img src="{{item.img}}" class="ui  image">
-                    </div>
-                    <div class="hidden content">
-                        <div class="description">
-                          <p>{{item.description}}</p>
+            <div class="column">
+                <a href="../site/detailed.html">
+                <div class="ui card">
+                    <div class="ui move up reveal image">
+                        <div class="visible content">
+                            <img src="{{item.img}}" class="ui image" />
+                        </div>
+                        <div class="hidden content">
+                            <div class="description">
+                                <p>{{item.description}}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="content">
-                    <a class="header">{{item.title}}</a>
-                    <div class="meta">
-                        <span class="date">{{item.author}}</span>
-                        <span class="date">{{item.subject}}</span>
-                        <span class="date">{{item.grade}}</span>
+                    <div class="content">
+                        <span class="header">{{item.title}}</span>
+                        <div class="meta">
+                            <span class="date">{{item.author}}</span>
+                            <span class="date">{{item.subject}}</span>
+                            <span class="date">{{item.grade}}</span>
+                        </div>
                     </div>
+                    <div class="extra content">
+                            <i class="users icon"></i>&nbsp;{{item.num}}人收藏
+                            <span class="right floated">{{item.date}}</span>
+                        </div>
                 </div>
-                <div class="extra content">
-                    <a>
-                        <i class="users icon"></i>&nbsp;{{item.num}}
-                    </a>
-                    人收藏
-                    <span class="right floated">{{item.date}}</span>
-                </div>
+                </a>
             </div>
-          </div>
       </template>
   </template>
   <script type="text/javascript">
           Polymer({
                   is : "my-card",
+                //   properties : {
+                //       fireUpdate : {
+                //         type: String,
+                //         notify: true,
+                //         value: "",
+                //         observer: 'updateDatas'
+                //       }
+                //   },
+                  updateDatas : function (e) {
+                      console.log(e);
+                  },
+                  attributeChanged: function(attrName, oldVal, newVal) {
+                    console.log(attrName)
+                    console.log(oldVal)
+                    console.log(newVal)
+                  },
                   ready : function() {
+
                       this.cards = [
                           {"img":"../../img/card.png", "description":"40道选择题，80道应用题,  知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2","author":"张三","subject":"语文","grade":"高一"},
                           {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},

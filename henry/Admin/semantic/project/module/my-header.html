@@ -5,20 +5,23 @@
   </style>
   <template>
       <!-- <div class="ui secondary pointing menu"> -->
-      <a class="item active">
+      <a class="item" href="../site/index.html" type="0">
         首页
       </a>
-      <a class="item">
+      <a class="item" href="../site/common.html?resourceTypeId=1&subjectId=&gradeId=&page=1" type="1">
         教学课件
       </a>
-      <a class="item">
+      <a class="item" href="../site/common.html?resourceTypeId=2&subjectId=&gradeId=&page=1" type="2">
         教学视频
       </a>
-      <a class="item">
+      <a class="item" href="../site/common.html?resourceTypeId=3&subjectId=&gradeId=&page=1" type="3">
         教学试卷
       </a>
-      <a class="item">
+      <a class="item" href="../site/common.html?resourceTypeId=4&subjectId=&gradeId=&page=1"  type="4">
         教学资料
+      </a>
+      <a class="item" href="../manager/staff.html">
+        职工管理
       </a>
       <div class="right menu">
         <a class="ui item">
@@ -48,27 +51,41 @@
     <!-- </div> -->
   </template>
   <script type="text/javascript">
-          Polymer({
+
+        Polymer({
                   is : "my-header",
                   ready : function() {
-                          var that = this;
-                          $.ajax({
-                                  url:'http://k12.iyunbei.com/api/profile',
-                                  type: 'get',
-                                  cache: false,
-                                  success: function (data) {
-                                      if (data.error) {
 
-                                      } else {
-                                        //   location.href = "./index.html";
-                                        that.personInfo = data;
-                                      }
-                                  },
-                                  error: function (e) {
-                                      console.log(e)
-                                  }
-                          });
+                      this.personInfo = {
+                          "avatarId": 0,
+                          "createdTime": 1459988667000,
+                          "disabled": false,
+                          "id": 100000,
+                          "lastAccessTime": 1459988667000,
+                          "nickname": "admin",
+                          "registerType": 0,
+                          "updatedTime": 1459988667000,
+                          "username": "admin"
+                        }
+                        //   var that = this;
+                        //   $.ajax({
+                        //           url:'http://k12.iyunbei.com/api/profile',
+                        //           type: 'get',
+                        //           cache: false,
+                        //           success: function (data) {
+                        //               if (data.error) {
+                          //
+                        //               } else {
+                        //                 //   location.href = "./index.html";
+                        //                 that.personInfo = data;
+                        //               }
+                        //           },
+                        //           error: function (e) {
+                        //               console.log(e)
+                        //           }
+                        //   });
                   }
           });
+    
   </script>
 </dom-module>

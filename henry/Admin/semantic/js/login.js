@@ -35,6 +35,9 @@ function init() {
             $.ajax({
                 url:'http://k12.iyunbei.com/api/login',
                 type: 'post',
+                xhrFields: {
+                        withCredentials: true
+                },
                 data:{"username":"admin","password":"123456"},
                 dataType: 'json',
                 cache: false,
