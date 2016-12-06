@@ -8,40 +8,17 @@
                                           <div class="two  fields row">
                                                   <div class="field">
                                                           <label>姓名</label>
-                                                          <input type="text" placeholder="First Name">
+                                                          <input type="text" placeholder="姓名" name="name">
                                                   </div>
                                                   <div class="field">
-                                                          <label>移动电话</label>
-                                                          <input type="text" placeholder="First Name">
+                                                          <label>教师编号</label>
+                                                          <input type="text" placeholder="教师编号" name="staffNum">
                                                   </div>
                                           </div>
                                           <div class="two  fields row">
-
-                                              <div class="field">
-                                                      <label>政治面貌</label>
-                                                      <div class="ui selection dropdown">
-                                                          <input type="hidden" name="gender">
-                                                          <i class="dropdown icon"></i>
-                                                          <div class="menu">
-                                                              <div class="item" data-value="1">学校1</div>
-                                                              <div class="item" data-value="0">学校2</div>
-                                                          </div>
-                                                      </div>
-                                              </div>
-                                              <div class="field">
-                                                      <label>性别</label>
-                                                      <div class="ui selection dropdown">
-                                                          <input type="hidden" name="gender">
-                                                          <i class="dropdown icon"></i>
-                                                          <div class="menu">
-                                                              <div class="item" data-value="1">学校1</div>
-                                                              <div class="item" data-value="0">学校2</div>
-                                                          </div>
-                                                      </div>
-                                              </div>
-
+                                              <my-select-common class="field" label="性别" content='[{"id":"1", "name":"男"},{"id":"2", "name":"女"}]'></my-select-common>
+                                              <my-select-common class="field" label="学科" content='[{"id":"1", "name":"语文"},{"id":"2", "name":"数学"}]'></my-select-common>
                                           </div>
-
                                   </div>
                                   <div class="four wide column">
                                           <img src="../../img/header.png">
@@ -50,72 +27,35 @@
                           <div class="row">
                                   <div class="sixteen wide column">
 
-                                      <div class="three  fields row">
-                                          <div class="field">
-                                                  <label>文化</label>
-                                                  <div class="ui selection dropdown">
-                                                      <input type="hidden" name="gender">
-                                                      <i class="dropdown icon"></i>
-                                                      <div class="menu">
-                                                          <div class="item" data-value="1">学校1</div>
-                                                          <div class="item" data-value="0">学校2</div>
-                                                      </div>
-                                                  </div>
-                                          </div>
-                                          <div class="field">
-                                                  <label>学校</label>
-                                                  <div class="ui selection dropdown">
-                                                      <input type="hidden" name="gender">
-                                                      <i class="dropdown icon"></i>
-                                                      <div class="menu">
-                                                          <div class="item" data-value="1">学校1</div>
-                                                          <div class="item" data-value="0">学校2</div>
-                                                      </div>
-                                                  </div>
-                                          </div>
-                                          <div class="field">
-                                                  <label>学科</label>
-                                                  <div class="ui selection dropdown">
-                                                      <input type="hidden" name="gender">
-                                                      <i class="dropdown icon"></i>
-                                                      <div class="menu">
-                                                          <div class="item" data-value="1">学校1</div>
-                                                          <div class="item" data-value="0">学校2</div>
-                                                      </div>
-                                                  </div>
-                                          </div>
-
-
-
-                                      </div>
                                           <div class="three  fields row">
-
                                                   <div class="field">
-                                                          <label>毕业院校</label>
-                                                          <input type="text" placeholder="Middle Name">
-                                                  </div>
-                                                  <div class="field">
-                                                          <label>毕业时间</label>
+                                                          <label>出生年月</label>
                                                           <div class="ui calendar" id="dateField">
                                                                   <div class="ui input left icon">
                                                                           <i class="calendar icon"></i>
-                                                                          <input type="text" placeholder="Date">
+                                                                          <input type="text" placeholder="出生年月">
                                                                   </div>
                                                           </div>
                                                   </div>
                                                   <div class="field">
-                                                          <label>电子邮箱</label>
-                                                          <input type="text" placeholder="First Name">
+                                                          <label>电话</label>
+                                                          <input type="text" placeholder="电话">
                                                   </div>
-
-                                                  <!-- <div class="field">
-                                                          <label>爱好特长</label>
-                                                          <input type="text" placeholder="Middle Name">
-                                                  </div> -->
+                                                  <div class="field">
+                                                          <label>电子邮箱</label>
+                                                          <input type="text" placeholder="电子邮箱">
+                                                  </div>
                                           </div>
+
                                           <div class="three  fields row">
-
-
+                                                  <div class="field">
+                                                          <label>家庭地址</label>
+                                                          <input type="text" placeholder="家庭地址">
+                                                  </div>
+                                                  <div class="field">
+                                                          <label>邮编</label>
+                                                          <input type="text" placeholder="邮编">
+                                                  </div>
                                           </div>
 
                                           <div class="field">
@@ -124,7 +64,7 @@
                                           </div>
 
                                           <div class="ui large buttons">
-                                                  <button class="ui button" type="submit">保存</button>
+                                                  <button class="ui button" on-click="handleSaveData">保存</button>
                                                   <div class="or teal"></div>
                                                   <button class="ui button">重置</button>
                                           </div>
@@ -136,7 +76,16 @@
   </template>
   <script type="text/javascript">
           Polymer({
-                  is : "my-tab-info"
+                  is : "my-tab-info",
+                  properties: {
+                          gender: Object
+                  },
+                  handleSaveData: function () {
+
+                  },
+                  ready: function () {
+
+                  }
           });
   </script>
 </dom-module>

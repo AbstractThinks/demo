@@ -11,10 +11,11 @@
             <th></th>
             <th></th>
             <th>学校</th>
-            <th>姓名</th>
-            <th>学科</th>
+             <th>姓名</th>
+            <th>员工编号</th>
+            <th>创建时间</th>
             <th>账号</th>
-            <th>密码</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -23,14 +24,15 @@
                     <td>[[index]]</td>
                     <td class="collapsing">
                         <div class="ui fitted slider checkbox">
-                            <input type="checkbox" value="[[item.id]]"/> <label></label>
+                            <input type="checkbox" value="[[item.id]]"/><label></label>
                         </div>
                     </td>
+                    <td>{{_filterSchool(item.schoolId)}}</td>
                     <td>[[item.name]]</td>
-                    <td>[[item.birthday]]</td>
-                    <td>[[item.email]]</td>
-                    <td>[[item.account]]</td>
-                    <td>[[item.password]]</td>
+                    <td>[[item.staffNum]]</td>
+                    <td>{{ _filterDate(item.createdTime)}}</td>
+                    <td><button class="ui basic button" on-click="resetSecretHandle" value="[[item.id]]">创建账户</button></td>
+                    <td><button class="ui basic button" on-click="createAccountHandle" value="[[item.id]]">密码重置</button></td>
                 </tr>
             </template>
 
@@ -68,6 +70,19 @@
   <script type="text/javascript">
           Polymer({
                   is : "my-table",
+                  resetSecretHandle: function(e) {
+                          console.log(e.target);
+                  },
+                  createAccountHandle: function (e) {
+                          console.log(e.target);
+                  },
+                  _filterSchool : function (param) {
+                         return "清华中学";
+                  },
+                  _filterDate : function (param) {
+                          var date = new Date(param);
+                         return date.getFullYear()+'-'+date.getMonth()+'-'+date.getDate();
+                  },
                   ready : function() {
                 //       this.teachers = [
                 //           {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
@@ -78,24 +93,149 @@
                 //           {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
                 //           {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"}
                 //       ]
-                        this.staff = {
-                                "countPerPage": 50,
-                                "entries": [
-                                                  {"id":"123","name":"于松中学", "birthday":"May 11, 2014","email":"","account":"yes","password":"no"},
-                                                  {"name":"成都外国语学校新都校区附属学校", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
-                                                  {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
-                                                  {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
-                                                  {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
-                                                  {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
-                                                  {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"}
-                                ],
-                                "hasNext": false,
-                                "hasPrevious": false,
-                                "pageIndex": 0,
-                                "pageNumber": 1,
-                                "totalCount": 0,
-                                "totalPage": 0
-                        }
+                        this.staff =
+                                {
+                                  "countPerPage": 50,
+                                  "entries": [
+                                    {
+                                      "campusId": 0,
+                                      "classTeacher": 0,
+                                      "computerCertLevel": 0,
+                                      "createdTime": 1480904337000,
+                                      "createdUserId": 0,
+                                      "degreeAmount": 0,
+                                      "deleted": false,
+                                      "departmentId": 0,
+                                      "draft": false,
+                                      "externalRecruitment": 0,
+                                      "firstDegree": 0,
+                                      "firstDegreeCategory": 0,
+                                      "firstEductionalSystem": 0,
+                                      "foreignLanguage": 0,
+                                      "foreignLanguageLevel": 0,
+                                      "gender": 0,
+                                      "gradeGroup": 0,
+                                      "highestDegree": 0,
+                                      "highestDegreeCategory": 0,
+                                      "highestEductionalSystem": 0,
+                                      "id": 3,
+                                      "identity": 0,
+                                      "mandarinCertLevel": 0,
+                                      "maritalStatus": 0,
+                                      "militaryFamily": 0,
+                                      "multiplePost": 0,
+                                      "name": "jesse",
+                                      "nationId": 0,
+                                      "nativePlace": 0,
+                                      "oralEnglishCertLevel": 0,
+                                      "overseasChineseType": 0,
+                                      "politicalParty": 0,
+                                      "politicalStatus": 0,
+                                      "prevLevelPost": 0,
+                                      "primaryPostFamily": 0,
+                                      "primarySalaryLevel": 0,
+                                      "primarySalaryPost": 0,
+                                      "primaryTitle": 0,
+                                      "primaryTitleLevel": 0,
+                                      "proSkillCertType": 0,
+                                      "proSkillPostCategory": 0,
+                                      "proSkillPostType": 0,
+                                      "proTeacher": 0,
+                                      "proTeacherLevel": 0,
+                                      "proTitle": 0,
+                                      "schoolId": 1,
+                                      "secondPostFamily": 0,
+                                      "secondSalaryLevel": 0,
+                                      "secondSalaryPost": 0,
+                                      "secondTitle": 0,
+                                      "secondTitleLevel": 0,
+                                      "sortNumber": 0,
+                                      "staffNum": "22",
+                                      "teacherCertSubject": 0,
+                                      "teacherCertType": 0,
+                                      "teachingCommitteeStaff": 0,
+                                      "teachingGroupId": 0,
+                                      "teachingStage": 0,
+                                      "teachingSubject": 1,
+                                      "teachingSubjectLevel": 0,
+                                      "updatedTime": 1480904337000,
+                                      "updatedUserId": 0,
+                                      "userId": 0
+                                    },
+                                    {
+                                      "campusId": 0,
+                                      "classTeacher": 0,
+                                      "computerCertLevel": 0,
+                                      "createdTime": 1481010182000,
+                                      "createdUserId": 0,
+                                      "degreeAmount": 0,
+                                      "deleted": false,
+                                      "departmentId": 0,
+                                      "draft": false,
+                                      "externalRecruitment": 0,
+                                      "firstDegree": 0,
+                                      "firstDegreeCategory": 0,
+                                      "firstEductionalSystem": 0,
+                                      "foreignLanguage": 0,
+                                      "foreignLanguageLevel": 0,
+                                      "gender": 0,
+                                      "gradeGroup": 0,
+                                      "highestDegree": 0,
+                                      "highestDegreeCategory": 0,
+                                      "highestEductionalSystem": 0,
+                                      "id": 4,
+                                      "identity": 0,
+                                      "mandarinCertLevel": 0,
+                                      "maritalStatus": 0,
+                                      "militaryFamily": 0,
+                                      "multiplePost": 0,
+                                      "name": "test",
+                                      "nationId": 0,
+                                      "nativePlace": 0,
+                                      "oralEnglishCertLevel": 0,
+                                      "overseasChineseType": 0,
+                                      "politicalParty": 0,
+                                      "politicalStatus": 0,
+                                      "prevLevelPost": 0,
+                                      "primaryPostFamily": 0,
+                                      "primarySalaryLevel": 0,
+                                      "primarySalaryPost": 0,
+                                      "primaryTitle": 0,
+                                      "primaryTitleLevel": 0,
+                                      "proSkillCertType": 0,
+                                      "proSkillPostCategory": 0,
+                                      "proSkillPostType": 0,
+                                      "proTeacher": 0,
+                                      "proTeacherLevel": 0,
+                                      "proTitle": 0,
+                                      "schoolId": 1,
+                                      "secondPostFamily": 0,
+                                      "secondSalaryLevel": 0,
+                                      "secondSalaryPost": 0,
+                                      "secondTitle": 0,
+                                      "secondTitleLevel": 0,
+                                      "sortNumber": 0,
+                                      "staffNum": "test",
+                                      "teacherCertSubject": 0,
+                                      "teacherCertType": 0,
+                                      "teachingCommitteeStaff": 0,
+                                      "teachingGroupId": 0,
+                                      "teachingStage": 0,
+                                      "teachingSubject": 0,
+                                      "teachingSubjectLevel": 0,
+                                      "updatedTime": 1481010182000,
+                                      "updatedUserId": 0,
+                                      "userId": 0
+                                    }
+                                  ],
+                                  "hasNext": false,
+                                  "hasPrevious": false,
+                                  "pageIndex": 0,
+                                  "pageNumber": 1,
+                                  "totalCount": 2,
+                                  "totalPage": 1
+                                }
+
                         // var that = this;
                         // $.ajax({
                         //         url:'http://k12.iyunbei.com/api/schools?page=1',
