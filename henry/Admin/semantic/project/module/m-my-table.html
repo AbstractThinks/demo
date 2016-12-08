@@ -14,7 +14,8 @@
              <th>姓名</th>
             <th>员工编号</th>
             <th>创建时间</th>
-            <th>账号</th>
+            <th>账户</th>
+            <th></th>
             <th></th>
           </tr>
         </thead>
@@ -31,8 +32,25 @@
                     <td>[[item.name]]</td>
                     <td>[[item.staffNum]]</td>
                     <td>{{ _filterDate(item.createdTime)}}</td>
-                    <td><button class="ui basic button" on-click="resetSecretHandle" value="[[item.id]]">创建账户</button></td>
-                    <td><button class="ui basic button" on-click="createAccountHandle" value="[[item.id]]">密码重置</button></td>
+                    <td>
+                        <template is="dom-if" if="[[!item.userId]]">
+                                <button class="ui basic button" on-click="createAccountHandle" value="[[item.id]]">创建账户</button>
+                        </template>
+                        <template is="dom-if" if="[[item.userId]]">
+                                {{item.userId}}
+                        </template>
+                    </td>
+                    <td>
+                        <template is="dom-if" if="[[item.userId]]">
+                                <button class="ui basic button" on-click="resetSecretHandle" value="[[item.id]]">密码重置</button>
+                        </template>
+                    </td>
+                    <td>
+                        <template is="dom-if" if="[[item.userId]]">
+                                <button class="ui basic button" on-click="deleteAccountHandle" value="[[item.id]]">删除账户</button>
+                        </template>
+
+                    </td>
                 </tr>
             </template>
 
@@ -71,10 +89,100 @@
           Polymer({
                   is : "my-table",
                   resetSecretHandle: function(e) {
+
+                      var urlReq = 'http://k12.iyunbei.com/api/staff/resetAccount/'+$(e.target).attr('value');
+                      $.ajax({
+                              url:urlReq,
+                              type: 'get',
+                              cache: false,
+                              success: function (data) {
+                                  if (data.error) {
+
+                                  } else {
+
+                                  }
+                              },
+                              error: function (e) {
+                                  console.log(e)
+                              }
+                      });
                           console.log(e.target);
                   },
                   createAccountHandle: function (e) {
-                          console.log(e.target);
+                      var id = $(e.target).attr('value');
+                      var urlReq = 'http://k12.iyunbei.com/api/staff/'+id+'/account';
+                      var that = this;
+                      var data = {"id":id,"account":id,"password":"123456"};
+                      $.ajax({
+                              url:urlReq,
+                              type: 'post',
+                              data:data,
+                              dataType:"json",
+                              cache: false,
+                              success: function (data) {
+                                  if (data.error) {
+
+                                  } else {
+                                      $.ajax({
+                                              url:'http://k12.iyunbei.com/api/staffs?page=1',
+                                              type: 'get',
+                                              cache: false,
+                                              success: function (data) {
+                                                  if (data.error) {
+
+                                                  } else {
+                                                    data.entries = data.entries.reverse();
+                                                    that.staff = data;
+                                                  }
+                                              },
+                                              error: function (e) {
+                                                  console.log(e)
+                                              }
+                                      });
+                                  }
+                              },
+                              error: function (e) {
+                                  console.log(e)
+                              }
+                      });
+                  },
+                  deleteAccountHandle: function (e) {
+                      var id = $(e.target).attr('value');
+                      var urlReq = 'http://k12.iyunbei.com/api/staff/'+id;
+                      var that = this;
+                      var data = {"id":id};
+                      $.ajax({
+                              url:urlReq,
+                              type: 'post',
+                              data:data,
+                              dataType:"json",
+                              cache: false,
+                              success: function (data) {
+                                  if (data.error) {
+
+                                  } else {
+                                      $.ajax({
+                                              url:'http://k12.iyunbei.com/api/staffs?page=1',
+                                              type: 'get',
+                                              cache: false,
+                                              success: function (data) {
+                                                  if (data.error) {
+
+                                                  } else {
+                                                    data.entries = data.entries.reverse();
+                                                    that.staff = data;
+                                                  }
+                                              },
+                                              error: function (e) {
+                                                  console.log(e)
+                                              }
+                                      });
+                                  }
+                              },
+                              error: function (e) {
+                                  console.log(e)
+                              }
+                      });
                   },
                   _filterSchool : function (param) {
                          return "清华中学";
@@ -83,176 +191,48 @@
                           var date = new Date(param);
                          return date.getFullYear()+'-'+date.getMonth()+'-'+date.getDate();
                   },
-                  ready : function() {
-                //       this.teachers = [
-                //           {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
-                //           {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
-                //           {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
-                //           {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
-                //           {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
-                //           {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"},
-                //           {"name":"Jill Lewis", "birthday":"May 11, 2014","email":"jilsewris22@yahoo.com","account":"yes","password":"no"}
-                //       ]
-                        this.staff =
-                                {
-                                  "countPerPage": 50,
-                                  "entries": [
-                                    {
-                                      "campusId": 0,
-                                      "classTeacher": 0,
-                                      "computerCertLevel": 0,
-                                      "createdTime": 1480904337000,
-                                      "createdUserId": 0,
-                                      "degreeAmount": 0,
-                                      "deleted": false,
-                                      "departmentId": 0,
-                                      "draft": false,
-                                      "externalRecruitment": 0,
-                                      "firstDegree": 0,
-                                      "firstDegreeCategory": 0,
-                                      "firstEductionalSystem": 0,
-                                      "foreignLanguage": 0,
-                                      "foreignLanguageLevel": 0,
-                                      "gender": 0,
-                                      "gradeGroup": 0,
-                                      "highestDegree": 0,
-                                      "highestDegreeCategory": 0,
-                                      "highestEductionalSystem": 0,
-                                      "id": 3,
-                                      "identity": 0,
-                                      "mandarinCertLevel": 0,
-                                      "maritalStatus": 0,
-                                      "militaryFamily": 0,
-                                      "multiplePost": 0,
-                                      "name": "jesse",
-                                      "nationId": 0,
-                                      "nativePlace": 0,
-                                      "oralEnglishCertLevel": 0,
-                                      "overseasChineseType": 0,
-                                      "politicalParty": 0,
-                                      "politicalStatus": 0,
-                                      "prevLevelPost": 0,
-                                      "primaryPostFamily": 0,
-                                      "primarySalaryLevel": 0,
-                                      "primarySalaryPost": 0,
-                                      "primaryTitle": 0,
-                                      "primaryTitleLevel": 0,
-                                      "proSkillCertType": 0,
-                                      "proSkillPostCategory": 0,
-                                      "proSkillPostType": 0,
-                                      "proTeacher": 0,
-                                      "proTeacherLevel": 0,
-                                      "proTitle": 0,
-                                      "schoolId": 1,
-                                      "secondPostFamily": 0,
-                                      "secondSalaryLevel": 0,
-                                      "secondSalaryPost": 0,
-                                      "secondTitle": 0,
-                                      "secondTitleLevel": 0,
-                                      "sortNumber": 0,
-                                      "staffNum": "22",
-                                      "teacherCertSubject": 0,
-                                      "teacherCertType": 0,
-                                      "teachingCommitteeStaff": 0,
-                                      "teachingGroupId": 0,
-                                      "teachingStage": 0,
-                                      "teachingSubject": 1,
-                                      "teachingSubjectLevel": 0,
-                                      "updatedTime": 1480904337000,
-                                      "updatedUserId": 0,
-                                      "userId": 0
-                                    },
-                                    {
-                                      "campusId": 0,
-                                      "classTeacher": 0,
-                                      "computerCertLevel": 0,
-                                      "createdTime": 1481010182000,
-                                      "createdUserId": 0,
-                                      "degreeAmount": 0,
-                                      "deleted": false,
-                                      "departmentId": 0,
-                                      "draft": false,
-                                      "externalRecruitment": 0,
-                                      "firstDegree": 0,
-                                      "firstDegreeCategory": 0,
-                                      "firstEductionalSystem": 0,
-                                      "foreignLanguage": 0,
-                                      "foreignLanguageLevel": 0,
-                                      "gender": 0,
-                                      "gradeGroup": 0,
-                                      "highestDegree": 0,
-                                      "highestDegreeCategory": 0,
-                                      "highestEductionalSystem": 0,
-                                      "id": 4,
-                                      "identity": 0,
-                                      "mandarinCertLevel": 0,
-                                      "maritalStatus": 0,
-                                      "militaryFamily": 0,
-                                      "multiplePost": 0,
-                                      "name": "test",
-                                      "nationId": 0,
-                                      "nativePlace": 0,
-                                      "oralEnglishCertLevel": 0,
-                                      "overseasChineseType": 0,
-                                      "politicalParty": 0,
-                                      "politicalStatus": 0,
-                                      "prevLevelPost": 0,
-                                      "primaryPostFamily": 0,
-                                      "primarySalaryLevel": 0,
-                                      "primarySalaryPost": 0,
-                                      "primaryTitle": 0,
-                                      "primaryTitleLevel": 0,
-                                      "proSkillCertType": 0,
-                                      "proSkillPostCategory": 0,
-                                      "proSkillPostType": 0,
-                                      "proTeacher": 0,
-                                      "proTeacherLevel": 0,
-                                      "proTitle": 0,
-                                      "schoolId": 1,
-                                      "secondPostFamily": 0,
-                                      "secondSalaryLevel": 0,
-                                      "secondSalaryPost": 0,
-                                      "secondTitle": 0,
-                                      "secondTitleLevel": 0,
-                                      "sortNumber": 0,
-                                      "staffNum": "test",
-                                      "teacherCertSubject": 0,
-                                      "teacherCertType": 0,
-                                      "teachingCommitteeStaff": 0,
-                                      "teachingGroupId": 0,
-                                      "teachingStage": 0,
-                                      "teachingSubject": 0,
-                                      "teachingSubjectLevel": 0,
-                                      "updatedTime": 1481010182000,
-                                      "updatedUserId": 0,
-                                      "userId": 0
-                                    }
-                                  ],
-                                  "hasNext": false,
-                                  "hasPrevious": false,
-                                  "pageIndex": 0,
-                                  "pageNumber": 1,
-                                  "totalCount": 2,
-                                  "totalPage": 1
-                                }
+                  attributeChanged: function(attrName, oldVal, newVal) {
+                    console.log(attrName)
+                    console.log(oldVal)
+                    console.log(newVal)
+                    var that = this;
+                    if (attrName === "adddata" || attrName === 'updatedata') {
+                        $.ajax({
+                                url:'http://k12.iyunbei.com/api/staffs?page=1',
+                                type: 'get',
+                                cache: false,
+                                success: function (data) {
+                                    if (data.error) {
 
-                        // var that = this;
-                        // $.ajax({
-                        //         url:'http://k12.iyunbei.com/api/schools?page=1',
-                        //         type: 'get',
-                        //         cache: false,
-                        //         success: function (data) {
-                        //             if (data.error) {
-                        //
-                        //             } else {
-                        //               //   location.href = "./index.html";
-                        //               that.staff = data;
-                        //             }
-                        //         },
-                        //         error: function (e) {
-                        //             console.log(e)
-                        //         }
-                        // });
+                                    } else {
+                                        data.entries = data.entries.reverse()
+                                        that.staff = data;
+                                    }
+                                },
+                                error: function (e) {
+                                    console.log(e)
+                                }
+                        });
+                    }
+                  },
+                  ready : function() {
+                        var that = this;
+                        $.ajax({
+                                url:'http://k12.iyunbei.com/api/staffs?page=1',
+                                type: 'get',
+                                cache: false,
+                                success: function (data) {
+                                    if (data.error) {
+
+                                    } else {
+                                      data.entries = data.entries.reverse();
+                                      that.staff = data;
+                                    }
+                                },
+                                error: function (e) {
+                                    console.log(e)
+                                }
+                        });
                   }
           });
           $('.previous-button').on('click', function () {

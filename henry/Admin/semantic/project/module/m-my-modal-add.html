@@ -34,33 +34,37 @@
           Polymer({
                   is : "my-modal-add",
                   handleConfirm: function () {
-                          var username = $(".username").val();
-                          var staffNum = $(".staffNum").val();
-                          var schoolId = parseInt($('.my-select-school .item.active.selected').data('value'));
-                          var teachingSubject = parseInt($('.my-select-subject .item.active.selected').data('value'));
-                          // $.ajax({
-                          //         url:"http://k12.iyunbei.com/api/staff",
-                          //         type: 'post',
-                          //         data: {},
-                          //         dataType:"json",
-                          //         cache: false,
-                          //         success: function (data) {
-                          //                 if (data.error) {
-                          //
-                          //                 } else {
-                          //                         //   location.href = "./index.html";
-                          //                         that.schoolInfo = data;
-                          //                 }
-                          //         },
-                          //         error: function (e) {
-                          //                 console.log(e)
-                          //         }
-                          // });
-                  },
-                  ready: function () {
+                    var that = this;
+                    var username = $(".username").val();
+                    var staffNum = $(".staffNum").val();
+                    var schoolId = parseInt($('.my-select-school .item.active.selected').data('value'));
+                    var teachingSubject = parseInt($('.my-select-subject .item.active.selected').data('value'));
+                    // this.fire('updatedTable', {'data':"update"});
+                    // $('#my-table').get(0).setAttribute("fireUpdate", "update");
+                    $('.ui.modal').modal('hide');
+                    $.ajax({
+                        url:"http://k12.iyunbei.com/api/staff",
+                        type: 'post',
+                        data: {name:username,staffNum:staffNum,schoolId:schoolId,teachingSubject:teachingSubject},
+                        dataType:"json",
+                        cache: false,
+                        success: function (data) {
+                            if (data.error) {
+
+                            } else {
+                               $('#my-table').get(0).setAttribute("addData", JSON.stringify(data));
+                               $('.ui.modal').modal('hide');
+                            }
+                        },
+                        error: function (e) {
+                            console.log(e)
+                        }
+                    });
+                },
+                ready: function () {
 
 
-                  }
+                }
           });
 
   </script>

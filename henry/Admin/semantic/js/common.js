@@ -23,8 +23,6 @@ function init() {
     initPageStyle();
     var el = document.getElementById("my-class");
     el.addEventListener("updatedCards", function (e) {
-        // alert(e.detail.data);
-        // $('#my-card').attr("fireUpdate", e.detail.data)
         $('#my-card').get(0).setAttribute("fireUpdate", e.detail.data);
     });
 

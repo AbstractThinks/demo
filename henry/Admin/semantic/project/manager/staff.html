@@ -24,7 +24,7 @@
         <link rel="import" href="../module/m-my-staff-sidemenu.html" media="screen" title="no title">
         <link rel="import" href="../module/m-my-modal-add.html" media="screen" title="no title">
         <link rel="import" href="../module/m-my-modal-delete.html">
-        <!-- <link rel="import" href="../module/m-my-modal-modify.html" media="screen" title="no title"> -->
+        <link rel="import" href="../module/m-my-modal-modify.html" media="screen" title="no title">
         <!-- <link rel="import" href="../module/m-my-modal-export.html" media="screen" title="no title"> -->
 
 
@@ -53,7 +53,7 @@
                 <div class="ui internally celled grid stackable">
                     <div class="row">
                         <div class="twelve wide column">
-                            <my-table class="my-table"></my-table>
+                            <my-table id="my-table" class="my-table" adddata updatedata searchdata page></my-table>
                         </div>
                         <div class="four wide column computer only">
                             <my-staff-sidemenu></my-staff-sidemenu>
@@ -67,12 +67,11 @@
 
 
 
-
+        <div class="ui dimmer modals page transition hidden">
         <my-modal-add class="ui modal info my-modal-add" type="1"></my-modal-add>
-        <my-modal-modify class="ui modal modify my-modal-modify" type="2"></my-modal-modify>
+        <my-modal-modify class="ui modal modify my-modal-modify" type="2" userid></my-modal-modify>
         <my-modal-delete class="ui modal delete" type="3"></my-modal-delete>
-        <!-- <my-modal-export class="ui modal file"></my-modal-export> -->
-
+        </div>
         <script src="../../dist/semantic.min.js"></script>
         <script src="../../js/staff.js" charset="utf-8"></script>
     </body>
