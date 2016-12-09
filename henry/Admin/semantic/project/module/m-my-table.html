@@ -37,7 +37,7 @@
                                 <button class="ui basic button" on-click="createAccountHandle" value="[[item.id]]">创建账户</button>
                         </template>
                         <template is="dom-if" if="[[item.userId]]">
-                                {{item.userId}}
+                                {{item.id}}
                         </template>
                     </td>
                     <td>
@@ -103,7 +103,6 @@
                                   console.log(e)
                               }
                       });
-                          console.log(e.target);
                   },
                   createAccountHandle: function (e) {
                       var id = $(e.target).attr('value');
@@ -192,9 +191,6 @@
                          return date.getFullYear()+'-'+date.getMonth()+'-'+date.getDate();
                   },
                   attributeChanged: function(attrName, oldVal, newVal) {
-                    console.log(attrName)
-                    console.log(oldVal)
-                    console.log(newVal)
                     var that = this;
                     if (attrName === "adddata" || attrName === 'updatedata') {
                         $.ajax({

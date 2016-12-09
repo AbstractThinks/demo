@@ -10,7 +10,7 @@
               <div class="fields">
                   <div class="eight wide field">
                       <label>姓名</label>
-                      <input class="username" type="text" placeholder="" name="username">
+                      <input class="username" type="text" placeholder="" name="username" >
                   </div>
                   <div class="eight wide field">
                       <label>编号</label>
@@ -33,14 +33,15 @@
   <script type="text/javascript">
           Polymer({
                   is : "my-modal-add",
+                  properties: {
+                    staff: Object
+                  },
                   handleConfirm: function () {
                     var that = this;
                     var username = $(".username").val();
                     var staffNum = $(".staffNum").val();
                     var schoolId = parseInt($('.my-select-school .item.active.selected').data('value'));
                     var teachingSubject = parseInt($('.my-select-subject .item.active.selected').data('value'));
-                    // this.fire('updatedTable', {'data':"update"});
-                    // $('#my-table').get(0).setAttribute("fireUpdate", "update");
                     $('.ui.modal').modal('hide');
                     $.ajax({
                         url:"http://k12.iyunbei.com/api/staff",

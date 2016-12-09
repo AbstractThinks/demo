@@ -8,16 +8,17 @@
                                           <div class="two  fields row">
                                                   <div class="field">
                                                           <label>姓名</label>
-                                                          <input type="text" placeholder="姓名" name="name">
+                                                          <input type="text" placeholder="姓名" name="name" value="{{staff.name::input}}">
                                                   </div>
                                                   <div class="field">
                                                           <label>教师编号</label>
-                                                          <input type="text" placeholder="教师编号" name="staffNum">
+                                                          <input type="text" placeholder="教师编号" name="staffNum" value="{{staff.staffNum::input}}">
                                                   </div>
                                           </div>
                                           <div class="two  fields row">
-                                              <my-select-common class="field" label="性别" content='[{"id":"1", "name":"男"},{"id":"2", "name":"女"}]'></my-select-common>
-                                              <my-select-common class="field" label="学科" content='[{"id":"1", "name":"语文"},{"id":"2", "name":"数学"}]'></my-select-common>
+                                              <my-select-common class="field my-class-gender" label="性别" content='[{"id":"1", "name":"男"},{"id":"2", "name":"女"}]'></my-select-common>
+                                              <!-- <my-select-common class="field my-class-subject" label="学科" content='[{"id":"1", "name":"语文"},{"id":"2", "name":"数学"}]'></my-select-common> -->
+                                              <!-- <my-select-subject class="field my-class-subject"></my-select-subject> -->
                                           </div>
                                   </div>
                                   <div class="four wide column">
@@ -33,28 +34,28 @@
                                                           <div class="ui calendar" id="dateField">
                                                                   <div class="ui input left icon">
                                                                           <i class="calendar icon"></i>
-                                                                          <input type="text" placeholder="出生年月">
+                                                                          <input type="text" placeholder="出生年月" value="{{staff.birthday::input}}">
                                                                   </div>
                                                           </div>
                                                   </div>
                                                   <div class="field">
                                                           <label>电话</label>
-                                                          <input type="text" placeholder="电话">
+                                                          <input type="text" placeholder="电话" value="{{staff.phone::input}}">
                                                   </div>
                                                   <div class="field">
                                                           <label>电子邮箱</label>
-                                                          <input type="text" placeholder="电子邮箱">
+                                                          <input type="text" placeholder="电子邮箱" value="{{staff.email::input}}">
                                                   </div>
                                           </div>
 
                                           <div class="three  fields row">
                                                   <div class="field">
                                                           <label>家庭地址</label>
-                                                          <input type="text" placeholder="家庭地址">
+                                                          <input type="text" placeholder="家庭地址" value="{{staff.homeAddress::input}}">
                                                   </div>
                                                   <div class="field">
                                                           <label>邮编</label>
-                                                          <input type="text" placeholder="邮编">
+                                                          <input type="text" placeholder="邮编" value="{{staff.homeZipCode::input}}">
                                                   </div>
                                           </div>
 
@@ -64,9 +65,9 @@
                                           </div>
 
                                           <div class="ui large buttons">
-                                                  <button class="ui button" on-click="handleSaveData">保存</button>
+                                                  <a class="ui button" on-click="handleSaveBasicDataInfo">保存</a>
                                                   <div class="or teal"></div>
-                                                  <button class="ui button">重置</button>
+                                                  <a class="ui button" on-click="resetBasicDataInfo">重置</a>
                                           </div>
                                   </div>
                           </div>
@@ -77,14 +78,68 @@
   <script type="text/javascript">
           Polymer({
                   is : "my-tab-info",
-                  properties: {
-                          gender: Object
-                  },
-                  handleSaveData: function () {
+                  resetBasicDataInfo: function () {
+                      var that = this;
+                      var reqUrl = "http://k12.iyunbei.com/api/staff/"+location.search.split('?')[1];
+                      $.ajax({
+                          url:reqUrl,
+                          type: 'get',
+                          dataType:"json",
+                          cache: false,
+                          success: function (data) {
+                              if (data.error) {
 
+                              } else {
+                                  console.log(data);
+                                  that.staff = data;
+                              }
+                          },
+                          error: function (e) {
+                              console.log(e)
+                          }
+                      })
+                  },
+                  handleSaveBasicDataInfo: function () {
+                      var that = this;
+                      var urlReq = "http://k12.iyunbei.com/api/staff/"+that.staff.id;
+                      $.ajax({
+                          url:urlReq,
+                          type: 'post',
+                          data: this.staff,
+                          dataType:"json",
+                          cache: false,
+                          success: function (data) {
+                              if (data.error) {
+
+                              } else {
+                                 console.log(data)
+                              }
+                          },
+                          error: function (e) {
+                              console.log(e)
+                          }
+                      });
                   },
                   ready: function () {
+                      var that = this;
+                      var reqUrl = "http://k12.iyunbei.com/api/staff/"+location.search.split('?')[1];
+                      $.ajax({
+                          url:reqUrl,
+                          type: 'get',
+                          dataType:"json",
+                          cache: false,
+                          success: function (data) {
+                              if (data.error) {
 
+                              } else {
+                                  console.log(data);
+                                  that.staff = data;
+                              }
+                          },
+                          error: function (e) {
+                              console.log(e)
+                          }
+                      })
                   }
           });
   </script>

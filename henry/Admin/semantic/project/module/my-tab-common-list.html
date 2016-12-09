@@ -3,80 +3,39 @@
          <content></content>
          <div class="ui container">
                 <div class="ui divided  items">
-                        <div class="item">
-                                <div class="ui small image">
-                                        <img src="../../img/card.png">
-                                </div>
-                                <div class="content">
-                                        <a class="header">标题</a>
-                                        <div class="meta">
-                                                <span>学科</span><span>年级</span><span>分类</span>
-                                        </div>
-                                        <div class="description">
-                                                <p>Description</p>
-                                        </div>
-                                        <div class="extra">
-                                                <i class="green check icon"></i> 121 人收藏
-                                                <div class="ui right floated primary button">学习 <i class="right chevron icon"></i> </div>
-                                      </div>
-                                </div>
-                        </div>
-                        <div class="item">
-                                <div class="ui small image">
-                                        <img src="../../img/card.png">
-                                </div>
-                                <div class="content">
-                                        <a class="header">标题</a>
-                                        <div class="meta">
-                                                <span>Description</span>
-                                        </div>
-                                        <div class="description">
-                                                <p></p>
-                                        </div>
-                                        <div class="extra">
-                                                <i class="green check icon"></i> 121 人收藏
-                                                <div class="ui right floated primary button">学习 <i class="right chevron icon"></i> </div>
-                                      </div>
-                                </div>
-                        </div>
-                        <div class="item">
-                                <div class="ui small image">
-                                        <img src="../../img/card.png">
-                                </div>
-                                <div class="content">
-                                        <a class="header">标题</a>
-                                        <div class="meta">
-                                                <span>Description</span>
-                                        </div>
-                                        <div class="description">
-                                                <p></p>
-                                        </div>
-                                        <div class="extra">
-                                                <i class="green check icon"></i> 121 人收藏
-                                                <div class="ui right floated primary button">学习 <i class="right chevron icon"></i> </div>
-                                      </div>
-                                </div>
-                        </div>
-                        <div class="item">
-                                <div class="ui small image">
-                                        <img src="../../img/card.png">
-                                </div>
-                                <div class="content">
-                                        <a class="header">标题</a>
-                                        <div class="meta">
-                                                <span>Description</span>
-                                        </div>
-                                        <div class="description">
-                                                <p></p>
-                                        </div>
-                                        <div class="extra">
-                                                <i class="green check icon"></i> 121 人收藏
-                                                <div class="ui right floated primary button">学习 <i class="right chevron icon"></i> </div>
-                                      </div>
-                                </div>
-                        </div>
+                        <template is="dom-repeat" items="[[cards]]">
+                            <div class="item">
+                                    <div class="ui small image">
+                                            <img src="../../img/card.png">
+                                    </div>
+                                    <div class="content">
+                                            <a class="header">标题</a>
+                                            <div class="meta">
+                                                    <span>学科&nbsp;</span>{{item.subjecId}}&nbsp;<span>年级&nbsp;</span>{{item.gradeId}}&nbsp;<span>分类&nbsp;</span>{{item.classId}}
+                                            </div>
+                                            <div class="description">
+                                                    <p>Description</p>
+                                            </div>
+                                            <div class="extra">
+                                                    <i class="green check icon"></i> 121 人收藏
+                                                    <div class="ui right floated primary button">学习 <i class="right chevron icon"></i> </div>
+                                          </div>
+                                    </div>
+                            </div>
+                        </template>
+
                 </div>
-                <my-pagination class="my-pagination"></my-pagination>
+                <div class="ui pagination menu">
+                      <a class="item">
+                        <i class="angle left icon"></i>
+                      </a>
+                      <a class="item">
+                        1
+                      </a>
+                      <a class="item">
+                        <i class="angle right icon"></i>
+                      </a>
+                </div>
         </div>
         <h4 class="ui horizontal divider header-divider">
                 <i class="tag icon"></i>
@@ -88,7 +47,38 @@
   </template>
   <script type="text/javascript">
           Polymer({
-                  is : "my-tab-common-list"
+                  is : "my-tab-common-list",
+                  properties : {
+                     pagesize: String,
+                     page: String,
+                     resourcetypeid: String,
+                  },
+                  ready : function() {
+                         let pagesize = this.pagesize;
+                         let page = this.page;
+                         let userId = location.search.split('?')[1];
+                        $.ajax({
+                                url:'http://k12.iyunbei.com/api/resources/user/'+userId+'/'+page+'/'+pageSize,
+                                type: 'get',
+                                success: function (data) {
+                                        if (data.error) {
+
+                                        } else {
+                                                this.cards = data;
+                                        }
+                                },
+                                error: function (e) {
+                                        console.log(e)
+                                }
+                        });
+                        // this.cards = [
+                        //         {"id":"1","img":"../../img/card.png", "description":"40道选择题，80道应用题,  知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2","author":"张三","subject":"语文","grade":"高一"},
+                        //         {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
+                        //         {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
+                        //         {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
+                        //         {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"}
+                        // ]
+                  }
           });
   </script>
 </dom-module>
