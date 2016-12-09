@@ -22,7 +22,7 @@
         <tbody>
             <template is="dom-repeat" items="[[staff.entries]]">
                 <tr>
-                    <td>[[index]]</td>
+                    <td>[[_filterNumber(index)]]</td>
                     <td class="collapsing">
                         <div class="ui fitted slider checkbox">
                             <input type="checkbox" value="[[item.id]]"/><label></label>
@@ -46,10 +46,7 @@
                         </template>
                     </td>
                     <td>
-                        <template is="dom-if" if="[[item.userId]]">
                                 <button class="ui basic button" on-click="deleteAccountHandle" value="[[item.id]]">删除账户</button>
-                        </template>
-
                     </td>
                 </tr>
             </template>
@@ -153,7 +150,7 @@
                       var data = {"id":id};
                       $.ajax({
                               url:urlReq,
-                              type: 'post',
+                              type: 'delete',
                               data:data,
                               dataType:"json",
                               cache: false,
@@ -183,6 +180,9 @@
                                   console.log(e)
                               }
                       });
+                  },
+                  _filterNumber : function (param) {
+                      return param + 1;
                   },
                   _filterSchool : function (param) {
                          return "清华中学";

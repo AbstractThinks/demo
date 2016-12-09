@@ -62,7 +62,7 @@
         function initialize(){
             var $html = $([
                 '<div>',
-                    '<form id="uploadFileForm">',
+                    '<form id="uploadForm" enctype="multipart/form-data">',
                     '<div id="drag-n-drop" class="ui icon message" style="cursor: pointer; box-shadow: none; border: 2px grey dashed;">',
                         '<i class="upload icon"></i>',
                         '<div class="content">',

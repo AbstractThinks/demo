@@ -34,13 +34,13 @@ function init() {
                 //File object => https://developer.mozilla.org/en-US/docs/Web/API/File
                 // console.log(file.name);
 
-                var formData = new FormData();
-                // var name = $("input").val();
+                var formData = new FormData($('#uploadForm')[0]);
+                var name = $("input").val();
                 formData.append("file",file);
-                // formData.append("name",name);
+                formData.append("name",name);
                 $.ajax({
                     url : 'http://k12.iyunbei.com/api/resources/resourceUpload',
-                    type : 'POST',
+                    type : 'post',
                     data : formData,
                     async: false,
                     cache: false,
@@ -62,27 +62,8 @@ function init() {
                         console.log("error "+responseStr);
                     }
                 });
-                // Upload your file using the method you prefer (ex: $.ajax) and call
-                // the method finishUpload() as soon as your upload is finished;
-                // var fileObj = new FormData($('#uploadFileForm').get(0));
-                // $.ajax({
-                //       url: 'http://k12.iyunbei.com/api/resources/resourceUpload' ,
-                //       type: 'POST',
-                //     //   data: file,
-                //       data: fileObj,
-                //       async: false,
-                //       cache: false,
-                //       contentType: false,
-                //       processData: false,
-                //       success: function (returndata) {
-                //           console.log(returndata);
-                //           fileUpload.uploadFinished();
-                //       },
-                //       error: function (returndata) {
-                //           console.log(returndata);
-                //       }
-                //
-                //   });
+                // $('#uploadForm').submit();
+
         }
     });
 }

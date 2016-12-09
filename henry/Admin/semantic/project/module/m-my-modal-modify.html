@@ -52,8 +52,7 @@
                       var teachingSubject = parseInt($('.my-modal-modify .my-select-subject .item.active.selected').data('value'));
                       this.staff.schoolId = schoolId;
                       this.staff.teachingSubject = teachingSubject;
-                      var urlReq = "http://k12.iyunbei.com/api/staff";
-                      console.log(this.staff);
+                      var urlReq = "http://k12.iyunbei.com/api/staff/"+that.staff.id;
                       $.ajax({
                           url:urlReq,
                           type: 'post',
@@ -64,7 +63,7 @@
                               if (data.error) {
 
                               } else {
-                                  $('#my-table').get(0).setAttribute("addData", data);
+                                  $('#my-table').get(0).setAttribute("updatedata", data);
                                   $('.ui.modal').modal('hide');
                               }
                           },
