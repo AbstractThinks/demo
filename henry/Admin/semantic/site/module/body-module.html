@@ -1,0 +1,77 @@
+<dom-module id="my-body">
+    <style media="screen">
+    .fixed.launch.button {
+        display: block;
+        position: fixed;
+        top: 4em;
+        left: 0px;
+        width: 55px;
+        height: auto;
+        white-space: nowrap;
+        overflow: hidden;
+        -webkit-transition: 0.3s width ease, 0.5s transform ease;
+        -moz-transition: 0.3s width ease, 0.5s transform ease;
+        -o-transition: 0.3s width ease, 0.5s transform ease;
+        -ms-transition: 0.3s width ease, 0.5s transform ease;
+        transition: 0.3s width ease, 0.5s transform ease;
+    }
+    .fixed.launch.button .icon {
+        margin: 0!important;
+    }
+
+    .fixed.launch.button .text {
+        position: absolute;
+        white-space: nowrap;
+        top: auto;
+        left: 54px;
+        opacity: 0;
+        -webkit-transition: 0.3s opacity 0.3s;
+        -moz-transition: 0.3s opacity 0.3s;
+        -o-transition: 0.3s opacity 0.3s;
+        -ms-transition: 0.3s opacity 0.3s;
+        transition: 0.3s opacity 0.3s;
+    }
+    .fixed.launch.button:hover {
+        width: 130px;
+    }
+    .fixed.launch.button:hover .text {
+        opacity: 1;
+    }
+
+    </style>
+  <template >
+      <div class="ui sidebar inverted vertical menu">
+        <a class="item">
+          1
+        </a>
+        <a class="item">
+          2
+        </a>
+        <a class="item">
+          3
+        </a>
+      </div>
+      <div class="ui black big launch right attached fixed button sidemenu">
+        <i class="content icon"></i>
+        <span class="text">菜单</span>
+      </div>
+      <div class="pusher">
+          <!--子组件或者标签将被插入到这里 -->
+          <content></content>
+
+      </div>
+  </template>
+  <script type="text/javascript">
+          Polymer({
+              is : "my-body",
+              extends: 'body',
+              ready: function () {
+                  $('.ui.sidemenu').on('click', function () {
+                      $('.ui.sidebar')
+                        .sidebar('setting', 'transition', 'scale down')
+                        .sidebar('toggle');
+                  });
+              }
+          });
+  </script>
+</dom-module>

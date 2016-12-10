@@ -8,58 +8,56 @@
                                           <div class="field row">
                                                   <div class="field">
                                                           <label>标题</label>
-                                                          <input type="text" placeholder="First Name">
+                                                          <input id="filename" type="text" placeholder="标题" name="filename">
                                                   </div>
                                           </div>
 
                                           <div class="field row">
                                                   <div class="field">
                                                           <label>类别</label>
-                                                          <select class="ui search dropdown">
-                                                                  <option value="">State</option>
-                                                                  <option value="AL">Alabama</option>
-                                                                  <option value="AK">Alaska</option>
-                                                                  <option value="AZ">Arizona</option>
-                                                                  <option value="AR">Arkansas</option>
+                                                          <select class="ui class dropdown">
+                                                                  <option value="">类别</option>
+                                                                  <option value="1">视频</option>
+                                                                  <option value="3">课件</option>
+                                                                  <option value="3">试卷</option>
+                                                                  <option value="3">资料</option>
                                                           </select>
                                                   </div>
                                           </div>
                                           <div class="field row">
                                                   <div class="field">
                                                           <label>科目</label>
-                                                          <select class="ui search dropdown">
-                                                                  <option value="">State</option>
-                                                                  <option value="AL">Alabama</option>
-                                                                  <option value="AK">Alaska</option>
-                                                                  <option value="AZ">Arizona</option>
-                                                                  <option value="AR">Arkansas</option>
+                                                          <select class="ui subject dropdown">
+                                                                  <option value="">科目</option>
+                                                                  <option value="1">语文</option>
+                                                                  <option value="2">数学</option>
+                                                                  <option value="5">英语</option>
                                                           </select>
                                                   </div>
                                           </div>
                                           <div class="field row">
                                                   <div class="field">
                                                           <label>年级</label>
-                                                          <select class="ui search dropdown">
-                                                                  <option value="">State</option>
-                                                                  <option value="AL">Alabama</option>
-                                                                  <option value="AK">Alaska</option>
-                                                                  <option value="AZ">Arizona</option>
-                                                                  <option value="AR">Arkansas</option>
+                                                          <select class="ui grade dropdown">
+                                                                  <option value="">年级</option>
+                                                                  <option value="1">高一</option>
+                                                                  <option value="2">高二</option>
+                                                                  <option value="3">高三</option>
                                                           </select>
                                                   </div>
                                           </div>
-                    
+
                                           <div class="field row">
                                                   <label>描述</label>
-                                                  <textarea></textarea>
+                                                  <textarea id="desc" name="desc"></textarea>
                                           </div>
                                           <div class="field row">
                                                   <div id="file-upload"></div>
                                           </div>
                                           <div class="ui large buttons">
-                                                  <button class="ui button" type="submit">保存</button>
+                                                  <a class="ui button" on-click="handleSaveData">保存</a>
                                                   <div class="or teal"></div>
-                                                  <button class="ui button">重置</button>
+                                                  <a class="ui button">重置</a>
                                           </div>
                                   </div>
                           </div>
@@ -68,7 +66,33 @@
   </template>
   <script type="text/javascript">
           Polymer({
-                  is : "my-tab-update"
+                  is : "my-tab-update",
+                  handleSaveData: function (e) {
+                      var data = {};
+                      data.fileId = $("#uploadedWork").attr('fileId');
+                      data.resourceTypeId =$('.ui.class.dropdown .item.active.selected').data('value');
+                      data.subjectId = $('.ui.subject.dropdown .item.active.selected').data('value');
+                      data.gradeId = $('.ui.grade.dropdown .item.active.selected').data('value');
+                      data.fileName = $("#filename").val();
+                      data.desc = $('#desc').val();
+                      $.ajax({
+                          url:"http://k12.iyunbei.com/api/resources/resourceUpload",
+                          type: 'post',
+                          data: data,
+                          dataType:"json",
+                          cache: false,
+                          success: function (data) {
+                              if (data.error) {
+
+                              } else {
+                                 console.log(data)
+                              }
+                          },
+                          error: function (e) {
+                              console.log(e)
+                          }
+                      });
+                  }
           });
   </script>
 </dom-module>

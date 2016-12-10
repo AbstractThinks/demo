@@ -95,10 +95,10 @@
         /**
          * Public methods and variables;
          **/
-        this.uploadFinished = function(){
-            this.find('i').removeClass('notched circle loading').addClass('checkmark');
-            this.find('.header').html(settings.successText);
-            this.find('#drag-n-drop').removeClass('yellow blue').addClass('uploaded green');
+        this.uploadFinished = function(target){
+            target.find('i').removeClass('notched circle loading').addClass('checkmark');
+            target.find('.header').html(settings.successText);
+            target.find('#drag-n-drop').removeClass('yellow blue').addClass('uploaded green');
 
             return this;
         };

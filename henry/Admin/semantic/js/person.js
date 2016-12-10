@@ -25,7 +25,7 @@ function init() {
     });
      $('.ui.dropdown').dropdown();
      $('#dateField').calendar({ type: 'date' });
-     $("#file-upload").semanticFileUploader({
+     var fileUpload = $("#file-upload").semanticFileUploader({
         defaultText: "上传文件",
         defaultLabel: "点击选择文件或者将文件拖入此区域",
         loadingText: "上传文件中...",
@@ -39,10 +39,10 @@ function init() {
                 formData.append("file",file);
                 formData.append("name",name);
                 $.ajax({
-                    url : 'http://k12.iyunbei.com/api/resources/resourceUpload',
+                    url : 'http://k12.iyunbei.com/api/resources/fileUpload',
                     type : 'post',
                     data : formData,
-                    async: false,
+                    async: true,
                     cache: false,
                     // 告诉jQuery不要去处理发送的数据
                     processData : false,
@@ -52,11 +52,8 @@ function init() {
                         console.log("正在进行，请稍候");
                     },
                     success : function(responseStr) {
-                        if(responseStr.status===0){
-                            console.log("成功 "+responseStr);
-                        }else{
-                            console.log("失败 "+responseStr);
-                        }
+                        fileUpload.uploadFinished($("#file-upload"));
+                        $("#uploadedWork").attr('fileId', responseStr);
                     },
                     error : function(responseStr) {
                         console.log("error "+responseStr);
@@ -66,4 +63,5 @@ function init() {
 
         }
     });
+    console.log(fileUpload)
 }
