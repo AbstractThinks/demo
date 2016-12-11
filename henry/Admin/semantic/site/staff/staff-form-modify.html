@@ -1,0 +1,127 @@
+<link rel="import" href="../module/select-module.html" media="screen" title="no title">
+
+<dom-module id="staff-form-modify">
+  <template >
+      <div class="header">教师基本信息</div>
+      <div class="content">
+          <form id="staff-form-modify" class="ui form staff-form-modify">
+              <div class="fields">
+                  <div class="eight wide field">
+                      <label>姓名</label>
+                      <input class="name" type="text" placeholder="" name="name" value="{{staff.name::input}}">
+                  </div>
+                  <div class="eight wide field">
+                      <label>编号</label>
+                      <input class="staffNum" type="text" placeholder="" name="staffNum" value="{{staff.staffNum::input}}">
+                  </div>
+              </div>
+              <div class="fields">
+                <select-module class="eight wide field select-school" url="http://k12.iyunbei.com/api/schools?page=1" label="学校"></select-module>
+                <select-module class="eight wide field select-subject" url="http://k12.iyunbei.com/api/subjects?page=1" label="学科"></select-module>
+              </div>
+
+          </form>
+          <div class="actions">
+            <button class="ui button basic save medium" on-click="handleConfirm">&nbsp;&nbsp;<i class="add circle icon"></i> 确认 &nbsp;&nbsp;</button>
+            <button class="ui cancel button basic medium">&nbsp;&nbsp;<i class="remove circle icon"></i>取消 &nbsp;&nbsp;</button>
+          </div>
+      </div>
+
+
+  </template>
+  <script type="text/javascript">
+          Polymer({
+              is : "staff-form-modify",
+              properties: {
+                staff: Object
+              },
+              attributeChanged: function(attrName, oldVal, newVal) {
+                  var that = this;
+                  if (attrName === "userid") {
+                      var reqUrl = "http://k12.iyunbei.com/api/staff/"+newVal;
+                      $.ajax({
+                            url:reqUrl,
+                            type: 'get',
+                            // data: {name:username,staffNum:staffNum,schoolId:schoolId,teachingSubject:teachingSubject},
+                            dataType:"json",
+                            cache: false,
+                            success: function (data) {
+                                if (data.error) {
+
+                                } else {
+                                    that.staff = data;
+                                    $(".staff-form-modify .select-school div[data-value='"+that.staff.schoolId+"']").addClass('active selected');
+                                    $(".staff-form-modify .select-school div.text").removeClass('default').text($(".staff-form-modify .select-school div[data-value='"+that.staff.schoolId+"']").text());
+                                    $(".staff-form-modify .select-subject div[data-value='"+that.staff.teachingSubject+"']").addClass('active selected');
+                                    $(".staff-form-modify .select-subject div.text").removeClass('default').text($(".staff-form-modify .select-subject div[data-value='"+that.staff.schoolId+"']").text());                                    }
+                            },
+                            error: function (e) {
+                                console.log(e)
+                            }
+                        });
+                  }
+
+              },
+              handleConfirm: function () {
+                  var that = this;
+                  $('.ui.form').submit(function(e){
+                      return false;
+                  });
+                  $('.ui.form.staff-form-modify').form({
+                      inline:true,
+                      on: 'blur',
+                      transition: 'fade up',
+                      fields: {
+                          username: {
+                              identifier: 'name',
+                              rules: [{
+                                  type: 'empty',
+                                  prompt: '请输入姓名'
+                              }]
+                          },
+                          staffNum: {
+                              identifier: 'staffNum',
+                              rules: [{
+                                  type: 'empty',
+                                  prompt: '请输入编号'
+                              }]
+                          },
+
+                      },
+                      onSuccess: function() {
+                          that.staff.name = $(".staff-form-modify .name").val();
+                          that.staff.staffNum = $(".staff-form-modify .staffNum").val();
+                          that.staff.schoolId = parseInt($('.staff-form-modify .select-school .item.active.selected').data('value'));
+                          that.staff.teachingSubject = parseInt($('.staff-form-modify .select-subject .item.active.selected').data('value'));
+                          $.ajax({
+                              url:"http://k12.iyunbei.com/api/staff/"+that.staff.id,
+                              type: 'post',
+                              data: that.staff,
+                              dataType:"json",
+                              cache: false,
+                              success: function (data) {
+                                  if (data.error) {
+
+                                  } else {
+                                     $('#my-table').get(0).setAttribute("addData", JSON.stringify(data));
+                                     $('.ui.modal').modal('hide');
+                                  }
+                              },
+                              error: function (e) {
+                                  console.log(e)
+                              }
+                          });
+                      }
+                  });
+              },
+                ready: function () {
+
+                    var that = this;
+                    $('.ui.dropdown').dropdown();
+
+
+                }
+          });
+
+  </script>
+</dom-module>

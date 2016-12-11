@@ -1,0 +1,87 @@
+<dom-module id="login-form">
+
+  <template >
+      <!-- <div class="ui middle aligned center aligned grid login" style=""> -->
+          <div class="six wide column">
+              <h2 class="ui teal image header">
+              <div class="content">
+              Log-in to your account
+              </div>
+              </h2>
+              <form class="ui large form">
+                  <div class="ui stacked segment">
+                      <div class="field">
+                          <div class="ui left icon input">
+                              <i class="user icon"></i>
+                              <input id="username" type="text" name="username" placeholder="用户名">
+                          </div>
+                      </div>
+                      <div class="field">
+                          <div class="ui left icon input">
+                              <i class="lock icon"></i>
+                              <input id="password" type="password" name="password" placeholder="密码">
+                          </div>
+                      </div>
+                      <div class="ui fluid large teal submit button">登录</div>
+                  </div>
+
+                  <div class="ui error message"></div>
+              </form>
+          </div>
+      <!-- </div> -->
+  </template>
+  <script type="text/javascript">
+          Polymer({
+                  is : "login-form",
+                  ready : function () {
+                      $('.ui.form').submit(function(e){
+                          return false;
+                      });
+                      $('.ui.form').form({
+                          inline:true,
+                          on: 'blur',
+                          transition: 'fade up',
+                          fields: {
+                              username: {
+                                  identifier: 'username',
+                                  rules: [{
+                                      type: 'empty',
+                                      prompt: '请输入用户名'
+                                  }]
+                              },
+                              password: {
+                                  identifier: 'password',
+                                  rules: [{
+                                      type: 'empty',
+                                      prompt: '请输入密码'
+                                  }]
+                              },
+
+                          },
+                          onSuccess: function() {
+                              var username = $('#username').val();
+                              var password = $('#password').val();
+                              $.ajax({
+                                  url:'http://k12.iyunbei.com/api/login',
+                                  type: 'post',
+                                  data:{"username":username,"password":password},
+                                  dataType: 'json',
+                                  cache: false,
+                                  success: function (data) {
+                                      if (data.error) {
+                                          console.log('帐户不存在');
+                                      } else {
+                                          location.href = "../index/index.html";
+                                      }
+                                  },
+                                  error: function (e) {
+                                      console.log(e)
+                                  }
+
+                              })
+                          }
+                      });
+                  }
+          });
+  </script>
+</dom-module>

@@ -1,0 +1,271 @@
+<dom-module id="staff-table">
+<style media="screen">
+        .my-table .pagination-content {
+                text-align: center;
+        }
+</style>
+  <template>
+      <table class="ui striped table">
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th>学校</th>
+             <th>姓名</th>
+            <th>员工编号</th>
+            <th>创建时间</th>
+            <th>账户</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+            <template is="dom-repeat" items="[[staff.entries]]">
+                <tr>
+                    <td>[[_filterNumber(index)]]</td>
+                    <td class="collapsing">
+                        <div class="ui fitted slider checkbox">
+                            <input type="checkbox" value="[[item.id]]"/><label></label>
+                        </div>
+                    </td>
+                    <td>{{_filterSchool(item.schoolId)}}</td>
+                    <td>[[item.name]]</td>
+                    <td>[[item.staffNum]]</td>
+                    <td>{{ _filterDate(item.createdTime)}}</td>
+                    <td>
+                        <template is="dom-if" if="[[!item.userId]]">
+                                <button class="ui basic button" on-click="createAccountHandle" value="[[item.id]]">创建账户</button>
+                        </template>
+                        <template is="dom-if" if="[[item.userId]]">
+                                {{item.id}}
+                        </template>
+                    </td>
+                    <td>
+                        <template is="dom-if" if="[[item.userId]]">
+                                <button class="ui basic button" on-click="resetSecretHandle" value="[[item.id]]">密码重置</button>
+                        </template>
+                    </td>
+                    <td>
+                        <button class="ui basic button" on-click="deleteAccountHandle" value="[[item.id]]">删除账户</button>
+                    </td>
+                </tr>
+            </template>
+
+        </tbody>
+      </table>
+      <div class="pagination-content">
+              <div class="ui pagination menu">
+                      <template is="dom-if" if="[[staff.hasPrevious]]">
+                              <a class="item previous-button">
+                                      <i class="angle left icon"></i>
+                              </a>
+                      </template>
+                      <template is="dom-if" if="[[!staff.hasPrevious]]">
+                              <a class="item disabled">
+                                      <i class="angle left icon"></i>
+                              </a>
+                      </template>
+                      <a class="item">
+                              [[staff.pageNumber]]
+                      </a>
+                      <template is="dom-if" if="[[staff.hasNext]]">
+                              <a class="item next-button">
+                                      <i class="angle right icon"></i>
+                              </a>
+                      </template>
+                      <template is="dom-if" if="[[!staff.hasNext]]">
+                              <a class="item disabled">
+                                      <i class="angle right icon"></i>
+                              </a>
+                      </template>
+              </div>
+      </div>
+
+  </template>
+  <script type="text/javascript">
+          Polymer({
+                  is : "staff-table",
+                  resetSecretHandle: function(e) {
+
+                      var urlReq = 'http://k12.iyunbei.com/api/staff/resetAccount/'+$(e.target).attr('value');
+                      $.ajax({
+                              url:urlReq,
+                              type: 'get',
+                              cache: false,
+                              success: function (data) {
+                                  if (data.error) {
+
+                                  } else {
+                                      console.log(data)
+                                  }
+                              },
+                              error: function (e) {
+                                  console.log(e)
+                              }
+                      });
+                  },
+                  createAccountHandle: function (e) {
+                      var id = $(e.target).attr('value');
+                      var urlReq = 'http://k12.iyunbei.com/api/staff/'+id+'/account';
+                      var that = this;
+                      var data = {"id":id,"account":id,"password":"123456"};
+                      $.ajax({
+                              url:urlReq,
+                              type: 'post',
+                              data:data,
+                              dataType:"json",
+                              cache: false,
+                              success: function (data) {
+                                  if (data.error) {
+
+                                  } else {
+                                      $.ajax({
+                                              url:'http://k12.iyunbei.com/api/staffs?page=1',
+                                              type: 'get',
+                                              cache: false,
+                                              success: function (data) {
+                                                  if (data.error) {
+
+                                                  } else {
+                                                    data.entries = data.entries.reverse();
+                                                    that.staff = data;
+                                                  }
+                                              },
+                                              error: function (e) {
+                                                  console.log(e)
+                                              }
+                                      });
+                                  }
+                              },
+                              error: function (e) {
+                                  console.log(e)
+                              }
+                      });
+                  },
+                  deleteAccountHandle: function (e) {
+                      var id = $(e.target).attr('value');
+                      var urlReq = 'http://k12.iyunbei.com/api/staff/'+id;
+                      var that = this;
+                      var data = {"id":id};
+                      $.ajax({
+                              url:urlReq,
+                              type: 'delete',
+                              data:data,
+                              dataType:"json",
+                              cache: false,
+                              success: function (data) {
+                                  if (data.error) {
+
+                                  } else {
+                                      $.ajax({
+                                              url:'http://k12.iyunbei.com/api/staffs?page=1',
+                                              type: 'get',
+                                              cache: false,
+                                              success: function (data) {
+                                                  if (data.error) {
+
+                                                  } else {
+                                                    data.entries = data.entries.reverse();
+                                                    that.staff = data;
+                                                  }
+                                              },
+                                              error: function (e) {
+                                                  console.log(e)
+                                              }
+                                      });
+                                  }
+                              },
+                              error: function (e) {
+                                  console.log(e)
+                              }
+                      });
+                  },
+                  _filterNumber : function (param) {
+                      return param + 1;
+                  },
+                  _filterSchool : function (param) {
+                         return "清华中学";
+                  },
+                  _filterDate : function (param) {
+                          var date = new Date(param);
+                         return date.getFullYear()+'-'+date.getMonth()+'-'+date.getDate();
+                  },
+                  attributeChanged: function(attrName, oldVal, newVal) {
+                    var that = this;
+                    if (attrName === "adddata" || attrName === 'updatedata') {
+                        $.ajax({
+                                url:'http://k12.iyunbei.com/api/staffs?page=1',
+                                type: 'get',
+                                cache: false,
+                                success: function (data) {
+                                    if (data.error) {
+
+                                    } else {
+                                        data.entries = data.entries.reverse()
+                                        that.staff = data;
+                                    }
+                                },
+                                error: function (e) {
+                                    console.log(e)
+                                }
+                        });
+                    }
+                  },
+                  ready : function() {
+                        var that = this;
+                        $.ajax({
+                                url:'http://k12.iyunbei.com/api/staffs?page=1',
+                                type: 'get',
+                                cache: false,
+                                success: function (data) {
+                                    if (data.error) {
+
+                                    } else {
+                                      data.entries = data.entries.reverse();
+                                      that.staff = data;
+                                    }
+                                },
+                                error: function (e) {
+                                    console.log(e)
+                                }
+                        });
+                  }
+          });
+          $('.previous-button').on('click', function () {
+                  // $.ajax({
+                  //         url:'http://k12.iyunbei.com/api/schools?page=1',
+                  //         type: 'get',
+                  //         cache: false,
+                  //         success: function (data) {
+                  //             if (data.error) {
+                  //
+                  //             } else {
+                  //               //   location.href = "./index.html";
+                  //               that.staff = data;
+                  //             }
+                  //         },
+                  //         error: function (e) {
+                  //             console.log(e)
+                  //         }
+                  // });
+          });
+          $('.next-button').on('click', function () {
+                  // $.ajax({
+                  //         url:'http://k12.iyunbei.com/api/schools?page=1',
+                  //         type: 'get',
+                  //         cache: false,
+                  //         success: function (data) {
+                  //             if (data.error) {
+                  //
+                  //             } else {
+                  //               //   location.href = "./index.html";
+                  //               that.staff = data;
+                  //             }
+                  //         },
+                  //         error: function (e) {
+                  //             console.log(e)
+                  //         }
+                  // });
+          });
+  </script>
+</dom-module>

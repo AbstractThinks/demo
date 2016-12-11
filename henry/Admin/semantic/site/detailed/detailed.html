@@ -1,0 +1,36 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="../../dist/semantic.css">
+        <script src="../../js/vendor/jquery.min.js" charset="utf-8"></script>
+        <script src="../../dist/semantic.min.js"></script>
+        <script src="../../bower_components/webcomponentsjs/webcomponents.min.js" charset="utf-8"></script>
+        <link rel="import" href="../../bower_components/polymer/polymer.html" media="screen" title="no title">
+
+        <link rel="import" href="../module/body-module.html">
+        <link rel="import" href="./detailed-module.html" media="screen" title="no title">
+        <link rel="import" href="./detailed-comments.html" media="screen" title="no title">
+        <link rel="import" href="../module/footer-module.html" media="screen" title="no title">
+
+    </head>
+    <body is="my-body" class="pushable">
+        <div class="pusher">
+            <div class="ui container">
+                    <a class="ui teal tag label" href="./index.html">网站首页</a>
+                    <a class="ui teal tag label">资料详情</a>
+            </div>
+            <my-detailed class="ui container content"></my-detailed>
+            <my-footer class="ui black inverted vertical segment my-footer"></my-footer>
+
+        </div>
+    </body>
+
+
+</html>

@@ -1,0 +1,83 @@
+<dom-module id="my-detailed">
+  <template >
+          <div class="ui column divided grid ">
+                  <div class="row">
+                          <div class="twelve wide column">
+                                  <div class="row">
+                                          <!-- <div class="ui embed vedio" data-url="https://www.youtube.com/embed/O6Xo21L0ybE" data-placeholder="/images/bear-waving.jpg"></div> -->
+                                          <h1 class="ui header">文件标题</h1>
+                                          <div>
+                                                  <a class="ui grey label" href="../site/other.html">
+                                                          作者：
+                                                    <img class="ui right spaced avatar image" src="../../img/header.png">
+                                                    Elliot
+                                                  </a>
+                                          </div>
+                                          <div class="ui tag labels mt24">
+                                                  <a class="ui label">
+                                                  教学课件
+                                                  </a>
+                                                  <a class="ui label">
+                                                  高一
+                                                  </a>
+                                                  <a class="ui label">
+                                                  数学
+                                                  </a>
+                                          </div>
+                                          <div class="text-center mt24">
+                                                  <div class="">
+                                                          <img class="ui tiny image " src="../../img/compress.jpg" alt="">
+                                                  </div>
+                                                  <div class="">
+                                                          文件名称.doc
+                                                  </div>
+                                          </div>
+                                          <button class="ui basic button large fluid mt24">
+                                                  <i class="icon download"></i>
+                                                  下载
+                                          </button>
+                                  </div>
+                                  <div class="row">
+                                          <my-comments class="ui comments my-comments"></my-comments>
+                                  </div>
+                          </div>
+                          <div class="four wide column">
+                                  <!-- <div class="ui card">
+                                          <div class="content"> -->
+                                                  <!-- <i class="right floated star icon"></i> -->
+
+                                                  <!-- <div class="header">文件标题</div>
+                                                  <div class="description">
+                                                          <p>学科</p>
+                                                          <p>学段</p>
+                                                          <p>作者</p>
+                                                          <p>时间</p>
+                                                  </div>
+                                          </div>
+                                          <div class="extra content">
+                                                  <span class="right floated star">
+                                                  <i class="star icon"></i>
+                                                  搜藏文章
+                                                  </span>
+                                          </div>
+                                  </div> -->
+                                  <!-- <button class="ui basic button large fluid">
+                                  <i class="icon download"></i>
+                                  下载
+                                  </button> -->
+                          </div>
+                  </div>
+          </div>
+  </template>
+  <script type="text/javascript">
+          Polymer({
+                  is : "my-detailed",
+                  ready: function () {
+                         var id = location.search.split("?")[1];
+                         this.detailed = {
+
+                         }
+                  }
+          });
+  </script>
+</dom-module>

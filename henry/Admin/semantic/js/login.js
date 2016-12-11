@@ -36,9 +36,9 @@ function init() {
                 url:'http://k12.iyunbei.com/api/login',
                 type: 'post',
                 xhrFields: {
-                        withCredentials: true
+                withCredentials: true
                 },
-                data:{"username":"admin","password":"123456"},
+                data:{"username":username,"password":password},
                 dataType: 'json',
                 cache: false,
                 success: function (data) {

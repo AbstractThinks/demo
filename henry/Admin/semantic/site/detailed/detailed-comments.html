@@ -1,0 +1,56 @@
+<dom-module id="my-comments">
+    <style media="screen">
+    .ui.comments.my-comments {
+        display: block;
+        margin-top: 24px;
+    }
+
+    </style>
+  <template >
+        <h3 class="ui dividing header">评论</h3>
+         <template is="dom-repeat" items="[[commentDatas]]">
+                <div class="comment">
+                        <a class="avatar">
+                                <img src="../../img/header.png" class="">
+                        </a>
+                        <div class="content">
+                                <a class="author">[[item.author]]</a>
+                                <div class="metadata">
+                                        <span class="date">[[item.date]]</span>
+                                </div>
+                                <div class="text">
+                                        [[item.text]]
+                                </div>
+                                <div class="actions">
+                                        <a class="reply">回复</a>
+                                </div>
+                        </div>
+                </div>
+        </template>
+
+
+        <form class="ui reply form">
+          <div class="field">
+            <textarea></textarea>
+          </div>
+          <div class="ui blue labeled submit icon button">
+            <i class="icon edit"></i> 提交回复
+          </div>
+        </form>
+
+  </template>
+  <script type="text/javascript">
+          Polymer({
+                  is : "my-comments",
+                  ready: function () {
+                          this.commentDatas = [
+                                {"author":"小明","date":"2016-11-02","text":"太精彩了"},
+                                {"author":"小明","date":"2016-11-02","text":"太精彩了"},
+                                {"author":"小明","date":"2016-11-02","text":"太精彩了"},
+                                {"author":"小明","date":"2016-11-02","text":"太精彩了"},
+                                {"author":"小明","date":"2016-11-02","text":"太精彩了"}
+                          ]
+                  }
+          });
+  </script>
+</dom-module>

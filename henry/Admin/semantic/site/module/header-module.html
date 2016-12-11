@@ -1,0 +1,58 @@
+<dom-module id="header-module">
+
+    <template>
+        <!-- <div class="ui secondary pointing menu"> -->
+        <a class="item" href="../common/index.html" type="0">
+          首页
+        </a>
+        <a class="item" href="../common/common.html?resourceTypeId=1&subjectId=&gradeId=&page=1" type="1">
+          教学课件
+        </a>
+        <a class="item" href="../common/common.html?resourceTypeId=2&subjectId=&gradeId=&page=1" type="2">
+          教学视频
+        </a>
+        <a class="item" href="../common/common.html?resourceTypeId=3&subjectId=&gradeId=&page=1" type="3">
+          教学试卷
+        </a>
+        <a class="item" href="../common/common.html?resourceTypeId=4&subjectId=&gradeId=&page=1"  type="4">
+          教学资料
+        </a>
+        <a class="item" href="../staff/staff.html">
+          职工管理
+        </a>
+        <div class="right menu">
+            <a class="ui item user-header" href="../person/person.html">
+                <img src="../../img/header.png" data-title="Elliot Fu" data-content="Elliot has been a member since July 2012" class="ui avatar image" ／>
+            </a>
+        </div>
+      <!-- </div> -->
+    </template>
+
+  <script type="text/javascript">
+          Polymer({
+                  is : "header-module",
+                  properties: {
+                      label: String,
+                      url: String
+                  },
+                  ready: function () {
+                      var that = this;
+                      $.ajax({
+                              url:"http://k12.iyunbei.com/api/profile",
+                              type: 'get',
+                              success: function (data) {
+                                  if (data.error) {
+
+                                  } else {
+                                    that.personInfo = data;
+                                  }
+                              },
+                              error: function (e) {
+                                      console.log(e)
+                              }
+                      });
+                      $('.header-module .user-header').popup();
+                  }
+          });
+  </script>
+</dom-module>

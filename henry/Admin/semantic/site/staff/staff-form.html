@@ -1,0 +1,101 @@
+<link rel="import" href="../module/select-module.html" media="screen" title="no title">
+
+<dom-module id="staff-form">
+  <template >
+      <div class="header">教师基本信息</div>
+      <div class="content">
+          <form id="add-staff-form" class="ui form add-staff-form">
+              <div class="fields">
+                  <div class="eight wide field">
+                      <label>姓名</label>
+                      <input class="name" type="text" placeholder="" name="name" value="{{staff.name::input}}">
+                  </div>
+                  <div class="eight wide field">
+                      <label>编号</label>
+                      <input class="staffNum" type="text" placeholder="" name="staffNum" value="{{staff.staffNum::input}}">
+                  </div>
+              </div>
+              <div class="fields">
+                <select-module class="eight wide field select-school" url="http://k12.iyunbei.com/api/schools?page=1" label="学校"></select-module>
+                <select-module class="eight wide field select-subject" url="http://k12.iyunbei.com/api/subjects?page=1" label="学科"></select-module>
+              </div>
+
+          </form>
+          <div class="actions">
+            <a class="ui button basic save medium submit" on-click="handleConfirmSaveStaff">&nbsp;&nbsp;<i class="add circle icon"></i> 确认 &nbsp;&nbsp;</a>
+            <a class="ui cancel button basic medium">&nbsp;&nbsp;<i class="remove circle icon"></i>取消 &nbsp;&nbsp;</a>
+          </div>
+      </div>
+
+
+  </template>
+  <script type="text/javascript">
+          Polymer({
+              is : "staff-form",
+              properties: {
+                staff: Object
+              },
+              handleConfirmSaveStaff: function () {
+                  var that = this;
+                  $('.ui.form').submit(function(e){
+                      return false;
+                  });
+                  $('.ui.form').form({
+                      inline:true,
+                      on: 'blur',
+                      transition: 'fade up',
+                      fields: {
+                          username: {
+                              identifier: 'name',
+                              rules: [{
+                                  type: 'empty',
+                                  prompt: '请输入姓名'
+                              }]
+                          },
+                          staffNum: {
+                              identifier: 'staffNum',
+                              rules: [{
+                                  type: 'empty',
+                                  prompt: '请输入编号'
+                              }]
+                          },
+
+                      },
+                      onSuccess: function() {
+                          that.staff.name = $(".staff-form .name").val();
+                          that.staff.staffNum = $(".staff-form .staffNum").val();
+                          that.staff.schoolId = parseInt($('.staff-form .select-school .item.active.selected').data('value'));
+                          that.staff.teachingSubject = parseInt($('.staff-form .select-subject .item.active.selected').data('value'));
+                          $.ajax({
+                              url:"http://k12.iyunbei.com/api/staff",
+                              type: 'post',
+                              data: that.staff,
+                              dataType:"json",
+                              cache: false,
+                              success: function (data) {
+                                  if (data.error) {
+
+                                  } else {
+                                     $('#my-table').get(0).setAttribute("addData", JSON.stringify(data));
+                                     $('.ui.modal').modal('hide');
+                                  }
+                              },
+                              error: function (e) {
+                                  console.log(e)
+                              }
+                          });
+                      }
+                  });
+              },
+            ready: function () {
+
+                var that = this;
+
+                $('.ui.dropdown').dropdown();
+
+
+            }
+          });
+
+  </script>
+</dom-module>

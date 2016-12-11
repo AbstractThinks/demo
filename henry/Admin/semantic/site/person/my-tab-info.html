@@ -1,0 +1,154 @@
+<dom-module id="my-tab-info">
+  <template >
+          <content></content>
+          <form class="ui form">
+                  <div class="ui internally celled grid">
+                          <div class="row">
+                                  <div class="twelve wide column">
+                                          <div class="two  fields row">
+                                                  <div class="field">
+                                                          <label>姓名</label>
+                                                          <input type="text" placeholder="姓名" name="name" value="{{staff.name::input}}">
+                                                  </div>
+                                                  <div class="field">
+                                                          <label>教师编号</label>
+                                                          <input type="text" placeholder="教师编号" name="staffNum" value="{{staff.staffNum::input}}">
+                                                  </div>
+                                          </div>
+                                          <div class="two  fields row">
+                                              <select-module class="eight wide field select-school" url="http://k12.iyunbei.com/api/schools?page=1" label="学校"></select-module>
+                                              <select-module class="eight wide field select-subject" url="http://k12.iyunbei.com/api/subjects?page=1" label="学科"></select-module>
+                                              <!-- <my-select-common class="field my-class-subject" label="学科" content='[{"id":"1", "name":"语文"},{"id":"2", "name":"数学"}]'></my-select-common> -->
+                                              <!-- <my-select-subject class="field my-class-subject"></my-select-subject> -->
+                                          </div>
+                                  </div>
+                                  <div class="four wide column">
+                                          <img src="../../img/header.png">
+                                  </div>
+                          </div>
+                          <div class="row">
+                                  <div class="sixteen wide column">
+
+                                          <div class="three  fields row">
+                                                  <div class="field">
+                                                          <label>出生年月</label>
+                                                          <div class="ui calendar" id="dateField">
+                                                                  <div class="ui input left icon">
+                                                                          <i class="calendar icon"></i>
+                                                                          <input type="text" placeholder="出生年月" value="{{staff.birthday::input}}">
+                                                                  </div>
+                                                          </div>
+                                                  </div>
+                                                  <div class="field">
+                                                          <label>电话</label>
+                                                          <input type="text" placeholder="电话" value="{{staff.phone::input}}">
+                                                  </div>
+                                                  <div class="field">
+                                                          <label>电子邮箱</label>
+                                                          <input type="text" placeholder="电子邮箱" value="{{staff.email::input}}">
+                                                  </div>
+                                          </div>
+
+                                          <div class="three  fields row">
+                                                  <div class="field">
+                                                          <label>家庭地址</label>
+                                                          <input type="text" placeholder="家庭地址" value="{{staff.homeAddress::input}}">
+                                                  </div>
+                                                  <div class="field">
+                                                          <label>邮编</label>
+                                                          <input type="text" placeholder="邮编" value="{{staff.homeZipCode::input}}">
+                                                  </div>
+                                          </div>
+
+                                          <div class="field">
+                                                  <label>个人简介</label>
+                                                  <textarea></textarea>
+                                          </div>
+
+                                          <div class="ui large buttons">
+                                                  <a class="ui button" on-click="handleSaveBasicDataInfo">保存</a>
+                                                  <div class="or teal"></div>
+                                                  <a class="ui button" on-click="resetBasicDataInfo">重置</a>
+                                          </div>
+                                  </div>
+                          </div>
+                  </div>
+
+          </form>
+  </template>
+  <script type="text/javascript">
+          Polymer({
+                  is : "my-tab-info",
+                  resetBasicDataInfo: function () {
+                      var that = this;
+                      var reqUrl = "http://k12.iyunbei.com/api/staff/"+that.attributes.userid.nodeValue;
+                      $.ajax({
+                          url:reqUrl,
+                          type: 'get',
+                          dataType:"json",
+                          cache: false,
+                          success: function (data) {
+                              if (data.error) {
+
+                              } else {
+                                  console.log(data);
+                                  that.staff = data;
+                              }
+                          },
+                          error: function (e) {
+                              console.log(e)
+                          }
+                      })
+                  },
+                  handleSaveBasicDataInfo: function () {
+                      var that = this;
+
+                      var urlReq = "http://k12.iyunbei.com/api/staff/"+that.attributes.userid.nodeValue;
+                      $.ajax({
+                          url:urlReq,
+                          type: 'post',
+                          data: this.staff,
+                          dataType:"json",
+                          cache: false,
+                          success: function (data) {
+                              if (data.error) {
+
+                              } else {
+                                 console.log(data)
+                              }
+                          },
+                          error: function (e) {
+                              console.log(e)
+                          }
+                      });
+                  },
+                  attributeChanged: function(attrName, oldVal, newVal) {
+                      var that = this;
+                      if (attrName == "userid") {
+                          var reqUrl = "http://k12.iyunbei.com/api/staff/"+newVal;
+                          $.ajax({
+                              url:reqUrl,
+                              type: 'get',
+                              dataType:"json",
+                              cache: false,
+                              success: function (data) {
+                                  if (data.error) {
+
+                                  } else {
+                                      console.log(data);
+                                      that.staff = data;
+                                  }
+                              },
+                              error: function (e) {
+                                  console.log(e)
+                              }
+                          })
+                      }
+                  },
+                  ready: function () {
+                      var that = this;
+
+                  }
+          });
+  </script>
+</dom-module>

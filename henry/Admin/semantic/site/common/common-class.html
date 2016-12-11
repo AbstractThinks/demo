@@ -1,0 +1,71 @@
+<dom-module id="common-class">
+<style media="screen">
+    .my-class {
+        display: block;
+    }
+    .ui.divided.items.my-class > .item {
+        padding: 1em 0!important;
+    }
+</style>
+  <template >
+      <div class="item">
+          <div class="middle aligned content subject">
+              学科：
+              <a class="ui basic button" type=0 on-click="clickHandler">全部</a>
+              <a class="ui basic button" type=1 on-click="clickHandler">语文</a>
+              <a class="ui basic button" type=2 on-click="clickHandler">数学</a>
+              <a class="ui basic button" type=3 on-click="clickHandler">英语</a>
+              <a class="ui basic button" type=4 on-click="clickHandler">物理</a>
+              <a class="ui basic button" type=5 on-click="clickHandler">化学</a>
+              <a class="ui basic button" type=6 on-click="clickHandler">政治</a>
+              <a class="ui basic button" type=7 on-click="clickHandler">生物</a>
+              <a class="ui basic button" type=8 on-click="clickHandler">体育</a>
+              <a class="ui basic button" type=9 on-click="clickHandler">历史</a>
+          </div>
+      </div>
+      <div class="item">
+          <div class="middle aligned content grade">
+              年级：
+              <a class="ui basic button" type=0 on-click="clickHandler">全部</a>
+              <a class="ui basic button" type=1 on-click="clickHandler">高一</a>
+              <a class="ui basic button" type=2 on-click="clickHandler">高二</a>
+              <a class="ui basic button" type=3 on-click="clickHandler">高三</a>
+          </div>
+      </div>
+      <div class="item">
+          <div class="middle aligned content class">
+              分类：
+              <a class="ui basic button" type=1 on-click="clickHandler">课件</a>
+              <a class="ui basic button" type=2 on-click="clickHandler">视频</a>
+              <a class="ui basic button" type=3 on-click="clickHandler">试卷</a>
+              <a class="ui basic button" type=4 on-click="clickHandler">资料</a>
+          </div>
+      </div>
+  </template>
+  <script type="text/javascript">
+          Polymer({
+                is : "common-class",
+                clickHandler: function(e) {
+                    var dom = $(e.target);
+                    if (dom.parent().hasClass('subject')) {
+                        $('.subject a.button').removeClass('primary');
+                        dom.addClass('primary');
+                        var url= 'resourceTypeId='+$('.class a.button.primary').attr('type')+'&subjectId='+dom.attr('type')+'&gradeId='+$('.grade a.button.primary').attr('type')+'&page=1';
+                        this.fire('updatedCards', {'data':url});
+                    }
+                    if (dom.parent().hasClass('grade')) {
+                        $('.grade a.button').removeClass('primary');
+                        dom.addClass('primary');
+                        var url= 'resourceTypeId='+$('.class a.button.primary').attr('type')+'&subjectId='+$('.subject a.button.primary').attr('type')+'&gradeId='+dom.attr('type')+'&page=1';
+                        this.fire('updatedCards', {'data':url});
+                    }
+                    if (dom.parent().hasClass('class')) {
+                        $('.class a.button').removeClass('primary');
+                        dom.addClass('primary');
+                        var url= 'resourceTypeId='+dom.attr('type')+'&subjectId='+$('.subject a.button.primary').attr('type')+'&gradeId='+$('.grade a.button.primary').attr('type')+'&page=1';
+                        this.fire('updatedCards', {'data':url});
+                    }
+                }
+          });
+  </script>
+</dom-module>

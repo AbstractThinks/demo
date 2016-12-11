@@ -15,12 +15,39 @@
         <link rel="import" href="../../bower_components/polymer/polymer.html" media="screen" title="no title">
 
         <link rel="import" href="../module/body-module.html">
+        <link rel="import" href="./staff-table.html">
+        <link rel="import" href="./staff-sidemenu.html" media="screen" title="no title">
+        <link rel="import" href="./staff-form.html" media="screen" title="no title">
+        <link rel="import" href="./staff-form-modify.html" media="screen" title="no title">
     </head>
     <body is="my-body" class="pushable">
-        <div class="header">
-            <a class="ui teal tag label" href="../site/index.html">网站首页</a>
-            <a class="ui teal tag label">教职工基础信息</a>
+        <div class="pusher">
+            <div class="ui container">
+                <div class="header">
+                    <a class="ui teal tag label" href="../site/index.html">网站首页</a>
+                    <a class="ui teal tag label">教职工基础信息</a>
+                </div>
+                <h4 class="ui horizontal divider header"><i class="tag icon"></i> 职工信息 </h4>
+                <div class="ui internally celled grid stackable">
+                    <div class="row">
+                        <div class="twelve wide column">
+                            <staff-table id="my-table" class="my-table" adddata updatedata searchdata page></staff-table>
+                        </div>
+                        <div class="four wide column computer only">
+                            <staff-sidemenu></staff-sidemenu>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
+        <div class="ui dimmer modals page transition hidden">
+            <staff-form class="ui modal info staff-form"  type="1"></staff-form>
+            <staff-form-modify class="ui modal info staff-form-modify"  type="2"></staff-form-modify>
+        </div>
+
+
     </body>
+
 
 </html>
