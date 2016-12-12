@@ -13,21 +13,18 @@
         <script src="../../dist/semantic.min.js"></script>
         <script src="../../bower_components/webcomponentsjs/webcomponents.min.js" charset="utf-8"></script>
         <link rel="import" href="../../bower_components/polymer/polymer.html" media="screen" title="no title">
-
         <link rel="import" href="../module/body-module.html">
-        <link rel="import" href="../module/header-module.html" media="screen" title="no title">
-        <link rel="import" href="./common-module.html" media="screen" title="no title">
-        <link rel="import" href="./common-class.html" media="screen" title="no title">
-        <link rel="import" href="./common-card.html" media="screen" title="no title">
-        <link rel="import" href="./common-pagination.html" media="screen" title="no title">
+        <link rel="import" href="../module/card-module.html" media="screen" title="no title">
+        <link rel="import" href="./other-detail.html" media="screen" title="no title">
+        <link rel="import" href="./other-module.html" media="screen" title="no title">
+        <link rel="import" href="./other-tab-common.html" media="screen" title="no title">
         <link rel="import" href="../module/footer-module.html" media="screen" title="no title">
+
+
     </head>
     <body is="my-body" class="pushable">
         <div class="pusher">
-            <header-module class="ui secondary pointing menu header-module"></header-module>
-            <div class="ui container">
-                <common-module></common-module>
-            </div>
+            <other-module></other-module>
             <my-footer class="ui black inverted vertical segment my-footer"></my-footer>
         </div>
     </body>

@@ -5,7 +5,7 @@
       <select class="ui selection dropdown">
               <option value="" >{{label}}</option>
               <template is="dom-repeat" items="[[content]]">
-                     <option value=[[item.id]]>[[item.name]]</option>
+                     <option value=[[item.id]]>[[item.name]][[item.typeName]]</option>
               </template>
       </select>
   </template>

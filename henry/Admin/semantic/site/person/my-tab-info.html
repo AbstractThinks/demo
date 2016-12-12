@@ -35,7 +35,7 @@
                                                           <div class="ui calendar" id="dateField">
                                                                   <div class="ui input left icon">
                                                                           <i class="calendar icon"></i>
-                                                                          <input type="text" placeholder="出生年月" value="{{staff.birthday::input}}">
+                                                                          <input type="text" placeholder="出生年月" value="{{staff.firstDegree::input}}">
                                                                   </div>
                                                           </div>
                                                   </div>
@@ -93,6 +93,10 @@
                               } else {
                                   console.log(data);
                                   that.staff = data;
+                                  $(".my-tab-info .select-school div[data-value='"+that.staff.schoolId+"']").addClass('active selected');
+                                  $(".my-tab-info .elect-school div.text").removeClass('default').text($(".my-tab-info .select-school div[data-value='"+that.staff.schoolId+"']").text());
+                                  $(".my-tab-info .select-subject div[data-value='"+that.staff.teachingSubject+"']").addClass('active selected');
+                                  $(".my-tab-info .select-subject div.text").removeClass('default').text($(".my-tab-info .select-subject div[data-value='"+that.staff.schoolId+"']").text());
                               }
                           },
                           error: function (e) {
@@ -137,6 +141,10 @@
                                   } else {
                                       console.log(data);
                                       that.staff = data;
+                                      $(".my-tab-info .select-school div[data-value='"+that.staff.schoolId+"']").addClass('active selected');
+                                      $(".my-tab-info .select-school div.text").removeClass('default').text($(".my-tab-info .select-school div[data-value='"+that.staff.schoolId+"']").text());
+                                      $(".my-tab-info .select-subject div[data-value='"+that.staff.teachingSubject+"']").addClass('active selected');
+                                      $(".my-tab-info .select-subject div.text").removeClass('default').text($(".my-tab-info .select-subject div[data-value='"+that.staff.schoolId+"']").text());
                                   }
                               },
                               error: function (e) {
@@ -147,7 +155,7 @@
                   },
                   ready: function () {
                       var that = this;
-
+                      console.log("person-info")
                   }
           });
   </script>

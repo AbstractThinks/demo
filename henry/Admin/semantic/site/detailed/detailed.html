@@ -15,6 +15,7 @@
         <link rel="import" href="../../bower_components/polymer/polymer.html" media="screen" title="no title">
 
         <link rel="import" href="../module/body-module.html">
+        <link rel="import" href="./info-module.html" media="screen" title="no title">
         <link rel="import" href="./detailed-module.html" media="screen" title="no title">
         <link rel="import" href="./detailed-comments.html" media="screen" title="no title">
         <link rel="import" href="../module/footer-module.html" media="screen" title="no title">
@@ -22,11 +23,11 @@
     </head>
     <body is="my-body" class="pushable">
         <div class="pusher">
-            <div class="ui container">
+            <div class="ui container" style="margin-top:24px;">
                     <a class="ui teal tag label" href="./index.html">网站首页</a>
                     <a class="ui teal tag label">资料详情</a>
             </div>
-            <my-detailed class="ui container content"></my-detailed>
+            <my-detailed></my-detailed>
             <my-footer class="ui black inverted vertical segment my-footer"></my-footer>
 
         </div>

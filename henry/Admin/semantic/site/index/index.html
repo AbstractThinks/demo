@@ -21,49 +21,39 @@
         <link rel="import" href="../module/header-module.html" media="screen" title="no title">
         <link rel="import" href="./my-carousel.html" media="screen" title="no title">
         <link rel="import" href="../module/card-module.html" media="screen" title="no title">
+        <link rel="import" href="../module/footer-module.html" media="screen" title="no title">
     </head>
     <body is="my-body" class="pushable">
-        <!-- <div class="header">
-            <a class="ui teal tag label" href="../site/index.html">网站首页</a>
-            <a class="ui teal tag label">教职工基础信息</a>
-        </div> -->
 
         <div class="pusher">
             <header-module class="ui secondary pointing menu header-module" style="padding-right: 24px;"></header-module>
             <div is="my-carousel" id="my-carousel" class="owl-carousel owl-theme"></div>
 
-            <div class="ui container">
+            <div class="ui container" >
 
-                <h4 class="ui horizontal divider header-divider">
+                <h4 class="ui horizontal divider header-divider" style="margin-top:64px;">
                     <i class="tag icon"></i>
                     教学课件
                 </h4>
-                <div class="ui container">
+                <div class="ui container" style="margin-top:64px;">
                     <my-card class="ui doubling five column grid row my-card" pagesize="5" page="1" resourcetypeid="2"></my-card>
                 </div>
-                <h4 class="ui horizontal divider header-divider">
+                <h4 class="ui horizontal divider header-divider" style="margin-top:64px;">
                     <i class="tag icon"></i>
                     教学视频
                 </h4>
-                <div class="ui container">
+                <div class="ui container" style="margin-top:64px;">
                     <my-card class="ui doubling five column grid row my-card" pagesize="5" page="1" resourcetypeid="1"></my-card>
                 </div>
-                <h4 class="ui horizontal divider header-divider">
+                <h4 class="ui horizontal divider header-divider" style="margin-top:64px;">
                     <i class="tag icon"></i>
                     教学资料
                 </h4>
-                <div class="ui container">
+                <div class="ui container" style="margin-top:64px;">
                     <my-card class="ui doubling five column grid row my-card" pagesize="5" page="1" resourcetypeid="3"></my-card>
                 </div>
-        </div>
-
-            <!-- <h4 class="ui horizontal divider header-divider">
-                <i class="tag icon"></i>
-                教学试卷
-            </h4>
-            <div class="ui container">
-                <my-card class="ui doubling five column grid row my-card" pagesize="5" page="1" resourcetypeid=""></my-card>
-            </div> -->
+            </div>
+            <my-footer class="ui black inverted vertical segment my-footer"></my-footer>
 
         </div>
     </body>

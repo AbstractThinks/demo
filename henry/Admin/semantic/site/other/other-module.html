@@ -1,0 +1,17 @@
+<dom-module id="other-module">
+  <template >
+      <other-detailed class="ui container content"></other-detailed>
+  </template>
+  <script type="text/javascript">
+          Polymer({
+                  is : "other-module",
+                  ready: function () {
+                         var id = location.search.split("?")[1];
+                         $('other-detailed').get(0).setAttribute("otherid", id);
+                         $('.menu.my-tab .item').tab({
+                                 transition:"fade"
+                         });
+                  }
+          });
+  </script>
+</dom-module>

@@ -18,13 +18,13 @@
         }
     </style>
   <template>
-      <template is="dom-repeat" items="[[cards]]">
+      <template is="dom-repeat" items="[[data.entries]]">
             <div class="column">
                 <a href="../detailed/detailed.html?{{item.id}}">
                 <div class="ui card">
                     <div class="ui move up reveal image">
                         <div class="visible content">
-                            <img src="{{item.img}}" class="ui image" />
+                            <img src="../../img/card.png" class="ui image" />
                         </div>
                         <div class="hidden content">
                             <div class="description">
@@ -33,16 +33,18 @@
                         </div>
                     </div>
                     <div class="content">
-                        <span class="header">{{item.title}}</span>
+                        <span class="header">{{item.resourceName}}</span>
                         <div class="meta">
-                            <span class="date">{{item.author}}</span>
-                            <span class="date">{{item.subject}}</span>
-                            <span class="date">{{item.grade}}</span>
+                            <span class="date">{{item.userId}}</span>
+                            <span class="date">{{item.subjectId}}</span>
+                            <span class="date">{{item.resourceTypeId}}</span>
+                            <span class="date">{{item.gradeId}}</span>
+
                         </div>
                     </div>
                     <div class="extra content">
-                            <i class="users icon"></i>&nbsp;{{item.num}}人收藏
-                            <span class="right floated">{{item.date}}</span>
+                            <i class="users icon"></i>&nbsp;{{item.downloadCount}}人已下载
+                            <span class="right floated">{{item.createdTime}}</span>
                         </div>
                 </div>
                 </a>
@@ -52,28 +54,43 @@
   <script type="text/javascript">
           Polymer({
                   is : "common-card",
-                  properties : {
-                     pagesize: String,
-                     page: String,
-                     resourcetypeid: String,
-                     cards: Object
-                  },
+
                   updateDatas : function (e) {
                       console.log(e);
                   },
                   attributeChanged: function(attrName, oldVal, newVal) {
+
                     console.log(attrName)
                     console.log(oldVal)
                     console.log(newVal)
+                    var that = this;
+                    if (attrName == 'urlreq') {
+                        $.ajax({
+                              url:newVal,
+                              type: 'get',
+                              dataType:"json",
+                              cache: false,
+                              success: function (data) {
+                                  if (data.error) {
+
+                                  } else {
+                                      console.log(data)
+                                      that.data = data;
+
+                                  }
+                              },
+                              error: function (e) {
+                                  console.log(e)
+                              }
+                          });
+                    }
+                  },
+                  created: function () {
+                      console.log("common-card created")
                   },
                   ready : function() {
-                        this.cards = [
-                                {"id":"1","img":"../../img/card.png", "description":"40道选择题，80道应用题,  知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2","author":"张三","subject":"语文","grade":"高一"},
-                                {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
-                                {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
-                                {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
-                                {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"}
-                        ]
+
+
                   }
           });
   </script>

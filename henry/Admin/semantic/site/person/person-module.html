@@ -6,8 +6,8 @@
                   <a class="active item" data-tab="info">
                   个人信息
                   </a>
-                  <a class="item" data-tab="vedio">
-                  我的视频
+                  <a class="item" data-tab="resources">
+                  我的资源
                   </a>
                   <a class="item" data-tab="collections">
                   我的搜藏
@@ -18,10 +18,10 @@
               </div>
           </div>
           <div class="twelve wide stretched column">
-              <my-tab-info class="ui attached active tab segment" data-tab="info">
+              <my-tab-info class="ui attached active tab segment my-tab-info" data-tab="info">
                   <a class="ui teal right ribbon label">我的信息</a>
               </my-tab-info>
-              <my-tab-common-list class="ui attached tab segment" data-tab="vedio" userId page="1" pagesize="50">
+              <my-tab-common-list class="ui attached tab segment" data-tab="resources" page="1" pagesize="50">
                   <a class="ui teal right ribbon label">我的资源</a>
               </my-tab-common-list>
               <my-tab-common-list class="ui attached tab segment" data-tab="collections" page="1" pagesize="50">
@@ -36,7 +36,11 @@
   <script type="text/javascript">
       Polymer({
               is : "person-module",
+              attributeChanged : function (attrName, oldVal, newVal) {
+
+              },
               ready : function () {
+                  console.log("person-module")
                   $.ajax({
                           url:'http://k12.iyunbei.com/api/profile',
                           type: 'get',
@@ -58,6 +62,45 @@
                   $('.menu.my-tab .item').tab({
                           transition:"fade"
                   });
+                  $('#dateField').calendar({ type: 'date' });
+                  var fileUpload = $("#file-upload").semanticFileUploader({
+                     defaultText: "上传文件",
+                     defaultLabel: "点击选择文件或者将文件拖入此区域",
+                     loadingText: "上传文件中...",
+                     successText: "上传成功",
+                     onDrop: function(file){
+                             //File object => https://developer.mozilla.org/en-US/docs/Web/API/File
+                             // console.log(file.name);
+
+                             var formData = new FormData($('#uploadForm')[0]);
+                             var name = $("input").val();
+                             formData.append("file",file);
+                             formData.append("name",name);
+                             $.ajax({
+                                 url : 'http://k12.iyunbei.com/api/resources/fileUpload',
+                                 type : 'post',
+                                 data : formData,
+                                 async: true,
+                                 cache: false,
+                                 // 告诉jQuery不要去处理发送的数据
+                                 processData : false,
+                                 // 告诉jQuery不要去设置Content-Type请求头
+                                 contentType : false,
+                                 beforeSend:function(){
+                                     console.log("正在进行，请稍候");
+                                 },
+                                 success : function(responseStr) {
+                                     fileUpload.uploadFinished($("#file-upload"));
+                                     $("#uploadedWork").attr('fileId', responseStr);
+                                 },
+                                 error : function(responseStr) {
+                                     console.log("error "+responseStr);
+                                 }
+                             });
+                             // $('#uploadForm').submit();
+
+                     }
+                 });
               }
       });
   </script>

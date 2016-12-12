@@ -2,8 +2,8 @@
   <template >
          <content></content>
          <div class="ui container">
-                <div class="ui divided  items">
-                        <template is="dom-repeat" items="[[cards]]">
+                <div class="ui divided items">
+                        <template is="dom-repeat" items="[[data.entries]]">
                             <div class="item">
                                     <div class="ui small image">
                                             <img src="../../img/card.png">
@@ -52,25 +52,47 @@
                      pagesize: String,
                      page: String,
                      resourcetypeid: String,
+                     cards: Object
+                  },
+                  attributeChanged : function (attrName, oldVal, newVal) {
+
+                      if (attrName == "userid") {
+                          var pagesize = this.attributes.pagesize.nodeValue;
+                          var page = this.attributes.page.nodeValue;
+                          var userId = this.attributes.userid.nodeValue;
+                          var that = this;
+                          $.ajax({
+                                  url:'http://k12.iyunbei.com/api/staff/'+userId,
+                                  type: 'get',
+                                  success: function (data) {
+                                          if (data.error) {
+
+                                          } else {
+                                              $.ajax({
+                                                      url:'http://k12.iyunbei.com/api/resources/user/'+data.userId+'/'+page+'/'+pagesize,
+                                                      type: 'get',
+                                                      success: function (data) {
+                                                              if (data.error) {
+
+                                                              } else {
+                                                                      that.data = data;
+                                                              }
+                                                      },
+                                                      error: function (e) {
+                                                              console.log(e)
+                                                      }
+                                              });
+                                          }
+                                  },
+                                  error: function (e) {
+                                          console.log(e)
+                                  }
+                          });
+                         $
+                      }
                   },
                   ready : function() {
-                         let pagesize = this.pagesize;
-                         let page = this.page;
-                         let userId = location.search.split('?')[1];
-                        $.ajax({
-                                url:'http://k12.iyunbei.com/api/resources/user/'+userId+'/'+page+'/'+pagesize,
-                                type: 'get',
-                                success: function (data) {
-                                        if (data.error) {
 
-                                        } else {
-                                                this.cards = data;
-                                        }
-                                },
-                                error: function (e) {
-                                        console.log(e)
-                                }
-                        });
                         // this.cards = [
                         //         {"id":"1","img":"../../img/card.png", "description":"40道选择题，80道应用题,  知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2","author":"张三","subject":"语文","grade":"高一"},
                         //         {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
