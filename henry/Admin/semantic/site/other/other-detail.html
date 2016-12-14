@@ -3,62 +3,52 @@
       <div class="ui container mt24" style="margin-top:24px;">
           <a class="ui teal tag label" href="../index/index.html">网站首页</a>
           <a class="ui teal tag label">个人中心</a>
-          <h2 class="ui center aligned icon header other-bg">
-              <i class="circular users icon"></i> 姓名<br> 电话 邮箱<br>学校 学科<br>
+          <h2 class="ui center aligned icon header other-bg transition hidden">
+              <i class="circular users icon"></i> 姓名 {{other.name}}<br> 电话{{other.phone}} 邮箱{{other.email}}<br>学校{{other.schoolId}} 学科{{other.teachingSubject}}<br>
           </h2>
-          <div class="ui raised segment">
+          <div class="ui raised segment transition hidden">
             <p>个人简介</p>
           </div>
       </div>
       <div class="ui container mt24">
           <div class="ui grid">
-              <div class="sixteen wide column">
+              <!-- <div class="sixteen wide column">
 
                   <div class="ui four item fluid attached  menu my-tab">
-
-                      <a class="active item" data-tab="vedio">
-                        他的视频
+                      <a class=" active item" data-tab="examination">
+                        他的试卷
                         </a>
                       <a class="item" data-tab="courseware">
                         他的课件
                         </a>
-                      <a class="item" data-tab="test">
-                        他的试卷
-                        </a>
-                      <a class="item" data-tab="details">
+                      <a class="item" data-tab="vedio">
+                        他的视频
+                       </a>
+                      <a class="item" data-tab="information">
                         他的资料
                         </a>
 
                   </div>
-              </div>
-              <div class="sixteen wide stretched column">
-
-                  <other-tab-common class="ui active tab segment" data-tab="vedio" style="margin-top:14px;">
-                      <a class="ui teal right ribbon label">他的视频</a>
+              </div> -->
+              <div class="sixteen wide stretched column transition hidden">
+                  <other-tab-common class="ui segment" style="margin-top:14px;">
+                      <a class="ui teal right ribbon label">他的资源</a>
+                  </other-tab-common>
+                  <!-- <other-tab-common class="ui active tab segment" data-tab="examination" style="margin-top:14px;">
+                      <a class="ui teal right ribbon label">他的试卷</a>
+                  </other-tab-common> -->
+                  <!-- <other-tab-common class="ui active tab segment" data-tab="examination" style="margin-top:14px;">
+                      <a class="ui teal right ribbon label">他的试卷</a>
                   </other-tab-common>
                   <other-tab-common class="ui tab segment" data-tab="courseware" style="margin-top:14px;">
                       <a class="ui teal right ribbon label">他的课件</a>
                   </other-tab-common>
-                  <div class="ui tab segment" data-tab="test" style="margin-top:14px;">
-                      <a class="ui teal right ribbon label">他的试卷</a>
-                      <div class="ui container">
-                          <div class="ui container center aligned mt24">
-                              <div class="ui huge compact message">
-                                  <p>你还没有上传任何教学视频，快去上传教学视频吧！</p>
-                              </div>
-                          </div>
-                      </div>
-                      <h4 class="ui horizontal divider header-divider">
-                        <i class="tag icon"></i>
-                        推荐
-                        </h4>
-                      <div class="ui container">
-                          <my-card class="ui doubling four column grid row"></my-card>
-                      </div>
-                  </div>
-                  <other-tab-common class="ui tab segment" data-tab="details" style="margin-top:14px;">
-                      <a class="ui teal right ribbon label">他的资料</a>
+                  <other-tab-common class="ui tab segment" data-tab="vedio" style="margin-top:14px;">
+                      <a class="ui teal right ribbon label">他的视频</a>
                   </other-tab-common>
+                  <other-tab-common class="ui tab segment" data-tab="information" style="margin-top:14px;">
+                      <a class="ui teal right ribbon label">他的资料</a>
+                  </other-tab-common> -->
               </div>
           </div>
       </div>
@@ -71,32 +61,30 @@
                     console.log(attrName)
                     console.log(oldVal)
                     console.log(newVal)
-
+                    var that = this;
                     if (attrName == "otherid") {
-                        // $.ajax({
-                        //       url:newVal,
-                        //       type: 'get',
-                        //       dataType:"json",
-                        //       cache: false,
-                        //       success: function (data) {
-                        //           if (data.error) {
-                        //
-                        //           } else {
-                        //               console.log(data)
-                        //               that.data = data;
-                        //
-                        //           }
-                        //       },
-                        //       error: function (e) {
-                        //           console.log(e)
-                        //       }
-                        //   });
+                        $.ajax({
+                                url: 'http://k12.iyunbei.com/api/staff/'+newVal,
+                                type: 'get',
+                                success: function (data) {
+                                        if (data.error) {
+
+                                        } else {
+                                                that.other = data;
+                                                var url = 'http://k12.iyunbei.com/api/resources/user/'+data.userId+'/1/10';
+                                                $('other-tab-common my-card').get(0).setAttribute('urlreq', url);
+                                        }
+                                },
+                                error: function (e) {
+                                        console.log(e)
+                                }
+                        });
+
                     }
 
                   },
                   ready: function () {
-                        //  var id = location.search.split("?")[1];
-                        //  $('detailed-info').get(0).setAttribute("detailedid", id);
+
                   }
           });
   </script>

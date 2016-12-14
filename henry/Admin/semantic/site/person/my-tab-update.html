@@ -24,7 +24,7 @@
                                                           </select>
 
                                                   </div> -->
-                                                  <select-module class="field select-resource" url="http://k12.iyunbei.com/api/resources/listAllResourceTypes}" label="资源类型"></select-module>
+                                                  <select-module class="field select-resource-update" url="http://k12.iyunbei.com/api/resources/listAllResourceTypes}" label="资源类型"></select-module>
                                           </div>
                                           <div class="field row">
                                                   <!-- <div class="field">
@@ -37,7 +37,7 @@
                                                           </select>
                                                   </div> -->
 
-                                                  <select-module class="field select-subject" url="http://k12.iyunbei.com/api/subjects?page=1" label="学科"></select-module>
+                                                  <select-module class="field select-subject-update" url="http://k12.iyunbei.com/api/subjects?page=1" label="学科"></select-module>
                                           </div>
                                           <div class="field row">
                                                   <div class="field">
@@ -74,8 +74,8 @@
                   handleSaveData: function (e) {
                       var data = {};
                       data.fileId = $("#uploadedWork").attr('fileId');
-                      data.resourceTypeId =$('.ui.class.dropdown .item.active.selected').data('value');
-                      data.subjectId = $('.ui.subject.dropdown .item.active.selected').data('value');
+                      data.resourceTypeId =$('.field.select-resource-update .selection.dropdown .item.active.selected').data('value');
+                      data.subjectId = $('.field.select-subject-update .selection.dropdown .item.active.selected').data('value');
                       data.gradeId = $('.ui.grade.dropdown .item.active.selected').data('value');
                       data.resourceName = $("#filename").val();
                       data.desc = $('#desc').val();

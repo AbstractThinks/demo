@@ -1,10 +1,12 @@
 <dom-module id="common-module">
 <style media="screen">
-
+    block: {
+        display: block;
+    }
 </style>
-  <template >
-      <common-class></common-class>
-      <common-card class="ui doubling five column grid row my-card" style="margin-top:48px;"></common-card>
+  <template>
+      <common-class class="common-class transition hidden"></common-class>
+      <common-card class="ui doubling five column grid row my-card transition hidden"  style="margin-top:48px;"></common-card>
       <common-pagination></common-pagination>
   </template>
   <script type="text/javascript">
@@ -50,6 +52,12 @@
 
 
                         }
+                        HTMLImports.whenReady(function () {
+                            setTimeout(function () {
+                                $('.transition').transition('vertical flip');
+                            })
+
+                        });
 
                 }
           });

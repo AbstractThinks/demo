@@ -11,10 +11,12 @@
         <link rel="stylesheet" href="../../dist/semantic.css">
         <script src="../../js/vendor/jquery.min.js" charset="utf-8"></script>
         <script src="../../dist/semantic.min.js"></script>
+        <script src="../../js/pdf/pdf.js"></script>
         <script src="../../bower_components/webcomponentsjs/webcomponents.min.js" charset="utf-8"></script>
         <link rel="import" href="../../bower_components/polymer/polymer.html" media="screen" title="no title">
 
         <link rel="import" href="../module/body-module.html">
+        <link rel="import" href="./detailed-pdf.html" media="screen" title="no title">
         <link rel="import" href="./info-module.html" media="screen" title="no title">
         <link rel="import" href="./detailed-module.html" media="screen" title="no title">
         <link rel="import" href="./detailed-comments.html" media="screen" title="no title">
@@ -22,9 +24,9 @@
 
     </head>
     <body is="my-body" class="pushable">
-        <div class="pusher">
+        <div class="pusher ">
             <div class="ui container" style="margin-top:24px;">
-                    <a class="ui teal tag label" href="./index.html">网站首页</a>
+                    <a class="ui teal tag label" href="../index/index.html">网站首页</a>
                     <a class="ui teal tag label">资料详情</a>
             </div>
             <my-detailed></my-detailed>
@@ -32,6 +34,4 @@
 
         </div>
     </body>
-
-
 </html>

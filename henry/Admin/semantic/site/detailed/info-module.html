@@ -2,37 +2,14 @@
   <template >
           <div class="ui column divided grid ">
                   <div class="row">
-                          <div class="twelve wide column">
+                          <div class="twelve wide column transition hidden">
+                                <div class="row">
+                                    <detailed-pdf></detailed-pdf>
+                                </div>
                                   <div class="row" style="margin-top:24px;">
                                           <!-- <div class="ui embed vedio" data-url="https://www.youtube.com/embed/O6Xo21L0ybE" data-placeholder="/images/bear-waving.jpg"></div> -->
-                                          <h1 class="ui header" >文件标题</h1>
-                                          <div>
-                                                  <a class="ui grey label" href="../other/other.html?[[author.userId]]">
-                                                          作者：
-                                                    <img class="ui right spaced avatar image" src="../../img/header.png">
-                                                    [[author.userId]]
-                                                  </a>
-                                          </div>
-                                          <div class="ui tag labels mt24" style="margin-top:24px;">
-                                                  <a class="ui label">
-                                                  [[author.resourceTypeId]]
-                                                  </a>
-                                                  <a class="ui label">
-                                                  [[author.gradeId]]
-                                                  </a>
-                                                  <a class="ui label">
-                                                  [[author.subjectId]]
-                                                  </a>
-                                          </div>
-                                          <div class="text-center mt24" style="margin-top:24px;">
-                                                  <div class="">
-                                                          <img class="ui tiny image " src="../../img/compress.jpg" alt="">
-                                                  </div>
-                                                  <div class="">
-                                                          [[author.resourceName]]
-                                                  </div>
-                                          </div>
-                                          <button class="ui basic button large fluid mt24" onclick="handleDownload">
+
+                                          <button class="ui basic button large fluid mt24" on-click="handleDownload">
                                                   <i class="icon download"></i>
                                                   下载
                                           </button>
@@ -41,26 +18,26 @@
                                           <my-comments class="ui comments my-comments"></my-comments>
                                   </div>
                           </div>
-                          <div class="four wide column">
-                                  <!-- <div class="ui card">
-                                          <div class="content"> -->
-                                                  <!-- <i class="right floated star icon"></i> -->
+                          <div class="four wide column transition hidden">
+                                  <div class="ui card" style="margin-top:24px;">
+                                          <div class="content">
+                                                  <i class="right floated star icon"></i>
 
-                                                  <!-- <div class="header">文件标题</div>
+                                                  <div class="header">文件标题&nbsp;[[author.resourceName]]</div>
                                                   <div class="description">
-                                                          <p>学科</p>
-                                                          <p>学段</p>
-                                                          <p>作者</p>
-                                                          <p>时间</p>
+                                                          <p>学科&nbsp;[[author.subjectId]]</p>
+                                                          <p>年级&nbsp;[[author.gradeId]]</p>
+                                                          <p>作者&nbsp;<a href="../other/other.html?[[author.userId]]">[[author.userId]]</a></p>
+                                                          <p>时间&nbsp;[[author.createdTime]]</p>
                                                   </div>
                                           </div>
                                           <div class="extra content">
                                                   <span class="right floated star">
-                                                  <i class="star icon"></i>
+                                                  <i class="star icon" on-click="handleCollections"></i>
                                                   搜藏文章
                                                   </span>
                                           </div>
-                                  </div> -->
+                                  </div>
                                   <!-- <button class="ui basic button large fluid">
                                   <i class="icon download"></i>
                                   下载
@@ -73,7 +50,26 @@
           Polymer({
                   is : "detailed-info",
                   handleDownload : function () {
+                    var that = this;
+                    location.href = 'http://k12.iyunbei.com/api/resources/download/'+that.author.id;
+                  },
+                  handleCollections : function () {
+                      var that = this;
+                      $.ajax({
+                              url:'http://k12.iyunbei.com/api/resources/favorite/'+ that.author.id,
+                              type: 'post',
+                              data: {resourceId: that.author.id},
+                              success: function (data) {
+                                  if (data.error) {
 
+                                  } else {
+
+                                  }
+                              },
+                              error: function (e) {
+                                      console.log(e)
+                              }
+                      });
                   },
                   attributeChanged: function(attrName, oldVal, newVal) {
                      var that = this;

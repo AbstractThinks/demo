@@ -7,10 +7,20 @@
                   is : "other-module",
                   ready: function () {
                          var id = location.search.split("?")[1];
-                         $('other-detailed').get(0).setAttribute("otherid", id);
                          $('.menu.my-tab .item').tab({
                                  transition:"fade"
                          });
+                         $('other-detailed').get(0).setAttribute("otherid", id);
+                         HTMLImports.whenReady(function () {
+                             setTimeout(function () {
+                                 $('.transition').transition('drop');
+                             })
+
+                         });
+                        //  $('my-card.examination').get(0).setAttribute("urlreq", "http://k12.iyunbei.com/api/resources/resource/1/1/10");
+                        //  $('my-card.courseware').get(0).setAttribute("urlreq", "http://k12.iyunbei.com/api/resources/resource/2/1/10");
+                        //  $('my-card.vedio').get(0).setAttribute("urlreq", "http://k12.iyunbei.com/api/resources/resource/3/1/10");
+                        //  $('my-card.information').get(0).setAttribute("urlreq", "http://k12.iyunbei.com/api/resources/resource/4/1/10");
                   }
           });
   </script>

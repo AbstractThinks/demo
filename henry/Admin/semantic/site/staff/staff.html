@@ -23,18 +23,18 @@
     <body is="my-body" class="pushable">
         <div class="pusher">
             <div class="ui container">
-                <div class="header">
+                <div class="header" style="margin-top:24px;">
                     <a class="ui teal tag label" href="../index/index.html">网站首页</a>
                     <a class="ui teal tag label">教职工基础信息</a>
                 </div>
                 <h4 class="ui horizontal divider header"><i class="tag icon"></i> 职工信息 </h4>
                 <div class="ui internally celled grid stackable">
                     <div class="row">
-                        <div class="twelve wide column">
+                        <div class="twelve wide column transition hidden">
                             <staff-table id="my-table" class="my-table" adddata updatedata searchdata page></staff-table>
                         </div>
-                        <div class="four wide column computer only">
-                            <staff-sidemenu></staff-sidemenu>
+                        <div class="four wide column computer only transition hidden">
+                            <staff-sidemenu class=""></staff-sidemenu>
                         </div>
                     </div>
                 </div>
@@ -48,6 +48,14 @@
 
 
     </body>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            setTimeout(function () {
+                $('.twelve.transition').transition('fade right');
+                $('.four.transition').transition('fade left');
+            }, 500)
 
+        });
+    </script>
 
 </html>

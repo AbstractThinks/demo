@@ -13,16 +13,17 @@
                         <a class="avatar">
                                 <img src="../../img/header.png" class="">
                         </a>
-                        <div class="content">
-                                <a class="author">[[item.author]]</a>
+                        <div class="content" id="[[item.id]]">
+                                <a class="author">[[item.userId]]</a>
                                 <div class="metadata">
-                                        <span class="date">[[item.date]]</span>
+                                        <span class="date">[[item.createdTime]]</span>
                                 </div>
                                 <div class="text">
-                                        [[item.text]]
+                                        [[item.content]]
                                 </div>
                                 <div class="actions">
-                                        <a class="reply">回复</a>
+                                        <a class="reply" on-click="handleReplyComment">回复</a>
+                                        <a class="reply" on-click="handleDeleteComment">删除</a>
                                 </div>
                         </div>
                 </div>
@@ -31,9 +32,9 @@
 
         <form class="ui reply form">
           <div class="field">
-            <textarea></textarea>
+            <textarea name="text"></textarea>
           </div>
-          <div class="ui blue labeled submit icon button">
+          <div class="ui blue labeled submit icon button" on-click="handleSubmitData">
             <i class="icon edit"></i> 提交回复
           </div>
         </form>
@@ -42,14 +43,111 @@
   <script type="text/javascript">
           Polymer({
                   is : "my-comments",
+                  handleReplyComment: function (e) {
+                      var str = '@ '+$(e.target).parents('div.content').find('a.author').text();
+                      $('.form textarea').val(str+'\n');
+                      $('.form textarea').focus();
+                  },
+                  handleDeleteComment: function (e) {
+                      var that = this;
+                      var id = parseInt($(e.target).parents('div.content').attr('id'));
+                      $.ajax({
+                          url:"http://k12.iyunbei.com/api/comment/delete/"+id,
+                          type: 'post',
+                          data: {id:id},
+                          dataType:"json",
+                          cache: false,
+                          success: function (data) {
+                              if (data.error) {
+
+                              } else {
+                                 var arr = that.commentDatas.concat()
+                                 for (var i = 0; i < arr.length; i++) {
+                                     if (arr[i].id == id) {
+                                         arr.splice(i, 1);
+                                     }
+                                 }
+                                 that.commentDatas = arr;
+                                 $('.form textarea').val("");
+                              }
+                          },
+                          error: function (e) {
+                              console.log(e)
+                          }
+                      });
+
+                  },
+                  handleSubmitData: function () {
+                      var detailedid = this.attributes.detailedid.nodeValue;
+                      var that = this;
+                      $('.ui.form').submit(function(e){
+                          return false;
+                      });
+                      $('.ui.form').form({
+                          inline:true,
+                          on: 'blur',
+                          transition: 'fade up',
+                          fields: {
+                              text: {
+                                  identifier: 'text',
+                                  rules: [{
+                                      type: 'empty',
+                                      prompt: '评论不能为空'
+                                  }]
+                              }
+
+                          },
+                          onSuccess: function() {
+                              var data = {
+                                  content:$('.form textarea').val(),
+                                  parentCommentId: detailedid,
+                                  rootId: detailedid,
+                                  rootType: "1"
+                              }
+                              $.ajax({
+                                  url:"http://k12.iyunbei.com/api/comment/add",
+                                  type: 'post',
+                                  data: data,
+                                  dataType:"json",
+                                  cache: false,
+                                  success: function (data) {
+                                      if (data.error) {
+
+                                      } else {
+                                         that.push('commentDatas', data);
+                                         $('.form textarea').val("");
+                                      }
+                                  },
+                                  error: function (e) {
+                                      console.log(e)
+                                  }
+                              });
+                          }
+                      });
+                  },
+                  attributeChanged: function(attrName, oldVal, newVal) {
+                     var that = this;
+                     if (attrName == 'detailedid') {
+                         $.ajax({
+                                 url:'http://k12.iyunbei.com/api/comment/list}?'+'rootId='+newVal+'&rootType=1',
+                                 type: 'get',
+                                 success: function (data) {
+                                     if (data.error) {
+
+                                     } else {
+                                         console.log(data);
+                                             that.commentDatas = data;
+                                     }
+                                 },
+                                 error: function (e) {
+                                         console.log(e)
+                                 }
+                         });
+
+                     }
+                  },
                   ready: function () {
-                          this.commentDatas = [
-                                {"author":"小明","date":"2016-11-02","text":"太精彩了"},
-                                {"author":"小明","date":"2016-11-02","text":"太精彩了"},
-                                {"author":"小明","date":"2016-11-02","text":"太精彩了"},
-                                {"author":"小明","date":"2016-11-02","text":"太精彩了"},
-                                {"author":"小明","date":"2016-11-02","text":"太精彩了"}
-                          ]
+
                   }
           });
   </script>

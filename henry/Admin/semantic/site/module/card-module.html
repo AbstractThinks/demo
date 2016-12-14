@@ -55,59 +55,60 @@
                   properties : {
                      pagesize: String,
                      page: String,
-                     resourcetypeid: String,
-                     cards: Object
+                     resourcetypeid: String
+                    //  cards: Object
                   },
                   updateDatas : function (e) {
                       console.log(e);
                   },
                   attributeChanged: function(attrName, oldVal, newVal) {
+                    var that = this;
                     console.log(attrName)
                     console.log(oldVal)
                     console.log(newVal)
-                    // if (attrName == 'requrl') {
-                    //     $.ajax({
-                    //             url: newVal，
-                    //             type: 'get',
-                    //             success: function (data) {
-                    //                     if (data.error) {
-                    //
-                    //                     } else {
-                    //                             this.cards = data;
-                    //                     }
-                    //             },
-                    //             error: function (e) {
-                    //                     console.log(e)
-                    //             }
-                    //     });
-                    // }
+                    if (attrName == 'urlreq') {
+                        $.ajax({
+                                url: newVal,
+                                type: 'get',
+                                success: function (data) {
+                                        if (data.error) {
+
+                                        } else {
+                                                that.cards = data.entries;
+                                        }
+                                },
+                                error: function (e) {
+                                        console.log(e)
+                                }
+                        });
+                    }
 
                   },
                   ready : function() {
-                        //  let pagesize = this.pagesize;
-                        //  let page = this.page;
-                        //  let resourcetypeid = this.resourcetypeid;
-                        // $.ajax({
-                        //         url:'http://k12.iyunbei.com/api/resources/resource/'+resourcetypeid+'/'+page+'/'+pageSize,
-                        //         type: 'get',
-                        //         success: function (data) {
-                        //                 if (data.error) {
-                        //
-                        //                 } else {
-                        //                         this.cards = data;
-                        //                 }
-                        //         },
-                        //         error: function (e) {
-                        //                 console.log(e)
-                        //         }
-                        // });
-                        this.cards = [
-                                {"id":"1","img":"../../img/card.png", "description":"40道选择题，80道应用题,  知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2","author":"张三","subject":"语文","grade":"高一"},
-                                {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
-                                {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
-                                {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
-                                {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"}
-                        ]
+                        // //  let pagesize = this.pagesize;
+                        // //  let page = this.page;
+                        // //  let resourcetypeid = this.resourcetypeid;
+                        // // $.ajax({
+                        // //         url:'http://k12.iyunbei.com/api/resources/resource/'+resourcetypeid+'/'+page+'/'+pageSize,
+                        // //         type: 'get',
+                        // //         success: function (data) {
+                        // //                 if (data.error) {
+                        // //
+                        // //                 } else {
+                        // //                         this.cards = data;
+                        // //                 }
+                        // //         },
+                        // //         error: function (e) {
+                        // //                 console.log(e)
+                        // //         }
+                        // // });
+                        // this.cards = [
+                        //         {"id":"1","img":"../../img/card.png", "description":"40道选择题，80道应用题,  知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2","author":"张三","subject":"语文","grade":"高一"},
+                        //         {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
+                        //         {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
+                        //         {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
+                        //         {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"}
+                        // ]
                   }
           });
   </script>
