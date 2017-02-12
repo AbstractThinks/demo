@@ -4,7 +4,7 @@
 </style>
   <template >
       <header-module class="ui secondary pointing menu header-module" style="padding-right: 24px;"></header-module>
-      <div is="my-carousel" id="my-carousel" class="owl-carousel owl-theme transition" ></div>
+      <div is="my-carousel" id="my-carousel" class="owl-carousel owl-theme transition hidden" ></div>
 
       <div class="ui container " >
 
@@ -49,8 +49,9 @@
 
                 },
                 ready: function () {
-                    // $('common-card').get(0).setAttribute("urlreq", urlreq);
-                    $("#my-carousel").owlCarousel({
+                    
+                    $(document).ready(function () {
+                      $("#my-carousel-container").owlCarousel({
                          nav:true,
                          loop:true,
                          items:1,
@@ -58,9 +59,8 @@
                          navText:['<i class="chevron circle left icon"></i>','<i class="chevron circle right icon"></i>']
 
                     });
-                    $(document).ready(function () {
                         setTimeout(function () {
-                            $("#my-carousel").transition('fade down');
+                            $("#my-carousel-container").transition('fade down');
                         }, 500)
                         setTimeout(function () {
                             $('.container>.container.left-show').transition('fade left');
@@ -69,7 +69,7 @@
 
                         // $("#my-carousel").transition('fade down');
                     });
-                    $('#my-carousel').transition('fade down');
+                    //$('#my-carousel').transition('fade down');
                     $('my-card.examination').get(0).setAttribute("urlreq", "http://k12.iyunbei.com/api/resources/resource/1/1/10");
                     $('my-card.courseware').get(0).setAttribute("urlreq", "http://k12.iyunbei.com/api/resources/resource/2/1/10");
                     $('my-card.vedio').get(0).setAttribute("urlreq", "http://k12.iyunbei.com/api/resources/resource/3/1/10");

@@ -1,15 +1,24 @@
 <dom-module id="my-carousel">
     <template>
+      <div id="my-carousel-container">
         <div class="item"><img src="../../img/bg.jpeg" alt="The Last of us" /></div>
         <div class="item"><img src="../../img/bg.jpeg" alt="GTA V" /></div>
         <div class="item"><img src="../../img/bg.jpeg" alt="Mirror Edge" /></div>
+      <div>
     </template>
   <script type="text/javascript">
           Polymer({
               is : "my-carousel",
               extends: 'div',
               ready: function () {
+                    //                 $("#my-carousel").owlCarousel({
+                    //      nav:true,
+                    //      loop:true,
+                    //      items:1,
+                    //      autoplay:true,
+                    //      navText:['<i class="chevron circle left icon"></i>','<i class="chevron circle right icon"></i>']
 
+                    // });
               }
           });
   </script>
