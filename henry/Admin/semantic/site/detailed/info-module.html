@@ -23,9 +23,9 @@
 
                                                   <div class="header">文件标题&nbsp;[[author.resourceName]]</div>
                                                   <div class="description">
-                                                          <p>学科：&nbsp;[[author.subjectId]]</p>
-                                                          <p>年级：&nbsp;[[author.gradeId]]</p>
-                                                          <p>作者：&nbsp;<a href="../other/other.html?[[author.userId]]">[[author.userId]]</a></p>
+                                                          <p>学科：&nbsp;[[author.subjectName]]</p>
+                                                          <p>年级：&nbsp;[[author.gradeName]]</p>
+                                                          <p>作者：&nbsp;<a href="../other/other.html?[[author.staffId]]">[[author.staffName]]</a></p>
                                                           <p>时间：&nbsp;[[filterDate(author.createdTime)]]</p>
                                                   </div>
                                           </div>
@@ -127,7 +127,7 @@
                                      if (data.error) {
 
                                      } else {
-                                         // console.log(data);
+                                         console.log(data);
                                         that.author = data;
                                         HTMLImports.whenReady(function () {
                                          console.log('detailed-pdf whenReady')
