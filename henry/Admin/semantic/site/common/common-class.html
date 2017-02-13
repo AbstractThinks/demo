@@ -48,25 +48,25 @@
                 is : "common-class",
                 clickHandler: function(e) {
                     var dom = $(e.target);
+                    var url = "";
                     if (dom.parent().hasClass('subject')) {
                         $('.subject a.button').removeClass('primary');
                         dom.addClass('primary');
-                        // var url= 'resourceTypeId='+$('.class a.button.primary').attr('type')+'&subjectId='+dom.attr('type')+'&gradeId='+$('.grade a.button.primary').attr('type')+'&page=1';
-                        // this.fire('updatedCards', {'data':url});
-
+                        url= 'resourceTypeId='+$('.class a.button.primary').attr('type')+'&subjectId='+dom.attr('type')+'&gradeId='+$('.grade a.button.primary').attr('type')+'&page=1';
                     }
                     if (dom.parent().hasClass('grade')) {
                         $('.grade a.button').removeClass('primary');
                         dom.addClass('primary');
-                        // var url= 'resourceTypeId='+$('.class a.button.primary').attr('type')+'&subjectId='+$('.subject a.button.primary').attr('type')+'&gradeId='+dom.attr('type')+'&page=1';
-                        // this.fire('updatedCards', {'data':url});
+                        url= 'resourceTypeId='+$('.class a.button.primary').attr('type')+'&subjectId='+$('.subject a.button.primary').attr('type')+'&gradeId='+dom.attr('type')+'&page=1';
+
                     }
                     if (dom.parent().hasClass('class')) {
                         $('.class a.button').removeClass('primary');
                         dom.addClass('primary');
-                        // var url= 'resourceTypeId='+dom.attr('type')+'&subjectId='+$('.subject a.button.primary').attr('type')+'&gradeId='+$('.grade a.button.primary').attr('type')+'&page=1';
-                        // this.fire('updatedCards', {'data':url});
+                        // url= 'resourceTypeId='+dom.attr('type')+'&subjectId='+$('.subject a.button.primary').attr('type')+'&gradeId='+$('.grade a.button.primary').attr('type')+'&page=1';
+                        url = 'http://k12.iyunbei.com/api/resources/resource/'+dom.attr('type')+'/1/10';                        
                     }
+                    $('common-card').get(0).setAttribute("urlreq", url);
                 },
                 created: function () {
                     console.log("common-class created")

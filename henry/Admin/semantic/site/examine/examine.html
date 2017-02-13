@@ -9,26 +9,25 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
         <link rel="stylesheet" href="../../dist/semantic.css">
-        <link rel="stylesheet" href="../../js/vendor/owlCarousel/assets/owl.carousel.css" media="screen" title="no title">
-        <link rel="stylesheet" href="../../js/vendor/owlCarousel/assets/owl.theme.default.css" media="screen" title="no title">
         <script src="../../js/vendor/jquery.min.js" charset="utf-8"></script>
         
-        <script src="../../js/vendor/owlCarousel/owl.carousel.js" charset="utf-8"></script>
         <script src="../../dist/semantic.min.js"></script>
         <script src="../../bower_components/webcomponentsjs/webcomponents.min.js" charset="utf-8"></script>
         <link rel="import" href="../../bower_components/polymer/polymer.html" media="screen" title="no title">
 
         <link rel="import" href="../module/body-module.html">
         <link rel="import" href="../module/header-module.html" media="screen" title="no title">
-        <link rel="import" href="./my-carousel.html" media="screen" title="no title">
-        <link rel="import" href="./index-module.html" media="screen" title="no title">
-        <link rel="import" href="../module/card-module.html" media="screen" title="no title">
+        <link rel="import" href="./examine-module.html" media="screen" title="no title">
+        <link rel="import" href="../common/common-card.html" media="screen" title="no title">
+        <link rel="import" href="./examine-pagination.html" media="screen" title="no title">
         <link rel="import" href="../module/footer-module.html" media="screen" title="no title">
     </head>
     <body is="my-body" class="pushable">
-
         <div class="pusher">
-            <index-module></index-module>
+            <header-module class="ui secondary pointing menu header-module" style="padding-right: 24px;"></header-module>
+            <div class="ui container">
+                <examine-module></examine-module>
+            </div>
             <my-footer class="ui black inverted vertical segment my-footer"></my-footer>
         </div>
     </body>

@@ -1,4 +1,4 @@
-<dom-module id="common-pagination">
+<dom-module id="examine-pagination">
     <style media="screen">
    
     </style>
@@ -31,7 +31,7 @@
   </template>
   <script type="text/javascript">
           Polymer({
-                  is : "common-pagination",
+                  is : "examine-pagination",
                   attributeChanged: function(attrName, oldVal, newVal) {
                     console.log(attrName)
                     console.log(oldVal)
@@ -41,16 +41,15 @@
 
                   },
                   handleNextPage: function () {
-                    console.log(this.data)
-                      var url= 'resourceTypeId='+$('.class a.button.primary').attr('type')+'&subjectId='+$('.subject a.button.primary').attr('type')+'&gradeId='+$('.grade a.button.primary').attr('type')+'&page='+(this.data.pageNumber+1);
-                      console.log(url);
-                      var urlreq = 'http://k12.iyunbei.com/api/resources/resource/'+$('.class a.button.primary').attr('type')+'/'+(this.data.pageNumber+1)+'/10';
+                    // console.log(this.data)
+                      var urlreq = 'http://k12.iyunbei.com/api/resources/1/'+(this.data.pageNumber+1)+'/2';
                       $('common-card').get(0).setAttribute("urlreq", urlreq);
+                      // $('common-card').get(0).setAttribute("urlreq", urlreq);
                   },
                   handlePrevPage: function () {
-                    var url= 'resourceTypeId='+$('.class a.button.primary').attr('type')+'&subjectId='+$('.subject a.button.primary').attr('type')+'&gradeId='+$('.grade a.button.primary').attr('type')+'&page=1';
-                    var urlreq = 'http://k12.iyunbei.com/api/resources/resource/'+$('.class a.button.primary').attr('type')+'/'+(this.data.pageNumber-1)+'/10';
+                    var urlreq = 'http://k12.iyunbei.com/api/resources/1/'+(this.data.pageNumber-1)+'/2';
                     $('common-card').get(0).setAttribute("urlreq", urlreq);
+                    // $('common-card').get(0).setAttribute("urlreq", urlreq);
                   },
                   ready: function () {
                     this.data = {}

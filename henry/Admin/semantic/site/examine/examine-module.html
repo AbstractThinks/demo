@@ -1,0 +1,55 @@
+<dom-module id="examine-module">
+<style media="screen">
+   examine-pagination {
+        display: block;
+        text-align: center;
+        margin: 5em 0;
+    }
+    common-card {
+        margin-top:48px;
+        min-height: 500px;
+    } 
+</style>
+  <template >
+     <common-card class="ui doubling five column grid row my-card transition hidden" ></common-card>
+     <examine-pagination></examine-pagination>
+  </template>
+  <script type="text/javascript">
+          Polymer({
+                is : "examine-module",
+                created: function () {
+
+                },
+                getParamsUrl: function () {
+
+
+                },
+                ready: function () {
+                    
+                    $(document).ready(function () {
+                      
+                        // setTimeout(function () {
+                        //     $("#my-carousel-container").transition('fade down');
+                        // }, 500)
+                        // setTimeout(function () {
+                        //     $('.container>.container.left-show').transition('fade left');
+                        //     $('.container>.container.right-show').transition('fade right');
+                        // }, 700)
+
+                        // $("#my-carousel").transition('fade down');
+                       
+                    });
+
+                    // $('my-card.information').get(0).setAttribute("urlreq", "http://k12.iyunbei.com/api/resources/resource/4/1/5");
+                    HTMLImports.whenReady(function () {
+                        var urlreq = 'http://k12.iyunbei.com/api/resources/1/1/2';
+                        $('common-card').get(0).setAttribute("urlreq", urlreq);
+                        setTimeout(function () {
+                            $('.transition').transition('vertical flip');
+                        })
+
+                    });
+                }
+          });
+  </script>
+</dom-module>

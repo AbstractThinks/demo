@@ -3,10 +3,19 @@
     block: {
         display: block;
     }
+    common-pagination {
+        display: block;
+        text-align: center;
+        margin: 5em 0;
+    }
+    common-card {
+        margin-top:48px;
+        min-height: 400px;
+    } 
 </style>
   <template>
       <common-class class="common-class transition hidden"></common-class>
-      <common-card class="ui doubling five column grid row my-card transition hidden"  style="margin-top:48px;"></common-card>
+      <common-card class="ui doubling five column grid row my-card transition hidden" ></common-card>
       <common-pagination></common-pagination>
   </template>
   <script type="text/javascript">
@@ -49,6 +58,7 @@
                             $(".grade a.button[type=0]").addClass("primary");
                             var urlreq = 'http://k12.iyunbei.com/api/resources/resource/'+obj.resourceTypeId+'/1/10';
                             $('common-card').get(0).setAttribute("urlreq", urlreq);
+                            
 
 
                         }
