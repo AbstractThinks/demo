@@ -77,7 +77,7 @@
                       data.resourceTypeId =$('.field.select-resource-update .selection.dropdown .item.active.selected').data('value');
                       data.subjectId = $('.field.select-subject-update .selection.dropdown .item.active.selected').data('value');
                       data.gradeId = $('.ui.grade.dropdown .item.active.selected').data('value');
-                      data.resourceName = $("#filename").val();
+                      data.resourceName = $("#uploadedWork").val().substring( $("#uploadedWork").val().lastIndexOf('\\')+1 );
                       data.desc = $('#desc').val();
                       $.ajax({
                           url:"http://k12.iyunbei.com/api/resources/resourceUpload",

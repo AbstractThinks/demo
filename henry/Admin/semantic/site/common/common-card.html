@@ -29,13 +29,13 @@
                     <a class="header">{{item.resourceName}}</a>
                     <div class="meta">
                       <span class="date">
-                        {{item.subjectId}}
-                        {{item.resourceTypeId}}
-                        {{item.gradeId}}
+                        {{item.subjectName}}
+                        {{filterClass(item.resourceTypeId)}}
+                        {{item.gradeName}}
                       </span>
                     </div>
                     <div class="description">
-                        {{item.userId}} 
+                        {{item.staffName}} 
                     </div>
                   </div>
                   <div class="extra content">
@@ -109,6 +109,21 @@
                     return currentdate;
 
                     // return fmt.getFullYear()+"-"+(testDate.getMonth()+1)+"-"+fmt.getFullYear();
+                  },
+                  filterClass: function (e) {
+                    switch (e){
+                      case 1:
+                        return "试卷";
+                      case 2:
+                        return "课件";
+                      case 3:
+                        return "视频";
+                      case 4:
+                        return "教学资料";
+                      default:
+                        return "";
+                    }
+
                   },
                   created: function () {
                       console.log("common-card created")
