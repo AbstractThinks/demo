@@ -58,6 +58,7 @@
             <i class="dropdown icon"></i>
             <div class="default text">文件类型</div>
             <div class="menu">
+              <div class="item" data-value=""> </div>
               <div class="item" data-value="doc">doc</div>
               <div class="item" data-value="ppt">ppt</div>
               <div class="item" data-value="pdf">pdf</div>
@@ -98,7 +99,7 @@
                     console.log($('.subject a.button.primary').attr('type'))
                     console.log($('.grade a.button.primary').attr('type'))
 
-                    var url = "http://k12.iyunbei.com/api/resources/queryByCondition?userName="+$("#author_input").val()+"&subjectId="+$('.subject a.button.primary').attr('type')+"&gradeId="+$('.grade a.button.primary').attr('type')+"&resourceTypeSuffix="+$(".file_input")+"&resourceTypeId="+$('.class a.button.primary').attr('type')+"&page=1&pageSize=20";
+                    var url = "http://k12.iyunbei.com/api/resources/queryByCondition?userName="+$("#author_input").val()+"&subjectId="+$('.subject a.button.primary').attr('type')+"&gradeId="+$('.grade a.button.primary').attr('type')+"&resourceTypeSuffix="+$(".file_input [name='file_input']").val()+"&resourceTypeId="+$('.class a.button.primary').attr('type')+"&page=1&pageSize=20";
                     
                     $('common-card').get(0).setAttribute("urlreq", url);
                 },

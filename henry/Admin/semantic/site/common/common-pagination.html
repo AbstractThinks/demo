@@ -41,15 +41,12 @@
 
                   },
                   handleNextPage: function () {
-                    console.log(this.data)
-                      var url= 'resourceTypeId='+$('.class a.button.primary').attr('type')+'&subjectId='+$('.subject a.button.primary').attr('type')+'&gradeId='+$('.grade a.button.primary').attr('type')+'&page='+(this.data.pageNumber+1);
-                      console.log(url);
-                      var urlreq = 'http://k12.iyunbei.com/api/resources/resource/'+$('.class a.button.primary').attr('type')+'/'+(this.data.pageNumber+1)+'/10';
+                    
+                      var urlreq = "http://k12.iyunbei.com/api/resources/queryByCondition?userName="+$("#author_input").val()+"&subjectId="+$('.subject a.button.primary').attr('type')+"&gradeId="+$('.grade a.button.primary').attr('type')+"&resourceTypeSuffix="+$(".file_input [name='file_input']").val()+"&resourceTypeId="+$('.class a.button.primary').attr('type')+"&page="+(this.data.pageNumber+1)+"&pageSize=20";
                       $('common-card').get(0).setAttribute("urlreq", urlreq);
                   },
                   handlePrevPage: function () {
-                    var url= 'resourceTypeId='+$('.class a.button.primary').attr('type')+'&subjectId='+$('.subject a.button.primary').attr('type')+'&gradeId='+$('.grade a.button.primary').attr('type')+'&page=1';
-                    var urlreq = 'http://k12.iyunbei.com/api/resources/resource/'+$('.class a.button.primary').attr('type')+'/'+(this.data.pageNumber-1)+'/10';
+                    var urlreq = "http://k12.iyunbei.com/api/resources/queryByCondition?userName="+$("#author_input").val()+"&subjectId="+$('.subject a.button.primary').attr('type')+"&gradeId="+$('.grade a.button.primary').attr('type')+"&resourceTypeSuffix="+$(".file_input [name='file_input']").val()+"&resourceTypeId="+$('.class a.button.primary').attr('type')+"&page="+(this.data.pageNumber-1)+"&pageSize=20";
                     $('common-card').get(0).setAttribute("urlreq", urlreq);
                   },
                   ready: function () {

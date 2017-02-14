@@ -42,12 +42,12 @@
                   },
                   handleNextPage: function () {
                     // console.log(this.data)
-                      var urlreq = 'http://k12.iyunbei.com/api/resources/1/'+(this.data.pageNumber+1)+'/2';
+                      var urlreq = 'http://k12.iyunbei.com/api/resources/1/'+(this.data.pageNumber+1)+'/20';
                       $('common-card').get(0).setAttribute("urlreq", urlreq);
                       // $('common-card').get(0).setAttribute("urlreq", urlreq);
                   },
                   handlePrevPage: function () {
-                    var urlreq = 'http://k12.iyunbei.com/api/resources/1/'+(this.data.pageNumber-1)+'/2';
+                    var urlreq = 'http://k12.iyunbei.com/api/resources/1/'+(this.data.pageNumber-1)+'/20';
                     $('common-card').get(0).setAttribute("urlreq", urlreq);
                     // $('common-card').get(0).setAttribute("urlreq", urlreq);
                   },
