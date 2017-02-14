@@ -7,6 +7,9 @@
     .ui.divided.items.my-class > .item {
         padding: 1em 0!important;
     }
+    i.search {
+      display: inline-block;
+    }
 </style>
   <template >
       <div class="item">
@@ -42,30 +45,61 @@
               <a class="ui basic button" type=4 on-click="clickHandler">资料</a>
           </div>
       </div>
+      <div class="item">
+        作者：
+        <div class="ui input">
+          <input type="text" id="author_input">
+        </div>
+        &nbsp;&nbsp;&nbsp;
+         文件类型：
+           
+          <div class="ui selection dropdown file_input">
+            <input type="hidden" name="file_input">
+            <i class="dropdown icon"></i>
+            <div class="default text">文件类型</div>
+            <div class="menu">
+              <div class="item" data-value="doc">doc</div>
+              <div class="item" data-value="ppt">ppt</div>
+              <div class="item" data-value="pdf">pdf</div>
+            </div>
+          </div>
+        &nbsp;&nbsp;&nbsp;
+        时间：
+        <div class="ui input">
+          <input type="date" id="time_input"/>
+        </div>
+         &nbsp;&nbsp;&nbsp;
+       <button class="ui button" on-click="clickHandlerSearch"> <i class="icon search"></i>搜索</button>
+      </div>
+
   </template>
   <script type="text/javascript">
           Polymer({
                 is : "common-class",
                 clickHandler: function(e) {
+
                     var dom = $(e.target);
-                    var url = "";
+                    
+
                     if (dom.parent().hasClass('subject')) {
                         $('.subject a.button').removeClass('primary');
                         dom.addClass('primary');
-                        url= 'resourceTypeId='+$('.class a.button.primary').attr('type')+'&subjectId='+dom.attr('type')+'&gradeId='+$('.grade a.button.primary').attr('type')+'&page=1';
                     }
                     if (dom.parent().hasClass('grade')) {
                         $('.grade a.button').removeClass('primary');
                         dom.addClass('primary');
-                        url= 'resourceTypeId='+$('.class a.button.primary').attr('type')+'&subjectId='+$('.subject a.button.primary').attr('type')+'&gradeId='+dom.attr('type')+'&page=1';
-
                     }
                     if (dom.parent().hasClass('class')) {
                         $('.class a.button').removeClass('primary');
-                        dom.addClass('primary');
-                        // url= 'resourceTypeId='+dom.attr('type')+'&subjectId='+$('.subject a.button.primary').attr('type')+'&gradeId='+$('.grade a.button.primary').attr('type')+'&page=1';
-                        url = 'http://k12.iyunbei.com/api/resources/resource/'+dom.attr('type')+'/1/10';                        
+                        dom.addClass('primary');                
                     }
+
+                    console.log($('.class a.button.primary').attr('type'))
+                    console.log($('.subject a.button.primary').attr('type'))
+                    console.log($('.grade a.button.primary').attr('type'))
+
+                    var url = "http://k12.iyunbei.com/api/resources/queryByCondition?userName="+$("#author_input").val()+"&subjectId="+$('.subject a.button.primary').attr('type')+"&gradeId="+$('.grade a.button.primary').attr('type')+"&resourceTypeSuffix="+$(".file_input")+"&resourceTypeId="+$('.class a.button.primary').attr('type')+"&page=1&pageSize=20";
+                    
                     $('common-card').get(0).setAttribute("urlreq", url);
                 },
                 created: function () {
@@ -73,6 +107,9 @@
                 },
                 ready: function () {
                     console.log("common-class ready")
+                    $(document).ready(function () {
+                      $('.ui.dropdown').dropdown();
+                    })
                 }
 
           });

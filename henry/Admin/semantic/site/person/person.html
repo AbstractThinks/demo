@@ -27,13 +27,33 @@
         <script src="../../js/vendor/uploader.js" charset="utf-8"></script>
 
     </head>
+    <style type="text/css">
+        .ui.inverted.dimmer.loading-dimmer {
+            background-color: rgba(0,0,0,0.8);
+        }
+    </style>
     <body is="my-body" class="pushable">
         <div class="pusher">
+            <div class="ui inverted dimmer loading-dimmer page transition visible active" style="display: none !important;">
+                <div class="ui text large loader">Loading</div>
+            </div>
             <div class="ui container" style="margin-top:24px;">
                 <a class="ui teal tag label" href="../index/index.html">网站首页</a>
                 <a class="ui teal tag label">我的个人中心</a>
             </div>
             <person-module class="ui container" style="margin-top:24px;"></person-module>
+        </div>
+        <div class="ui basic modal Prompt">
+          <div class="ui icon header">
+            保存成功
+          </div>
+         
+          <div class="actions">
+            <div class="ui green ok inverted button">
+              <i class="checkmark icon"></i>
+              确定
+            </div>
+          </div>
         </div>
     </body>
 

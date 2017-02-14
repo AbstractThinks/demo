@@ -5,12 +5,7 @@
                   <div class="ui internally celled grid">
                           <div class="row">
                                   <div class="sixteen wide column">
-                                          <div class="field row">
-                                                  <div class="field">
-                                                          <label>标题</label>
-                                                          <input id="filename" type="text" placeholder="标题" name="filename">
-                                                  </div>
-                                          </div>
+                                          
 
                                           <div class="field row">
                                                   <!-- <div class="field">
@@ -72,6 +67,8 @@
           Polymer({
                   is : "my-tab-update",
                   handleSaveData: function (e) {
+                     $('.Prompt.modal').modal('show')
+                     return;
                       var data = {};
                       data.fileId = $("#uploadedWork").attr('fileId');
                       data.resourceTypeId =$('.field.select-resource-update .selection.dropdown .item.active.selected').data('value');
@@ -90,6 +87,7 @@
 
                               } else {
                                  console.log(data)
+                                 
                               }
                           },
                           error: function (e) {
