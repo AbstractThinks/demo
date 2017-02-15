@@ -1,4 +1,12 @@
-<dom-module id="my-tab-common-list">
+ <dom-module id="my-tab-common-list">
+ <style type="text/css">
+   .pagination-container {
+       display: block;
+        text-align: center;
+        margin: 5em 0;
+   }
+
+ </style>
   <template >
          <content></content>
          <div class="ui container">
@@ -11,16 +19,15 @@
                                     <div class="content" id="{{item.id}}">
                                             <a class="header">标题&nbsp;{{item.resourceName}}</a>
                                             <div class="meta">
-                                                    <span>学科&nbsp;</span>{{item.subjectId}}&nbsp;<span>年级&nbsp;</span>{{item.gradeId}}&nbsp;<span>分类&nbsp;</span>{{item.resourceId}}{{item.resourceTypeId}}&nbsp;<span>学校&nbsp;</span>{{item.schooleId}}
+                                                    <span>学科：&nbsp;</span>{{item.subjectName}}&nbsp;&nbsp;&nbsp;<span>年级：&nbsp;</span>{{item.gradeName}}&nbsp;&nbsp;&nbsp;<span>学校：&nbsp;</span>{{item.schoolName}}
                                             </div>
                                             <div class="description">
                                                     <p>
-                                                        作者：{{item.userId}}
+                                                        作者：{{item.staffName}}
                                                     </p>
-                                                    <p>Description</p>
                                             </div>
                                             <div class="extra">
-                                                <i class="green check icon"></i> 121 人收藏
+                                                <i class="green check icon"></i> {{item.downloadCount}} 人下载
                                                 <template is="dom-if" if="{{btnCancel}}">
                                                     <div class="ui right floated red button" on-click="handleRemove">删除 <i class="remove icon"></i> </div>
                                                 </template>
@@ -34,25 +41,42 @@
                         </template>
 
                 </div>
-                <div class="ui pagination menu">
+                <div class="pagination-container">
+                  <div class="ui pagination menu">
+                      <template is="dom-if" if="[[!data.hasPrevious]]">
+                        <a class="item disabled">
+                          <i class="angle left icon"></i>
+                        </a>
+                      </template>
+                      <template is="dom-if" if="[[data.hasPrevious]]">
+                        <a class="item" on-click="handlePrevPage">
+                          <i class="angle left icon"></i>
+                        </a>
+                      </template>
                       <a class="item">
-                        <i class="angle left icon"></i>
+                        {{data.pageNumber}}
                       </a>
-                      <a class="item">
-                        1
-                      </a>
-                      <a class="item">
-                        <i class="angle right icon"></i>
-                      </a>
+                      <template is="dom-if" if="[[data.hasNext]]">
+                          <a class="item" on-click="handleNextPage">
+                            <i class="angle right icon"></i>
+                          </a>
+                      </template>
+                      <template is="dom-if" if="[[!data.hasNext]]">
+                          <a class="item disabled">
+                            <i class="angle right icon"></i>
+                          </a>
+                      </template>
                 </div>
+                </div>
+                
         </div>
-        <h4 class="ui horizontal divider header-divider">
+        <!-- <h4 class="ui horizontal divider header-divider">
                 <i class="tag icon"></i>
                 推荐
         </h4>
         <div class="ui container">
                 <my-card class="ui doubling four column grid row"></my-card>
-        </div>
+        </div> -->
   </template>
   <script type="text/javascript">
           Polymer({
@@ -197,6 +221,85 @@
 
 
                       }
+                  },
+                   handleNextPage: function (e) {
+                        var that = this;
+                        var pagesize = this.attributes.pagesize.nodeValue;
+                        if ($(e.target).parents('my-tab-common-list.resources').length > 0) {
+                            $.ajax({
+                                url:"http://k12.iyunbei.com/api/resources/user/"+$('body').attr("userid")+'/'+(that.data.pageNumber+1)+'/'+pagesize,
+                                type: 'get',
+                                success: function (data) {
+                                        if (data.error) {
+
+                                        } else {
+                                            console.log(data)
+                                                that.data = data;
+                                        }
+                                },
+                                error: function (e) {
+                                        console.log(e)
+                                }
+                            });
+                        }
+                        if ($(e.target).parents('my-tab-common-list.collections').length > 0) {
+                            $.ajax({
+                                url:"http://k12.iyunbei.com/api/resources/favorite/"+$('body').attr("userid")+'/'+(that.data.pageNumber+1)+'/'+pagesize,
+                                type: 'get',
+                                success: function (data) {
+                                        if (data.error) {
+
+                                        } else {
+                                            console.log(data)
+                                                that.data = data;
+                                        }
+                                },
+                                error: function (e) {
+                                        console.log(e)
+                                }
+                            });
+                        }  
+                        
+                  },
+                  handlePrevPage: function (e) {
+                     var that = this;
+
+
+                     if ($(e.target).parents('my-tab-common-list.resources').length > 0) {
+                            $.ajax({
+                                url:"http://k12.iyunbei.com/api/resources/user/"+$('body').attr("userid")+'/'+(that.data.pageNumber-1)+'/'+2,
+                                type: 'get',
+                                success: function (data) {
+                                        if (data.error) {
+
+                                        } else {
+                                            console.log(data)
+                                                that.data = data;
+                                        }
+                                },
+                                error: function (e) {
+                                        console.log(e)
+                                }
+                        });
+                        }
+                        if ($(e.target).parents('my-tab-common-list.collections').length > 0) {
+                            $.ajax({
+                                url:"http://k12.iyunbei.com/api/resources/favorite/"+$('body').attr("userid")+'/'+(that.data.pageNumber-1)+'/'+2,
+                                type: 'get',
+                                success: function (data) {
+                                        if (data.error) {
+
+                                        } else {
+                                            console.log(data)
+                                                that.data = data;
+                                        }
+                                },
+                                error: function (e) {
+                                        console.log(e)
+                                }
+                            });
+                        }  
+                        
                   },
                   ready : function() {
                     //   this.identity = this.attributes.identity.nodeValue;

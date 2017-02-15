@@ -15,7 +15,7 @@
       <div class="item">
           <div class="middle aligned content subject">
               学科：
-              <a class="ui basic button" type=0 on-click="clickHandler">全部</a>
+              <a class="ui basic button primary" type=0 on-click="clickHandler">全部</a>
               <a class="ui basic button" type=1 on-click="clickHandler">语文</a>
               <a class="ui basic button" type=2 on-click="clickHandler">数学</a>
               <a class="ui basic button" type=3 on-click="clickHandler">英语</a>
@@ -30,7 +30,7 @@
       <div class="item">
           <div class="middle aligned content grade">
               年级：
-              <a class="ui basic button" type=0 on-click="clickHandler">全部</a>
+              <a class="ui basic button primary" type=0 on-click="clickHandler">全部</a>
               <a class="ui basic button" type=1 on-click="clickHandler">高一</a>
               <a class="ui basic button" type=2 on-click="clickHandler">高二</a>
               <a class="ui basic button" type=3 on-click="clickHandler">高三</a>
@@ -70,7 +70,7 @@
           <input type="date" id="time_input"/>
         </div>
          &nbsp;&nbsp;&nbsp;
-       <button class="ui button" on-click="clickHandlerSearch"> <i class="icon search"></i>搜索</button>
+       <button class="ui button" on-click="clickHandler"> <i class="icon search"></i>搜索</button>
       </div>
 
   </template>
@@ -94,10 +94,6 @@
                         $('.class a.button').removeClass('primary');
                         dom.addClass('primary');                
                     }
-
-                    console.log($('.class a.button.primary').attr('type'))
-                    console.log($('.subject a.button.primary').attr('type'))
-                    console.log($('.grade a.button.primary').attr('type'))
 
                     var url = "http://k12.iyunbei.com/api/resources/queryByCondition?userName="+$("#author_input").val()+"&subjectId="+$('.subject a.button.primary').attr('type')+"&gradeId="+$('.grade a.button.primary').attr('type')+"&resourceTypeSuffix="+$(".file_input [name='file_input']").val()+"&resourceTypeId="+$('.class a.button.primary').attr('type')+"&page=1&pageSize=20";
                     

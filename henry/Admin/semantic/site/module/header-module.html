@@ -1,11 +1,11 @@
 <dom-module id="header-module">
     <style media="screen">
-      .header-module a.item:first-child {
+      /*.header-module a.item:first-child {
         margin-left: 10%;
-      }
+      }*/
     </style>
     <template>
-        <!-- <div class="ui secondary pointing menu"> -->
+        <div class="ui container">
         <a class="item" href="../index/index.html" type="0">
           首页
         </a>
@@ -22,12 +22,13 @@
         <a class="item" href="../common/common.html?resourceTypeId=4&subjectId=&gradeId=&page=1"  type="4">
           教学资料
         </a>
-        <a class="item" href="../staff/staff.html">
-          职工管理
-        </a>
         <a class="item" href="../examine/examine.html">
           资料审核
         </a>
+        <a class="item" href="../staff/staff.html">
+          职工管理
+        </a>
+        
         <a class="item" href="../asset/index.html">
           资产管理
         </a>
@@ -36,7 +37,7 @@
                 <img src="../../img/header.png" class="ui avatar image" ／>
             </a>
         </div>
-      <!-- </div> -->
+      </div>
     </template>
 
   <script type="text/javascript">
@@ -58,8 +59,8 @@
                                       console.log(data);
                                     that.personInfo = data;
                                     $('.user-header').popup({
-                                        title   : data.nickname,
-                                        content : data.schoolName,
+                                        title   : "姓名："+data.nickname,
+                                        content : "学校："+data.schoolName,
                                         position   : 'bottom right',
                                         offset: -10
                                     })

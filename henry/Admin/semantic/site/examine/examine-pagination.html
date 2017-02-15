@@ -15,7 +15,7 @@
               </a>
             </template>
             <a class="item">
-              {{data.pageNumber}}/{{data.totalPage}}
+              {{data.pageNumber}}
             </a>
             <template is="dom-if" if="[[data.hasNext]]">
                 <a class="item" on-click="handleNextPage">

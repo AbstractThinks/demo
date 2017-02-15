@@ -41,67 +41,69 @@
                   $('#add-staff-form.ui.form').submit(function(e){
                       return false;
                   });
+                  $('#add-staff-form').form('validate form')
 
               },
-            ready: function () {
+              ready: function () {
 
-                
-                $(document).ready(function () {
                   var that = this;
-                $('.ui.dropdown').dropdown();
+                  
+                  $(document).ready(function () {
+                    
+                  $('.ui.dropdown').dropdown();
 
-                $('#add-staff-form').form({
-                      inline:true,
-                      on: 'blur',
-                      transition: 'fade up',
-                      fields: {
-                          username: {
-                              identifier: 'name',
-                              rules: [{
-                                  type: 'empty',
-                                  prompt: '请输入姓名'
-                              }]
-                          },
-                          staffNum: {
-                              identifier: 'staffNum',
-                              rules: [{
-                                  type: 'empty',
-                                  prompt: '请输入编号'
-                              }]
-                          },
+                  $('#add-staff-form').form({
+                        inline:true,
+                        on: 'blur',
+                        transition: 'fade up',
+                        fields: {
+                            username: {
+                                identifier: 'name',
+                                rules: [{
+                                    type: 'empty',
+                                    prompt: '请输入姓名'
+                                }]
+                            },
+                            staffNum: {
+                                identifier: 'staffNum',
+                                rules: [{
+                                    type: 'empty',
+                                    prompt: '请输入编号'
+                                }]
+                            },
 
-                      },
-                      onSuccess: function() {
-                        
-                          e.preventDefault();
-                          alert();
-                          // that.staff.name = $(".staff-form .name").val();
-                          // that.staff.staffNum = $(".staff-form .staffNum").val();
-                          // that.staff.schoolId = parseInt($('.staff-form .select-school .item.active.selected').data('value'));
-                          // that.staff.teachingSubject = parseInt($('.staff-form .select-subject .item.active.selected').data('value'));
-                          // $.ajax({
-                          //     url:"http://k12.iyunbei.com/api/staff",
-                          //     type: 'post',
-                          //     data: that.staff,
-                          //     dataType:"json",
-                          //     cache: false,
-                          //     success: function (data) {
-                          //         if (data.error) {
+                        },
+                        onSuccess: function() {
+                          
+                            // e.preventDefault();
+                            // alert();
+                            var name = $(".staff-form .name").val();
+                            var staffNum = $(".staff-form .staffNum").val();
+                            var schoolId = parseInt($('.staff-form .select-school .item.active.selected').data('value'));
+                            var teachingSubject = parseInt($('.staff-form .select-subject .item.active.selected').data('value'));
+                            $.ajax({
+                                url:"http://k12.iyunbei.com/api/staff",
+                                type: 'post',
+                                data: {"name":name,"staffNum":staffNum,"schoolId":schoolId,"teachingSubject":teachingSubject},
+                                dataType:"json",
+                                cache: false,
+                                success: function (data) {
+                                    if (data.error) {
 
-                          //         } else {
-                          //            $('#my-table').get(0).setAttribute("addData", JSON.stringify(data));
-                          //            $('.ui.modal').modal('hide');
-                          //         }
-                          //     },
-                          //     error: function (e) {
-                          //         console.log(e)
-                          //     }
-                          // });
-                      }
+                                    } else {
+                                       $('#my-table').get(0).setAttribute("addData", JSON.stringify(data));
+                                       $('.ui.modal').modal('hide');
+                                    }
+                                },
+                                error: function (e) {
+                                    console.log(e)
+                                }
+                            });
+                        }
+                    });
                   });
-                });
 
-            }
+              }
           });
 
   </script>

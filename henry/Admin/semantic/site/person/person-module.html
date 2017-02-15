@@ -21,10 +21,10 @@
               <my-tab-info class="ui attached active tab segment my-tab-info" data-tab="info">
                   <a class="ui teal right ribbon label">我的信息</a>
               </my-tab-info>
-              <my-tab-common-list class="ui attached tab segment resources" identity="resources" data-tab="resources" page="1" pagesize="50">
+              <my-tab-common-list class="ui attached tab segment resources" identity="resources" data-tab="resources" page="1" pagesize="10">
                   <a class="ui teal right ribbon label">我的资源</a>
               </my-tab-common-list>
-              <my-tab-common-list class="ui attached tab segment collections" identity="collections" data-tab="collections" page="1" pagesize="50">
+              <my-tab-common-list class="ui attached tab segment collections" identity="collections" data-tab="collections" page="1" pagesize="10">
                   <a class="ui teal right ribbon label">我的收藏</a>
               </my-tab-common-list>
               <my-tab-update class="ui attached tab segment" data-tab="update">
@@ -72,7 +72,7 @@
                      onDrop: function(file){
                              //File object => https://developer.mozilla.org/en-US/docs/Web/API/File
                              // console.log(file.name);
-
+                             
                              var formData = new FormData($('#uploadForm')[0]);
                              var name = $("input").val();
                              formData.append("file",file);

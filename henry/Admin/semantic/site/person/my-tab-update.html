@@ -69,6 +69,7 @@
                   handleSaveData: function (e) {
                      // $('.Prompt.modal').modal('show')
                      // return;
+                     $('.pusher').dimmer('show');
                       var data = {};
                       data.fileId = $("#uploadedWork").attr('fileId');
                       data.resourceTypeId =$('.field.select-resource-update .selection.dropdown .item.active.selected').data('value');
@@ -84,13 +85,17 @@
                           cache: false,
                           success: function (data) {
                               if (data.error) {
-
+                                $('.pusher').dimmer('hide');
                               } else {
+                                $('.pusher').dimmer('hide');
                                  console.log(data)
-                                 
+                                 $('my-tab-common-list.resources').get(0).setAttribute("reqdata", JSON.stringify({name:"resources",id:$('my-tab-info').attr("userid"),requrl:'http://k12.iyunbei.com/api/resources/user/',count:Math.random()}));
+                                 $('.tooltip.modal').modal('show');
+
                               }
                           },
                           error: function (e) {
+                            $('.pusher').dimmer('hide');
                               console.log(e)
                           }
                       });
