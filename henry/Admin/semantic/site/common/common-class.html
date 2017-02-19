@@ -13,7 +13,7 @@
 </style>
   <template >
       <div class="item">
-          <div class="middle aligned content subject">
+          <!-- <div class="middle aligned content subject">
               学科：
               <a class="ui basic button primary" type=0 on-click="clickHandler">全部</a>
               <a class="ui basic button" type=1 on-click="clickHandler">语文</a>
@@ -25,16 +25,20 @@
               <a class="ui basic button" type=7 on-click="clickHandler">生物</a>
               <a class="ui basic button" type=8 on-click="clickHandler">体育</a>
               <a class="ui basic button" type=9 on-click="clickHandler">历史</a>
-          </div>
+          </div> -->
+          <search-list-module label="学科" url="http://k12.iyunbei.com/api/subjects?page=1
+" className="subject"></search-list-module>
       </div>
       <div class="item">
-          <div class="middle aligned content grade">
+          <!-- <div class="middle aligned content grade">
               年级：
               <a class="ui basic button primary" type=0 on-click="clickHandler">全部</a>
               <a class="ui basic button" type=1 on-click="clickHandler">高一</a>
               <a class="ui basic button" type=2 on-click="clickHandler">高二</a>
               <a class="ui basic button" type=3 on-click="clickHandler">高三</a>
-          </div>
+          </div> -->
+          <search-list-module label="年级" url="http://k12.iyunbei.com/api/dynamicenum/1028
+" className="grade"></search-list-module>
       </div>
       <div class="item">
           <div class="middle aligned content class">
@@ -58,7 +62,7 @@
             <i class="dropdown icon"></i>
             <div class="default text">文件类型</div>
             <div class="menu">
-              <div class="item" data-value=""> </div>
+              <div class="item" data-value="">所有类型</div>
               <div class="item" data-value="doc">doc</div>
               <div class="item" data-value="ppt">ppt</div>
               <div class="item" data-value="pdf">pdf</div>
@@ -82,14 +86,14 @@
                     var dom = $(e.target);
                     
 
-                    if (dom.parent().hasClass('subject')) {
-                        $('.subject a.button').removeClass('primary');
-                        dom.addClass('primary');
-                    }
-                    if (dom.parent().hasClass('grade')) {
-                        $('.grade a.button').removeClass('primary');
-                        dom.addClass('primary');
-                    }
+                    // if (dom.parent().hasClass('subject')) {
+                    //     $('.subject a.button').removeClass('primary');
+                    //     dom.addClass('primary');
+                    // }
+                    // if (dom.parent().hasClass('grade')) {
+                    //     $('.grade a.button').removeClass('primary');
+                    //     dom.addClass('primary');
+                    // }
                     if (dom.parent().hasClass('class')) {
                         $('.class a.button').removeClass('primary');
                         dom.addClass('primary');                

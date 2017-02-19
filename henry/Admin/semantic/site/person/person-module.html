@@ -36,6 +36,10 @@
   <script type="text/javascript">
       Polymer({
               is : "person-module",
+              created: function () {
+                    $('.pusher').dimmer('show');
+                    console.log("common-module created")
+              },
               attributeChanged : function (attrName, oldVal, newVal) {
 
               },

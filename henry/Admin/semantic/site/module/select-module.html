@@ -5,7 +5,7 @@
       <select class="ui selection dropdown">
               <option value="" >{{label}}</option>
               <template is="dom-repeat" items="[[content]]">
-                     <option value=[[item.id]]>[[item.name]][[item.typeName]]</option>
+                     <option value=[[item.id]]>[[item.name]][[item.typeName]][[item.value]]</option>
               </template>
       </select>
   </template>
@@ -31,7 +31,13 @@
                                   if (data.error) {
 
                                   } else {
-                                    that.content = data;
+                                    if (data.values && data.values.length > 0) {
+                                      that.content = data.values
+                                      console.log(data.values)
+                                    } else {
+                                      that.content = data;
+                                    }
+                                    
                                   }
                               },
                               error: function (e) {

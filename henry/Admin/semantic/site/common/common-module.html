@@ -21,9 +21,11 @@
   <script type="text/javascript">
           Polymer({
                 is : "common-module",
-                created: function () {
+                 created: function () {
+                    
                     console.log("common-module created")
-                },
+                 },
+                
                 getParamsUrl: function () {
                     var url = location.search;
                     var arr;
@@ -63,9 +65,10 @@
 
                         }
                         HTMLImports.whenReady(function () {
-                            setTimeout(function () {
-                                $('.transition').transition('vertical flip');
-                            })
+                            
+                            // setTimeout(function () {
+                            //     $('.transition').transition('vertical flip');
+                            // })
 
                         });
 

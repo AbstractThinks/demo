@@ -138,6 +138,7 @@
                               dataType:"json",
                               cache: false,
                               success: function (data) {
+                                $('.pusher').dimmer('hide');
                                   if (data.error) {
 
                                   } else {
@@ -150,6 +151,7 @@
                                   }
                               },
                               error: function (e) {
+                                $('.pusher').dimmer('hide');
                                   console.log(e)
                               }
                           })

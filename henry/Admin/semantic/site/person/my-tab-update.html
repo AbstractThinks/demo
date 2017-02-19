@@ -36,13 +36,14 @@
                                           </div>
                                           <div class="field row">
                                                   <div class="field">
-                                                          <label>年级</label>
+                                                          <!-- <label>年级</label>
                                                           <select class="ui grade dropdown">
                                                                   <option value="">年级</option>
                                                                   <option value="1">高一</option>
                                                                   <option value="2">高二</option>
                                                                   <option value="3">高三</option>
-                                                          </select>
+                                                          </select> -->
+                                                          <select-module class="field select-resource-update" url="http://k12.iyunbei.com/api/dynamicenum/1028" label="年级"></select-module>
                                                   </div>
                                           </div>
 
@@ -84,10 +85,11 @@
                           dataType:"json",
                           cache: false,
                           success: function (data) {
+                            $('.pusher').dimmer('hide');
                               if (data.error) {
-                                $('.pusher').dimmer('hide');
+                                
                               } else {
-                                $('.pusher').dimmer('hide');
+                                // $('.pusher').dimmer('hide');
                                  console.log(data)
                                  $('my-tab-common-list.resources').get(0).setAttribute("reqdata", JSON.stringify({name:"resources",id:$('my-tab-info').attr("userid"),requrl:'http://k12.iyunbei.com/api/resources/user/',count:Math.random()}));
                                  $('.tooltip.modal').modal('show');

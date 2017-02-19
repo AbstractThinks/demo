@@ -50,29 +50,30 @@
   <script type="text/javascript">
           Polymer({
                   is : "common-card",
-
                   updateDatas : function (e) {
                       console.log(e);
                   },
                   attributeChanged: function(attrName, oldVal, newVal) {
-
                     console.log(attrName)
                     console.log(oldVal)
                     console.log(newVal)
                     var that = this;
                     if (attrName == 'urlreq') {
+                      $('.pusher').dimmer('show');
                         $.ajax({
                               url:newVal,
                               type: 'get',
                               dataType:"json",
                               cache: false,
                               success: function (data) {
+                                  $('.pusher').dimmer('hide');
+                                  $('common-card.transition').transition('vertical flip');
                                   if (data.error) {
 
                                   } else {
                                       console.log(data)
                                       that.data = data;
-
+                                      
                                       if ( $('common-pagination').length > 0) {
                                          $('common-pagination').get(0).setAttribute("pageObject", JSON.stringify({pageIndex:data.pageIndex,pageNumber:data.pageNumber,totalCount:data.totalCount,totalPage:data.totalPage,hasNext:data.hasNext,hasPrevious:data.hasPrevious}));
                                       }
@@ -81,9 +82,11 @@
                                         $('examine-pagination').get(0).setAttribute("pageObject", JSON.stringify({pageIndex:data.pageIndex,pageNumber:data.pageNumber,totalCount:data.totalCount,totalPage:data.totalPage,hasNext:data.hasNext,hasPrevious:data.hasPrevious}));
                                       }
                                       
+                                      
                                   }
                               },
                               error: function (e) {
+                                $('.pusher').dimmer('hide');
                                   console.log(e)
                               }
                           });

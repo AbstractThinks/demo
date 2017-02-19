@@ -1,0 +1,76 @@
+<dom-module id="search-list-module">
+
+  <template>
+                   
+              <div class$="middle aligned content [[classname]]">
+                {{label}}:
+                <a class="ui basic button" type=0 on-click="clickHandler">全部</a>
+                <template is="dom-repeat" items="[[content]]">
+                  <a class="ui basic button" type=[[item.id]] on-click="clickHandler">[[item.value]][[item.name]]</a>
+                </template>
+            </div>
+      
+  </template>
+
+  <script type="text/javascript">
+          Polymer({
+                  is : "search-list-module",
+                  properties: {
+                      label: String,
+                      url: String,
+                      classname: String 
+                  },
+                  attributeChanged: function(attrName, oldVal, newVal) {
+                    console.log(attrName)
+                    console.log(oldVal)
+                    console.log(newVal)
+                  },
+                  clickHandler: function(e) {
+
+                      var dom = $(e.target);
+                      
+
+                      if (dom.parent().hasClass('subject')) {
+                          $('.subject a.button').removeClass('primary');
+                          dom.addClass('primary');
+                      }
+                      if (dom.parent().hasClass('grade')) {
+                          $('.grade a.button').removeClass('primary');
+                          dom.addClass('primary');
+                      }
+                      // if (dom.parent().hasClass('class')) {
+                      //     $('.class a.button').removeClass('primary');
+                      //     dom.addClass('primary');                
+                      // }
+
+                      var url = "http://k12.iyunbei.com/api/resources/queryByCondition?userName="+$("#author_input").val()+"&subjectId="+$('.subject a.button.primary').attr('type')+"&gradeId="+$('.grade a.button.primary').attr('type')+"&resourceTypeSuffix="+$(".file_input [name='file_input']").val()+"&resourceTypeId="+$('.class a.button.primary').attr('type')+"&page=1&pageSize=20";
+                      
+                      $('common-card').get(0).setAttribute("urlreq", url);
+                  },
+                  ready: function () {
+                      var that = this;
+                      $.ajax({
+                              url:this.url,
+                              type: 'get',
+                              success: function (data) {
+                                  if (data.error) {
+
+                                  } else {
+                                    if (data.values && data.values.length > 0) {
+                                      that.content = data.values
+                                      console.log(data.values)
+                                    } else {
+                                      that.content = data;
+                                    }
+                                    
+                                  }
+                              },
+                              error: function (e) {
+                                      console.log(e)
+                              }
+                      });
+
+                  }
+          });
+  </script>
+</dom-module>
