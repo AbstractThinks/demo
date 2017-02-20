@@ -24,6 +24,7 @@
                                   </div>
                                   <div class="four wide column">
                                           <img src="../../img/header.png">
+                                          <input type="file" >
                                   </div>
                           </div>
                           <div class="row">
@@ -115,20 +116,23 @@
                           dataType:"json",
                           cache: false,
                           success: function (data) {
+                              $('.pusher').dimmer('hide');
                               if (data.error) {
-                                $('.pusher').dimmer('hide');
+                                
                               } else {
-                                $('.pusher').dimmer('hide');
+                                
                                 $('.tooltip.modal').modal('show');
                                  console.log(data)
                               }
                           },
                           error: function (e) {
+                              $('.pusher').dimmer('hide');
                               console.log(e)
                           }
                       });
                   },
                   attributeChanged: function(attrName, oldVal, newVal) {
+                      // $('.pusher').dimmer('show');
                       var that = this;
                       if (attrName == "userid") {
                           var reqUrl = "http://k12.iyunbei.com/api/staff/"+newVal;
@@ -138,7 +142,7 @@
                               dataType:"json",
                               cache: false,
                               success: function (data) {
-                                $('.pusher').dimmer('hide');
+                                  $('.pusher').dimmer('hide');
                                   if (data.error) {
 
                                   } else {
@@ -152,14 +156,13 @@
                               },
                               error: function (e) {
                                 $('.pusher').dimmer('hide');
-                                  console.log(e)
+                                console.log(e)
                               }
                           })
                       }
                   },
                   ready: function () {
-                      var that = this;
-                      console.log("person-info")
+
                   }
           });
   </script>

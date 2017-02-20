@@ -4,6 +4,9 @@
     .my-class {
         display: block;
     }
+    .common-class {
+      margin-top: 8px;
+    }
     .ui.divided.items.my-class > .item {
         padding: 1em 0!important;
     }
@@ -26,8 +29,8 @@
               <a class="ui basic button" type=8 on-click="clickHandler">体育</a>
               <a class="ui basic button" type=9 on-click="clickHandler">历史</a>
           </div> -->
-          <search-list-module label="学科" url="http://k12.iyunbei.com/api/subjects?page=1
-" className="subject"></search-list-module>
+          <search-list-module class="subject" label="学科" url="http://k12.iyunbei.com/api/subjects?page=1
+" className="subject" blankShow="true"></search-list-module>
       </div>
       <div class="item">
           <!-- <div class="middle aligned content grade">
@@ -37,16 +40,18 @@
               <a class="ui basic button" type=2 on-click="clickHandler">高二</a>
               <a class="ui basic button" type=3 on-click="clickHandler">高三</a>
           </div> -->
-          <search-list-module label="年级" url="http://k12.iyunbei.com/api/dynamicenum/1028
-" className="grade"></search-list-module>
+          <search-list-module class="grade" label="年级" url="http://k12.iyunbei.com/api/dynamicenum/1028
+" className="grade" blankShow="true"></search-list-module>
       </div>
       <div class="item">
           <div class="middle aligned content class">
-              分类：
-              <a class="ui basic button" type=1 on-click="clickHandler">试卷</a>
+              <!-- 分类： -->
+              <search-list-module class="class" label="分类" url="http://k12.iyunbei.com/api/resources/listAllResourceTypes}
+" className="class" ></search-list-module>
+              <!-- <a class="ui basic button" type=1 on-click="clickHandler">试卷</a>
               <a class="ui basic button" type=2 on-click="clickHandler">课件</a>
               <a class="ui basic button" type=3 on-click="clickHandler">视频</a>
-              <a class="ui basic button" type=4 on-click="clickHandler">资料</a>
+              <a class="ui basic button" type=4 on-click="clickHandler">资料</a> -->
           </div>
       </div>
       <div class="item">
@@ -69,9 +74,14 @@
             </div>
           </div>
         &nbsp;&nbsp;&nbsp;
-        时间：
+        开始时间：
         <div class="ui input">
-          <input type="date" id="time_input"/>
+          <input type="date" id="time_start_input"/>
+        </div>
+         &nbsp;&nbsp;&nbsp;
+         结束时间：
+         <div class="ui input">
+          <input type="date" id="time_end_input"/>
         </div>
          &nbsp;&nbsp;&nbsp;
        <button class="ui button" on-click="clickHandler"> <i class="icon search"></i>搜索</button>
@@ -99,7 +109,7 @@
                         dom.addClass('primary');                
                     }
 
-                    var url = "http://k12.iyunbei.com/api/resources/queryByCondition?userName="+$("#author_input").val()+"&subjectId="+$('.subject a.button.primary').attr('type')+"&gradeId="+$('.grade a.button.primary').attr('type')+"&resourceTypeSuffix="+$(".file_input [name='file_input']").val()+"&resourceTypeId="+$('.class a.button.primary').attr('type')+"&page=1&pageSize=20";
+                    var url = "http://k12.iyunbei.com/api/resources/queryByCondition?userName="+$("#author_input").val()+"&subjectId="+$('.subject a.button.primary').attr('type')+"&gradeId="+$('.grade a.button.primary').attr('type')+"&resourceTypeSuffix="+$(".file_input [name='file_input']").val()+"&resourceTypeId="+$('.class a.button.primary').attr('type')+"&startTime="+this._date($("#time_start_input").val())+"&endTime="+this._date($("#time_end_input").val())+"&page=1&pageSize=20";
                     
                     $('common-card').get(0).setAttribute("urlreq", url);
                 },
@@ -111,7 +121,15 @@
                     $(document).ready(function () {
                       $('.ui.dropdown').dropdown();
                     })
+                },
+                _date: function (e) {
+                  var resultData = ""
+                  if (e) {
+                    resultData = e + " 00:00:00";
+                  }
+                  return resultData
                 }
+
 
           });
   </script>

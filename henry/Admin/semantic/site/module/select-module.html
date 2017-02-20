@@ -2,7 +2,7 @@
 
   <template>
       <label>{{label}}</label>
-      <select class="ui selection dropdown">
+      <select class="ui selection dropdown" name$=[[name]]>
               <option value="" >{{label}}</option>
               <template is="dom-repeat" items="[[content]]">
                      <option value=[[item.id]]>[[item.name]][[item.typeName]][[item.value]]</option>
@@ -15,7 +15,8 @@
                   is : "select-module",
                   properties: {
                       label: String,
-                      url: String
+                      url: String,
+                      name: String
                   },
                   attributeChanged: function(attrName, oldVal, newVal) {
                     console.log(attrName)

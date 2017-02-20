@@ -203,7 +203,7 @@
                           if (reqdata.name == 'collections') {
                               that.btnCancel = false;
                               $.ajax({
-                                      url:reqdata.requrl+'1/'+page+'/'+pagesize,
+                                      url:reqdata.requrl+'0/'+page+'/'+pagesize,
                                       type: 'get',
                                       success: function (data) {
                                               if (data.error) {
@@ -244,7 +244,7 @@
                         }
                         if ($(e.target).parents('my-tab-common-list.collections').length > 0) {
                             $.ajax({
-                                url:"http://k12.iyunbei.com/api/resources/favorite/"+$('body').attr("userid")+'/'+(that.data.pageNumber+1)+'/'+pagesize,
+                                url:"http://k12.iyunbei.com/api/resources/favorite/0/'+(that.data.pageNumber+1)+'/'+pagesize,
                                 type: 'get',
                                 success: function (data) {
                                         if (data.error) {
@@ -284,7 +284,7 @@
                         }
                         if ($(e.target).parents('my-tab-common-list.collections').length > 0) {
                             $.ajax({
-                                url:"http://k12.iyunbei.com/api/resources/favorite/"+$('body').attr("userid")+'/'+(that.data.pageNumber-1)+'/'+2,
+                                url:"http://k12.iyunbei.com/api/resources/favorite/0/'+(that.data.pageNumber-1)+'/'+2,
                                 type: 'get',
                                 success: function (data) {
                                         if (data.error) {
@@ -302,14 +302,7 @@
                         
                   },
                   ready : function() {
-                    //   this.identity = this.attributes.identity.nodeValue;
-                        // this.cards = [
-                        //         {"id":"1","img":"../../img/card.png", "description":"40道选择题，80道应用题,  知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2","author":"张三","subject":"语文","grade":"高一"},
-                        //         {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
-                        //         {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
-                        //         {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
-                        //         {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"}
-                        // ]
+                    $('.pusher').dimmer('hide');
                   }
           });
   </script>

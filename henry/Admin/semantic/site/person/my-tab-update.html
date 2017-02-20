@@ -1,7 +1,7 @@
 <dom-module id="my-tab-update">
   <template >
           <content></content>
-          <form class="ui form">
+          <form id="resource-form-update" class="ui form ">
                   <div class="ui internally celled grid">
                           <div class="row">
                                   <div class="sixteen wide column">
@@ -19,7 +19,7 @@
                                                           </select>
 
                                                   </div> -->
-                                                  <select-module class="field select-resource-update" url="http://k12.iyunbei.com/api/resources/listAllResourceTypes}" label="资源类型"></select-module>
+                                                  <select-module class="field select-resource-update" url="http://k12.iyunbei.com/api/resources/listAllResourceTypes}" label="资源类型" name="resourceType"></select-module>
                                           </div>
                                           <div class="field row">
                                                   <!-- <div class="field">
@@ -32,7 +32,7 @@
                                                           </select>
                                                   </div> -->
 
-                                                  <select-module class="field select-subject-update" url="http://k12.iyunbei.com/api/subjects?page=1" label="学科"></select-module>
+                                                  <select-module class="field select-subject-update" url="http://k12.iyunbei.com/api/subjects?page=1" label="学科" name="subject"></select-module>
                                           </div>
                                           <div class="field row">
                                                   <div class="field">
@@ -43,13 +43,13 @@
                                                                   <option value="2">高二</option>
                                                                   <option value="3">高三</option>
                                                           </select> -->
-                                                          <select-module class="field select-resource-update" url="http://k12.iyunbei.com/api/dynamicenum/1028" label="年级"></select-module>
+                                                          <select-module class="field select-grade-update" url="http://k12.iyunbei.com/api/dynamicenum/1028" label="年级" name="grade"></select-module>
                                                   </div>
                                           </div>
 
                                           <div class="field row">
                                                   <label>描述</label>
-                                                  <textarea id="desc" name="desc"></textarea>
+                                                  <textarea name="desc"></textarea>
                                           </div>
                                           <div class="field row">
                                                   <div id="file-upload"></div>
@@ -68,43 +68,80 @@
           Polymer({
                   is : "my-tab-update",
                   handleSaveData: function (e) {
-                     // $('.Prompt.modal').modal('show')
-                     // return;
-                     $('.pusher').dimmer('show');
-                      var data = {};
-                      data.fileId = $("#uploadedWork").attr('fileId');
-                      data.resourceTypeId =$('.field.select-resource-update .selection.dropdown .item.active.selected').data('value');
-                      data.subjectId = $('.field.select-subject-update .selection.dropdown .item.active.selected').data('value');
-                      data.gradeId = $('.ui.grade.dropdown .item.active.selected').data('value');
-                      data.resourceName = $("#uploadedWork").val().substring( $("#uploadedWork").val().lastIndexOf('\\')+1 );
-                      data.desc = $('#desc').val();
-                      $.ajax({
-                          url:"http://k12.iyunbei.com/api/resources/resourceUpload",
-                          type: 'post',
-                          data: data,
-                          dataType:"json",
-                          cache: false,
-                          success: function (data) {
-                            $('.pusher').dimmer('hide');
-                              if (data.error) {
-                                
-                              } else {
-                                // $('.pusher').dimmer('hide');
-                                 console.log(data)
-                                 $('my-tab-common-list.resources').get(0).setAttribute("reqdata", JSON.stringify({name:"resources",id:$('my-tab-info').attr("userid"),requrl:'http://k12.iyunbei.com/api/resources/user/',count:Math.random()}));
-                                 $('.tooltip.modal').modal('show');
-
-                              }
-                          },
-                          error: function (e) {
-                            $('.pusher').dimmer('hide');
-                              console.log(e)
-                          }
+                     $('#resource-form-update.ui.form').submit(function(e){
+                          return false;
                       });
+                      $('#resource-form-update').form('validate form')
+                      
                   },
                   ready : function () {
                        console.log("person-update")
-                  }
+                       $(document).ready(function () {
+                          $('#resource-form-update').form({
+                            inline:true,
+                            on: 'blur',
+                            transition: 'fade up',
+                            fields: {
+                                resourceType: {
+                                    identifier: 'resourceType',
+                                    rules: [{
+                                        type: 'empty',
+                                        prompt: '请选择资源类型'
+                                    }]
+                                },
+                                grade: {
+                                    identifier: 'grade',
+                                    rules: [{
+                                        type: 'empty',
+                                        prompt: '请选择年级'
+                                    }]
+                                },
+                                subject: {
+                                    identifier: 'subject',
+                                    rules: [{
+                                        type: 'empty',
+                                        prompt: '请选择学科'
+                                    }]
+                                },
+                            },
+                            onSuccess: function() {
+                              
+                                $('.pusher').dimmer('show');
+                                var data = {};
+                                data.fileId = $("#uploadedWork").attr('fileId');
+                                data.resourceTypeId =$('.field.select-resource-update .selection.dropdown .item.active.selected').data('value');
+                                data.subjectId = $('.field.select-subject-update .selection.dropdown .item.active.selected').data('value');
+                                data.gradeId = $('.field.select-grade-update .selection.dropdown .item.active.selected').data('value');
+                                data.resourceName = $("#uploadedWork").val().substring( $("#uploadedWork").val().lastIndexOf('\\')+1 );
+                                data.desc = $('#desc').val();
+                                $.ajax({
+                                    url:"http://k12.iyunbei.com/api/resources/resourceUpload",
+                                    type: 'post',
+                                    data: data,
+                                    dataType:"json",
+                                    cache: false,
+                                    success: function (data) {
+                                      $('.pusher').dimmer('hide');
+                                        if (data.error) {
+                                          
+                                        } else {
+                                          // $('.pusher').dimmer('hide');
+                                           console.log(data)
+                                           $('my-tab-common-list.resources').get(0).setAttribute("reqdata", JSON.stringify({name:"resources",id:$('my-tab-info').attr("userid"),requrl:'http://k12.iyunbei.com/api/resources/user/',count:Math.random()}));
+                                           $('.tooltip.modal').modal('show');
+
+                                        }
+                                    },
+                                    error: function (e) {
+                                      $('.pusher').dimmer('hide');
+                                        console.log(e)
+                                    }
+                                });
+                            }
+                        })
+                  })
+                }
+                       
           });
   </script>
 </dom-module>

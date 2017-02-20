@@ -29,13 +29,13 @@
                     <a class="header">{{item.resourceName}}</a>
                     <div class="meta">
                       <span class="date">
-                        {{item.subjectName}}
+                        学科：{{item.subjectName}}&nbsp;
                         {{filterClass(item.resourceTypeId)}}
                         {{item.gradeName}}
                       </span>
                     </div>
                     <div class="description">
-                        {{item.staffName}} 
+                        上传人:{{item.staffName}} 
                     </div>
                   </div>
                   <div class="extra content">
@@ -67,7 +67,7 @@
                               cache: false,
                               success: function (data) {
                                   $('.pusher').dimmer('hide');
-                                  $('common-card.transition').transition('vertical flip');
+                                  
                                   if (data.error) {
 
                                   } else {

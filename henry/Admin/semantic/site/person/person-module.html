@@ -60,7 +60,10 @@
                                   }
                           },
                           error: function (e) {
-                                  console.log(e)
+                            
+                            location.href = "../login/login.html";
+                            // $('.pusher').dimmer('hide');
+                            console.log(e);
                           }
                   });
                   $('.ui.dropdown').dropdown();

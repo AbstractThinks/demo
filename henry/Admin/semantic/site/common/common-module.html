@@ -26,48 +26,15 @@
                     console.log("common-module created")
                  },
                 
-                getParamsUrl: function () {
-                    var url = location.search;
-                    var arr;
-                    var obj = {};
-                    if (url) {
-                        arr = url.split("?")[1].split("&");
-                        for(var i = 0; i < arr.length; i++) {
-                            obj[arr[i].split("=")[0]] = arr[i].split("=")[1];
-                        }
-                        return obj;
-                    } else {
-                        return '';
-                    }
-
-                },
+               
                 ready: function () {
 
-                        var obj = this.getParamsUrl();
-                        if (obj) {
-                            if (obj.resourceTypeId) {
-                                $("a.item.active").removeClass("active");
-                                $("a.item[type="+obj.resourceTypeId+"]").addClass("active");
-                                $(".class a.button[type="+obj.resourceTypeId+"]").addClass("primary");
-                            }
-
-                            if (obj.subjectId) {
-                                $(".subject a.button[type="+obj.subjectId+"]").addClass("primary");
-                            } else {
-                                $(".subject a.button[type=0]").addClass("primary");
-                            }
-
-                            $(".grade a.button[type=0]").addClass("primary");
-                            var urlreq = 'http://k12.iyunbei.com/api/resources/resource/'+obj.resourceTypeId+'/1/20';
-                            $('common-card').get(0).setAttribute("urlreq", urlreq);
-                            
-
-
-                        }
+                        
                         HTMLImports.whenReady(function () {
                             
                             // setTimeout(function () {
-                            //     $('.transition').transition('vertical flip');
+                                $('common-class.transition').transition('vertical flip');
+                                $('common-card.transition').transition('vertical flip');
                             // })
 
                         });

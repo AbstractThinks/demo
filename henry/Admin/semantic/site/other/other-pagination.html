@@ -1,5 +1,9 @@
 <dom-module id="other-pagination">
     <style media="screen">
+    .other-tab-common {
+          display: block;
+    text-align: center;
+    }
     my-pagination.my-pagination {
         display: block;
         text-align: center;
@@ -23,10 +27,10 @@
           Polymer({
                   is : "other-pagination",
                   handleNextPage: function () {
-
+                      $('my-card').get(0).setAttribute("urlreq", "http://k12.iyunbei.com/api/resources/queryByCondition?page=1&pageSize=5&resourceTypeId=1");
                   },
                   handlePrevPage: function () {
-
+                     $('my-card').get(0).setAttribute("urlreq", "http://k12.iyunbei.com/api/resources/queryByCondition?page=1&pageSize=5&resourceTypeId=1");
                   },
                   ready: function () {
 

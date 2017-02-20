@@ -22,7 +22,15 @@
         <link rel="import" href="./examine-pagination.html" media="screen" title="no title">
         <link rel="import" href="../module/footer-module.html" media="screen" title="no title">
     </head>
+    <style type="text/css">
+        .ui.inverted.dimmer {
+            background-color: rgba(0,0,0,0.8);
+        }
+    </style>
     <body is="my-body" class="pushable">
+        <div class="ui inverted dimmer page transition">
+            <div class="ui text large loader">Loading</div>
+        </div>
         <div class="pusher">
             <header-module class="ui secondary pointing menu header-module" style="padding-right: 24px;"></header-module>
             <div class="ui container">

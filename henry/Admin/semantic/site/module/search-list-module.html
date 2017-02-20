@@ -1,16 +1,20 @@
 <dom-module id="search-list-module">
 
-  <template>
-                   
+  <template>     
               <div class$="middle aligned content [[classname]]">
                 {{label}}:
-                <a class="ui basic button" type=0 on-click="clickHandler">全部</a>
+                <template is="dom-if" if="[[blankshow]]">
+                  <a class="ui basic button " type=0 on-click="clickHandler">全部</a>
+                </template>
                 <template is="dom-repeat" items="[[content]]">
-                  <a class="ui basic button" type=[[item.id]] on-click="clickHandler">[[item.value]][[item.name]]</a>
+
+                    <a class="ui basic button" type=[[item.id]] on-click="clickHandler">[[item.value]][[item.name]][[item.typeName]]</a>
+
                 </template>
             </div>
       
   </template>
+
 
   <script type="text/javascript">
           Polymer({
@@ -18,7 +22,8 @@
                   properties: {
                       label: String,
                       url: String,
-                      classname: String 
+                      classname: String,
+                      blankshow: Boolean
                   },
                   attributeChanged: function(attrName, oldVal, newVal) {
                     console.log(attrName)
@@ -38,14 +43,35 @@
                           $('.grade a.button').removeClass('primary');
                           dom.addClass('primary');
                       }
-                      // if (dom.parent().hasClass('class')) {
-                      //     $('.class a.button').removeClass('primary');
-                      //     dom.addClass('primary');                
-                      // }
+                      if (dom.parent().hasClass('class')) {
+                          $('.class a.button').removeClass('primary');
+                          dom.addClass('primary');                
+                      }
 
                       var url = "http://k12.iyunbei.com/api/resources/queryByCondition?userName="+$("#author_input").val()+"&subjectId="+$('.subject a.button.primary').attr('type')+"&gradeId="+$('.grade a.button.primary').attr('type')+"&resourceTypeSuffix="+$(".file_input [name='file_input']").val()+"&resourceTypeId="+$('.class a.button.primary').attr('type')+"&page=1&pageSize=20";
                       
                       $('common-card').get(0).setAttribute("urlreq", url);
+                  },
+                  getParamsUrl: function () {
+                      var url = location.search;
+                      var arr;
+                      var obj = {};
+                      if (url) {
+                          arr = url.split("?")[1].split("&");
+                          for(var i = 0; i < arr.length; i++) {
+                              obj[arr[i].split("=")[0]] = arr[i].split("=")[1];
+                          }
+                          return obj;
+                      } else {
+                          return '';
+                      }
+
+                  },
+                  _hide: function (e) {
+                    if (e == '101') {
+                      return false
+                    }
+                    return true
                   },
                   ready: function () {
                       var that = this;
@@ -59,6 +85,22 @@
                                     if (data.values && data.values.length > 0) {
                                       that.content = data.values
                                       console.log(data.values)
+                                      var obj = that.getParamsUrl();
+                                      if (obj) {
+ 
+                                          $(".class a.button[type="+obj.resourceTypeId+"]").addClass("primary");
+                                          $(".grade a.button[type=0]").addClass("primary");
+                                          if (obj.subjectId) {
+                                              $(".subject a.button[type="+obj.subjectId+"]").addClass("primary");
+                                          } else {
+                                              $(".subject a.button[type=0]").addClass("primary");
+                                          }
+                                          var urlreq = 'http://k12.iyunbei.com/api/resources/resource/'+obj.resourceTypeId+'/1/20';
+                                          $('common-card').get(0).setAttribute("urlreq", urlreq);
+                                          
+
+
+                                      }
                                     } else {
                                       that.content = data;
                                     }
