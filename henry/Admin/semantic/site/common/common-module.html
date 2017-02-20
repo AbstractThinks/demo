@@ -29,15 +29,11 @@
                
                 ready: function () {
 
-                        
-                        HTMLImports.whenReady(function () {
-                            
-                            // setTimeout(function () {
-                                $('common-class.transition').transition('vertical flip');
-                                $('common-card.transition').transition('vertical flip');
-                            // })
-
+                        $(document).ready(function () {
+                          $('common-class.transition').transition('vertical flip');
+                          $('common-card.transition').transition('vertical flip');
                         });
+                        
 
                 }
           });

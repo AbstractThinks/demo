@@ -16,44 +16,25 @@
 </style>
   <template >
       <div class="item">
-          <!-- <div class="middle aligned content subject">
-              学科：
-              <a class="ui basic button primary" type=0 on-click="clickHandler">全部</a>
-              <a class="ui basic button" type=1 on-click="clickHandler">语文</a>
-              <a class="ui basic button" type=2 on-click="clickHandler">数学</a>
-              <a class="ui basic button" type=3 on-click="clickHandler">英语</a>
-              <a class="ui basic button" type=4 on-click="clickHandler">物理</a>
-              <a class="ui basic button" type=5 on-click="clickHandler">化学</a>
-              <a class="ui basic button" type=6 on-click="clickHandler">政治</a>
-              <a class="ui basic button" type=7 on-click="clickHandler">生物</a>
-              <a class="ui basic button" type=8 on-click="clickHandler">体育</a>
-              <a class="ui basic button" type=9 on-click="clickHandler">历史</a>
-          </div> -->
           <search-list-module class="subject" label="学科" url="http://k12.iyunbei.com/api/subjects?page=1
 " className="subject" blankShow="true"></search-list-module>
       </div>
       <div class="item">
-          <!-- <div class="middle aligned content grade">
-              年级：
-              <a class="ui basic button primary" type=0 on-click="clickHandler">全部</a>
-              <a class="ui basic button" type=1 on-click="clickHandler">高一</a>
-              <a class="ui basic button" type=2 on-click="clickHandler">高二</a>
-              <a class="ui basic button" type=3 on-click="clickHandler">高三</a>
-          </div> -->
           <search-list-module class="grade" label="年级" url="http://k12.iyunbei.com/api/dynamicenum/1028
 " className="grade" blankShow="true"></search-list-module>
       </div>
       <div class="item">
           <div class="middle aligned content class">
-              <!-- 分类： -->
-              <search-list-module class="class" label="分类" url="http://k12.iyunbei.com/api/resources/listAllResourceTypes}
+              <search-list-module class="class" label="资料分类" url="http://k12.iyunbei.com/api/resources/listAllResourceTypes}
 " className="class" ></search-list-module>
-              <!-- <a class="ui basic button" type=1 on-click="clickHandler">试卷</a>
-              <a class="ui basic button" type=2 on-click="clickHandler">课件</a>
-              <a class="ui basic button" type=3 on-click="clickHandler">视频</a>
-              <a class="ui basic button" type=4 on-click="clickHandler">资料</a> -->
           </div>
       </div>
+      <!-- <div class="item">
+          <div class="middle aligned content class">
+              <search-list-module class="class" label="文件分类" url="http://k12.iyunbei.com/api/resources/listAllResourceTypes}
+" className="class" ></search-list-module>
+          </div>
+      </div> -->
       <div class="item">
         作者：
         <div class="ui input">
