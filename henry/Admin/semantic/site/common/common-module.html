@@ -1,41 +1,39 @@
 <dom-module id="common-module">
-<style media="screen">
-    block: {
+    <style media="screen">
+    .block: {
         display: block;
     }
+    
     common-pagination {
         display: block;
         text-align: center;
         margin: 5em 0;
     }
+    
     common-card {
-        margin-top:48px;
+        margin-top: 48px;
         min-height: 400px;
-    } 
-</style>
-  <template>
-      <common-class class="common-class transition hidden"></common-class>
-      <common-card class="ui doubling five column grid row my-card transition hidden" ></common-card>
-      <common-pagination></common-pagination>
-  </template>
-  <script type="text/javascript">
-          Polymer({
-                is : "common-module",
-                 created: function () {
-                    
-                    console.log("common-module created")
-                 },
-                
-               
-                ready: function () {
+    }
+    </style>
+    <template>
+        <common-class class="common-class transition hidden"></common-class>
+        <common-card class="ui doubling five column grid row my-card transition hidden"></common-card>
+        <common-pagination></common-pagination>
+    </template>
+    <script type="text/javascript">
+    Polymer({
+        is: "common-module",
+        created: function() {
+        },
+        ready: function() {
 
-                        $(document).ready(function () {
-                          $('common-class.transition').transition('vertical flip');
-                          $('common-card.transition').transition('vertical flip');
-                        });
-                        
+            $(document).ready(function() {
+                $('common-class.transition').transition('vertical flip');
+                $('common-card.transition').transition('vertical flip');
+            });
 
-                }
-          });
-  </script>
+
+        }
+    });
+    </script>
 </dom-module>

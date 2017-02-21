@@ -1,40 +1,60 @@
 <dom-module id="other-pagination">
     <style media="screen">
     .other-tab-common {
-          display: block;
-    text-align: center;
+        display: block;
+        text-align: center;
     }
+    
     my-pagination.my-pagination {
         display: block;
         text-align: center;
         margin: 5em 0;
     }
     </style>
-  <template>
-      <div class="ui pagination menu" style="margin-top:24px;">
-            <a class="item" on-click="handlePrevPage">
-              <i class="angle left icon"></i>
-            </a>
+    <template>
+        <div class="ui pagination menu" style="margin-top:24px;">
+            <template is="dom-if" if="[[!data.hasPrevious]]">
+                <a class="item disabled">
+                    <i class="angle left icon"></i>
+                </a>
+            </template>
+            <template is="dom-if" if="[[data.hasPrevious]]">
+                <a class="item" on-click="handlePrevPage">
+                    <i class="angle left icon"></i>
+                </a>
+            </template>
             <a class="item">
-              1
+              {{data.pageNumber}}
             </a>
-            <a class="item" on-click="handleNextPage">
-              <i class="angle right icon"></i>
-            </a>
-      </div>
-  </template>
-  <script type="text/javascript">
-          Polymer({
-                  is : "other-pagination",
-                  handleNextPage: function () {
-                      $('my-card').get(0).setAttribute("urlreq", "http://k12.iyunbei.com/api/resources/queryByCondition?page=1&pageSize=5&resourceTypeId=1");
-                  },
-                  handlePrevPage: function () {
-                     $('my-card').get(0).setAttribute("urlreq", "http://k12.iyunbei.com/api/resources/queryByCondition?page=1&pageSize=5&resourceTypeId=1");
-                  },
-                  ready: function () {
-
-                  }
-          });
-  </script>
+            <template is="dom-if" if="[[data.hasNext]]">
+                <a class="item" on-click="handleNextPage">
+                    <i class="angle right icon"></i>
+                </a>
+            </template>
+            <template is="dom-if" if="[[!data.hasNext]]">
+                <a class="item disabled">
+                    <i class="angle right icon"></i>
+                </a>
+            </template>
+        </div>
+    </template>
+    <script type="text/javascript">
+    Polymer({
+        is: "other-pagination",
+        attributeChanged: function(attrName, oldVal, newVal) {
+            this.data = JSON.parse(newVal)
+        },
+        handleNextPage: function() {
+            var url = 'http://k12.iyunbei.com/api/resources/user/' + $("other-pagination").attr("otherid")+ '/'+(this.data.pageNumber + 1)+'/20';
+            $('other-tab-common my-card').get(0).setAttribute('urlreq', url);
+        },
+        handlePrevPage: function() {
+             var url = 'http://k12.iyunbei.com/api/resources/user/' + $("other-pagination").attr("otherid")+ '/'+(this.data.pageNumber - 1)+'/20';
+            $('other-tab-common my-card').get(0).setAttribute('urlreq', url);
+        },
+        ready: function() {
+            
+        }
+    });
+    </script>
 </dom-module>

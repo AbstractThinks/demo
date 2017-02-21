@@ -1,58 +1,54 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        <link rel="stylesheet" href="../../dist/semantic.css">
-        <link rel="stylesheet" href="../../css/calendar.min.css" media="screen" title="no title">
-        <script src="../../js/vendor/jquery.min.js" charset="utf-8"></script>
-        <script src="../../dist/semantic.min.js"></script>
-        <script src="../../bower_components/webcomponentsjs/webcomponents.min.js" charset="utf-8"></script>
-        <link rel="import" href="../../bower_components/polymer/polymer.html" media="screen" title="no title">
-        <link rel="import" href="../module/body-module.html">
-        <link rel="import" href="../module/select-module.html" media="screen" title="no title">
-        <link rel="import" href="./my-tab-info.html" media="screen" title="no title">
-        <link rel="import" href="./my-tab-common-list.html" media="screen" title="no title">
-        <link rel="import" href="./my-tab-update.html" media="screen" title="no title">
-        <link rel="import" href="./person-module.html" media="screen" title="no title">
-        <script src="../../js/vendor/calendar.js" charset="utf-8"></script>
-        <script src="../../js/vendor/uploader.js" charset="utf-8"></script>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="../../dist/semantic.css">
+    <link rel="stylesheet" href="../../css/calendar.min.css" media="screen" title="no title">
+    <script src="../../js/vendor/jquery.min.js" charset="utf-8"></script>
+    <script src="../../dist/semantic.min.js"></script>
+    <script src="../../bower_components/webcomponentsjs/webcomponents.min.js" charset="utf-8"></script>
+    <link rel="import" href="../../bower_components/polymer/polymer.html" media="screen" title="no title">
+    <link rel="import" href="../module/body-module.html">
+    <link rel="import" href="../module/select-module.html" media="screen" title="no title">
+    <link rel="import" href="./my-tab-info.html" media="screen" title="no title">
+    <link rel="import" href="./my-tab-common-list.html" media="screen" title="no title">
+    <link rel="import" href="./my-tab-update.html" media="screen" title="no title">
+    <link rel="import" href="./person-module.html" media="screen" title="no title">
+    <script src="../../js/vendor/calendar.js" charset="utf-8"></script>
+    <script src="../../js/vendor/uploader.js" charset="utf-8"></script>
+</head>
+<style type="text/css">
+.ui.inverted.dimmer.loading-dimmer {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+</style>
 
-    </head>
-    <style type="text/css">
-        .ui.inverted.dimmer.loading-dimmer {
-            background-color: rgba(0,0,0,0.8);
-        }
-    </style>
-    <body is="my-body" class="pushable">
-        <div class="pusher">
-            <div class="ui inverted dimmer loading-dimmer page ">
-                <div class="ui text large loader">Loading</div>
-            </div>
-            <div class="ui container" style="margin-top:24px;">
-                <a class="ui teal tag label" href="../index/index.html">网站首页</a>
-                <a class="ui teal tag label">我的个人中心</a>
-            </div>
-            <person-module class="ui container" style="margin-top:24px;"></person-module>
-            <div class="ui basic modal tooltip">
-              <div class="ui icon header">
-                保存成功
-              </div>
-             
-              <div class="actions">
-                <div class="ui green ok inverted button">
-                  <i class="checkmark icon"></i>
-                  确定
-                </div>
-              </div>
-              
+<body is="my-body" class="pushable">
+    <div class="pusher">
+        <div class="ui inverted dimmer loading-dimmer page ">
+            <div class="ui text large loader">Loading</div>
         </div>
-        
-    </body>
+        <div class="ui container" style="margin-top:24px;">
+            <a class="ui teal tag label" href="../index/index.html">网站首页</a>
+            <a class="ui teal tag label">我的个人中心</a>
+        </div>
+        <person-module class="ui container" style="margin-top:24px;"></person-module>
+        <div class="ui basic modal tooltip">
+            <div class="ui icon header">
+                保存成功
+            </div>
+            <div class="actions">
+                <div class="ui green ok inverted button">
+                    <i class="checkmark icon"></i> 确定
+                </div>
+            </div>
+        </div>
+</body>
 
 </html>

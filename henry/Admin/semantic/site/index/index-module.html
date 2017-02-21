@@ -1,82 +1,66 @@
 <dom-module id="index-module">
-<style media="screen">
+    <style media="screen">
 
-</style>
-  <template >
-      <header-module class="ui secondary pointing menu header-module" style="padding-right: 24px;"></header-module>
-      <div is="my-carousel" id="my-carousel" class="owl-carousel owl-theme " ></div>
-
-      <div class="ui container " >
-
-          <h4 class="ui horizontal divider header-divider" style="margin-top:64px;">
+    </style>
+    <template>
+        <header-module class="ui secondary pointing menu header-module" style="padding-right: 24px;"></header-module>
+        <div is="my-carousel" id="my-carousel" class="owl-carousel owl-theme "></div>
+        <div class="ui container ">
+            <h4 class="ui horizontal divider header-divider" style="margin-top:64px;">
               <i class="tag icon"></i>
               教学试卷
           </h4>
-          <div class="ui container transition hidden left-show" style="margin-top:64px;">
-              <my-card class="ui doubling five column grid row my-card examination" pagesize="5" page="1" resourcetypeid="1"></my-card>
-          </div>
-          <h4 class="ui horizontal divider header-divider" style="margin-top:64px;">
+            <div class="ui container transition hidden left-show" style="margin-top:64px;">
+                <my-card class="ui doubling five column grid row my-card examination" pagesize="5" page="1" resourcetypeid="1"></my-card>
+            </div>
+            <h4 class="ui horizontal divider header-divider" style="margin-top:64px;">
               <i class="tag icon"></i>
               教学课件
           </h4>
-          <div class="ui container transition hidden right-show" style="margin-top:64px;">
-              <my-card class="ui doubling five column grid row my-card courseware" pagesize="5" page="1" resourcetypeid="2"></my-card>
-          </div>
-          <h4 class="ui horizontal divider header-divider" style="margin-top:64px;">
+            <div class="ui container transition hidden right-show" style="margin-top:64px;">
+                <my-card class="ui doubling five column grid row my-card courseware" pagesize="5" page="1" resourcetypeid="2"></my-card>
+            </div>
+            <h4 class="ui horizontal divider header-divider" style="margin-top:64px;">
               <i class="tag icon"></i>
               教学视频
           </h4>
-          <div class="ui container transition hidden left-show" style="margin-top:64px;">
-              <my-card class="ui doubling five column grid row my-card vedio" pagesize="5" page="1" resourcetypeid="3"></my-card>
-          </div>
-          <h4 class="ui horizontal divider header-divider" style="margin-top:64px;">
+            <div class="ui container transition hidden left-show" style="margin-top:64px;">
+                <my-card class="ui doubling five column grid row my-card vedio" pagesize="5" page="1" resourcetypeid="3"></my-card>
+            </div>
+            <h4 class="ui horizontal divider header-divider" style="margin-top:64px;">
               <i class="tag icon"></i>
               教学资料
           </h4>
-          <div class="ui container transition hidden right-show" style="margin-top:64px;">
-              <my-card class="ui doubling five column grid row my-card information" pagesize="5" page="1" resourcetypeid="4"></my-card>
-          </div>
-      </div>
-  </template>
-  <script type="text/javascript">
-          Polymer({
-                is : "index-module",
-                created: function () {
+            <div class="ui container transition hidden right-show" style="margin-top:64px;">
+                <my-card class="ui doubling five column grid row my-card information" pagesize="5" page="1" resourcetypeid="4"></my-card>
+            </div>
+        </div>
+    </template>
+    <script type="text/javascript">
+    Polymer({
+        is: "index-module",
+        created: function() {
+            $(".pusher").dimmer("show");
+        },
+        ready: function() {
+            $(document).ready(function() {
+                $("#my-carousel-container>div:last").remove()
+                $("#my-carousel-container").owlCarousel({
+                    nav: true,
+                    loop: true,
+                    items: 1,
+                    autoplay: true,
+                    navText: ['<i class="chevron circle left icon"></i>', '<i class="chevron circle right icon"></i>']
+                });
+                $('.container>.container.left-show').transition('fade left');
+                $('.container>.container.right-show').transition('fade right');
+            });
+            $('my-card.examination').get(0).setAttribute("urlreq", "http://k12.iyunbei.com/api/resources/queryByCondition?page=1&pageSize=5&resourceTypeId=1");
+            $('my-card.courseware').get(0).setAttribute("urlreq", "http://k12.iyunbei.com/api/resources/queryByCondition?page=1&pageSize=5&resourceTypeId=2");
+            $('my-card.vedio').get(0).setAttribute("urlreq", "http://k12.iyunbei.com/api/resources/queryByCondition?page=1&pageSize=5&resourceTypeId=3");
+            $('my-card.information').get(0).setAttribute("urlreq", "http://k12.iyunbei.com/api/resources/queryByCondition?page=1&pageSize=5&resourceTypeId=4");
 
-                },
-                getParamsUrl: function () {
-
-
-                },
-                ready: function () {
-                    
-                    $(document).ready(function () {
-                      $("#my-carousel-container>div:last").remove()
-                      $("#my-carousel-container").owlCarousel({
-                         nav:true,
-                         loop:true,
-                         items:1,
-                         autoplay:true,
-                         navText:['<i class="chevron circle left icon"></i>','<i class="chevron circle right icon"></i>']
-
-                      });
-                        // setTimeout(function () {
-                        //     $("#my-carousel-container").transition('fade down');
-                        // }, 500)
-                        setTimeout(function () {
-                            $('.container>.container.left-show').transition('fade left');
-                            $('.container>.container.right-show').transition('fade right');
-                        }, 700)
-
-                        // $("#my-carousel").transition('fade down');
-                    });
-                    //$('#my-carousel').transition('fade down');
-                    $('my-card.examination').get(0).setAttribute("urlreq", "http://k12.iyunbei.com/api/resources/queryByCondition?page=1&pageSize=5&resourceTypeId=1");
-                    $('my-card.courseware').get(0).setAttribute("urlreq", "http://k12.iyunbei.com/api/resources/queryByCondition?page=1&pageSize=5&resourceTypeId=2");
-                    $('my-card.vedio').get(0).setAttribute("urlreq", "http://k12.iyunbei.com/api/resources/queryByCondition?page=1&pageSize=5&resourceTypeId=3");
-                    $('my-card.information').get(0).setAttribute("urlreq", "http://k12.iyunbei.com/api/resources/queryByCondition?page=1&pageSize=5&resourceTypeId=4");
-
-                }
-          });
-  </script>
+        }
+    });
+    </script>
 </dom-module>

@@ -1,119 +1,122 @@
 <dom-module id="person-module">
-  <template >
-      <div class="ui grid transition hidden ">
-          <div class="four wide column">
-              <div class="ui vertical fluid attached  tabular menu my-tab">
-                  <a class="active item" data-tab="info">
+    <template>
+        <div class="ui grid transition hidden ">
+            <div class="four wide column">
+                <div class="ui vertical fluid attached  tabular menu my-tab">
+                    <a class="active item" data-tab="info">
                   个人信息
                   </a>
-                  <a class="item" data-tab="resources">
+                    <a class="item" data-tab="resources">
                   我的资源
                   </a>
-                  <a class="item" data-tab="collections">
+                    <a class="item" data-tab="collections">
                   我的搜藏
                   </a>
-                  <a class="item" data-tab="update">
+                    <a class="item" data-tab="update">
                   上传文件
                   </a>
-              </div>
-          </div>
-          <div class="twelve wide stretched column">
-              <my-tab-info class="ui attached active tab segment my-tab-info" data-tab="info">
-                  <a class="ui teal right ribbon label">我的信息</a>
-              </my-tab-info>
-              <my-tab-common-list class="ui attached tab segment resources" identity="resources" data-tab="resources" page="1" pagesize="10">
-                  <a class="ui teal right ribbon label">我的资源</a>
-              </my-tab-common-list>
-              <my-tab-common-list class="ui attached tab segment collections" identity="collections" data-tab="collections" page="1" pagesize="10">
-                  <a class="ui teal right ribbon label">我的收藏</a>
-              </my-tab-common-list>
-              <my-tab-update class="ui attached tab segment" data-tab="update">
-                  <a class="ui teal right ribbon label">上传文件</a>
-              </my-tab-update>
-          </div>
-      </div>
-  </template>
-  <script type="text/javascript">
-      Polymer({
-              is : "person-module",
-              created: function () {
-                    $('.pusher').dimmer('show');
-                    console.log("common-module created")
-              },
-              attributeChanged : function (attrName, oldVal, newVal) {
+                </div>
+            </div>
+            <div class="twelve wide stretched column">
+                <my-tab-info class="ui attached active tab segment my-tab-info" data-tab="info">
+                    <a class="ui teal right ribbon label">我的信息</a>
+                </my-tab-info>
+                <my-tab-common-list class="ui attached tab segment resources" identity="resources" data-tab="resources" page="1" pagesize="10">
+                    <a class="ui teal right ribbon label">我的资源</a>
+                </my-tab-common-list>
+                <my-tab-common-list class="ui attached tab segment collections" identity="collections" data-tab="collections" page="1" pagesize="10">
+                    <a class="ui teal right ribbon label">我的收藏</a>
+                </my-tab-common-list>
+                <my-tab-update class="ui attached tab segment" data-tab="update">
+                    <a class="ui teal right ribbon label">上传文件</a>
+                </my-tab-update>
+            </div>
+        </div>
+    </template>
+    <script type="text/javascript">
+    Polymer({
+        is: "person-module",
+        created: function() {
+            $('.pusher').dimmer('show');
+            console.log("common-module created")
+        },
+        attributeChanged: function(attrName, oldVal, newVal) {
 
-              },
-              ready : function () {
-                  console.log("person-module")
-                  $.ajax({
-                          url:'http://k12.iyunbei.com/api/profile',
-                          type: 'get',
-                          success: function (data) {
-                                  if (data.error) {
+        },
+        ready: function() {
+          $(document).ready(function () {
 
-                                  } else {
-                                      $('my-tab-info').get(0).setAttribute("userid", data.id);
-                                      $('my-tab-common-list.resources').get(0).setAttribute("reqdata", JSON.stringify({name:"resources",id:data.id,requrl:'http://k12.iyunbei.com/api/resources/user/'}));
-                                      $('my-tab-common-list.collections').get(0).setAttribute("reqdata", JSON.stringify({name:"collections",id:data.id,requrl:'http://k12.iyunbei.com/api/resources/favorite/'}));
-                                      $('my-tab-update').get(0).setAttribute("userid", data.id);
-                                      $('body').attr("id", data.id);
-                                  }
-                          },
-                          error: function (e) {
-                            
-                            location.href = "../login/login.html";
-                            // $('.pusher').dimmer('hide');
-                            console.log(e);
-                          }
-                  });
-                  $('.ui.dropdown').dropdown();
-                  $('.menu.my-tab .item').tab({
-                          transition:"fade"
-                  });
-                  $('#dateField').calendar({ type: 'date' });
-                  var fileUpload = $("#file-upload").semanticFileUploader({
-                     defaultText: "上传文件",
-                     defaultLabel: "点击选择文件或者将文件拖入此区域",
-                     loadingText: "上传文件中...",
-                     successText: "上传成功",
-                     onDrop: function(file){
-                             //File object => https://developer.mozilla.org/en-US/docs/Web/API/File
-                             // console.log(file.name);
-                             
-                             var formData = new FormData($('#uploadForm')[0]);
-                             var name = $("input").val();
-                             formData.append("file",file);
-                             formData.append("name",name);
-                             $.ajax({
-                                 url : 'http://k12.iyunbei.com/api/resources/fileUpload',
-                                 type : 'post',
-                                 data : formData,
-                                 async: true,
-                                 cache: false,
-                                 // 告诉jQuery不要去处理发送的数据
-                                 processData : false,
-                                 // 告诉jQuery不要去设置Content-Type请求头
-                                 contentType : false,
-                                 beforeSend:function(){
-                                     console.log("正在进行，请稍候");
-                                 },
-                                 success : function(responseStr) {
-                                     fileUpload.uploadFinished($("#file-upload"));
-                                     $("#uploadedWork").attr('fileId', responseStr);
-                                 },
-                                 error : function(responseStr) {
-                                     console.log("error "+responseStr);
-                                 }
-                             });
-                             // $('#uploadForm').submit();
+            $.ajax({
+                url: 'http://k12.iyunbei.com/api/profile',
+                type: 'get',
+                success: function(data) {
+                    if (data.error) {
 
-                     }
-                 });
-                 HTMLImports.whenReady(function () {
-                    $('.person-module.transition').transition('fly up')
+                    } else {
+                        console.log(data)
+                        $('my-tab-info').get(0).setAttribute("userid", data.id);
+                        $('my-tab-common-list.resources').get(0).setAttribute("reqdata", JSON.stringify({
+                            name: "resources",
+                            id: data.id,
+                            requrl: 'http://k12.iyunbei.com/api/resources/user/'
+                        }));
+                        $('my-tab-common-list.collections').get(0).setAttribute("reqdata", JSON.stringify({
+                            name: "collections",
+                            id: data.id,
+                            requrl: 'http://k12.iyunbei.com/api/resources/favorite/'
+                        }));
+                        $('my-tab-update').get(0).setAttribute("userid", data.id);
+                        $('body').attr("id", data.id);
+                    }
+                },
+                error: function(e) {
+                    location.href = "../login/login.html";
+                }
+            });
+            $('.ui.dropdown').dropdown();
+            $('.menu.my-tab .item').tab({
+                transition: "fade"
+            });
+            $('#dateField').calendar({
+                type: 'date'
+            });
+            var fileUpload = $("#file-upload").semanticFileUploader({
+                defaultText: "上传文件",
+                defaultLabel: "点击选择文件或者将文件拖入此区域",
+                loadingText: "上传文件中...",
+                successText: "上传成功",
+                onDrop: function(file) {
+                    var formData = new FormData($('#uploadForm')[0]);
+                    var name = $("input").val();
+                    formData.append("file", file);
+                    formData.append("name", name);
+                    $.ajax({
+                        url: 'http://k12.iyunbei.com/api/resources/fileUpload',
+                        type: 'post',
+                        data: formData,
+                        async: true,
+                        cache: false,
+                        processData: false,
+                        contentType: false,
+                        beforeSend: function() {
+                            console.log("正在进行，请稍候");
+                        },
+                        success: function(responseStr) {
+                            fileUpload.uploadFinished($("#file-upload"));
+                            $("#uploadedWork").attr('fileId', responseStr);
+                        },
+                        error: function(responseStr) {
+                            console.log("error " + responseStr);
+                        }
+                    });
 
-                 })
-              }
-      });
-  </script>
+                }
+            });
+            $('.person-module.transition').transition('fly up')
+            
+          });
+
+        }
+    });
+    </script>
 </dom-module>

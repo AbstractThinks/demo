@@ -1,272 +1,227 @@
 <dom-module id="detailed-info">
-  <style type="text/css">
-    
-
-  </style>
-  <template>
-          <div class="ui column divided grid ">
-                  <div class="row">
-                          <div class="twelve wide column transition hidden">
-                                <div class="row">
-                                    <detailed-pdf></detailed-pdf>
-                                </div>
-                                  <div class="row" style="margin-top:24px;">
-                                          <button class="ui basic button large fluid mt24" on-click="handleDownload">
-                                                  <i class="icon download"></i>
-                                                  下载
-                                          </button>
-                                  </div>
-                                  <div class="row">
-                                          <my-comments class="ui comments my-comments"></my-comments>
-                                  </div>
-                          </div>
-                          <div class="four wide column transition hidden">
-                                  <div class="ui card" style="margin-top:24px;">
-                                          <div class="content">
-                                                  <i class="right floated star icon"></i>
-
-                                                  <div class="header">文件标题&nbsp;[[author.resourceName]]</div>
-                                                  <div class="description">
-                                                          <p>学科：&nbsp;[[author.subjectName]]</p>
-                                                          <p>年级：&nbsp;[[author.gradeName]]</p>
-                                                          <p>作者：&nbsp;<a href="../other/other.html?[[author.staffId]]">[[author.staffName]]</a></p>
-                                                          <p>时间：&nbsp;[[filterDate(author.createdTime)]]</p>
-                                                  </div>
-                                          </div>
-                                          <div class="extra content">
-                                                  <span class="right floated star">
+    <style type="text/css">
+        .ui.button.large.fluid.mt24 {
+            margin-top: 8px;
+        }
+    </style>
+    <template>
+        <div class="ui column divided grid ">
+            <div class="row">
+                <div class="twelve wide column transition hidden">
+                    <div class="row">
+                        <detailed-pdf></detailed-pdf>
+                    </div>
+                    <div class="row" style="margin-top:24px;">
+                        <button class="ui basic button large fluid mt24" on-click="handleDownload">
+                            <i class="icon download"></i> 下载
+                        </button>
+                    </div>
+                    <div class="row">
+                        <my-comments class="ui comments my-comments"></my-comments>
+                    </div>
+                </div>
+                <div class="four wide column transition hidden">
+                    <div class="ui card" style="margin-top:24px;">
+                        <div class="content">
+                            <i class="right floated star icon"></i>
+                            <div class="header">文件标题&nbsp;[[author.resourceName]]</div>
+                            <div class="description">
+                                <p>学科：&nbsp;[[author.subjectName]]</p>
+                                <p>年级：&nbsp;[[author.gradeName]]</p>
+                                <p>作者：&nbsp;<a href="../other/other.html?[[author.staffId]]">[[author.staffName]]</a></p>
+                                <p>时间：&nbsp;[[filterDate(author.createdTime)]]</p>
+                            </div>
+                        </div>
+                        <div class="extra content">
+                            <span class="right floated star">
                                                   <i class="star icon" on-click="handleCollections"></i>
                                                   搜藏文章
                                                   </span>
-                                          </div>
-                                  </div>
-                                  <button class="ui basic button large fluid mt24" on-click="examinePass">
-                                          <i class="icon download"></i>
-                                          审核通过
-                                  </button>
-                                  <button class="ui basic button large fluid mt24" on-click="examineFailed">
-                                          <i class="icon download"></i>
-                                          审核不通过
-                                  </button>
-                                  <!-- <button class="ui basic button large fluid">
-                                  <i class="icon download"></i>
-                                  下载
-                                  </button> -->
-                          </div>
-                  </div>
-          </div>
-  </template>
-  <script type="text/javascript">
-          Polymer({
-                  is : "detailed-info",
-                  examinePass : function () {
-                    console.log(this.author);
-                    var that = this;
-                    $.ajax({
-                              url:'http://k12.iyunbei.com/api/resources/resource/2/'+ that.author.id,
-                              type: 'post',
-                              data: {id: that.author.id, status: 2},
-                              success: function (data) {
-                                console.log(data)
-                                  if (data.error) {
+                        </div>
+                    </div>
+                    <button class="positive ui button large fluid mt24" on-click="examinePass">
+                        <i class="icon download"></i> 审核通过
+                    </button>
+                    <button class="negative ui button large fluid mt24" on-click="examineFailed">
+                        <i class="icon download"></i> 审核不通过
+                    </button>
+                </div>
+            </div>
+        </div>
+    </template>
+    <script type="text/javascript">
+    Polymer({
+        is: "detailed-info",
+        examinePass: function() {
+            var that = this;
+            $.ajax({
+                url: 'http://k12.iyunbei.com/api/resources/resource/2/' + that.author.id,
+                type: 'post',
+                data: {
+                    id: that.author.id,
+                    status: 2
+                },
+                success: function(data) {
+                    if (data.error) {
 
-                                  } else {
+                    } else {
 
-                                  }
-                              },
-                              error: function (e) {
-                                      console.log(e)
-                              }
-                      });
-                  },
-                  examineFailed : function () {
-                    console.log(this.author);
-                    var that = this;
-                    $.ajax({
-                              url:'http://k12.iyunbei.com/api/resources/resource/3/'+ that.author.id,
-                              type: 'post',
-                              data: {id: that.author.id, status: 3},
-                              success: function (data) {
-                                console.log(data)
-                                  if (data.error) {
-
-                                  } else {
-
-                                  }
-                              },
-                              error: function (e) {
-                                      console.log(e)
-                              }
-                      });
-                  },
-                  handleDownload : function () {
-                    var that = this;
-                    location.href = 'http://k12.iyunbei.com/api/resources/download/'+that.author.id;
-                  },
-                  handleCollections : function () {
-                      var that = this;
-                      $.ajax({
-                              url:'http://k12.iyunbei.com/api/resources/favorite/'+ that.author.id,
-                              type: 'post',
-                              data: {resourceId: that.author.id},
-                              success: function (data) {
-                                  if (data.error) {
-
-                                  } else {
-
-                                  }
-                              },
-                              error: function (e) {
-                                      console.log(e)
-                              }
-                      });
-                  },
-                  attributeChanged: function(attrName, oldVal, newVal) {
-                     var that = this;
-                     if (attrName == 'detailedid') {
-                         $.ajax({
-                                 url:'http://k12.iyunbei.com/api/resources/'+newVal,
-                                 type: 'get',
-                                 success: function (data) {
-                                     if (data.error) {
-
-                                     } else {
-                                         console.log(data);
-                                        that.author = data;
-                                        HTMLImports.whenReady(function () {
-                                         console.log('detailed-pdf whenReady')
-                                         var url = 'http://k12.iyunbei.com/download/pdf/'+data.resourcePhysicalId+'.pdf';
-
-                                         var pdfDoc = null,
-                                             pageNum = 1,
-                                             pageRendering = false,
-                                             pageNumPending = null,
-                                             scale = 1.3,  //pdf放大缩小倍数
-                                             canvas = document.getElementById('the-canvas'),
-                                             ctx = canvas.getContext('2d');
-
-                                         /**
-                                          * Get page info from document, resize canvas accordingly, and render page.
-                                          * @param num Page number.
-                                          */
-                                         function renderPage(num) {
-                                           pageRendering = true;
-                                           // Using promise to fetch the page
-                                           pdfDoc.getPage(num).then(function(page) {
-                                             var viewport = page.getViewport(scale);
-                                             canvas.height = viewport.height;
-                                             canvas.width = viewport.width;
-
-                                             // Render PDF page into canvas context
-                                             var renderContext = {
-                                               canvasContext: ctx,
-                                               viewport: viewport
-                                             };
-                                             var renderTask = page.render(renderContext);
-
-                                             // Wait for rendering to finish
-                                             renderTask.promise.then(function () {
-                                               pageRendering = false;
-                                               if (pageNumPending !== null) {
-                                                 // New page rendering is pending
-                                                 renderPage(pageNumPending);
-                                                 pageNumPending = null;
-                                               }
-                                             });
-                                           });
-
-                                           // Update page counters
-                                           document.getElementById('page_num').textContent = pageNum;
-                                         }
-
-                                         /**
-                                          * If another page rendering in progress, waits until the rendering is
-                                          * finised. Otherwise, executes rendering immediately.
-                                          */
-                                         function queueRenderPage(num) {
-                                           if (pageRendering) {
-                                             pageNumPending = num;
-                                           } else {
-                                             renderPage(num);
-                                           }
-                                         }
-
-                                         /**
-                                          * Displays previous page.
-                                          */
-                                         function onPrevPage() {
-                                           if (pageNum <= 1) {
-                                             return;
-                                           }
-                                           pageNum--;
-                                           queueRenderPage(pageNum);
-                                         }
-                                         document.getElementById('prev').addEventListener('click', onPrevPage);
-
-                                         /**
-                                          * Displays next page.
-                                          */
-                                         function onNextPage() {
-                                           if (pageNum >= pdfDoc.numPages) {
-                                             return;
-                                           }
-                                           pageNum++;
-                                           queueRenderPage(pageNum);
-                                         }
-                                         document.getElementById('next').addEventListener('click', onNextPage);
-
-                                         /**
-                                          * Asynchronously downloads PDF.
-                                          */
-                                         PDFJS.getDocument(url).then(function (pdfDoc_) {
-                                           pdfDoc = pdfDoc_;
-                                           document.getElementById('page_count').textContent = pdfDoc.numPages;
-
-                                           // Initial/first page rendering
-                                           renderPage(pageNum);
-                                         });
-                                         setTimeout(function () {
-                                             $('.twelve.transition').transition('fly right');
-                                             $('.four.transition').transition('fly left');
-                                         }, 100);
-
-                                        //  $('.four.transition').transition('fly left');
-                                     });
-                                     }
-                                 },
-                                 error: function (e) {
-                                         console.log(e)
-                                 }
-                         });
-
-                     }
-                  },
-                  filterDate : function (value) {
-                    // var fmt = new Date(value);
-                    
-                    var date = new Date(value);
-                    var seperator1 = "-";
-                    var seperator2 = ":";
-                    var month = date.getMonth() + 1;
-                    var strDate = date.getDate();
-                    if (month >= 1 && month <= 9) {
-                        month = "0" + month;
                     }
-                    if (strDate >= 0 && strDate <= 9) {
-                        strDate = "0" + strDate;
+                },
+                error: function(e) {
+                    console.log(e)
+                }
+            });
+        },
+        examineFailed: function() {
+            var that = this;
+            $.ajax({
+                url: 'http://k12.iyunbei.com/api/resources/resource/3/' + that.author.id,
+                type: 'post',
+                data: {
+                    id: that.author.id,
+                    status: 3
+                },
+                success: function(data) {
+                    if (data.error) {
+
+                    } else {
+
                     }
-                    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
-                            // + " " + date.getHours() + seperator2 + date.getMinutes()
-                            // + seperator2 + date.getSeconds();
-                    return currentdate;
+                },
+                error: function(e) {}
+            });
+        },
+        handleDownload: function() {
+            var that = this;
+            location.href = 'http://k12.iyunbei.com/api/resources/download/' + that.author.id;
+        },
+        handleCollections: function() {
+            var that = this;
+            $.ajax({
+                url: 'http://k12.iyunbei.com/api/resources/favorite/' + that.author.id,
+                type: 'post',
+                data: {
+                    resourceId: that.author.id
+                },
+                success: function(data) {
+                    if (data.error) {
 
-                    // return fmt.getFullYear()+"-"+(testDate.getMonth()+1)+"-"+fmt.getFullYear();
-                  },
-                  ready: function () {
-                        //  var id = location.search.split("?")[1];
+                    } else {
+
+                    }
+                },
+                error: function(e) {}
+            });
+        },
+        attributeChanged: function(attrName, oldVal, newVal) {
+            var that = this;
+            if (attrName == 'detailedid') {
+                $.ajax({
+                    url: 'http://k12.iyunbei.com/api/resources/' + newVal,
+                    type: 'get',
+                    success: function(data) {
+                        if (data.error) {
+
+                        } else {
+                            that.author = data;
+                            $(document).ready(function() {
+                                var url = 'http://k12.iyunbei.com/download/pdf/' + data.resourcePhysicalId + '.pdf';
+
+                                var pdfDoc = null,
+                                    pageNum = 1,
+                                    pageRendering = false,
+                                    pageNumPending = null,
+                                    scale = 1.0,
+                                    canvas = document.getElementById('the-canvas'),
+                                    ctx = canvas.getContext('2d');
 
 
-                  }
-          });
-  </script>
+                                function renderPage(num) {
+                                    pageRendering = true;
+                                    pdfDoc.getPage(num).then(function(page) {
+                                        var viewport = page.getViewport(scale);
+                                        canvas.height = viewport.height;
+                                        canvas.width = viewport.width;
+
+                                        var renderContext = {
+                                            canvasContext: ctx,
+                                            viewport: viewport
+                                        };
+                                        var renderTask = page.render(renderContext);
+
+                                        renderTask.promise.then(function() {
+                                            pageRendering = false;
+                                            if (pageNumPending !== null) {
+                                                renderPage(pageNumPending);
+                                                pageNumPending = null;
+                                            }
+                                        });
+                                    });
+
+                                    document.getElementById('page_num').textContent = pageNum;
+                                }
+
+                                function queueRenderPage(num) {
+                                    if (pageRendering) {
+                                        pageNumPending = num;
+                                    } else {
+                                        renderPage(num);
+                                    }
+                                }
+
+                                function onPrevPage() {
+                                    if (pageNum <= 1) {
+                                        return;
+                                    }
+                                    pageNum--;
+                                    queueRenderPage(pageNum);
+                                }
+                                document.getElementById('prev').addEventListener('click', onPrevPage);
+
+                                function onNextPage() {
+                                    if (pageNum >= pdfDoc.numPages) {
+                                        return;
+                                    }
+                                    pageNum++;
+                                    queueRenderPage(pageNum);
+                                }
+                                document.getElementById('next').addEventListener('click', onNextPage);
+
+                                PDFJS.getDocument(url).then(function(pdfDoc_) {
+                                    pdfDoc = pdfDoc_;
+                                    document.getElementById('page_count').textContent = pdfDoc.numPages;
+
+                                    renderPage(pageNum);
+                                });
+                                $('.twelve.transition').transition('fly right');
+                                $('.four.transition').transition('fly left');
+                            });
+                        }
+                    },
+                    error: function(e) {
+                        console.log(e)
+                    }
+                });
+
+            }
+        },
+        filterDate: function(value) {
+            var date = new Date(value);
+            var seperator1 = "-";
+            var seperator2 = ":";
+            var month = date.getMonth() + 1;
+            var strDate = date.getDate();
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+            if (strDate >= 0 && strDate <= 9) {
+                strDate = "0" + strDate;
+            }
+            var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+            return currentdate;
+        },
+        ready: function() {}
+    });
+    </script>
 </dom-module>

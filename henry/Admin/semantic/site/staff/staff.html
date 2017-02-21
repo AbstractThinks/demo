@@ -1,70 +1,56 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        <link rel="stylesheet" href="../../dist/semantic.css">
-        <script src="../../js/vendor/jquery.min.js" charset="utf-8"></script>
-        <script src="../../dist/semantic.min.js"></script>
-        <script src="../../bower_components/webcomponentsjs/webcomponents.min.js" charset="utf-8"></script>
-        <link rel="import" href="../../bower_components/polymer/polymer.html" media="screen" title="no title">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="../../dist/semantic.css">
+    <script src="../../js/vendor/jquery.min.js" charset="utf-8"></script>
+    <script src="../../dist/semantic.min.js"></script>
+    <script src="../../bower_components/webcomponentsjs/webcomponents.min.js" charset="utf-8"></script>
+    <link rel="import" href="../../bower_components/polymer/polymer.html" media="screen" title="no title">
+    <link rel="import" href="../module/body-module.html">
+    <link rel="import" href="./staff-table.html">
+    <link rel="import" href="./staff-sidemenu.html" media="screen" title="no title">
+    <link rel="import" href="./staff-form.html" media="screen" title="no title">
+    <link rel="import" href="./staff-form-modify.html" media="screen" title="no title">
+</head>
+<style type="text/css">
+.ui.inverted.dimmer.loading-dimmer {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+</style>
 
-        <link rel="import" href="../module/body-module.html">
-        <link rel="import" href="./staff-table.html">
-        <link rel="import" href="./staff-sidemenu.html" media="screen" title="no title">
-        <link rel="import" href="./staff-form.html" media="screen" title="no title">
-        <link rel="import" href="./staff-form-modify.html" media="screen" title="no title">
-    </head>
-    <style type="text/css">
-        .ui.inverted.dimmer.loading-dimmer {
-            background-color: rgba(0,0,0,0.8);
-        }
-    </style>
-    <body is="my-body" class="pushable">
-
-        <div class="pusher">
-            <div class="ui inverted dimmer loading-dimmer page transition">
-                <div class="ui text large loader">Loading</div>
+<body is="my-body" class="pushable">
+    <div class="pusher">
+        <div class="ui inverted dimmer loading-dimmer page transition">
+            <div class="ui text large loader">Loading</div>
+        </div>
+        <div class="ui container">
+            <div class="header" style="margin-top:24px;">
+                <a class="ui teal tag label" href="../index/index.html">网站首页</a>
+                <a class="ui teal tag label">教职工基础信息</a>
             </div>
-            <div class="ui container">
-                <div class="header" style="margin-top:24px;">
-                    <a class="ui teal tag label" href="../index/index.html">网站首页</a>
-                    <a class="ui teal tag label">教职工基础信息</a>
-                </div>
-                <h4 class="ui horizontal divider header"><i class="tag icon"></i> 职工信息 </h4>
-                <div class="ui internally celled grid stackable">
-                    <div class="row">
-                        <div class="twelve wide column transition hidden">
-                            <staff-table id="my-table" class="my-table" adddata updatedata searchdata page></staff-table>
-                        </div>
-                        <div class="four wide column computer only transition hidden">
-                            <staff-sidemenu class=""></staff-sidemenu>
-                        </div>
+            <h4 class="ui horizontal divider header"><i class="tag icon"></i> 职工信息 </h4>
+            <div class="ui internally celled grid stackable">
+                <div class="row">
+                    <div class="twelve wide column transition hidden">
+                        <staff-table id="my-table" class="my-table" adddata updatedata searchdata page></staff-table>
+                    </div>
+                    <div class="four wide column computer only transition hidden">
+                        <staff-sidemenu class=""></staff-sidemenu>
                     </div>
                 </div>
             </div>
-
         </div>
-        <div class="ui dimmer modals page transition hidden">
-            <staff-form class="ui modal info staff-form"  type="1"></staff-form>
-            <staff-form-modify class="ui modal info staff-form-modify"  type="2"></staff-form-modify>
-        </div>
-
-
-    </body>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            setTimeout(function () {
-                $('.twelve.transition').transition('fade right');
-                $('.four.transition').transition('fade left');
-            }, 500)
-
-        });
-    </script>
-
+    </div>
+    <div class="ui dimmer modals page transition hidden">
+        <staff-form class="ui modal info staff-form" type="1"></staff-form>
+        <staff-form-modify class="ui modal info staff-form-modify" type="2"></staff-form-modify>
+    </div>
+</body>
 </html>

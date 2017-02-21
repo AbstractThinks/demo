@@ -1,42 +1,42 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        <link rel="stylesheet" href="../../dist/semantic.css">
-        <script src="../../js/vendor/jquery.min.js" charset="utf-8"></script>
-        
-        <script src="../../dist/semantic.min.js"></script>
-        <script src="../../bower_components/webcomponentsjs/webcomponents.min.js" charset="utf-8"></script>
-        <link rel="import" href="../../bower_components/polymer/polymer.html" media="screen" title="no title">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="../../dist/semantic.css">
+    <script src="../../js/vendor/jquery.min.js" charset="utf-8"></script>
+    <script src="../../dist/semantic.min.js"></script>
+    <script src="../../bower_components/webcomponentsjs/webcomponents.min.js" charset="utf-8"></script>
+    <link rel="import" href="../../bower_components/polymer/polymer.html" media="screen" title="no title">
+    <link rel="import" href="../module/body-module.html">
+    <link rel="import" href="../module/header-module.html" media="screen" title="no title">
+    <link rel="import" href="./examine-module.html" media="screen" title="no title">
+    <link rel="import" href="../common/common-card.html" media="screen" title="no title">
+    <link rel="import" href="./examine-pagination.html" media="screen" title="no title">
+    <link rel="import" href="../module/footer-module.html" media="screen" title="no title">
+</head>
+<style type="text/css">
+.ui.inverted.dimmer {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+</style>
 
-        <link rel="import" href="../module/body-module.html">
-        <link rel="import" href="../module/header-module.html" media="screen" title="no title">
-        <link rel="import" href="./examine-module.html" media="screen" title="no title">
-        <link rel="import" href="../common/common-card.html" media="screen" title="no title">
-        <link rel="import" href="./examine-pagination.html" media="screen" title="no title">
-        <link rel="import" href="../module/footer-module.html" media="screen" title="no title">
-    </head>
-    <style type="text/css">
-        .ui.inverted.dimmer {
-            background-color: rgba(0,0,0,0.8);
-        }
-    </style>
-    <body is="my-body" class="pushable">
-        <div class="ui inverted dimmer page transition">
-            <div class="ui text large loader">Loading</div>
+<body is="my-body" class="pushable">
+    <div class="ui inverted dimmer page transition">
+        <div class="ui text large loader">Loading</div>
+    </div>
+    <div class="pusher">
+        <header-module class="ui secondary pointing menu header-module" style="padding-right: 24px;"></header-module>
+        <div class="ui container">
+            <examine-module></examine-module>
         </div>
-        <div class="pusher">
-            <header-module class="ui secondary pointing menu header-module" style="padding-right: 24px;"></header-module>
-            <div class="ui container">
-                <examine-module></examine-module>
-            </div>
-            <my-footer class="ui black inverted vertical segment my-footer"></my-footer>
-        </div>
-    </body>
+        <my-footer class="ui black inverted vertical segment my-footer"></my-footer>
+    </div>
+</body>
+
 </html>

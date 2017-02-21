@@ -1,309 +1,283 @@
- <dom-module id="my-tab-common-list">
- <style type="text/css">
-   .pagination-container {
-       display: block;
+<dom-module id="my-tab-common-list">
+    <style type="text/css">
+    .pagination-container {
+        display: block;
         text-align: center;
         margin: 5em 0;
-   }
-
- </style>
-  <template >
-         <content></content>
-         <div class="ui container">
-                <div class="ui divided items">
-                        <template is="dom-repeat" items="[[data.entries]]">
-                            <div class="item">
-                                    <div class="ui small image">
-                                            <img src="../../img/card.png">
-                                    </div>
-                                    <div class="content" id="{{item.id}}">
-                                            <a class="header">标题&nbsp;{{item.resourceName}}</a>
-                                            <div class="meta">
-                                                    <span>学科：&nbsp;</span>{{item.subjectName}}&nbsp;&nbsp;&nbsp;<span>年级：&nbsp;</span>{{item.gradeName}}&nbsp;&nbsp;&nbsp;<span>学校：&nbsp;</span>{{item.schoolName}}
-                                            </div>
-                                            <div class="description">
-                                                    <p>
-                                                        作者：{{item.staffName}}
-                                                    </p>
-                                            </div>
-                                            <div class="extra">
-                                                <i class="green check icon"></i> {{item.downloadCount}} 人下载
-                                                <template is="dom-if" if="{{btnCancel}}">
-                                                    <div class="ui right floated red button" on-click="handleRemove">删除 <i class="remove icon"></i> </div>
-                                                </template>
-                                                <template is="dom-if" if="{{!btnCancel}}">
-                                                    <div class="ui right floated red button" on-click="handleCancel">取消收藏 <i class="remove circle outline icon"></i> </div>
-                                                </template>
-                                                <div class="ui right floated primary button" on-click="handleLearn">学习 <i class="right chevron icon"></i> </div>
-                                          </div>
-                                    </div>
+    }
+    </style>
+    <template>
+        <content></content>
+        <div class="ui container">
+            <div class="ui divided items">
+                <template is="dom-repeat" items="[[data.entries]]">
+                    <div class="item">
+                        <div class="ui small image">
+                            <img src="../../img/card.png">
+                        </div>
+                        <div class="content" id="{{item.id}}">
+                            <a class="header">标题&nbsp;{{item.resourceName}}</a>
+                            <div class="meta">
+                                <span>学科：&nbsp;</span>{{item.subjectName}}&nbsp;&nbsp;&nbsp;<span>年级：&nbsp;</span>{{item.gradeName}}&nbsp;&nbsp;&nbsp;<span>学校：&nbsp;</span>{{item.schoolName}}
                             </div>
-                        </template>
-
-                </div>
-                <div class="pagination-container">
-                  <div class="ui pagination menu">
-                      <template is="dom-if" if="[[!data.hasPrevious]]">
+                            <div class="description">
+                                <p>
+                                    作者：{{item.staffName}}
+                                </p>
+                            </div>
+                            <div class="extra">
+                                <i class="green check icon"></i> {{item.downloadCount}} 人下载
+                                <template is="dom-if" if="{{btnCancel}}">
+                                    <div class="ui right floated red button" on-click="handleRemove">删除 <i class="remove icon"></i> </div>
+                                </template>
+                                <template is="dom-if" if="{{!btnCancel}}">
+                                    <div class="ui right floated red button" on-click="handleCancel">取消收藏 <i class="remove circle outline icon"></i> </div>
+                                </template>
+                                <div class="ui right floated primary button" on-click="handleLearn">学习 <i class="right chevron icon"></i> </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <div class="pagination-container">
+                <div class="ui pagination menu">
+                    <template is="dom-if" if="[[!data.hasPrevious]]">
                         <a class="item disabled">
-                          <i class="angle left icon"></i>
+                            <i class="angle left icon"></i>
                         </a>
-                      </template>
-                      <template is="dom-if" if="[[data.hasPrevious]]">
+                    </template>
+                    <template is="dom-if" if="[[data.hasPrevious]]">
                         <a class="item" on-click="handlePrevPage">
-                          <i class="angle left icon"></i>
+                            <i class="angle left icon"></i>
                         </a>
-                      </template>
-                      <a class="item">
+                    </template>
+                    <a class="item">
                         {{data.pageNumber}}
                       </a>
-                      <template is="dom-if" if="[[data.hasNext]]">
-                          <a class="item" on-click="handleNextPage">
+                    <template is="dom-if" if="[[data.hasNext]]">
+                        <a class="item" on-click="handleNextPage">
                             <i class="angle right icon"></i>
-                          </a>
-                      </template>
-                      <template is="dom-if" if="[[!data.hasNext]]">
-                          <a class="item disabled">
+                        </a>
+                    </template>
+                    <template is="dom-if" if="[[!data.hasNext]]">
+                        <a class="item disabled">
                             <i class="angle right icon"></i>
-                          </a>
-                      </template>
+                        </a>
+                    </template>
                 </div>
-                </div>
-                
+            </div>
         </div>
-        <!-- <h4 class="ui horizontal divider header-divider">
-                <i class="tag icon"></i>
-                推荐
-        </h4>
-        <div class="ui container">
-                <my-card class="ui doubling four column grid row"></my-card>
-        </div> -->
-  </template>
-  <script type="text/javascript">
-          Polymer({
-                  is : "my-tab-common-list",
-                  properties : {
-                     pagesize: String,
-                     page: String,
-                     resourcetypeid: String,
-                     cards: Object
-                  },
+    </template>
+    <script type="text/javascript">
+    Polymer({
+        is: "my-tab-common-list",
+        properties: {
+            pagesize: String,
+            page: String,
+            resourcetypeid: String,
+            cards: Object
+        },
 
-                  handleRemove : function (e) {
-                      var that = this;
-                      var pagesize = this.attributes.pagesize.nodeValue;
-                      var page = this.attributes.page.nodeValue;
-                      var requrl = 'http://k12.iyunbei.com/api/resources/user/'+$('body').attr('userid')+'/'+page+'/'+pagesize;
-                      $.ajax({
-                              url:'http://k12.iyunbei.com/api/resources/delete/'+$(e.target).parents('div.content').attr('id'),
-                              type: 'delete',
-                              data: {id: $(e.target).parents('div.content').attr('id')},
-                              success: function (data) {
-                                      if (data.error) {
+        handleRemove: function(e) {
+            var that = this;
+            var pagesize = this.attributes.pagesize.nodeValue;
+            var page = this.attributes.page.nodeValue;
+            var requrl = 'http://k12.iyunbei.com/api/resources/user/' + $('body').attr('userid') + '/' + page + '/' + pagesize;
+            $.ajax({
+                url: 'http://k12.iyunbei.com/api/resources/delete/' + $(e.target).parents('div.content').attr('id'),
+                type: 'delete',
+                data: {
+                    id: $(e.target).parents('div.content').attr('id')
+                },
+                success: function(data) {
+                    if (data.error) {
 
-                                      } else {
-                                          $.ajax({
-                                                  url:requrl,
-                                                  type: 'get',
-                                                  success: function (data) {
-                                                          if (data.error) {
+                    } else {
+                        $.ajax({
+                            url: requrl,
+                            type: 'get',
+                            success: function(data) {
+                                if (data.error) {
 
-                                                          } else {
-                                                              console.log(data)
-                                                              that.data = data;
-                                                          }
-                                                  },
-                                                  error: function (e) {
-                                                          console.log(e)
-                                                  }
-                                          });
-                                      }
-                              },
-                              error: function (e) {
-                                      console.log(e)
-                              }
-                      });
-                  },
-                  handleCancel: function (e) {
-                      var that = this;
-                      var pagesize = this.attributes.pagesize.nodeValue;
-                      var page = this.attributes.page.nodeValue;
-                      var requrl = 'http://k12.iyunbei.com/api/resources/favorite/1/'+page+'/'+pagesize;
-                      $.ajax({
-                              url:'http://k12.iyunbei.com/api/resources/favorite/'+$(e.target).parents('div.content').attr('id')+'/delete',
-                              type: 'post',
-                              data: {id: $(e.target).parents('div.content').attr('id')},
-                              success: function (data) {
-                                      if (data.error) {
-
-                                      } else {
-                                          $.ajax({
-                                                  url:requrl,
-                                                  type: 'get',
-                                                  success: function (data) {
-                                                          if (data.error) {
-
-                                                          } else {
-                                                              console.log(data)
-                                                                  that.data = data;
-                                                          }
-                                                  },
-                                                  error: function (e) {
-                                                          console.log(e)
-                                                  }
-                                          });
-                                      }
-                              },
-                              error: function (e) {
-                                      console.log(e)
-                              }
-                      });
-                  },
-                  handleLearn : function (e) {
-                      location.href = '../detailed/detailed.html?'+$(e.target).parents('div.content').attr('id');
-                  },
-                  attributeChanged : function (attrName, oldVal, newVal) {
-                      if (attrName == "reqdata") {
-                          var reqdata = JSON.parse(newVal);
-                          var pagesize = this.attributes.pagesize.nodeValue;
-                          var page = this.attributes.page.nodeValue;
-                        //   var userId = this.attributes.userid.nodeValue;
-                          var that = this;
-                          if (reqdata.name == 'resources') {
-                              that.btnCancel = true;
-                              $.ajax({
-                                      url:'http://k12.iyunbei.com/api/staff/'+reqdata.id,
-                                      type: 'get',
-                                      success: function (data) {
-                                              if (data.error) {
-
-                                              } else {
-                                                  $('body').attr('userid', data.userId);
-                                                  $.ajax({
-                                                          url:reqdata.requrl+data.userId+'/'+page+'/'+pagesize,
-                                                          type: 'get',
-                                                          success: function (data) {
-                                                                  if (data.error) {
-
-                                                                  } else {
-                                                                      console.log(data)
-                                                                          that.data = data;
-                                                                  }
-                                                          },
-                                                          error: function (e) {
-                                                                  console.log(e)
-                                                          }
-                                                  });
-                                              }
-                                      },
-                                      error: function (e) {
-                                              console.log(e)
-                                      }
-                              });
-                          }
-                          if (reqdata.name == 'collections') {
-                              that.btnCancel = false;
-                              $.ajax({
-                                      url:reqdata.requrl+'0/'+page+'/'+pagesize,
-                                      type: 'get',
-                                      success: function (data) {
-                                              if (data.error) {
-
-                                              } else {
-                                                  console.log(data)
-                                                      that.data = data;
-                                              }
-                                      },
-                                      error: function (e) {
-                                              console.log(e)
-                                      }
-                              });
-                          }
-
-
-                      }
-                  },
-                   handleNextPage: function (e) {
-                        var that = this;
-                        var pagesize = this.attributes.pagesize.nodeValue;
-                        if ($(e.target).parents('my-tab-common-list.resources').length > 0) {
-                            $.ajax({
-                                url:"http://k12.iyunbei.com/api/resources/user/"+$('body').attr("userid")+'/'+(that.data.pageNumber+1)+'/'+pagesize,
-                                type: 'get',
-                                success: function (data) {
-                                        if (data.error) {
-
-                                        } else {
-                                            console.log(data)
-                                                that.data = data;
-                                        }
-                                },
-                                error: function (e) {
-                                        console.log(e)
+                                } else {
+                                    that.data = data;
                                 }
-                            });
-                        }
-                        if ($(e.target).parents('my-tab-common-list.collections').length > 0) {
-                            $.ajax({
-                                url:"http://k12.iyunbei.com/api/resources/favorite/0/'+(that.data.pageNumber+1)+'/'+pagesize,
-                                type: 'get',
-                                success: function (data) {
-                                        if (data.error) {
-
-                                        } else {
-                                            console.log(data)
-                                                that.data = data;
-                                        }
-                                },
-                                error: function (e) {
-                                        console.log(e)
-                                }
-                            });
-                        }  
-                        
-                  },
-                  handlePrevPage: function (e) {
-                     var that = this;
-
-
-                     if ($(e.target).parents('my-tab-common-list.resources').length > 0) {
-                            $.ajax({
-                                url:"http://k12.iyunbei.com/api/resources/user/"+$('body').attr("userid")+'/'+(that.data.pageNumber-1)+'/'+2,
-                                type: 'get',
-                                success: function (data) {
-                                        if (data.error) {
-
-                                        } else {
-                                            console.log(data)
-                                                that.data = data;
-                                        }
-                                },
-                                error: function (e) {
-                                        console.log(e)
-                                }
+                            },
+                            error: function(e) {
+                            }
                         });
-                        }
-                        if ($(e.target).parents('my-tab-common-list.collections').length > 0) {
-                            $.ajax({
-                                url:"http://k12.iyunbei.com/api/resources/favorite/0/'+(that.data.pageNumber-1)+'/'+2,
-                                type: 'get',
-                                success: function (data) {
+                    }
+                },
+                error: function(e) {
+                }
+            });
+        },
+        handleCancel: function(e) {
+            var that = this;
+            var pagesize = this.attributes.pagesize.nodeValue;
+            var page = this.attributes.page.nodeValue;
+            var requrl = 'http://k12.iyunbei.com/api/resources/favorite/1/' + page + '/' + pagesize;
+            $.ajax({
+                url: 'http://k12.iyunbei.com/api/resources/favorite/' + $(e.target).parents('div.content').attr('id') + '/delete',
+                type: 'post',
+                data: {
+                    id: $(e.target).parents('div.content').attr('id')
+                },
+                success: function(data) {
+                    if (data.error) {
+
+                    } else {
+                        $.ajax({
+                            url: requrl,
+                            type: 'get',
+                            success: function(data) {
+                                if (data.error) {
+
+                                } else {
+                                    that.data = data;
+                                }
+                            },
+                            error: function(e) {
+                            }
+                        });
+                    }
+                },
+                error: function(e) {
+                }
+            });
+        },
+        handleLearn: function(e) {
+            location.href = '../detailed/detailed.html?' + $(e.target).parents('div.content').attr('id');
+        },
+        attributeChanged: function(attrName, oldVal, newVal) {
+            if (attrName == "reqdata") {
+                var reqdata = JSON.parse(newVal);
+                var pagesize = this.attributes.pagesize.nodeValue;
+                var page = this.attributes.page.nodeValue;
+                var that = this;
+                if (reqdata.name == 'resources') {
+                    that.btnCancel = true;
+                    $.ajax({
+                        url: 'http://k12.iyunbei.com/api/staff/' + reqdata.id,
+                        type: 'get',
+                        success: function(data) {
+                            if (data.error) {
+
+                            } else {
+                                $('body').attr('userid', data.userId);
+                                $.ajax({
+                                    url: reqdata.requrl + data.userId + '/' + page + '/' + pagesize,
+                                    type: 'get',
+                                    success: function(data) {
                                         if (data.error) {
 
                                         } else {
-                                            console.log(data)
-                                                that.data = data;
+                                            that.data = data;
                                         }
-                                },
-                                error: function (e) {
-                                        console.log(e)
-                                }
-                            });
-                        }  
-                        
-                  },
-                  ready : function() {
-                    $('.pusher').dimmer('hide');
-                  }
+                                    },
+                                    error: function(e) {
+                                    }
+                                });
+                            }
+                        },
+                        error: function(e) {
+                        }
+                    });
+                }
+                if (reqdata.name == 'collections') {
+                    that.btnCancel = false;
+                    $.ajax({
+                        url: reqdata.requrl + '0/' + page + '/' + pagesize,
+                        type: 'get',
+                        success: function(data) {
+                            if (data.error) {
+
+                            } else {
+                                that.data = data;
+                            }
+                        },
+                        error: function(e) {
+                        }
+                    });
+                }
+
+
+            }
+        },
+        handleNextPage: function(e) {
+            var that = this;
+            var pagesize = this.attributes.pagesize.nodeValue;
+            if ($(e.target).parents('my-tab-common-list.resources').length > 0) {
+                $.ajax({
+                    url: "http://k12.iyunbei.com/api/resources/user/" + $('body').attr("userid") + '/' + (that.data.pageNumber + 1) + '/' + pagesize,
+                    type: 'get',
+                    success: function(data) {
+                        if (data.error) {
+
+                        } else {
+                            that.data = data;
+                        }
+                    },
+                    error: function(e) {
+                    }
+                });
+            }
+            if ($(e.target).parents('my-tab-common-list.collections').length > 0) {
+                $.ajax({
+                    url: 'http://k12.iyunbei.com/api/resources/favorite/0/'+(that.data.pageNumber+1)+'/'+pagesize,
+                    type: 'get',
+                    success: function(data) {
+                        if (data.error) {
+
+                        } else {
+                            that.data = data;
+                        }
+                    },
+                    error: function(e) {
+                    }
+                });
+            }
+
+        },
+        handlePrevPage: function(e) {
+            var that = this;
+            if ($(e.target).parents('my-tab-common-list.resources').length > 0) {
+                $.ajax({
+                    url: "http://k12.iyunbei.com/api/resources/user/" + $('body').attr("userid") + '/' + (that.data.pageNumber - 1) + '/' + 2,
+                    type: 'get',
+                    success: function(data) {
+                        if (data.error) {
+
+                        } else {
+                            that.data = data;
+                        }
+                    },
+                    error: function(e) {
+                    }
+                });
+            }
+            if ($(e.target).parents('my-tab-common-list.collections').length > 0) {
+                $.ajax({
+                    url: 'http://k12.iyunbei.com/api/resources/favorite/0/'+(that.data.pageNumber-1)+'/'+2,
+                    type: 'get',
+                    success: function(data) {
+                        if (data.error) {
+
+                        } else {
+                            that.data = data;
+                        }
+                    },
+                    error: function(e) {
+                    }
+                });
+            }
+
+        },
+        ready: function() {
+          $(document).ready(function () {
+            $('.pusher').dimmer('hide');
           });
-  </script>
+        }
+    });
+    </script>
 </dom-module>

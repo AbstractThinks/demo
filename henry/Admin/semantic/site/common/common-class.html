@@ -1,117 +1,96 @@
 <dom-module id="common-class">
-<style media="screen">
-    .common-class, 
+    <style media="screen">
+    .common-class,
     .my-class {
         display: block;
     }
+    
     .common-class {
-      margin-top: 8px;
+        margin-top: 8px;
     }
+    
     .ui.divided.items.my-class > .item {
         padding: 1em 0!important;
     }
+    
     i.search {
-      display: inline-block;
+        display: inline-block;
     }
-</style>
-  <template >
-      <div class="item">
-          <search-list-module class="subject" label="学科" url="http://k12.iyunbei.com/api/subjects?page=1
+    </style>
+    <template>
+        <div class="item">
+            <search-list-module class="subject" label="学科" url="http://k12.iyunbei.com/api/subjects?page=1
 " className="subject" blankShow="true"></search-list-module>
-      </div>
-      <div class="item">
-          <search-list-module class="grade" label="年级" url="http://k12.iyunbei.com/api/dynamicenum/1028
+        </div>
+        <div class="item">
+            <search-list-module class="grade" label="年级" url="http://k12.iyunbei.com/api/dynamicenum/1028
 " className="grade" blankShow="true"></search-list-module>
-      </div>
-      <div class="item">
-          <div class="middle aligned content class">
-              <search-list-module class="class" label="资料分类" url="http://k12.iyunbei.com/api/resources/listAllResourceTypes}
-" className="class" ></search-list-module>
-          </div>
-      </div>
-      <!-- <div class="item">
-          <div class="middle aligned content class">
-              <search-list-module class="class" label="文件分类" url="http://k12.iyunbei.com/api/resources/listAllResourceTypes}
-" className="class" ></search-list-module>
-          </div>
-      </div> -->
-      <div class="item">
-        作者：
-        <div class="ui input">
-          <input type="text" id="author_input">
         </div>
-        &nbsp;&nbsp;&nbsp;
-         文件类型：
-           
-          <div class="ui selection dropdown file_input">
-            <input type="hidden" name="file_input">
-            <i class="dropdown icon"></i>
-            <div class="default text">文件类型</div>
-            <div class="menu">
-              <div class="item" data-value="">所有类型</div>
-              <div class="item" data-value="doc">doc</div>
-              <div class="item" data-value="ppt">ppt</div>
-              <div class="item" data-value="pdf">pdf</div>
+        <div class="item">
+            <div class="middle aligned content class">
+                <search-list-module class="class" label="资料分类" url="http://k12.iyunbei.com/api/resources/listAllResourceTypes}
+" className="class"></search-list-module>
             </div>
-          </div>
-        &nbsp;&nbsp;&nbsp;
-        开始时间：
-        <div class="ui input">
-          <input type="date" id="time_start_input"/>
         </div>
-         &nbsp;&nbsp;&nbsp;
-         结束时间：
-         <div class="ui input">
-          <input type="date" id="time_end_input"/>
+        <div class="item">
+            作者：
+            <div class="ui input">
+                <input type="text" id="author_input">
+            </div>
+            &nbsp;&nbsp;&nbsp; 文件类型：
+            <div class="ui selection dropdown file_input">
+                <input type="hidden" name="file_input">
+                <i class="dropdown icon"></i>
+                <div class="default text">文件类型</div>
+                <div class="menu">
+                    <div class="item" data-value="">所有类型</div>
+                    <div class="item" data-value="doc">doc</div>
+                    <div class="item" data-value="ppt">ppt</div>
+                    <div class="item" data-value="pdf">pdf</div>
+                </div>
+            </div>
+            &nbsp;&nbsp;&nbsp; 开始时间：
+            <div class="ui input">
+                <input type="date" id="time_start_input" />
+            </div>
+            &nbsp;&nbsp;&nbsp; 结束时间：
+            <div class="ui input">
+                <input type="date" id="time_end_input" />
+            </div>
+            &nbsp;&nbsp;&nbsp;
+            <button class="ui button" on-click="clickHandler"> <i class="icon search"></i>搜索</button>
         </div>
-         &nbsp;&nbsp;&nbsp;
-       <button class="ui button" on-click="clickHandler"> <i class="icon search"></i>搜索</button>
-      </div>
+    </template>
+    <script type="text/javascript">
+    Polymer({
+        is: "common-class",
+        clickHandler: function(e) {
 
-  </template>
-  <script type="text/javascript">
-          Polymer({
-                is : "common-class",
-                clickHandler: function(e) {
+            var dom = $(e.target);
+            if (dom.parent().hasClass('class')) {
+                $('.class a.button').removeClass('primary');
+                dom.addClass('primary');
+            }
 
-                    var dom = $(e.target);
-                    
-
-                    // if (dom.parent().hasClass('subject')) {
-                    //     $('.subject a.button').removeClass('primary');
-                    //     dom.addClass('primary');
-                    // }
-                    // if (dom.parent().hasClass('grade')) {
-                    //     $('.grade a.button').removeClass('primary');
-                    //     dom.addClass('primary');
-                    // }
-                    if (dom.parent().hasClass('class')) {
-                        $('.class a.button').removeClass('primary');
-                        dom.addClass('primary');                
-                    }
-
-                    var url = "http://k12.iyunbei.com/api/resources/queryByCondition?userName="+$("#author_input").val()+"&subjectId="+$('.subject a.button.primary').attr('type')+"&gradeId="+$('.grade a.button.primary').attr('type')+"&resourceTypeSuffix="+$(".file_input [name='file_input']").val()+"&resourceTypeId="+$('.class a.button.primary').attr('type')+"&startTime="+this._date($("#time_start_input").val())+"&endTime="+this._date($("#time_end_input").val())+"&page=1&pageSize=20";
-                    
-                    $('common-card').get(0).setAttribute("urlreq", url);
-                },
-                created: function () {
-                    console.log("common-class created")
-                },
-                ready: function () {
-                    console.log("common-class ready")
-                    $(document).ready(function () {
-                      $('.ui.dropdown').dropdown();
-                    })
-                },
-                _date: function (e) {
-                  var resultData = ""
-                  if (e) {
-                    resultData = e + " 00:00:00";
-                  }
-                  return resultData
-                }
+            var url = "http://k12.iyunbei.com/api/resources/queryByCondition?userName=" + $("#author_input").val() + "&subjectId=" + $('.subject a.button.primary').attr('type') + "&gradeId=" + $('.grade a.button.primary').attr('type') + "&resourceTypeSuffix=" + $(".file_input [name='file_input']").val() + "&resourceTypeId=" + $('.class a.button.primary').attr('type') + "&startTime=" + this._date($("#time_start_input").val()) + "&endTime=" + this._date($("#time_end_input").val()) + "&page=1&pageSize=20";
+            $('common-card').get(0).setAttribute("urlreq", url);
+        },
+        created: function() {
+        },
+        ready: function() {
+            $(document).ready(function() {
+                $('.ui.dropdown').dropdown();
+            })
+        },
+        _date: function(e) {
+            var resultData = ""
+            if (e) {
+                resultData = e + " 00:00:00";
+            }
+            return resultData
+        }
 
 
-          });
-  </script>
+    });
+    </script>
 </dom-module>

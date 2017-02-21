@@ -1,169 +1,275 @@
 <dom-module id="my-tab-info">
-  <template >
-          <content></content>
-          <form class="ui form">
-                  <div class="ui internally celled grid">
-                          <div class="row">
-                                  <div class="twelve wide column">
-                                          <div class="two  fields row">
-                                                  <div class="field">
-                                                          <label>姓名</label>
-                                                          <input type="text" placeholder="姓名" name="name" value="{{staff.name::input}}">
-                                                  </div>
-                                                  <div class="field">
-                                                          <label>教师编号</label>
-                                                          <input type="text" placeholder="教师编号" name="staffNum" value="{{staff.staffNum::input}}">
-                                                  </div>
-                                          </div>
-                                          <div class="two  fields row">
-                                              <select-module class="eight wide field select-school" url="http://k12.iyunbei.com/api/schools?page=1" label="学校"></select-module>
-                                              <select-module class="eight wide field select-subject" url="http://k12.iyunbei.com/api/subjects?page=1" label="学科"></select-module>
-                                              <!-- <my-select-common class="field my-class-subject" label="学科" content='[{"id":"1", "name":"语文"},{"id":"2", "name":"数学"}]'></my-select-common> -->
-                                              <!-- <my-select-subject class="field my-class-subject"></my-select-subject> -->
-                                          </div>
-                                  </div>
-                                  <div class="four wide column">
-                                          <img src="../../img/header.png">
-                                          <input type="file" >
-                                  </div>
-                          </div>
-                          <div class="row">
-                                  <div class="sixteen wide column">
+    <template>
+        <content></content>
+        <form class="ui form">
+            <div class="ui internally celled grid">
+                <div class="row">
+                    <div class="twelve wide column">
+                        <div class="two  fields row">
+                            <div class="field">
+                                <label>姓名</label>
+                                <input type="text" placeholder="姓名" name="name" value="{{staff.name::input}}">
+                            </div>
+                            <div class="field">
+                                <label>教师编号</label>
+                                <input type="text" placeholder="教师编号" name="staffNum" value="{{staff.staffNum::input}}">
+                            </div>
+                        </div>
+                        <div class="two  fields row">
+                            <select-module class="eight wide field select-school" url="http://k12.iyunbei.com/api/schools?page=1" label="学校"></select-module>
+                            <select-module class="eight wide field select-subject" url="http://k12.iyunbei.com/api/subjects?page=1" label="学科"></select-module>
+                        </div>
+                    </div>
+                    <div class="four wide column">
 
-                                          <div class="three  fields row">
-                                                  <div class="field">
-                                                          <label>出生年月</label>
-                                                          <div class="ui calendar" id="dateField">
-                                                                  <div class="ui input left icon">
-                                                                          <i class="calendar icon"></i>
-                                                                          <input type="text" placeholder="出生年月" value="{{staff.firstDegree::input}}">
-                                                                  </div>
-                                                          </div>
-                                                  </div>
-                                                  <div class="field">
-                                                          <label>电话</label>
-                                                          <input type="text" placeholder="电话" value="{{staff.phone::input}}">
-                                                  </div>
-                                                  <div class="field">
-                                                          <label>电子邮箱</label>
-                                                          <input type="text" placeholder="电子邮箱" value="{{staff.email::input}}">
-                                                  </div>
-                                          </div>
+                        <form id="uploadHeaderForm" enctype="multipart/form-data">
+                        <div id="preview">
+                            <img id="imghead" class="ui small image" border="0"  on-click="handleIImageClick">
+                        </div>         
+                        <input type="file"  style="display: none;" id="previewImg">
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="sixteen wide column">
+                        <div class="three  fields row">
+                            <div class="field">
+                                <label>出生年月</label>
+                                <div class="ui calendar" id="dateField">
+                                    <div class="ui input left icon">
+                                        <i class="calendar icon"></i>
+                                        <input type="text" placeholder="出生年月" value="{{staff.firstDegree::input}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label>电话</label>
+                                <input type="text" placeholder="电话" value="{{staff.phone::input}}">
+                            </div>
+                            <div class="field">
+                                <label>电子邮箱</label>
+                                <input type="text" placeholder="电子邮箱" value="{{staff.email::input}}">
+                            </div>
+                        </div>
+                        <div class="three  fields row">
+                            <div class="field">
+                                <label>家庭地址</label>
+                                <input type="text" placeholder="家庭地址" value="{{staff.homeAddress::input}}">
+                            </div>
+                            <div class="field">
+                                <label>邮编</label>
+                                <input type="text" placeholder="邮编" value="{{staff.homeZipCode::input}}">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>个人简介</label>
+                            <textarea></textarea>
+                        </div>
+                        <div class="ui large buttons">
+                            <a class="ui button" on-click="handleSaveBasicDataInfo">保存</a>
+                            <div class="or teal"></div>
+                            <a class="ui button" on-click="resetBasicDataInfo">重置</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </template>
+    <script type="text/javascript">
+    Polymer({
+        is: "my-tab-info",
+        resetBasicDataInfo: function() {
+            var that = this;
+            var reqUrl = "http://k12.iyunbei.com/api/staff/" + that.attributes.userid.nodeValue;
+            $.ajax({
+                url: reqUrl,
+                type: 'get',
+                dataType: "json",
+                cache: false,
+                success: function(data) {
+                    if (data.error) {
 
-                                          <div class="three  fields row">
-                                                  <div class="field">
-                                                          <label>家庭地址</label>
-                                                          <input type="text" placeholder="家庭地址" value="{{staff.homeAddress::input}}">
-                                                  </div>
-                                                  <div class="field">
-                                                          <label>邮编</label>
-                                                          <input type="text" placeholder="邮编" value="{{staff.homeZipCode::input}}">
-                                                  </div>
-                                          </div>
+                    } else {
+                        that.staff = data;
+                        $(".my-tab-info .select-school div[data-value='" + that.staff.schoolId + "']").addClass('active selected');
+                        $(".my-tab-info .elect-school div.text").removeClass('default').text($(".my-tab-info .select-school div[data-value='" + that.staff.schoolId + "']").text());
+                        $(".my-tab-info .select-subject div[data-value='" + that.staff.teachingSubject + "']").addClass('active selected');
+                        $(".my-tab-info .select-subject div.text").removeClass('default').text($(".my-tab-info .select-subject div[data-value='" + that.staff.schoolId + "']").text());
+                    }
+                },
+                error: function(e) {
+                    console.log(e)
+                }
+            })
+        },
+        handleSaveBasicDataInfo: function() {
+            $('.pusher').dimmer('show');
+            var that = this;
+            var urlReq = "http://k12.iyunbei.com/api/staff/" + that.attributes.userid.nodeValue;
+            $.ajax({
+                url: urlReq,
+                type: 'post',
+                data: this.staff,
+                dataType: "json",
+                cache: false,
+                success: function(data) {
+                    $('.pusher').dimmer('hide');
+                    if (data.error) {
 
-                                          <div class="field">
-                                                  <label>个人简介</label>
-                                                  <textarea></textarea>
-                                          </div>
+                    } else {
 
-                                          <div class="ui large buttons">
-                                                  <a class="ui button" on-click="handleSaveBasicDataInfo">保存</a>
-                                                  <div class="or teal"></div>
-                                                  <a class="ui button" on-click="resetBasicDataInfo">重置</a>
-                                          </div>
-                                  </div>
-                          </div>
-                  </div>
+                        $('.tooltip.modal').modal('show');
+                    }
+                },
+                error: function(e) {
+                    $('.pusher').dimmer('hide');
+                }
+            });
+        },
+        attributeChanged: function(attrName, oldVal, newVal) {
+            var that = this;
+            if (attrName == "userid") {
+                var reqUrl = "http://k12.iyunbei.com/api/staff/" + newVal;
+                $.ajax({
+                    url: reqUrl,
+                    type: 'get',
+                    dataType: "json",
+                    cache: false,
+                    success: function(data) {
+                        $('.pusher').dimmer('hide');
+                        if (data.error) {
 
-          </form>
-  </template>
-  <script type="text/javascript">
-          Polymer({
-                  is : "my-tab-info",
-                  resetBasicDataInfo: function () {
-                      var that = this;
-                      var reqUrl = "http://k12.iyunbei.com/api/staff/"+that.attributes.userid.nodeValue;
-                      $.ajax({
-                          url:reqUrl,
-                          type: 'get',
-                          dataType:"json",
-                          cache: false,
-                          success: function (data) {
-                              if (data.error) {
+                        } else {
+                            that.staff = data;
+                            $("#preview img").attr("src", "http://k12.iyunbei.com/head/"+data.userId+"/"+data.userId+".jpg")
+                            $(".my-tab-info .select-school div[data-value='" + that.staff.schoolId + "']").addClass('active selected');
+                            $(".my-tab-info .select-school div.text").removeClass('default').text($(".my-tab-info .select-school div[data-value='" + that.staff.schoolId + "']").text());
+                            $(".my-tab-info .select-subject div[data-value='" + that.staff.teachingSubject + "']").addClass('active selected');
+                            $(".my-tab-info .select-subject div.text").removeClass('default').text($(".my-tab-info .select-subject div[data-value='" + that.staff.schoolId + "']").text());
+                        }
+                    },
+                    error: function(e) {
+                        $('.pusher').dimmer('hide');
+                    }
+                })
+            }
+        },
+        handleIImageClick: function () {
+            $("#previewImg").click();
+        },
+        successImage: function (e) {
+            console.log(e)
+        },
+        errorIamge: function (e) {
+            console.log(e)
+        },
+        clacImgZoomParam : function ( maxWidth, maxHeight, width, height ){
+            var param = {top:0, left:0, width:width, height:height};
+            if( width>maxWidth || height>maxHeight ){
+                rateWidth = width / maxWidth;
+                rateHeight = height / maxHeight;
+                
+                if( rateWidth > rateHeight ){
+                    param.width =  maxWidth;
+                    param.height = Math.round(height / rateWidth);
+                }else{
+                    param.width = Math.round(width / rateHeight);
+                    param.height = maxHeight;
+                }
+            }
+            param.left = Math.round((maxWidth - param.width) / 2);
+            param.top = Math.round((maxHeight - param.height) / 2);
+            return param;
+        },
+        ready: function() {
+            var that = this;
+            $(document).ready(function () {
+                
+                $("#preview img").on('error', function () {
+                    $("#preview img").attr("src", "../../img/header.png")
+                });
+                $("#previewImg").on('change', function (e) {
 
-                              } else {
-                                  console.log(data);
-                                  that.staff = data;
-                                  $(".my-tab-info .select-school div[data-value='"+that.staff.schoolId+"']").addClass('active selected');
-                                  $(".my-tab-info .elect-school div.text").removeClass('default').text($(".my-tab-info .select-school div[data-value='"+that.staff.schoolId+"']").text());
-                                  $(".my-tab-info .select-subject div[data-value='"+that.staff.teachingSubject+"']").addClass('active selected');
-                                  $(".my-tab-info .select-subject div.text").removeClass('default').text($(".my-tab-info .select-subject div[data-value='"+that.staff.schoolId+"']").text());
-                              }
-                          },
-                          error: function (e) {
-                              console.log(e)
-                          }
-                      })
-                  },
-                  handleSaveBasicDataInfo: function () {
-                      $('.pusher').dimmer('show');
-                      var that = this;
-                      var urlReq = "http://k12.iyunbei.com/api/staff/"+that.attributes.userid.nodeValue;
-                      $.ajax({
-                          url:urlReq,
-                          type: 'post',
-                          data: this.staff,
-                          dataType:"json",
-                          cache: false,
-                          success: function (data) {
-                              $('.pusher').dimmer('hide');
-                              if (data.error) {
+                    var MAXWIDTH  = 90; 
+                    var MAXHEIGHT = 90;
+                    var div = document.getElementById('preview');
+                    var file = e.target;
+                    if (file.files && file.files[0]) {
+
+                        div.innerHTML ='<img id=imghead class="ui small image" onclick=$("#previewImg").click()>';
+                        var img = document.getElementById('imghead');
+                        img.onload = function(){
+
+                            var rect = that.clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                            // img.width  =  rect.width;
+                            // img.height =  rect.height;
+                            // img.style.marginLeft = rect.left+'px';
+                            // img.style.marginTop = rect.top+'px';
+
+                         }
+                        var reader = new FileReader();
+                        reader.onload = function(evt){
+                            img.src = evt.target.result;
+                        }
+                        reader.readAsDataURL(file.files[0]);
+
+                    } else { //兼容IE 
+
+                        var sFilter='filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+                        file.select();
+                        var src = document.selection.createRange().text;
+                        div.innerHTML = '<img id=imghead>';
+                        var img = document.getElementById('imghead');
+                        img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+                        var rect = that.clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                        status =('rect:'+rect.top+','+rect.left+','+rect.width+','+rect.height);
+                        div.innerHTML = "<div id=divhead class='ui small image' style="+sFilter+src+"\"'></div>";
+
+                    }
+                    var formData = new FormData();
+                        var name = $("#previewImg").val(); 
+                        formData.append("file", $("#previewImg").get(0).files[0]);
+                        formData.append("name", name);
+                        $.ajax({
+                            url: 'http://k12.iyunbei.com/api/resources/fileUpload',
+                            type: 'post',
+                            data: formData,
+                            async: true,
+                            cache: false,
+                            processData: false,
+                            contentType: false,
+                            beforeSend: function() {
+                                console.log("正在进行，请稍候");
+                            },
+                            success: function(responseStr) {
+                                $.ajax({
+                                    url: "http://k12.iyunbei.com/api/resources/resourceUpload",
+                                    type: 'post',
+                                    data: {"resourceTypeId":"101","fileId":responseStr,"resourceName":$("#previewImg").val().substring($("#previewImg").val().lastIndexOf('\\') + 1)},
+                                    dataType: "json",
+                                    cache: false,
+                                    success: function(data) {
+                                        if (data.error) {
+
+                                        } else {
+                                            
+                                            console.log(data)
+                                        }
+                                    },
+                                    error: function(e) {
+                                    }
+                                });
                                 
-                              } else {
-                                
-                                $('.tooltip.modal').modal('show');
-                                 console.log(data)
-                              }
-                          },
-                          error: function (e) {
-                              $('.pusher').dimmer('hide');
-                              console.log(e)
-                          }
-                      });
-                  },
-                  attributeChanged: function(attrName, oldVal, newVal) {
-                      // $('.pusher').dimmer('show');
-                      var that = this;
-                      if (attrName == "userid") {
-                          var reqUrl = "http://k12.iyunbei.com/api/staff/"+newVal;
-                          $.ajax({
-                              url:reqUrl,
-                              type: 'get',
-                              dataType:"json",
-                              cache: false,
-                              success: function (data) {
-                                  $('.pusher').dimmer('hide');
-                                  if (data.error) {
-
-                                  } else {
-                                      console.log(data);
-                                      that.staff = data;
-                                      $(".my-tab-info .select-school div[data-value='"+that.staff.schoolId+"']").addClass('active selected');
-                                      $(".my-tab-info .select-school div.text").removeClass('default').text($(".my-tab-info .select-school div[data-value='"+that.staff.schoolId+"']").text());
-                                      $(".my-tab-info .select-subject div[data-value='"+that.staff.teachingSubject+"']").addClass('active selected');
-                                      $(".my-tab-info .select-subject div.text").removeClass('default').text($(".my-tab-info .select-subject div[data-value='"+that.staff.schoolId+"']").text());
-                                  }
-                              },
-                              error: function (e) {
-                                $('.pusher').dimmer('hide');
-                                console.log(e)
-                              }
-                          })
-                      }
-                  },
-                  ready: function () {
-
-                  }
-          });
-  </script>
+                            },
+                            error: function(responseStr) {
+                                console.log(responseStr)
+                                // console.log("error " + responseStr);
+                            }
+                        });   
+                })
+            })
+        }      
+               
+    });
+    </script>
 </dom-module>

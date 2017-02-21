@@ -1,8 +1,9 @@
 <dom-module id="header-module">
     <style media="screen">
-      /*.header-module a.item:first-child {
-        margin-left: 10%;
-      }*/
+        .ui.mini.image {
+          width: 48px;
+          height: 48px;
+        }
     </style>
     <template>
         <div class="ui container">
@@ -34,7 +35,7 @@
         </a>
         <div class="right menu">
             <a class="ui item user-header" href="../person/person.html">
-                <img src="../../img/header.png" class="ui avatar image" ／>
+                <img  class=" ui mini circular image" ／>
             </a>
         </div>
       </div>
@@ -49,28 +50,50 @@
                   },
                   ready: function () {
                       var that = this;
-                      $.ajax({
-                              url:"http://k12.iyunbei.com/api/profile",
-                              type: 'get',
-                              success: function (data) {
-                                  if (data.error) {
-
-                                  } else {
+                      $(document).ready(function (){
+                          $(".user-header img").on('error', function () {
+                              $(".user-header img").attr("src", "../../img/header.png")
+                          });
+                          $.ajax({
+                                url:"http://k12.iyunbei.com/api/profile",
+                                type: 'get',
+                                success: function (data) {
+                                    if (data.error) {
+                                      location.href = "../login/login.html";
+                                    } else {
                                       console.log(data);
-                                    that.personInfo = data;
-                                    $('.user-header').popup({
-                                        title   : "姓名："+data.nickname,
-                                        content : "学校："+data.schoolName,
-                                        position   : 'bottom right',
-                                        offset: -10
-                                    })
-                                  }
-                              },
-                              error: function (e) {
-                                      console.log(e)
-                              }
-                      });
-                      $('.header-module .user-header').popup();
+                                      that.personInfo = data;
+                                      $('.user-header').popup({
+                                          title   : "姓名："+data.nickname,
+                                          content : "学校："+data.schoolName,
+                                          position   : 'bottom right',
+                                          offset: -10
+                                      })
+                                      $.ajax({
+                                              url:"http://k12.iyunbei.com/api/staff/"+data.id,
+                                              type: 'get',
+                                              success: function (data) {
+                                                  if (data.error) {
+
+                                                  } else {
+                                                    $('.user-header img').attr("src","http://k12.iyunbei.com/head/"+data.userId+"/"+data.userId+".jpg");
+                                                  }
+                                              },
+                                              error: function (e) {
+                                                      console.log(e)
+                                              }
+                                      });
+                                      
+                                    }
+                                },
+                                error: function (e) {
+                                  location.href = "../login/login.html";
+                                  console.log(e)
+                                }
+                        });
+                        $('.header-module .user-header').popup();
+                      })
+                      
                   }
           });
   </script>

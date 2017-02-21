@@ -6,13 +6,9 @@
           Polymer({
                   is : "my-detailed",
                   ready: function () {
-                        console.log('detailed-module ready')
-                         var id = location.search.split("?")[1];
-                         $('detailed-info').get(0).setAttribute("detailedid", id);
-                         $('my-comments').get(0).setAttribute("detailedid", id);
-
-                         
-
+                     var id = location.search.split("?")[1];
+                     $('detailed-info').get(0).setAttribute("detailedid", id);
+                     $('my-comments').get(0).setAttribute("detailedid", id);
                   }
           });
   </script>

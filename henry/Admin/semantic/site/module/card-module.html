@@ -8,7 +8,6 @@
             display: block!important;
             top: 0;
             bottom:0;
-            /*padding: 8px;*/
         }
         .ui.move.reveal > .hidden.content div{
                 height: 100%;
@@ -54,7 +53,6 @@
                      pagesize: String,
                      page: String,
                      resourcetypeid: String
-                    //  cards: Object
                   },
                   updateDatas : function (e) {
                       console.log(e);
@@ -73,8 +71,6 @@
                         strDate = "0" + strDate;
                     }
                     var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
-                            // + " " + date.getHours() + seperator2 + date.getMinutes()
-                            // + seperator2 + date.getSeconds();
                     return currentdate;
                   },
                   attributeChanged: function(attrName, oldVal, newVal) {
@@ -87,14 +83,26 @@
                                 url: newVal,
                                 type: 'get',
                                 success: function (data) {
+                                    $(".pusher").dimmer("hide");
                                         if (data.error) {
 
                                         } else {
                                           console.log(data)
-                                                that.cards = data.entries;
+                                          that.cards = data.entries;
+                                          if ($('other-pagination').length > 0) {
+                                              $('other-pagination').get(0).setAttribute("pageObject", JSON.stringify({
+                                                  pageIndex: data.pageIndex,
+                                                  pageNumber: data.pageNumber,
+                                                  totalCount: data.totalCount,
+                                                  totalPage: data.totalPage,
+                                                  hasNext: data.hasNext,
+                                                  hasPrevious: data.hasPrevious
+                                              }));
+                                          }
                                         }
                                 },
                                 error: function (e) {
+                                  $(".pusher").dimmer("hide");
                                         console.log(e)
                                 }
                         });
@@ -117,30 +125,7 @@
 
                   },
                   ready : function() {
-                        // //  let pagesize = this.pagesize;
-                        // //  let page = this.page;
-                        // //  let resourcetypeid = this.resourcetypeid;
-                        // // $.ajax({
-                        // //         url:'http://k12.iyunbei.com/api/resources/resource/'+resourcetypeid+'/'+page+'/'+pageSize,
-                        // //         type: 'get',
-                        // //         success: function (data) {
-                        // //                 if (data.error) {
-                        // //
-                        // //                 } else {
-                        // //                         this.cards = data;
-                        // //                 }
-                        // //         },
-                        // //         error: function (e) {
-                        // //                 console.log(e)
-                        // //         }
-                        // // });
-                        // this.cards = [
-                        //         {"id":"1","img":"../../img/card.png", "description":"40道选择题，80道应用题,  知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2","author":"张三","subject":"语文","grade":"高一"},
-                        //         {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
-                        //         {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
-                        //         {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"},
-                        //         {"img":"../../img/card.png", "description":"40道选择题，80道应用题， 知识点全面，为你的基础打下坚实的基础","title":"高一基础复习试卷","date":"创建于2014","num":"2"}
-                        // ]
+                       
                   }
           });
   </script>

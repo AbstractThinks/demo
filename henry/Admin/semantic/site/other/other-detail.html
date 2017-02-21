@@ -1,72 +1,66 @@
 <dom-module id="other-detailed">
-  <template >
-      <div class="ui container mt24" style="margin-top:24px;">
-          <a class="ui teal tag label" href="../index/index.html">网站首页</a>
-          <a class="ui teal tag label">个人中心</a>
-          <div class="ui huge middle aligned selection list  transition hidden">
-              <div class="item">
-                  <img class="ui tiny  avatar image" src="../../img/header.png">
-                  <!-- <i class="circular users icon"></i> -->
-                  <div class="content">
-                      <div class="header">姓名: {{other.name}}</div>
-                      <div class="description">
-                        电话: {{other.phone}}&nbsp;&nbsp;&nbsp;邮箱: {{other.email}}<br />
-                        学校: {{other.schoolName}} <br />
-                      </div>
-                  </div>
-              </div>
-          </div>
+    <template>
+        <div class="ui container mt24" style="margin-top:24px;">
+            <a class="ui teal tag label" href="../index/index.html">网站首页</a>
+            <a class="ui teal tag label">个人中心</a>
+            <div class="ui huge middle aligned selection list  transition hidden">
+                <div class="item">
+                    <img class="ui tiny  image header-img">
+                    <div class="content">
+                        <div class="header">姓名: {{other.name}}</div>
+                        <div class="description">
+                            电话: {{other.phone}}&nbsp;&nbsp;&nbsp;邮箱: {{other.email}}
+                            <br /> 学校: {{other.schoolName}}
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui container mt24">
+            <div class="ui grid">
+                <div class="sixteen wide stretched column transition hidden">
+                    <other-tab-common class="ui segment" style="margin-top:14px;">
+                        <a class="ui teal right ribbon label">他的资源</a>
+                    </other-tab-common>
+                </div>
+            </div>
+        </div>
+    </template>
+    <script type="text/javascript">
+    Polymer({
+        is: "other-detailed",
+        attributeChanged: function(attrName, oldVal, newVal) {
+            var that = this;
+            if (attrName == "otherid") {
+                $.ajax({
+                    url: 'http://k12.iyunbei.com/api/staff/' + newVal,
+                    type: 'get',
+                    success: function(data) {
+                        if (data.error) {
 
-         <!--  <h2 class="ui center aligned icon header other-bg transition hidden">
-              <i class="circular users icon"></i> 姓名 {{other.name}}<br> 电话{{other.phone}} 邮箱{{other.email}}<br>学校{{other.schoolId}} 学科{{other.teachingSubject}}<br>
-          </h2> -->
-          <!-- <div class="ui raised segment transition hidden">
-            <p>个人简介</p>
-          </div> -->
-      </div>
-      <div class="ui container mt24">
-          <div class="ui grid">
-              <div class="sixteen wide stretched column transition hidden">
-                  <other-tab-common class="ui segment" style="margin-top:14px;">
-                      <a class="ui teal right ribbon label">他的资源</a>
-                  </other-tab-common>
-              </div>
-          </div>
-      </div>
-  </template>
-  <script type="text/javascript">
-          Polymer({
-                  is : "other-detailed",
-                  attributeChanged: function(attrName, oldVal, newVal) {
-
-                    console.log(attrName)
-                    console.log(oldVal)
-                    console.log(newVal)
-                    var that = this;
-                    if (attrName == "otherid") {
-                        $.ajax({
-                                url: 'http://k12.iyunbei.com/api/staff/'+newVal,
-                                type: 'get',
-                                success: function (data) {
-                                        if (data.error) {
-
-                                        } else {
-                                                that.other = data;
-                                                var url = 'http://k12.iyunbei.com/api/resources/user/'+data.userId+'/1/10';
-                                                $('other-tab-common my-card').get(0).setAttribute('urlreq', url);
-                                        }
-                                },
-                                error: function (e) {
-                                        console.log(e)
-                                }
-                        });
-
+                        } else {
+                            that.other = data;
+                            $('img.header-img').attr("src","http://k12.iyunbei.com/head/"+data.userId+"/"+data.userId+".jpg");
+                            var url = 'http://k12.iyunbei.com/api/resources/user/' + data.userId + '/1/20';
+                            $('other-tab-common my-card').get(0).setAttribute('urlreq', url);
+                            $('other-pagination').attr("otherid",data.userId);
+                        }
+                    },
+                    error: function(e) {
                     }
+                });
 
-                  },
-                  ready: function () {
+            }
 
-                  }
-          });
-  </script>
+        },
+        ready: function() {
+            $(document).ready(function () {
+                $("img.header-img").on('error', function () {
+                  $("img.header-img").attr("src", "../../img/header.png")
+                });
+            })
+        }
+    });
+    </script>
 </dom-module>
