@@ -100,6 +100,40 @@
                                         count: Math.random()
                                     }));
                                     $('.tooltip.modal').modal('show');
+                                    $('my-tab-update .field .selection.dropdown .item.active.selected').removeClass("active selected");
+                                     $('my-tab-update .field .selection.dropdown .text').text("");
+                                     $("#file-upload").semanticFileUploader({
+                                        defaultText: "上传文件",
+                                        defaultLabel: "点击选择文件或者将文件拖入此区域",
+                                        loadingText: "上传文件中...",
+                                        successText: "上传成功",
+                                        onDrop: function(file) {
+                                            var formData = new FormData($('#uploadForm')[0]);
+                                            var name = $("input").val();
+                                            formData.append("file", file);
+                                            formData.append("name", name);
+                                            $.ajax({
+                                                url: 'http://k12.iyunbei.com/api/resources/fileUpload',
+                                                type: 'post',
+                                                data: formData,
+                                                async: true,
+                                                cache: false,
+                                                processData: false,
+                                                contentType: false,
+                                                beforeSend: function() {
+                                                    console.log("正在进行，请稍候");
+                                                },
+                                                success: function(responseStr) {
+                                                    fileUpload.uploadFinished($("#file-upload"));
+                                                    $("#uploadedWork").attr('fileId', responseStr);
+                                                },
+                                                error: function(responseStr) {
+                                                    console.log("error " + responseStr);
+                                                }
+                                            });
+
+                                        }
+                                    });
 
                                 }
                             },

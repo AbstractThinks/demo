@@ -13,7 +13,7 @@
                 <template is="dom-repeat" items="[[data.entries]]">
                     <div class="item">
                         <div class="ui small image">
-                            <img src="../../img/card.png">
+                            <img src="http://k12.iyunbei.com/download/img/preview/{{item.resourcePhysicalId}}.png">
                         </div>
                         <div class="content" id="{{item.id}}">
                             <a class="header">标题&nbsp;{{item.resourceName}}</a>
@@ -100,6 +100,7 @@
                                 if (data.error) {
 
                                 } else {
+
                                     that.data = data;
                                 }
                             },
@@ -172,6 +173,7 @@
                                         if (data.error) {
 
                                         } else {
+                                            console.log(data);
                                             that.data = data;
                                         }
                                     },
