@@ -16,6 +16,11 @@
     i.search {
         display: inline-block;
     }
+    #time_start_input,
+    #time_end_input
+    {
+            padding-bottom: 0.45em;
+    }
     </style>
     <template>
         <div class="item">
@@ -31,32 +36,29 @@
 " className="class"></search-list-module>
         </div>
         <div class="item">
-            作者：
-            <div class="ui input">
-                <input type="text" id="author_input">
-            </div>
-            &nbsp;&nbsp;&nbsp; 文件类型：
-            <div class="ui selection dropdown file_input">
-                <input type="hidden" name="file_input">
-                <i class="dropdown icon"></i>
-                <div class="default text">文件类型</div>
-                <div class="menu">
-                    <div class="item" data-value="">所有类型</div>
-                    <div class="item" data-value="doc">doc</div>
-                    <div class="item" data-value="ppt">ppt</div>
-                    <div class="item" data-value="pdf">pdf</div>
+            <form class="ui form">
+                作者：
+                <div class="ui input">
+                    <input type="text" id="author_input">
                 </div>
-            </div>
-            &nbsp;&nbsp;&nbsp; 开始时间：
-            <div class="ui input">
-                <input type="date" id="time_start_input" />
-            </div>
-            &nbsp;&nbsp;&nbsp; 结束时间：
-            <div class="ui input">
-                <input type="date" id="time_end_input" />
-            </div>
-            &nbsp;&nbsp;&nbsp;
-            <button class="ui button" on-click="clickHandler"> <i class="icon search"></i>搜索</button>
+                &nbsp;&nbsp;&nbsp; 文件类型：
+                <div class="ui input">
+                    <input class="file_input" type="text" name='file_input'>
+                </div>
+                
+                &nbsp;&nbsp;&nbsp; 开始时间：
+                <div class="ui input">
+                    <input type="date" id="time_start_input" />
+                </div>
+                &nbsp;&nbsp;&nbsp; 结束时间：
+                <div class="ui input">
+                    <input type="date" id="time_end_input" />
+                </div>
+                &nbsp;&nbsp;&nbsp;
+                 <a class="ui button" on-click="clickHandler"> <i class="icon search"></i>搜索</a>
+            </form>
+            
+           
         </div>
     </template>
     <script type="text/javascript">
