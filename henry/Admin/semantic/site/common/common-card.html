@@ -2,8 +2,21 @@
     <style media="screen">
     .common-card img.ui.image {
         height: 120px;
-          width: 100%;
+        width: 100%;
+        transition:all 1s;
+        -webkit-transition:all 1s; 
+        -moz-transition:all 1s; 
+        -o-transition:all 1s; 
     }
+        .common-card div.image {
+          overflow: hidden;
+        }
+        .common-card img.ui.image:hover {
+          -moz-transform:scale(1.5,1.5); 
+          -webkit-transform:scale(1.5,1.5); 
+          -o-transform:scale(1.5,1.5);
+          transform:scale(1.5,1.5);
+        }
     .my-card > div.column > a {
         display: block;
     }
