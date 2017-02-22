@@ -1,5 +1,9 @@
 <dom-module id="common-card">
     <style media="screen">
+    .common-card img.ui.image {
+        height: 120px;
+          width: 100%;
+    }
     .my-card > div.column > a {
         display: block;
     }
@@ -28,8 +32,8 @@
                             <a class="header">{{item.resourceName}}</a>
                             <div class="meta">
                                 <span class="date">
-                        学科：{{item.subjectName}}&nbsp;
-                        {{filterClass(item.resourceTypeId)}}
+                        学科：{{item.subjectName}} <br />
+                        资源分类：{{filterClass(item.resourceTypeId)}}
                         {{item.gradeName}}
                       </span>
                             </div>
@@ -88,7 +92,7 @@
                                     hasPrevious: data.hasPrevious
                                 }));
                             }
-
+                            setTimeout(function () { $('common-card .ui.card .content a.header').ellipsis({ row: 2 }); }, 0);
 
                         }
                     },
@@ -133,7 +137,11 @@
         created: function() {
         },
         ready: function() {
+            $(document).ready(function () {
+            
 
+
+            });
 
         }
     });

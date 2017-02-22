@@ -53,7 +53,6 @@
                     if (data.error) {
 
                     } else {
-                        console.log(data)
                         $('my-tab-info').get(0).setAttribute("userid", data.id);
                         $('my-tab-common-list.resources').get(0).setAttribute("reqdata", JSON.stringify({
                             name: "resources",

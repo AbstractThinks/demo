@@ -1,6 +1,10 @@
 
 <dom-module id="my-card">
     <style media="screen">
+        .my-card img.ui.image {
+          height: 120px;
+          width: 100%;
+        }
         .my-card > div.column > a{
             display: block;
         }
@@ -75,9 +79,6 @@
                   },
                   attributeChanged: function(attrName, oldVal, newVal) {
                     var that = this;
-                    console.log(attrName)
-                    console.log(oldVal)
-                    console.log(newVal)
                     if (attrName == 'urlreq') {
                         $.ajax({
                                 url: newVal,
@@ -87,7 +88,6 @@
                                         if (data.error) {
 
                                         } else {
-                                          console.log(data)
                                           that.cards = data.entries;
                                           if ($('other-pagination').length > 0) {
                                               $('other-pagination').get(0).setAttribute("pageObject", JSON.stringify({
@@ -99,6 +99,7 @@
                                                   hasPrevious: data.hasPrevious
                                               }));
                                           }
+                                          setTimeout(function () { $('my-card .ui.card .content a.header').ellipsis({ row: 2 }); }, 0);
                                         }
                                 },
                                 error: function (e) {
@@ -125,7 +126,7 @@
 
                   },
                   ready : function() {
-                       
+                   
                   }
           });
   </script>

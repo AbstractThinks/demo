@@ -26,9 +26,7 @@
                       blankshow: Boolean
                   },
                   attributeChanged: function(attrName, oldVal, newVal) {
-                    console.log(attrName)
-                    console.log(oldVal)
-                    console.log(newVal)
+ 
                   },
                   clickHandler: function(e) {
 
@@ -75,6 +73,7 @@
                   },
                   ready: function () {
                       var that = this;
+                      console.log();
                       $.ajax({
                               url:this.url,
                               type: 'get',
@@ -83,8 +82,9 @@
 
                                   } else {
                                     if (data.values && data.values.length > 0) {
+
                                       that.content = data.values
-                                      console.log(data.values)
+                                      
                                       var obj = that.getParamsUrl();
                                       if (obj) {
  
@@ -102,7 +102,13 @@
 
                                       }
                                     } else {
-                                      that.content = data;
+                                      if ($(that).hasClass('class')) {
+                                         data.pop();
+                                         that.content = data;
+                                      } else {
+                                         that.content = data;
+                                      }
+                                     
                                     }
                                     
                                   }

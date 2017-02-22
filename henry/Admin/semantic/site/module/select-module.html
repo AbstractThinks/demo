@@ -19,9 +19,7 @@
                       name: String
                   },
                   attributeChanged: function(attrName, oldVal, newVal) {
-                    console.log(attrName)
-                    console.log(oldVal)
-                    console.log(newVal)
+
                   },
                   ready: function () {
                       var that = this;
@@ -34,9 +32,14 @@
                                   } else {
                                     if (data.values && data.values.length > 0) {
                                       that.content = data.values
-                                      console.log(data.values)
                                     } else {
-                                      that.content = data;
+                                     
+                                      if ($(that).hasClass('select-resource-update')) {
+                                        data.pop();
+                                        that.content = data;
+                                      } else {
+                                         that.content = data;
+                                      }
                                     }
                                     
                                   }

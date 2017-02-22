@@ -1,7 +1,16 @@
 <dom-module id="my-tab-info">
+    <style media="screen">
+        #imghead {
+            width: 100%;
+        }
+        #imghead,
+        .changeHeaderImg {
+            cursor: pointer;
+        }
+    </style>
     <template>
         <content></content>
-        <form class="ui form">
+        <form id="user-info-form" class="ui form">
             <div class="ui internally celled grid">
                 <div class="row">
                     <div class="twelve wide column">
@@ -21,10 +30,17 @@
                         </div>
                     </div>
                     <div class="four wide column">
-
+                        
                         <form id="uploadHeaderForm" enctype="multipart/form-data">
                         <div id="preview">
-                            <img id="imghead" class="ui small image" border="0"  on-click="handleIImageClick">
+                            <div class="ui dimmer">
+                            <div class="content">
+                              <div class="center changeHeaderImg" on-click="handleIImageClick">
+                                点击更换头像
+                              </div>
+                            </div>
+                            </div>
+                            <img id="imghead" class="ui small image" border="0"   >
                         </div>         
                         <input type="file"  style="display: none;" id="previewImg">
                         </form>
@@ -44,21 +60,21 @@
                             </div>
                             <div class="field">
                                 <label>电话</label>
-                                <input type="text" placeholder="电话" value="{{staff.phone::input}}">
+                                <input type="text" placeholder="电话" value="{{staff.phone::input}}" name="phone">
                             </div>
                             <div class="field">
                                 <label>电子邮箱</label>
-                                <input type="text" placeholder="电子邮箱" value="{{staff.email::input}}">
+                                <input type="text" placeholder="电子邮箱" value="{{staff.email::input}}" name="email">
                             </div>
                         </div>
                         <div class="three  fields row">
                             <div class="field">
                                 <label>家庭地址</label>
-                                <input type="text" placeholder="家庭地址" value="{{staff.homeAddress::input}}">
+                                <input type="text" placeholder="家庭地址" value="{{staff.homeAddress::input}}" name="homeAddress">
                             </div>
                             <div class="field">
                                 <label>邮编</label>
-                                <input type="text" placeholder="邮编" value="{{staff.homeZipCode::input}}">
+                                <input type="text" placeholder="邮编" value="{{staff.homeZipCode::input}}" name="homeZipCode">
                             </div>
                         </div>
                         <div class="field">
@@ -103,28 +119,11 @@
             })
         },
         handleSaveBasicDataInfo: function() {
-            $('.pusher').dimmer('show');
-            var that = this;
-            var urlReq = "http://k12.iyunbei.com/api/staff/" + that.attributes.userid.nodeValue;
-            $.ajax({
-                url: urlReq,
-                type: 'post',
-                data: this.staff,
-                dataType: "json",
-                cache: false,
-                success: function(data) {
-                    $('.pusher').dimmer('hide');
-                    if (data.error) {
-
-                    } else {
-
-                        $('.tooltip.modal').modal('show');
-                    }
-                },
-                error: function(e) {
-                    $('.pusher').dimmer('hide');
-                }
+            $('#user-info-form').submit(function(e) {
+                return false;
             });
+            $('#user-info-form').form('validate form')
+            
         },
         attributeChanged: function(attrName, oldVal, newVal) {
             var that = this;
@@ -155,13 +154,8 @@
             }
         },
         handleIImageClick: function () {
+            $("#preview").dimmer('hide');
             $("#previewImg").click();
-        },
-        successImage: function (e) {
-            console.log(e)
-        },
-        errorIamge: function (e) {
-            console.log(e)
         },
         clacImgZoomParam : function ( maxWidth, maxHeight, width, height ){
             var param = {top:0, left:0, width:width, height:height};
@@ -252,7 +246,7 @@
                                         if (data.error) {
 
                                         } else {
-                                            
+                                            $("#preview").dimmer('hide')
                                             console.log(data)
                                         }
                                     },
@@ -263,10 +257,94 @@
                             },
                             error: function(responseStr) {
                                 console.log(responseStr)
-                                // console.log("error " + responseStr);
                             }
                         });   
+                });
+                $("#imghead").mouseenter(function () {
+                    $("#preview").dimmer('show')
+                });
+                $(".changeHeaderImg").mouseout(function (e) {
+
+                         $("#preview").dimmer('hide')
+
+                   
                 })
+                $('#user-info-form').form({
+                    inline: true,
+                    on: 'blur',
+                    transition: 'fade up',
+                    fields: {
+                        name: {
+                            identifier: 'name',
+                            rules: [{
+                                type: 'empty',
+                                prompt: '姓名不能为空'
+                            }]
+                        },
+                        staffNum: {
+                            identifier: 'staffNum',
+                            rules: [{
+                                type: 'empty',
+                                prompt: '教师编码不能为空'
+                            }]
+                        },
+                        phone: {
+                            identifier: 'phone',
+                            rules: [{
+                                type: 'empty',
+                                prompt: '请输入电话号码'
+                            }]
+                        },
+                        email: {
+                            identifier: 'email',
+                            rules: [{
+                                type : 'email',
+                                prompt: '请输入正确的邮箱地址'
+                            }]
+                        }
+                        // homeAddress: {
+                        //     identifier: 'homeAddress',
+                        //     rules: [{
+                        //         type: 'empty',
+                        //         prompt: '请选择学科'
+                        //     }]
+                        // },
+                        // homeZipCode: {
+                        //     identifier: 'homeZipCode',
+                        //     rules: [{
+                        //         type: 'empty',
+                        //         prompt: '请选择学科'
+                        //     }]
+                        // },
+                    },
+                    onSuccess: function() {
+                        $('.pusher').dimmer('show');
+                        var urlReq = "http://k12.iyunbei.com/api/staff/" + that.attributes.userid.nodeValue;
+                        that.staff.schoolId = $('select-module.select-school .menu .item.active.selected').data('value')
+                        that.staff.teachingSubject = $('select-module.select-subject .menu .item.active.selected').data('value')
+                        $.ajax({
+                            url: urlReq,
+                            type: 'post',
+                            data: that.staff,
+                            dataType: "json",
+                            cache: false,
+                            success: function(data) {
+                                $('.pusher').dimmer('hide');
+                                if (data.error) {
+
+                                } else {
+
+                                    $('.tooltip.modal').modal('show');
+                                }
+                            },
+                            error: function(e) {
+                                $('.pusher').dimmer('hide');
+                            }
+                        });
+                        
+                    }
+                });
+
             })
         }      
                
