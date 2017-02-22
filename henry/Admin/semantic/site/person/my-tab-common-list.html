@@ -5,6 +5,23 @@
         text-align: center;
         margin: 5em 0;
     }
+    .preview-container.image {
+        overflow: hidden;
+    }
+    .preview-container.image img{
+        width: 100%;
+        height: 120px!important;
+        transition:all 1s;
+        -webkit-transition:all 1s; 
+        -moz-transition:all 1s; 
+        -o-transition:all 1s; 
+    }
+    .ui.items > .item > .preview-container.image img:hover {
+         -moz-transform:scale(1.5,1.5); 
+          -webkit-transform:scale(1.5,1.5); 
+          -o-transform:scale(1.5,1.5);
+          transform:scale(1.5,1.5);
+    }
     </style>
     <template>
         <content></content>
@@ -12,8 +29,8 @@
             <div class="ui divided items">
                 <template is="dom-repeat" items="[[data.entries]]">
                     <div class="item">
-                        <div class="ui small image">
-                            <img src="http://k12.iyunbei.com/download/img/preview/{{item.resourcePhysicalId}}.png">
+                        <div class="ui small image preview-container">
+                            <img class="preview-img" src="http://k12.iyunbei.com/download/img/preview/{{item.resourcePhysicalId}}.png">
                         </div>
                         <div class="content" id="{{item.id}}">
                             <a class="header">标题&nbsp;{{item.resourceName}}</a>
@@ -195,6 +212,7 @@
                             if (data.error) {
 
                             } else {
+                                console.log(data)
                                 that.data = data;
                             }
                         },
