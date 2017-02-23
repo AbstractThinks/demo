@@ -1,7 +1,24 @@
 <dom-module id="my-tab-info">
     <style media="screen">
-        #imghead {
-            width: 100%;
+        #uploadHeaderForm {
+            position: relative;
+        }
+        .mouseover-section {
+            position: absolute;
+            z-index: 1000;
+            top:0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+
+        }
+       /* #preview {
+            position: relative;
+        }*/
+        
+        #imghead.ui.small.image {
+            width: 100%!important;
+            height: 200px!important;
         }
         #imghead,
         .changeHeaderImg {
@@ -32,17 +49,18 @@
                     <div class="four wide column">
                         
                         <form id="uploadHeaderForm" enctype="multipart/form-data">
-                        <div id="preview">
                             <div class="ui dimmer">
                             <div class="content">
-                              <div class="center changeHeaderImg" on-click="handleIImageClick">
-                                点击更换头像
-                              </div>
+                            <div class="center changeHeaderImg" >
+                            点击更换头像
                             </div>
                             </div>
-                            <img id="imghead" class="ui small image" border="0"   >
-                        </div>         
-                        <input type="file"  style="display: none;" id="previewImg">
+                            </div>
+                            <div class="mouseover-section" on-click="handleIImageClick"></div>
+                            <div id="preview">
+                            <img id="imghead" class="ui small image imghead" border="0"   >
+                            </div>         
+                            <input type="file"  style="display: none;" id="previewImg">
                         </form>
                     </div>
                 </div>
@@ -154,7 +172,7 @@
             }
         },
         handleIImageClick: function () {
-            $("#preview").dimmer('hide');
+            $("#uploadHeaderForm").dimmer('hide');
             $("#previewImg").click();
         },
         clacImgZoomParam : function ( maxWidth, maxHeight, width, height ){
@@ -190,7 +208,7 @@
                     var file = e.target;
                     if (file.files && file.files[0]) {
 
-                        div.innerHTML ='<img id=imghead class="ui small image" onclick=$("#previewImg").click()>';
+                        div.innerHTML ='<img id=imghead class="ui small image imghead" style="width: 100%;height: 200px">';
                         var img = document.getElementById('imghead');
                         img.onload = function(){
 
@@ -217,7 +235,7 @@
                         img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
                         var rect = that.clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
                         status =('rect:'+rect.top+','+rect.left+','+rect.width+','+rect.height);
-                        div.innerHTML = "<div id=divhead class='ui small image' style="+sFilter+src+"\"'></div>";
+                        div.innerHTML = "<div id=divhead class='ui small image imghead' style=width: 100%;height: 200px;"+sFilter+src+"\"'></div>";
 
                     }
                     var formData = new FormData();
@@ -260,14 +278,17 @@
                             }
                         });   
                 });
-                $("#imghead").mouseenter(function () {
-                    $("#preview").dimmer('show')
+                $(".mouseover-section").mouseenter(function () {
+                    $("#uploadHeaderForm").dimmer('show')
                 });
-                $(".changeHeaderImg").mouseout(function (e) {
-
-                         $("#preview").dimmer('hide')
-
-                   
+                // $(document).on('mouseover', function (e) {
+                //     console.log($(e.target))
+                //     if ($(e.target).hasClass('imghead')) {
+                //         $("#preview").dimmer('show')
+                //     }
+                // })
+                $(".mouseover-section").mouseout(function (e) {
+                    $("#uploadHeaderForm").dimmer('hide')   
                 })
                 $('#user-info-form').form({
                     inline: true,

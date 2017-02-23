@@ -71,9 +71,19 @@
                                 prompt: '请选择学科'
                             }]
                         },
+                        file: {
+                            identifier: 'file',
+                            rules: [{
+                                type: 'empty',
+                                prompt: '请选择学科'
+                            }]
+                        }
                     },
                     onSuccess: function() {
-
+                        if (!$('#uploadedWork').val()) {
+                            $('.tooltip.modal.invalid').modal('show');
+                            return ;
+                        }
                         $('.pusher').dimmer('show');
                         var data = {};
                         data.fileId = $("#uploadedWork").attr('fileId');
@@ -99,10 +109,10 @@
                                         requrl: 'http://k12.iyunbei.com/api/resources/user/',
                                         count: Math.random()
                                     }));
-                                    $('.tooltip.modal').modal('show');
+                                    $('.tooltip.modal.sure').modal('show');
                                     $('my-tab-update .field .selection.dropdown .item.active.selected').removeClass("active selected");
                                      $('my-tab-update .field .selection.dropdown .text').text("");
-                                     $("#file-upload").semanticFileUploader({
+                                     var fileUpload = $("#file-upload").semanticFileUploader({
                                         defaultText: "上传文件",
                                         defaultLabel: "点击选择文件或者将文件拖入此区域",
                                         loadingText: "上传文件中...",
